@@ -1,112 +1,108 @@
 # APARAITECH Landing Page - MERN Stack
 
-A modern, responsive landing page for APARAITECH built with the MERN stack (MongoDB, Express, React, Node.js).
+A modern, responsive landing page for APARAITECH built with the MERN stack (MongoDB, Express, React, Node.js) and styled with Tailwind CSS.
 
 ## Features
 
-- 🎨 Modern, beautiful UI with purple/blue gradient theme
+- 🎨 Modern, beautiful UI with purple/blue gradient theme using Tailwind CSS
 - 📱 Fully responsive design
 - 🤖 Animated robot hero section
 - 📧 Contact form with backend integration
 - 🚀 Fast and optimized performance
 - 🎯 SEO-friendly structure
+- ⚡ Tailwind CSS for styling (no external CSS files)
 
 ## Tech Stack
 
-- **Frontend:** React 18, CSS3, React Icons
+- **Frontend:** React 18, Tailwind CSS, React Icons
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB with Mongoose
-- **Development:** Concurrently (for running both servers)
+- **Development:** Independent client and server setups
 
 ## Project Structure
 
 ```
 aparaitech-landing-page/
-├── client/                 # React frontend
+├── client/                 # React frontend with Tailwind CSS
 │   ├── public/
 │   ├── src/
-│   │   ├── components/    # React components
+│   │   ├── components/    # React components (all use Tailwind CSS)
 │   │   ├── App.js
-│   │   ├── App.css
 │   │   └── index.js
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
 │   └── package.json
 ├── server/                # Express backend
 │   ├── models/           # MongoDB models
 │   ├── routes/           # API routes
 │   ├── index.js          # Server entry point
 │   └── package.json
-├── package.json          # Root package.json
 └── README.md
 ```
 
 ## Installation
 
-1. **Clone the repository**
+### Client Setup
+
+1. **Navigate to client directory**
    ```bash
-   cd Aparaitech_Landing_Page
+   cd client
    ```
 
-2. **Install all dependencies**
+2. **Install dependencies**
    ```bash
-   npm run install-all
-   ```
-   
-   Or install separately:
-   ```bash
-   # Install root dependencies
    npm install
-   
-   # Install server dependencies
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
+   The client will run on `http://localhost:3000`
+
+### Server Setup
+
+1. **Navigate to server directory**
+   ```bash
    cd server
-   npm install
-   
-   # Install client dependencies
-   cd ../client
+   ```
+
+2. **Install dependencies**
+   ```bash
    npm install
    ```
 
-3. **Set up MongoDB**
-   - Make sure MongoDB is installed and running on your system
-   - Or use MongoDB Atlas (cloud database)
+3. **Set up environment variables**
    - Create a `.env` file in the `server` folder:
-     ```
+     ```env
      PORT=5000
      MONGODB_URI=mongodb://localhost:27017/aparaitech
      ```
-     Or for MongoDB Atlas:
-     ```
+     Or use MongoDB Atlas connection string:
+     ```env
      MONGODB_URI=your_mongodb_atlas_connection_string
      ```
 
+4. **Start the server**
+   ```bash
+   npm run dev
+   ```
+   The server will run on `http://localhost:5000`
+
 ## Running the Application
 
-### Development Mode (Both Frontend & Backend)
+**Important:** Client and server run independently. You need to start both in separate terminal windows:
 
-From the root directory:
+### Terminal 1 - Client
 ```bash
-npm run dev
-```
-
-This will start:
-- Backend server on `http://localhost:5000`
-- Frontend development server on `http://localhost:3000`
-
-### Run Separately
-
-**Backend only:**
-```bash
-npm run server
-# or
-cd server
-npm run dev
-```
-
-**Frontend only:**
-```bash
-npm run client
-# or
 cd client
 npm start
+```
+
+### Terminal 2 - Server
+```bash
+cd server
+npm run dev
 ```
 
 ## API Endpoints
@@ -121,11 +117,20 @@ The contact form sends data to the backend API which stores it in MongoDB. Make 
 
 ## Building for Production
 
+### Client
 ```bash
+cd client
 npm run build
 ```
 
 This will create an optimized production build in the `client/build` folder.
+
+### Server
+The server can be run in production mode using:
+```bash
+cd server
+npm start
+```
 
 ## Environment Variables
 
@@ -143,6 +148,10 @@ MONGODB_URI=mongodb://localhost:27017/aparaitech
 - Safari (latest)
 - Edge (latest)
 
+## Styling
+
+This project uses **Tailwind CSS** for all styling. All components use Tailwind utility classes instead of separate CSS files. The design follows a purple/blue gradient theme with modern glassmorphism effects.
+
 ## License
 
 ISC
@@ -150,4 +159,3 @@ ISC
 ## Contact
 
 For any questions or support, please contact info@aparaitech.com
-
