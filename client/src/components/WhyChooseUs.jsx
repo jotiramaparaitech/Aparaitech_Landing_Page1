@@ -91,7 +91,29 @@ const Features = () => {
   const animationFrameRef = useRef(null);
   const scrollPositionRef = useRef(0);
   const [isHovered, setIsHovered] = useState(false);
-  const scrollSpeed = 0.4; // pixels per frame
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Responsive scroll speed based on screen size
+  const getScrollSpeed = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 640) return 0.3; // Slower on mobile
+      if (window.innerWidth < 1024) return 0.35; // Medium on tablet
+      return 0.4; // Normal on desktop
+    }
+    return 0.4;
+  };
+
+  useEffect(() => {
+    // Check if mobile on mount and resize
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -123,8 +145,9 @@ const Features = () => {
 
       if (!isHovered) {
         const halfWidth = scrollRef.current.scrollWidth / 2;
+        const currentScrollSpeed = getScrollSpeed();
 
-        scrollPositionRef.current += scrollSpeed;
+        scrollPositionRef.current += currentScrollSpeed;
 
         // ✅ Invisible infinite loop
         if (scrollPositionRef.current >= 0) {
@@ -145,44 +168,44 @@ const Features = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [isHovered]); // ✅ ADD isHovered to dependencies
+  }, [isHovered, isMobile]); // Add isMobile to dependencies
 
   return (
-    <section className="relative py-12 md:py-16 bg-gradient-to-b from-blue-50/30 to-white overflow-hidden">
+    <section className="relative py-8 sm:py-10 md:py-12 lg:py-16 bg-gradient-to-b from-blue-50/30 to-white overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-100/5 via-transparent to-cyan-100/5"></div>
       
       {/* Very subtle grid pattern - much less visible */}
-      <div className="absolute inset-0 opacity-1">
+      <div className="absolute inset-0 opacity-0.1">
         <div className="absolute inset-0" style={{
           backgroundImage: `linear-gradient(to right, #bfdbfe 0.5px, transparent 0.5px),
                            linear-gradient(to bottom, #bfdbfe 0.5px, transparent 0.5px)`,
-          backgroundSize: '100px 100px'
+          backgroundSize: '80px 85px'
         }}></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header - More compact */}
-        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 animate-fadeInUp">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 backdrop-blur-sm rounded-full mb-4 border border-blue-100/30">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
+        {/* Header - Responsive */}
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 lg:mb-12 animate-fadeInUp">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 backdrop-blur-sm rounded-full mb-3 sm:mb-4 border border-blue-100/30">
             <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-pulse"></div>
             <span className="text-xs font-medium tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
               ENTERPRISE FEATURES
             </span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 sm:mb-3 px-2">
             Everything you need to{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
               build and scale
             </span>
           </h2>
-          <p className="text-gray-600 text-sm md:text-base">
+          <p className="text-gray-600 text-sm sm:text-base px-4">
             Powerful features designed for modern software teams
           </p>
         </div>
 
-        {/* Horizontal Scrolling Features - Single Row */}
-        <div className="relative overflow-hidden py-4 mb-10">
+        {/* Horizontal Scrolling Features - Responsive Single Row */}
+        <div className="relative overflow-hidden py-3 sm:py-4 mb-8 sm:mb-10">
           <div 
             ref={scrollRef}
             className="flex min-w-max transition-transform duration-75 ease-linear"
@@ -195,12 +218,17 @@ const Features = () => {
                   relative
                   group
                   flex-shrink-0
-                  mx-3
-                  px-5
-                  py-4
+                  mx-2
+                  sm:mx-3
+                  px-3
+                  sm:px-4
+                  md:px-5
+                  py-3
+                  sm:py-4
                   bg-white/95
                   backdrop-blur-sm
-                  rounded-xl
+                  rounded-lg
+                  sm:rounded-xl
                   border border-gray-200/40
                   shadow-sm
                   shadow-blue-100/10
@@ -209,38 +237,71 @@ const Features = () => {
                   transition-all
                   duration-300
                   hover:scale-[1.02]
+                  active:scale-95
                   cursor-pointer
-                  w-[280px]
+                  w-[240px]
+                  sm:w-[260px]
+                  md:w-[280px]
+                  lg:w-[300px]
                 "
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                onTouchStart={() => setIsHovered(true)}
+                onTouchEnd={() => setIsHovered(false)}
               >
-                {/* Icon */}
+                {/* Icon - Responsive */}
                 <div className={`
-                  w-10
-                  h-10
-                  rounded-lg
+                  w-8
+                  h-8
+                  sm:w-9
+                  sm:h-9
+                  md:w-10
+                  md:h-10
+                  rounded-md
+                  sm:rounded-lg
                   bg-gradient-to-br
                   ${feature.gradient}
                   flex
                   items-center
                   justify-center
-                  mb-3
+                  mb-2
+                  sm:mb-3
                   shadow-sm
                   group-hover:shadow
                   transition-all
                   duration-300
                 `}>
                   <div className="text-white">
-                    {feature.icon}
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {feature.icon.props.children}
+                    </svg>
                   </div>
                 </div>
                 
-                {/* Content */}
-                <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                {/* Content - Responsive */}
+                <h3 className="
+                  text-sm
+                  sm:text-base
+                  md:text-lg
+                  font-bold 
+                  text-gray-900 
+                  mb-1.5
+                  sm:mb-2
+                  group-hover:text-gray-800 
+                  transition-colors 
+                  duration-300
+                  line-clamp-1
+                ">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-xs leading-relaxed">
+                <p className="
+                  text-gray-600 
+                  text-xs
+                  sm:text-sm
+                  leading-relaxed
+                  line-clamp-2
+                  sm:line-clamp-3
+                ">
                   {feature.description}
                 </p>
                 
@@ -248,7 +309,8 @@ const Features = () => {
                 <div className={`
                   absolute
                   inset-0
-                  rounded-xl
+                  rounded-lg
+                  sm:rounded-xl
                   bg-gradient-to-br
                   ${feature.gradient}
                   opacity-0
@@ -261,22 +323,42 @@ const Features = () => {
             ))}
           </div>
           
-          {/* Lighter gradient fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white/80 via-transparent to-transparent pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white/80 via-transparent to-transparent pointer-events-none"></div>
+          {/* Responsive gradient fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-16 md:w-20 bg-gradient-to-r from-white/80 via-transparent to-transparent pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-16 md:w-20 bg-gradient-to-l from-white/80 via-transparent to-transparent pointer-events-none"></div>
         </div>
 
-        {/* Lighter Stats Cards */}
-        <div className="mb-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* Responsive Stats Cards */}
+        <div className="mb-6 sm:mb-8 px-2 sm:px-0">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
             {[
               { value: "99.9%", label: "Uptime", color: "from-blue-400 to-cyan-400" },
               { value: "<100ms", label: "Latency", color: "from-blue-400 to-indigo-400" },
               { value: "10M+", label: "API Calls", color: "from-indigo-400 to-purple-400" },
               { value: "24/7", label: "Support", color: "from-cyan-400 to-teal-400" }
             ].map((stat, index) => (
-              <div key={index} className="text-center bg-white/60 backdrop-blur-sm rounded-lg p-3 border border-gray-200/30 hover:border-blue-200/50 transition-colors duration-300">
-                <div className={`text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${stat.color} mb-1`}>
+              <div 
+                key={index} 
+                className="
+                  text-center 
+                  bg-white/60 
+                  backdrop-blur-sm 
+                  rounded-lg 
+                  p-2
+                  sm:p-3
+                  border 
+                  border-gray-200/30 
+                  hover:border-blue-200/50 
+                  transition-colors 
+                  duration-300
+                  min-h-[70px]
+                  sm:min-h-[80px]
+                  flex
+                  flex-col
+                  justify-center
+                "
+              >
+                <div className={`text-lg sm:text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${stat.color} mb-0.5 sm:mb-1`}>
                   {stat.value}
                 </div>
                 <p className="text-gray-500 text-xs font-medium">{stat.label}</p>
@@ -285,19 +367,41 @@ const Features = () => {
           </div>
         </div>
 
-        {/* Lighter CTA */}
-        <div className="text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-5 bg-white/90 backdrop-blur-sm rounded-xl border border-gray-200/30 shadow-sm hover:shadow-md transition-shadow duration-300">
+        {/* Responsive CTA */}
+        <div className="text-center px-2 sm:px-0">
+          <div className="
+            inline-flex 
+            flex-col 
+            sm:flex-row 
+            items-center 
+            gap-3 
+            sm:gap-4 
+            p-4 
+            sm:p-5
+            bg-white/90 
+            backdrop-blur-sm 
+            rounded-xl 
+            border 
+            border-gray-200/30 
+            shadow-sm 
+            hover:shadow-md 
+            transition-shadow 
+            duration-300
+            w-full
+            max-w-2xl
+            mx-auto
+          ">
             <div className="text-left">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-pulse"></div>
-                <h3 className="text-base font-bold text-gray-800">Ready to get started?</h3>
+                <h3 className="text-sm sm:text-base font-bold text-gray-800">Ready to get started?</h3>
               </div>
               <p className="text-gray-500 text-xs">Start your 14-day free trial</p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 w-full sm:w-auto justify-center sm:justify-start">
               <button className="
-                px-4
+                px-3
+                sm:px-4
                 py-2
                 bg-gradient-to-r from-blue-500 to-cyan-500
                 text-white
@@ -308,13 +412,18 @@ const Features = () => {
                 transition-all
                 duration-300
                 hover:-translate-y-0.5
-                text-sm
+                active:translate-y-0
+                text-xs
+                sm:text-sm
                 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-600
+                w-full
+                sm:w-auto
               ">
                 Start Free Trial
               </button>
               <button className="
-                px-4
+                px-3
+                sm:px-4
                 py-2
                 bg-white
                 text-gray-600
@@ -326,7 +435,11 @@ const Features = () => {
                 transition-all
                 duration-300
                 hover:-translate-y-0.5
-                text-sm
+                active:translate-y-0
+                text-xs
+                sm:text-sm
+                w-full
+                sm:w-auto
               ">
                 View Demo
               </button>
