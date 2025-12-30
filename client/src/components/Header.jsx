@@ -1,87 +1,110 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import logo from "../assets/logo.png";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-[rgba(10,10,15,0.95)] backdrop-blur-[10px] z-[1000] py-4 border-b border-[rgba(124,58,237,0.2)]">
-      <div className="max-w-[1400px] mx-auto px-8 flex justify-between items-center">
-        <div className="flex items-center gap-3 text-2xl font-bold text-white">
-          <div className="flex items-center">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <path d="M20 5L35 15V25L20 35L5 25V15L20 5Z" fill="url(#gradient)" />
-              <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#7c3aed" />
-                  <stop offset="100%" stopColor="#4f46e5" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-          <span className="bg-gradient-to-r from-[#7c3aed] to-[#4f46e5] bg-clip-text text-transparent">Aparaitech</span>
+    <header
+      className="
+        fixed top-0 left-0 w-full z-50
+        bg-[#fdfcff]/55 backdrop-blur-xl
+        border-b border-[rgba(124,58,237,0.16)]
+        shadow-[0_4px_14px_rgba(124,58,237,0.10)]
+      "
+    >
+      <div
+        className="
+          max-w-[1400px] mx-auto
+          flex items-center justify-between
+          px-4 sm:px-8 md:px-14 lg:px-20
+          py-[12px]
+        "
+      >
+        {/* Logo + Brand */}
+        <div className="flex items-center cursor-pointer gap-2">
+          <img
+            src={logo}
+            alt="Aparaitech Logo"
+            className="w-9 h-9 object-contain"
+          />
+          <span className="font-semibold text-[#2d1b69] text-lg md:text-xl">
+            Aparaitech
+          </span>
         </div>
 
-        {/* Desktop Navigation - hidden on mobile, shown on md and above */}
-        <nav className="hidden md:flex gap-8 items-center">
-          <a href="#home" className="text-white no-underline text-base font-medium hover:text-[#a78bfa] transition-colors">Home</a>
-          <div 
-            className="relative text-white text-base font-medium hover:text-[#a78bfa] transition-colors cursor-pointer flex items-center gap-1"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8 text-[#2d1b69] font-medium">
+          <a href="#home" className="hover:text-[#7c3aed] transition">
+            Home
+          </a>
+          <a href="#about" className="hover:text-[#7c3aed] transition">
+            About Us
+          </a>
+          <a href="#services" className="hover:text-[#7c3aed] transition">
+            Services
+          </a>
+          <a href="#contact" className="hover:text-[#7c3aed] transition">
+            Contact
+          </a>
+
+          {/* Light Purple CTA */}
+          <button
+            className="
+              bg-[#a78bfa] text-white
+              px-5 py-2 rounded-full
+              hover:bg-[#8b5cf6]
+              hover:shadow-[0_10px_28px_rgba(124,58,237,0.30)]
+              transition
+            "
           >
-            <span>Services <span className="text-xs transition-transform">▼</span></span>
-            {isServicesOpen && (
-              <div className="absolute top-full left-0 mt-2 bg-[rgba(30,30,45,0.98)] border border-[rgba(124,58,237,0.3)] rounded-lg min-w-[200px] py-2 shadow-[0_10px_40px_rgba(0,0,0,0.3)]">
-                <a href="#services" className="block px-6 py-3 text-white no-underline hover:bg-[rgba(124,58,237,0.2)] transition-colors">Cloud Computing</a>
-                <a href="#services" className="block px-6 py-3 text-white no-underline hover:bg-[rgba(124,58,237,0.2)] transition-colors">Software Development</a>
-                <a href="#services" className="block px-6 py-3 text-white no-underline hover:bg-[rgba(124,58,237,0.2)] transition-colors">AI & Machine Learning</a>
-                <a href="#services" className="block px-6 py-3 text-white no-underline hover:bg-[rgba(124,58,237,0.2)] transition-colors">IT Consulting</a>
-              </div>
-            )}
-          </div>
-          <a href="#ai" className="text-white no-underline text-base font-medium hover:text-[#a78bfa] transition-colors">AI</a>
-          <div 
-            className="relative text-white text-base font-medium hover:text-[#a78bfa] transition-colors cursor-pointer flex items-center gap-1"
-            onMouseEnter={() => setIsAboutOpen(true)}
-            onMouseLeave={() => setIsAboutOpen(false)}
-          >
-            <span>About <span className="text-xs transition-transform">▼</span></span>
-            {isAboutOpen && (
-              <div className="absolute top-full left-0 mt-2 bg-[rgba(30,30,45,0.98)] border border-[rgba(124,58,237,0.3)] rounded-lg min-w-[200px] py-2 shadow-[0_10px_40px_rgba(0,0,0,0.3)]">
-                <a href="#about" className="block px-6 py-3 text-white no-underline hover:bg-[rgba(124,58,237,0.2)] transition-colors">Our Story</a>
-                <a href="#about" className="block px-6 py-3 text-white no-underline hover:bg-[rgba(124,58,237,0.2)] transition-colors">Our Team</a>
-                <a href="#about" className="block px-6 py-3 text-white no-underline hover:bg-[rgba(124,58,237,0.2)] transition-colors">Careers</a>
-              </div>
-            )}
-          </div>
-          <a href="#contact" className="text-white no-underline text-base font-medium hover:text-[#a78bfa] transition-colors">Contact</a>
+            Get Started
+          </button>
         </nav>
 
-        <button className="hidden md:block bg-gradient-to-r from-[#7c3aed] to-[#4f46e5] text-white border-none px-8 py-3 text-base font-semibold rounded-lg cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(124,58,237,0.4)]">
-          Get Started
-        </button>
-
-        <button 
-          className="md:hidden flex flex-col gap-1 bg-transparent border-none cursor-pointer p-2"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        {/* Mobile Toggle */}
+        <button
+          className="
+            md:hidden flex items-center justify-center
+            w-10 h-10 rounded-lg
+            hover:bg-[#f1ecff] transition
+          "
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span className="w-[25px] h-[3px] bg-white rounded-sm transition-all"></span>
-          <span className="w-[25px] h-[3px] bg-white rounded-sm transition-all"></span>
-          <span className="w-[25px] h-[3px] bg-white rounded-sm transition-all"></span>
+          <div className="space-y-1">
+            <span className="block w-6 h-[2px] bg-[#2d1b69]"></span>
+            <span className="block w-6 h-[2px] bg-[#2d1b69]"></span>
+            <span className="block w-6 h-[2px] bg-[#2d1b69]"></span>
+          </div>
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed top-[70px] left-0 w-full bg-[rgba(10,10,15,0.98)] p-8 flex flex-col gap-6">
-          <a href="#home" className="text-white no-underline">Home</a>
-          <a href="#services" className="text-white no-underline">Services</a>
-          <a href="#ai" className="text-white no-underline">AI</a>
-          <a href="#about" className="text-white no-underline">About</a>
-          <a href="#contact" className="text-white no-underline">Contact</a>
-          <button className="bg-gradient-to-r from-[#7c3aed] to-[#4f46e5] text-white border-none px-6 py-3 rounded-lg cursor-pointer">
+      {menuOpen && (
+        <div
+          className="
+            md:hidden
+            bg-[#fdfcff]/75 backdrop-blur-lg
+            border-t border-[rgba(124,58,237,0.16)]
+            px-6 py-5
+            flex flex-col gap-4
+            text-[#2d1b69]
+          "
+        >
+          <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About Us</a>
+          <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+
+          <button
+            className="
+              bg-[#a78bfa] text-white
+              px-4 py-2 rounded-md
+              hover:bg-[#8b5cf6]
+              transition
+            "
+            onClick={() => setMenuOpen(false)}
+          >
             Get Started
           </button>
         </div>
@@ -91,4 +114,3 @@ const Header = () => {
 };
 
 export default Header;
-
