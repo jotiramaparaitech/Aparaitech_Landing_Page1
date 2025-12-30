@@ -23,7 +23,8 @@ const Header = () => {
           <span className="bg-gradient-to-r from-[#7c3aed] to-[#4f46e5] bg-clip-text text-transparent">Aparaitech</span>
         </div>
 
-        <nav className={`hidden md:flex gap-8 items-center ${isMenuOpen ? 'flex' : ''}`}>
+        {/* Desktop Navigation - hidden on mobile, shown on md and above */}
+        <nav className="hidden md:flex gap-8 items-center">
           <a href="#home" className="text-white no-underline text-base font-medium hover:text-[#a78bfa] transition-colors">Home</a>
           <div 
             className="relative text-white text-base font-medium hover:text-[#a78bfa] transition-colors cursor-pointer flex items-center gap-1"
@@ -90,3 +91,4 @@ const Header = () => {
 };
 
 export default Header;
+

@@ -1,9 +1,0 @@
-{
-  "name": "aparaitech-landing-page",
-  "version": "1.0.0",
-  "description": "APARAITECH Landing Page - MERN Stack",
-  "private": true,
-  "keywords": ["mern", "react", "express", "mongodb", "landing-page"],
-  "author": "",
-  "license": "ISC"
-}

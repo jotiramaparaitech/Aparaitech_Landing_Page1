@@ -92,18 +92,18 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[rgba(124,58,237,0.2)]">
           <div className="flex gap-4 mb-4 md:mb-0">
-            <a href="#" className="w-10 h-10 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.3)] rounded-full flex items-center justify-center text-[#c4b5fd] text-xl no-underline transition-all hover:bg-[rgba(124,58,237,0.4)] hover:border-[#7c3aed] hover:text-white hover:-translate-y-1" aria-label="Facebook">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.3)] rounded-full flex items-center justify-center text-[#c4b5fd] text-xl no-underline transition-all hover:bg-[rgba(124,58,237,0.4)] hover:border-[#7c3aed] hover:text-white hover:-translate-y-1" aria-label="Facebook">
               <FaFacebook />
             </a>
-            <a href="#" className="w-10 h-10 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.3)] rounded-full flex items-center justify-center text-[#c4b5fd] text-xl no-underline transition-all hover:bg-[rgba(124,58,237,0.4)] hover:border-[#7c3aed] hover:text-white hover:-translate-y-1" aria-label="Twitter">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.3)] rounded-full flex items-center justify-center text-[#c4b5fd] text-xl no-underline transition-all hover:bg-[rgba(124,58,237,0.4)] hover:border-[#7c3aed] hover:text-white hover:-translate-y-1" aria-label="Twitter">
               <FaTwitter />
             </a>
-            <a href="#" className="w-10 h-10 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.3)] rounded-full flex items-center justify-center text-[#c4b5fd] text-xl no-underline transition-all hover:bg-[rgba(124,58,237,0.4)] hover:border-[#7c3aed] hover:text-white hover:-translate-y-1" aria-label="LinkedIn">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.3)] rounded-full flex items-center justify-center text-[#c4b5fd] text-xl no-underline transition-all hover:bg-[rgba(124,58,237,0.4)] hover:border-[#7c3aed] hover:text-white hover:-translate-y-1" aria-label="LinkedIn">
               <FaLinkedin />
             </a>
-            <a href="#" className="w-10 h-10 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.3)] rounded-full flex items-center justify-center text-[#c4b5fd] text-xl no-underline transition-all hover:bg-[rgba(124,58,237,0.4)] hover:border-[#7c3aed] hover:text-white hover:-translate-y-1" aria-label="More">
+            <button type="button" className="w-10 h-10 bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.3)] rounded-full flex items-center justify-center text-[#c4b5fd] text-xl transition-all hover:bg-[rgba(124,58,237,0.4)] hover:border-[#7c3aed] hover:text-white hover:-translate-y-1" aria-label="More">
               <FaPlus />
-            </a>
+            </button>
           </div>
           <p className="text-[#c4b5fd] text-sm">
             © {new Date().getFullYear()} APARAITECH. All rights reserved.
@@ -115,3 +115,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Contact = require('../models/Contact');
+const authenticateAdmin = require('../middleware/auth');
 
 // Submit contact form
 router.post('/submit', async (req, res) => {
@@ -48,12 +49,13 @@ router.post('/submit', async (req, res) => {
   }
 });
 
-// Get all contacts (for admin purposes)
-router.get('/all', async (req, res) => {
+// Get all contacts (for admin purposes only - requires authentication)
+router.get('/all', authenticateAdmin, async (req, res) => {
   try {
-    const contacts = await Contact.find().sort({ createdAt: -1 });
+    const contacts = await Contact.find().sort({ createdAt: -1 }).select('-__v');
     res.status(200).json({
       success: true,
+      count: contacts.length,
       data: contacts
     });
   } catch (error) {
