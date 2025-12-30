@@ -1,130 +1,110 @@
 import React, { useState } from "react";
-import ALogo from "../assets/ALogo.png";
+import logo from "../assets/logo.png";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-[rgba(233,228,250,0.9)] backdrop-blur-lg z-[1000] py-4 border-b border-white/40">
-      <div className="max-w-[1400px] mx-auto px-8 flex justify-between items-center">
-        {/* Logo Section */}
-        <div className="flex items-center gap-3 text-2xl font-bold text-[#3f3c8f]">
+    <header
+      className="
+        fixed top-0 left-0 w-full z-50
+        bg-[#fdfcff]/55 backdrop-blur-xl
+        border-b border-[rgba(124,58,237,0.16)]
+        shadow-[0_4px_14px_rgba(124,58,237,0.10)]
+      "
+    >
+      <div
+        className="
+          max-w-[1400px] mx-auto
+          flex items-center justify-between
+          px-4 sm:px-8 md:px-14 lg:px-20
+          py-[12px]
+        "
+      >
+        {/* Logo + Brand */}
+        <div className="flex items-center cursor-pointer gap-2">
           <img
-            src={ALogo}
+            src={logo}
             alt="Aparaitech Logo"
-            className="w-12 h-12 object-contain"
+            className="w-9 h-9 object-contain"
           />
-          <span>Aparaitech</span>
+          <span className="font-semibold text-[#2d1b69] text-lg md:text-xl">
+            Aparaitech
+          </span>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8 items-center text-[#4b4a7a]">
-          <a
-            href="#home"
-            className="font-medium hover:text-[#6d63ff] transition-colors"
-          >
+        <nav className="hidden md:flex items-center gap-8 text-[#2d1b69] font-medium">
+          <a href="#home" className="hover:text-[#7c3aed] transition">
             Home
           </a>
-
-          {/* Services Dropdown */}
-          <div
-            className="relative font-medium hover:text-[#6d63ff] cursor-pointer flex items-center gap-1"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
-          >
-            <span>
-              Services <span className="text-xs">▼</span>
-            </span>
-            {isServicesOpen && (
-              <div className="absolute top-full left-0 mt-2 bg-white/90 backdrop-blur-md border border-[#dcd7ff] rounded-lg min-w-[200px] py-2 shadow-lg">
-                {[
-                  "Cloud Computing",
-                  "Software Development",
-                  "AI & Machine Learning",
-                  "IT Consulting",
-                ].map((item) => (
-                  <a
-                    key={item}
-                    href="#services"
-                    className="block px-6 py-3 text-[#4b4a7a] hover:bg-[#ebe7ff]"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <a
-            href="#ai"
-            className="font-medium hover:text-[#6d63ff] transition-colors"
-          >
-            AI
+          <a href="#about" className="hover:text-[#7c3aed] transition">
+            About Us
           </a>
-
-          {/* About Dropdown */}
-          <div
-            className="relative font-medium hover:text-[#6d63ff] cursor-pointer flex items-center gap-1"
-            onMouseEnter={() => setIsAboutOpen(true)}
-            onMouseLeave={() => setIsAboutOpen(false)}
-          >
-            <span>
-              About <span className="text-xs">▼</span>
-            </span>
-            {isAboutOpen && (
-              <div className="absolute top-full left-0 mt-2 bg-white/90 backdrop-blur-md border border-[#dcd7ff] rounded-lg min-w-[200px] py-2 shadow-lg">
-                {["Our Story", "Our Team", "Careers"].map((item) => (
-                  <a
-                    key={item}
-                    href="#about"
-                    className="block px-6 py-3 text-[#4b4a7a] hover:bg-[#ebe7ff]"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <a
-            href="#contact"
-            className="font-medium hover:text-[#6d63ff] transition-colors"
-          >
+          <a href="#services" className="hover:text-[#7c3aed] transition">
+            Services
+          </a>
+          <a href="#contact" className="hover:text-[#7c3aed] transition">
             Contact
           </a>
+
+          {/* Light Purple CTA */}
+          <button
+            className="
+              bg-[#a78bfa] text-white
+              px-5 py-2 rounded-full
+              hover:bg-[#8b5cf6]
+              hover:shadow-[0_10px_28px_rgba(124,58,237,0.30)]
+              transition
+            "
+          >
+            Get Started
+          </button>
         </nav>
 
-        {/* Desktop Button */}
-        <button className="hidden md:block bg-[#6d63ff] text-white px-8 py-3 font-semibold rounded-lg hover:bg-[#5b52e6] transition-all shadow-md">
-          Get Started
-        </button>
-
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <button
-          className="md:hidden flex flex-col gap-1 bg-transparent border-none cursor-pointer p-2"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="
+            md:hidden flex items-center justify-center
+            w-10 h-10 rounded-lg
+            hover:bg-[#f1ecff] transition
+          "
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span className="w-[25px] h-[3px] bg-[#4b4a7a] rounded-sm"></span>
-          <span className="w-[25px] h-[3px] bg-[#4b4a7a] rounded-sm"></span>
-          <span className="w-[25px] h-[3px] bg-[#4b4a7a] rounded-sm"></span>
+          <div className="space-y-1">
+            <span className="block w-6 h-[2px] bg-[#2d1b69]"></span>
+            <span className="block w-6 h-[2px] bg-[#2d1b69]"></span>
+            <span className="block w-6 h-[2px] bg-[#2d1b69]"></span>
+          </div>
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed top-[70px] left-0 w-full bg-[rgba(233,228,250,0.95)] backdrop-blur-lg p-8 flex flex-col gap-6 text-[#4b4a7a]">
-          {["Home", "Services", "AI", "About", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="font-medium"
-            >
-              {item}
-            </a>
-          ))}
-          <button className="bg-[#6d63ff] text-white px-6 py-3 rounded-lg">
+      {menuOpen && (
+        <div
+          className="
+            md:hidden
+            bg-[#fdfcff]/75 backdrop-blur-lg
+            border-t border-[rgba(124,58,237,0.16)]
+            px-6 py-5
+            flex flex-col gap-4
+            text-[#2d1b69]
+          "
+        >
+          <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About Us</a>
+          <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+
+          <button
+            className="
+              bg-[#a78bfa] text-white
+              px-4 py-2 rounded-md
+              hover:bg-[#8b5cf6]
+              transition
+            "
+            onClick={() => setMenuOpen(false)}
+          >
             Get Started
           </button>
         </div>
