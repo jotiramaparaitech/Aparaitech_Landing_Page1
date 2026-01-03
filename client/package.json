@@ -5,6 +5,7 @@
   "type": "module",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@splinetool/react-spline": "^4.1.0",
     "axios": "^1.6.2",
     "framer-motion": "^12.23.26",
     "react": "^18.2.0",

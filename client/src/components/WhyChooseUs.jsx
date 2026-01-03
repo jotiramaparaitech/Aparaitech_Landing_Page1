@@ -92,56 +92,48 @@ const Features = () => {
   const scrollPositionRef = useRef(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  
-  // Responsive scroll speed based on screen size
-  const getScrollSpeed = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 640) return 0.3; // Slower on mobile
-      if (window.innerWidth < 1024) return 0.35; // Medium on tablet
-      return 0.4; // Normal on desktop
-    }
-    return 0.4;
-  };
+  const [isTablet, setIsTablet] = useState(false);
 
+  // Check screen size on mount and resize
   useEffect(() => {
-    // Check if mobile on mount and resize
-    const checkIfMobile = () => {
+    const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 768);
+      setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024);
     };
     
-    checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
     
-    return () => window.removeEventListener('resize', checkIfMobile);
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fadeInUp");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+  // Get scroll speed based on screen size
+  const getScrollSpeed = () => {
+    if (isMobile) return 0; // No scrolling on mobile
+    if (isTablet) return 0.3; // Medium for tablet
+    return 0.4; // Normal for desktop
+  };
 
-    document.querySelectorAll('.feature-card').forEach((el) => observer.observe(el));
-    
-    return () => observer.disconnect();
-  }, []);
-
+  // Scroll animation effect - Only for desktop/tablet
   useEffect(() => {
+    // Don't start animation on mobile
+    if (isMobile) {
+      // Clean up any existing animation
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+      return;
+    }
+
     let isRunning = true;
 
-    // ✅ Initialize ONCE
+    // Initialize only for non-mobile screens
     if (scrollRef.current && scrollPositionRef.current === 0) {
       scrollPositionRef.current = -scrollRef.current.scrollWidth / 2;
     }
 
     const scrollFeatures = () => {
-      if (!scrollRef.current || !isRunning) return;
+      if (!scrollRef.current || !isRunning || isMobile) return;
 
       if (!isHovered) {
         const halfWidth = scrollRef.current.scrollWidth / 2;
@@ -149,7 +141,6 @@ const Features = () => {
 
         scrollPositionRef.current += currentScrollSpeed;
 
-        // ✅ Invisible infinite loop
         if (scrollPositionRef.current >= 0) {
           scrollPositionRef.current -= halfWidth;
         }
@@ -168,177 +159,288 @@ const Features = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [isHovered, isMobile]); // Add isMobile to dependencies
+  }, [isHovered, isMobile, isTablet]);
+
+  // Scroll to section functions
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  const scrollToPartners = () => {
+    const partnersSection = document.getElementById('partners');
+    if (partnersSection) {
+      partnersSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // Mobile: Show first 4 features in a grid
+  const mobileFeatures = features.slice(0, 4);
 
   return (
     <section className="relative py-8 sm:py-10 md:py-12 lg:py-16 bg-gradient-to-b from-blue-50/30 to-white overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-100/5 via-transparent to-cyan-100/5"></div>
-      
+
       {/* Very subtle grid pattern - much less visible */}
-      <div className="absolute inset-0 opacity-0.1">
+      <div className="absolute inset-0 opacity-1">
         <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(to right, #bfdbfe 0.5px, transparent 0.5px),
-                           linear-gradient(to bottom, #bfdbfe 0.5px, transparent 0.5px)`,
-          backgroundSize: '80px 85px'
+          backgroundImage: `linear-gradient(to right, #bfdbfe 0.1px, transparent 0.5px),
+                           linear-gradient(to bottom, #bfdbfe 0.1px, transparent 0.5px)`,
+          backgroundSize: '90px 85px'
         }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
         {/* Header - Responsive */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 lg:mb-12 animate-fadeInUp">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 backdrop-blur-sm rounded-full mb-3 sm:mb-4 border border-blue-100/30">
-            <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-pulse"></div>
-            <span className="text-xs font-medium tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-blue-50 rounded-full mb-3 sm:mb-4 border border-blue-500">
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+            <span className="text-xs font-semibold tracking-wide text-blue-600">
               ENTERPRISE FEATURES
             </span>
           </div>
+
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 sm:mb-3 px-2">
             Everything you need to{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
               build and scale
             </span>
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base px-4">
+          <p className="text-gray-700 text-sm sm:text-base px-4">
             Powerful features designed for modern software teams
           </p>
         </div>
 
-        {/* Horizontal Scrolling Features - Responsive Single Row */}
-        <div className="relative overflow-hidden py-3 sm:py-4 mb-8 sm:mb-10">
-          <div 
-            ref={scrollRef}
-            className="flex min-w-max transition-transform duration-75 ease-linear"
-            style={{ willChange: 'transform' }}
-          >
-            {duplicatedFeatures.map((feature, index) => (
-              <div
-                key={`feature-${index}`}
-                className="
-                  relative
-                  group
-                  flex-shrink-0
-                  mx-2
-                  sm:mx-3
-                  px-3
-                  sm:px-4
-                  md:px-5
-                  py-3
-                  sm:py-4
-                  bg-white/95
-                  backdrop-blur-sm
-                  rounded-lg
-                  sm:rounded-xl
-                  border border-gray-200/40
-                  shadow-sm
-                  shadow-blue-100/10
-                  hover:shadow-md
-                  hover:shadow-blue-200/20
-                  transition-all
-                  duration-300
-                  hover:scale-[1.02]
-                  active:scale-95
-                  cursor-pointer
-                  w-[240px]
-                  sm:w-[260px]
-                  md:w-[280px]
-                  lg:w-[300px]
-                "
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                onTouchStart={() => setIsHovered(true)}
-                onTouchEnd={() => setIsHovered(false)}
-              >
-                {/* Icon - Responsive */}
-                <div className={`
-                  w-8
-                  h-8
-                  sm:w-9
-                  sm:h-9
-                  md:w-10
-                  md:h-10
-                  rounded-md
-                  sm:rounded-lg
-                  bg-gradient-to-br
-                  ${feature.gradient}
-                  flex
-                  items-center
-                  justify-center
-                  mb-2
-                  sm:mb-3
-                  shadow-sm
-                  group-hover:shadow
-                  transition-all
-                  duration-300
-                `}>
-                  <div className="text-white">
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      {feature.icon.props.children}
-                    </svg>
+        {/* Mobile: Grid Layout */}
+        {isMobile ? (
+          <div className="mb-8 sm:mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-2">
+              {mobileFeatures.map((feature, index) => (
+                <div
+                  key={`mobile-${index}`}
+                  className="
+                    bg-white/95
+                    backdrop-blur-sm
+                    rounded-xl
+                    border border-gray-200/40
+                    p-4
+                    shadow-sm
+                    shadow-blue-100/10
+                    hover:shadow-md
+                    hover:shadow-blue-200/20
+                    transition-all
+                    duration-300
+                    hover:scale-[1.02]
+                    active:scale-95
+                    cursor-pointer
+                    animate-fadeInUp
+                  "
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className={`
+                    w-10 h-10
+                    rounded-lg
+                    bg-gradient-to-br
+                    ${feature.gradient}
+                    flex
+                    items-center
+                    justify-center
+                    mb-3
+                    shadow-sm
+                    transition-all
+                    duration-300
+                  `}>
+                    <div className="text-white">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {feature.icon.props.children}
+                      </svg>
+                    </div>
                   </div>
+
+                  <h3 className="
+                    text-base
+                    font-bold 
+                    text-gray-900 
+                    mb-2
+                    line-clamp-1
+                  ">
+                    {feature.title}
+                  </h3>
+                  <p className="
+                    text-gray-600 
+                    text-sm
+                    leading-relaxed
+                    line-clamp-3
+                  ">
+                    {feature.description}
+                  </p>
                 </div>
-                
-                {/* Content - Responsive */}
-                <h3 className="
-                  text-sm
-                  sm:text-base
-                  md:text-lg
-                  font-bold 
-                  text-gray-900 
-                  mb-1.5
-                  sm:mb-2
-                  group-hover:text-gray-800 
-                  transition-colors 
-                  duration-300
-                  line-clamp-1
-                ">
-                  {feature.title}
-                </h3>
-                <p className="
-                  text-gray-600 
-                  text-xs
-                  sm:text-sm
-                  leading-relaxed
-                  line-clamp-2
-                  sm:line-clamp-3
-                ">
-                  {feature.description}
-                </p>
-                
-                {/* Subtle hover border effect */}
-                <div className={`
-                  absolute
-                  inset-0
-                  rounded-lg
-                  sm:rounded-xl
-                  bg-gradient-to-br
-                  ${feature.gradient}
-                  opacity-0
-                  group-hover:opacity-5
-                  transition-opacity
-                  duration-300
-                  -z-10
-                `}></div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-          
-          {/* Responsive gradient fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-16 md:w-20 bg-gradient-to-r from-white/80 via-transparent to-transparent pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-16 md:w-20 bg-gradient-to-l from-white/80 via-transparent to-transparent pointer-events-none"></div>
-        </div>
+        ) : (
+          /* Desktop/Tablet: Auto-scrolling Row */
+          <div
+            className="
+              relative
+              overflow-hidden
+              py-3 sm:py-4
+              mb-8 sm:mb-10
+              -mx-3 sm:-mx-4 md:-mx-6 lg:-mx-12
+            "
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {/* Gradient fade edges for larger screens */}
+            <div className="
+              absolute left-0 top-0 bottom-0 
+              w-12 sm:w-16 md:w-20 lg:w-24
+              bg-gradient-to-r from-white via-white/90 to-transparent 
+              pointer-events-none z-20
+            "></div>
+            
+            <div className="
+              absolute right-0 top-0 bottom-0 
+              w-12 sm:w-16 md:w-20 lg:w-24
+              bg-gradient-to-l from-white via-white/90 to-transparent 
+              pointer-events-none z-20
+            "></div>
+
+            <div
+              ref={scrollRef}
+              className="flex min-w-max transition-transform duration-75 ease-linear"
+              style={{ willChange: 'transform' }}
+            >
+              {[...features, ...features].map((feature, index) => (
+                <div
+                  key={`feature-${index}`}
+                  className="
+                    relative
+                    group
+                    flex-shrink-0
+                    mx-2
+                    sm:mx-3
+                    px-3
+                    sm:px-4
+                    md:px-5
+                    py-3
+                    sm:py-4
+                    bg-white/95
+                    backdrop-blur-sm
+                    rounded-lg
+                    sm:rounded-xl
+                    border border-gray-200/40
+                    shadow-sm
+                    shadow-blue-100/10
+                    hover:shadow-md
+                    hover:shadow-blue-200/20
+                    transition-all
+                    duration-300
+                    hover:scale-[1.02]
+                    active:scale-95
+                    cursor-pointer
+                    w-[240px]
+                    sm:w-[260px]
+                    md:w-[280px]
+                    lg:w-[300px]
+                  "
+                >
+                  {/* Icon - Responsive */}
+                  <div className={`
+                    w-8
+                    h-8
+                    sm:w-9
+                    sm:h-9
+                    md:w-10
+                    md:h-10
+                    rounded-md
+                    sm:rounded-lg
+                    bg-gradient-to-br
+                    ${feature.gradient}
+                    flex
+                    items-center
+                    justify-center
+                    mb-2
+                    sm:mb-3
+                    shadow-sm
+                    group-hover:shadow
+                    transition-all
+                    duration-300
+                  `}>
+                    <div className="text-white">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {feature.icon.props.children}
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Content - Responsive */}
+                  <h3 className="
+                    text-sm
+                    sm:text-base
+                    md:text-lg
+                    font-bold 
+                    text-gray-900 
+                    mb-1.5
+                    sm:mb-2
+                    group-hover:text-gray-800 
+                    transition-colors 
+                    duration-300
+                    line-clamp-1
+                  ">
+                    {feature.title}
+                  </h3>
+                  <p className="
+                    text-gray-600 
+                    text-xs
+                    sm:text-sm
+                    leading-relaxed
+                    line-clamp-2
+                    sm:line-clamp-3
+                  ">
+                    {feature.description}
+                  </p>
+
+                  {/* Subtle hover border effect */}
+                  <div className={`
+                    absolute
+                    inset-0
+                    rounded-lg
+                    sm:rounded-xl
+                    bg-gradient-to-br
+                    ${feature.gradient}
+                    opacity-0
+                    group-hover:opacity-5
+                    transition-opacity
+                    duration-300
+                    -z-10
+                  `}></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Responsive Stats Cards */}
         <div className="mb-6 sm:mb-8 px-2 sm:px-0">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
             {[
-              { value: "99.9%", label: "Uptime", color: "from-blue-400 to-cyan-400" },
-              { value: "<100ms", label: "Latency", color: "from-blue-400 to-indigo-400" },
-              { value: "10M+", label: "API Calls", color: "from-indigo-400 to-purple-400" },
-              { value: "24/7", label: "Support", color: "from-cyan-400 to-teal-400" }
+              { value: "5,000+", label: "Active Companies", color: "from-blue-400 to-cyan-400" },
+              { value: "120+", label: "Countries Served", color: "from-blue-400 to-indigo-400" },
+              { value: "15M+", label: "Users Empowered", color: "from-indigo-400 to-purple-400" },
+              { value: "98%", label: "Customer Satisfaction", color: "from-cyan-400 to-teal-400" }
             ].map((stat, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="
                   text-center 
                   bg-white/60 
@@ -367,7 +469,7 @@ const Features = () => {
           </div>
         </div>
 
-        {/* Responsive CTA */}
+        {/* Responsive CTA with Scroll Buttons */}
         <div className="text-center px-2 sm:px-0">
           <div className="
             inline-flex 
@@ -396,52 +498,62 @@ const Features = () => {
                 <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-pulse"></div>
                 <h3 className="text-sm sm:text-base font-bold text-gray-800">Ready to get started?</h3>
               </div>
-              <p className="text-gray-500 text-xs">Start your 14-day free trial</p>
+              <p className="text-gray-500 text-xs">We’d love to hear from you — connect with our experts today.
+</p>
             </div>
-            <div className="flex gap-2 w-full sm:w-auto justify-center sm:justify-start">
-              <button className="
-                px-3
-                sm:px-4
-                py-2
-                bg-gradient-to-r from-blue-500 to-cyan-500
-                text-white
-                font-semibold
-                rounded-lg
-                hover:shadow-md
-                hover:shadow-blue-500/30
-                transition-all
-                duration-300
-                hover:-translate-y-0.5
-                active:translate-y-0
-                text-xs
-                sm:text-sm
-                hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-600
-                w-full
-                sm:w-auto
-              ">
-                Start Free Trial
+            <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto justify-center sm:justify-start">
+              {/* Contact Us Button */}
+              <button 
+                onClick={scrollToContact}
+                className="
+                  px-3
+                  sm:px-4
+                  py-2
+                  bg-gradient-to-r from-blue-500 to-cyan-500
+                  text-white
+                  font-semibold
+                  rounded-lg
+                  hover:shadow-md
+                  hover:shadow-blue-500/30
+                  transition-all
+                  duration-300
+                  hover:-translate-y-0.5
+                  active:translate-y-0
+                  text-xs
+                  sm:text-sm
+                  hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-600
+                  w-full
+                  sm:w-auto
+                "
+              >
+                Contact Us
               </button>
-              <button className="
-                px-3
-                sm:px-4
-                py-2
-                bg-white
-                text-gray-600
-                font-semibold
-                rounded-lg
-                border border-gray-300/50
-                hover:bg-gray-50
-                hover:border-gray-400/50
-                transition-all
-                duration-300
-                hover:-translate-y-0.5
-                active:translate-y-0
-                text-xs
-                sm:text-sm
-                w-full
-                sm:w-auto
-              ">
-                View Demo
+              
+              {/* Our Partners Button */}
+              <button 
+                onClick={scrollToPartners}
+                className="
+                  px-3
+                  sm:px-4
+                  py-2
+                  bg-gradient-to-r from-indigo-500 to-purple-500
+                  text-white
+                  font-semibold
+                  rounded-lg
+                  hover:shadow-md
+                  hover:shadow-indigo-500/30
+                  transition-all
+                  duration-300
+                  hover:-translate-y-0.5
+                  active:translate-y-0
+                  text-xs
+                  sm:text-sm
+                  hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600
+                  w-full
+                  sm:w-auto
+                "
+              >
+                Our Partners
               </button>
             </div>
           </div>

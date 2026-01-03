@@ -177,6 +177,7 @@ const Partners = () => {
     <>
       <style>{style}</style>
       <section 
+        id="partners" // ✅ ADD THIS ID for scrolling
         ref={sectionRef}
         className="relative py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gradient-to-b from-[#f5f1ff] to-[#ede7ff] overflow-hidden"
       >

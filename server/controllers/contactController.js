@@ -11,7 +11,7 @@ export const createContact = async (req, res) => {
 
     await Contact.create({ name, email, message });
 
-    // await sendAutoReply({ name, email, message });
+     await sendAutoReply({ name, email, message });
 
     res.status(201).json({
       success: true,

@@ -1,31 +1,30 @@
-// import nodemailer from "nodemailer";
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
 
-// const transporter = nodemailer.createTransport({
-//   host: process.env.SENDPULSE_SMTP_HOST,
-//   port: Number(process.env.SENDPULSE_SMTP_PORT),
-//   secure: false,
-//   auth: {
-//     user: process.env.SENDPULSE_SMTP_USER,
-//     pass: process.env.SENDPULSE_SMTP_PASS,
-//   },
-// });
+dotenv.config(); // ✅ ADD THIS
 
-// const sendAutoReply = async ({ name, email, message }) => {
-//   await transporter.sendMail({
-//     from: `"${process.env.SENDPULSE_FROM_NAME}" <${process.env.SENDPULSE_FROM_EMAIL}>`,
-//     to: email,
-//     subject: "Thanks for contacting us!",
-//     html: `
-//       <h3>Hello ${name},</h3>
-//       <p>Thank you for contacting us.</p>
-//       <p>We have received your message and will get back to you shortly.</p>
-//       <br/>
-//       <p><strong>Your Message:</strong></p>
-//       <p>${message}</p>
-//       <br/>
-//       <p>Regards,<br/>${process.env.SENDPULSE_FROM_NAME}</p>
-//     `,
-//   });
-// };
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT),
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
 
-// export default sendAutoReply;
+const sendAutoReply = async ({ name, email, message }) => {
+  await transporter.sendMail({
+    from: `"${process.env.FROM_NAME}" <${process.env.FROM_EMAIL}>`,
+    to: email,
+    subject: "Thanks for contacting us!",
+    html: `
+      <h3>Hello ${name},</h3>
+      <p>Thank you for contacting <strong>${process.env.FROM_NAME} Pvt Ltd</strong>.</p>
+      <p>We’ve received your message and our team will reach out soon.</p>
+      <p>Regards,<br/>${process.env.FROM_NAME} Pvt Ltd</p>
+    `,
+  });
+};
+
+export default sendAutoReply;
