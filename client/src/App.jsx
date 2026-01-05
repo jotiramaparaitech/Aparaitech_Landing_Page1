@@ -14,6 +14,7 @@ import GenerativeAI from "./components/pages/GenerativeAI";
 import CloudSolutions from "./components/pages/CloudSolutions";
 import Solutions from "./components/pages/YourSolutions";
 
+
 // Home page layout (unchanged)
 const HomePage = () => {
   return (
