@@ -9,7 +9,7 @@ import Partners from "./components/Partners";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
-import AboutUs from "./components/pages/AboutUS";
+import AboutUs from "./components/pages/AboutUs";
 import GenerativeAI from "./components/pages/GenerativeAI";
 import CloudSolutions from "./components/pages/CloudSolutions";
 import Solutions from "./components/pages/YourSolutions";
