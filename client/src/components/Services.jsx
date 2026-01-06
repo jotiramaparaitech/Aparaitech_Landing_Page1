@@ -1,86 +1,88 @@
-import React from "react";
+import { motion } from "framer-motion";
+import { Code, Cloud, Cpu, Shield, BarChart, Users } from "lucide-react";
 
-// Images
-import cloudImg from "../assets/cloud.png";
-import codeImg from "../assets/code.png";
-import consultingImg from "../assets/consulting.png";
-
-const Services = () => {
+function ServicesPage() {
   const services = [
     {
-      image: cloudImg,
-      title: "Cloud Computing",
-      description: "Scalable and secure cloud solutions."
-    },
-    {
-      image: codeImg,
       title: "Software Development",
-      description: "Custom applications for your business."
+      desc: "Scalable, secure, and high-performance software tailored to your business needs.",
+      icon: Code,
     },
     {
-      image: consultingImg,
+      title: "Cloud & DevOps",
+      desc: "Cloud migration, optimization, and DevOps automation for faster delivery.",
+      icon: Cloud,
+    },
+    {
+      title: "AI & Data Engineering",
+      desc: "Data-driven solutions using AI, ML, and analytics to unlock insights.",
+      icon: Cpu,
+    },
+    {
+      title: "Cybersecurity",
+      desc: "Enterprise-grade security, compliance, and risk management solutions.",
+      icon: Shield,
+    },
+    {
       title: "IT Consulting",
-      description: "Expert advice for your IT strategy."
-    }
+      desc: "Strategic consulting to align technology with business objectives.",
+      icon: Users,
+    },
+    {
+      title: "Digital Transformation",
+      desc: "Modernize legacy systems and accelerate digital innovation.",
+      icon: BarChart,
+    },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-[#f3eeff] to-[#fbfaff]">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="relative w-full py-24 px-6 bg-gradient-to-br from-[#0a0f2c] via-[#1b1f4a] to-[#2b0f44] overflow-hidden">
+      {/* Glow Effects */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-600/30 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-3xl"></div>
 
-        {/* Heading with FULL-WIDTH line */}
-        <div className="relative mb-16">
-          <div className="absolute inset-x-0 top-1/2 h-[1px] bg-[#d9d1f3]" />
-          <div className="relative flex justify-center">
-            <h2 className="text-3xl font-semibold text-[#2d1b69] px-6 bg-[#f3eeff] whitespace-nowrap">
-              Our Services
-            </h2>
-          </div>
+      {/* Subtle Grid Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <div className="max-w-6xl mx-auto text-center mb-20">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Our Services
+          </h1>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            We deliver world-class software solutions and IT consulting services
+            that help businesses scale, innovate, and lead globally.
+          </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="
-                bg-[#f1ecff]
-                rounded-xl
-                px-8 py-9
-                text-center
-                min-h-[270px]
-                border border-[rgba(124,58,237,0.18)]
-                shadow-[0_6px_18px_rgba(124,58,237,0.22)]
-                transition-all duration-300 ease-out
-                hover:-translate-y-2
-                hover:shadow-[0_12px_30px_rgba(124,58,237,0.32)]
-              "
-            >
-              {/* Image */}
-              <div className="w-36 h-36 mx-auto mb-6">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-
-              {/* Title */}
-              <h3 className="text-lg font-semibold text-[#2d1b69] mb-2">
-                {service.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm text-gray-600 leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-          ))}
+        {/* Services Grid */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={index}
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:border-blue-400/50 hover:shadow-2xl"
+              >
+                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 mb-6">
+                  <Icon className="text-white" size={28} />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300 leading-relaxed">{service.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
-
       </div>
     </section>
   );
-};
+}
 
-export default Services;
+// Export at the end
+export default ServicesPage;
