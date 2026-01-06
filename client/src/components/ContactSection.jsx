@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import axios from "axios";
 import {
   motion,
   useScroll,
@@ -9,24 +10,57 @@ import {
 const ContactSection = () => {
   const formWrapperRef = useRef(null);
 
+  // 🔹 Form State
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  // 🔹 Scroll Animations
   const { scrollYProgress } = useScroll({
     target: formWrapperRef,
     offset: ["start 90%", "start 40%"]
   });
 
   const rawRotateX = useTransform(scrollYProgress, [0, 0.7], [-90, 0]);
-  const rawScaleY  = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
+  const rawScaleY = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
   const rawOpacity = useTransform(scrollYProgress, [0, 0.25], [0, 1]);
 
-  const springConfig = {
-    stiffness: 45,
-    damping: 22,
-    mass: 1
-  };
+  const springConfig = { stiffness: 45, damping: 22, mass: 1 };
 
   const rotateX = useSpring(rawRotateX, springConfig);
-  const scaleY  = useSpring(rawScaleY, springConfig);
+  const scaleY = useSpring(rawScaleY, springConfig);
   const opacity = useSpring(rawOpacity, springConfig);
+
+  // 🔹 Handlers
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+
+    try {
+      await axios.post(
+        "http://localhost:5000/api/contacts",
+        formData,
+        { headers: { "Content-Type": "application/json" } }
+      );
+
+      setSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      alert(error.response?.data?.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section
@@ -70,10 +104,7 @@ const ContactSection = () => {
           </div>
 
           {/* FORM WRAPPER */}
-          <div
-            ref={formWrapperRef}
-            style={{ perspective: "1400px" }}
-          >
+          <div ref={formWrapperRef} style={{ perspective: "1400px" }}>
             <motion.div
               style={{
                 rotateX,
@@ -93,24 +124,68 @@ const ContactSection = () => {
                 Start the conversation
               </h4>
 
-              <div className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your Name"
-                  className="w-full p-4 rounded-xl bg-white border border-[rgba(124,58,237,0.25)] focus:outline-none focus:border-[#7c3aed]"
+                  required
+                  className="
+                    w-full p-4 rounded-xl
+                    bg-white focus:bg-white active:bg-white
+                    text-gray-800 placeholder-gray-400
+                    border border-[rgba(124,58,237,0.25)]
+                    focus:outline-none focus:border-[#7c3aed]
+                  "
                 />
+
                 <input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Email"
-                  className="w-full p-4 rounded-xl bg-white border border-[rgba(124,58,237,0.25)] focus:outline-none focus:border-[#7c3aed]"
+                  required
+                  className="
+                    w-full p-4 rounded-xl
+                    bg-white focus:bg-white active:bg-white
+                    text-gray-800 placeholder-gray-400
+                    border border-[rgba(124,58,237,0.25)]
+                    focus:outline-none focus:border-[#7c3aed]
+                  "
                 />
+
                 <textarea
-                  placeholder="Your idea..."
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="What's in your mind..?"
                   rows="4"
-                  className="w-full p-4 rounded-xl bg-white border border-[rgba(124,58,237,0.25)] resize-none focus:outline-none focus:border-[#7c3aed]"
+                  required
+                  className="
+                    w-full p-4 rounded-xl
+                    bg-white focus:bg-white active:bg-white
+                    text-gray-800 placeholder-gray-400
+                    border border-[rgba(124,58,237,0.25)]
+                    resize-none
+                    focus:outline-none focus:border-[#7c3aed]
+                  "
                 />
-                <button className="w-full bg-[#7c3aed] text-white py-4 rounded-xl font-semibold hover:bg-[#6d28d9] transition">
-                  Send Message
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-[#7c3aed] text-white py-4 rounded-xl font-semibold hover:bg-[#6d28d9] transition disabled:opacity-60"
+                >
+                  {loading ? "Sending..." : "Send Message"}
                 </button>
-              </div>
+
+                {success && (
+                  <p className="text-green-600 font-medium text-center">
+                    We'll reach out to you soon!!
+                  </p>
+                )}
+              </form>
             </motion.div>
           </div>
 

@@ -1,132 +1,278 @@
-import React, { useState } from "react";
-import ALogo from "../assets/ALogo.png";
+// Header.jsx
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  const ticking = useRef(false);
+  const closeTimeout = useRef(null);
+
+  const scrollToContact = () => {
+    navigate("/", { replace: false });
+
+    // wait for Home page to mount
+    setTimeout(() => {
+      const el = document.getElementById("contact");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
+
+  /* ✅ NEW: Home scroll handler */
+  const scrollToHome = () => {
+    const el = document.getElementById("home");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const fadeRange = 80;
+        setProgress(Math.min(scrollY / fadeRange, 1));
+        ticking.current = false;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  const navItems = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About Us" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  const serviceItems = [
+    { label: "Generative AI", path: "/generative-ai" },
+    { label: "Cloud", path: "/cloud" },
+    { label: "Solutions", path: "/solutions" },
+    {
+      label: "Explore Programs",
+      path: "https://lms-full-stack-mcq7.vercel.app/",
+      external: true
+    },
+  ];
+
+
+
+  const handleServicesEnter = () => {
+    if (closeTimeout.current) clearTimeout(closeTimeout.current);
+    setServicesOpen(true);
+  };
+
+  const handleServicesLeave = () => {
+    closeTimeout.current = setTimeout(() => {
+      setServicesOpen(false);
+    }, 180);
+  };
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-[rgba(233,228,250,0.9)] backdrop-blur-lg z-[1000] py-4 border-b border-white/40">
-      <div className="max-w-[1400px] mx-auto px-8 flex justify-between items-center">
-        {/* Logo Section */}
-        <div className="flex items-center gap-3 text-2xl font-bold text-[#3f3c8f]">
-          <img
-            src={ALogo}
-            alt="Aparaitech Logo"
-            className="w-12 h-12 object-contain"
-          />
-          <span>Aparaitech</span>
+    <header
+      style={{
+        backgroundColor: `rgba(255,255,255,${0.85 * progress})`,
+        backdropFilter: `blur(${10 * progress}px)`,
+        boxShadow: `0 6px 20px rgba(0,0,0,${0.08 * progress})`,
+      }}
+      className="fixed top-0 left-0 w-full z-50"
+    >
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-4 sm:px-8 md:px-14 lg:px-20 py-[12px]">
+
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <img src={logo} alt="Logo" className="w-9 h-9" />
+          <span
+            style={{ color: progress > 0.6 ? "#2d1b69" : "#ffffff" }}
+            className="font-semibold text-lg md:text-xl transition-colors"
+          >
+            Aparaitech
+          </span>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8 items-center text-[#4b4a7a]">
-          <a
-            href="#home"
-            className="font-medium hover:text-[#6d63ff] transition-colors"
-          >
-            Home
-          </a>
+        {/* Desktop Nav */}
+        <nav
+          style={{
+            color: progress > 0.6 ? "#2d1b69" : "rgba(255,255,255,0.9)",
+          }}
+          className="hidden md:flex items-center gap-8 font-medium"
+        >
+          {navItems.map((item) =>
+            item.id === "home" ? (
+              <Link
+                key={item.id}
+                to="/"
+                onClick={scrollToHome}
+                className="hover:text-[#7c3aed] transition"
+              >
+                {item.label}
+              </Link>
+            ) : item.id === "about" ? (
+              <Link
+                key={item.id}
+                to="/about"
+                className="hover:text-[#7c3aed] transition"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <button
+                key={item.id}
+                onClick={scrollToContact}
+                className="hover:text-[#7c3aed] transition"
+              >
+                {item.label}
+              </button>
+
+            )
+          )}
 
           {/* Services Dropdown */}
           <div
-            className="relative font-medium hover:text-[#6d63ff] cursor-pointer flex items-center gap-1"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
+            className="relative"
+            onMouseEnter={handleServicesEnter}
+            onMouseLeave={handleServicesLeave}
           >
-            <span>
-              Services <span className="text-xs">▼</span>
-            </span>
-            {isServicesOpen && (
-              <div className="absolute top-full left-0 mt-2 bg-white/90 backdrop-blur-md border border-[#dcd7ff] rounded-lg min-w-[200px] py-2 shadow-lg">
-                {[
-                  "Cloud Computing",
-                  "Software Development",
-                  "AI & Machine Learning",
-                  "IT Consulting",
-                ].map((item) => (
-                  <a
-                    key={item}
-                    href="#services"
-                    className="block px-6 py-3 text-[#4b4a7a] hover:bg-[#ebe7ff]"
+            <button className="hover:text-[#7c3aed] transition">
+              Services
+            </button>
+
+            {servicesOpen && (
+              <div
+                className="absolute top-full mt-3 w-56 rounded-xl bg-white shadow-xl border border-gray-100 overflow-hidden"
+                onMouseEnter={handleServicesEnter}
+                onMouseLeave={handleServicesLeave}
+              >
+                {serviceItems.map((service) => (
+                  <Link
+                    key={service.label}
+                    to={service.path}
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-5 py-3 text-[#2d1b69] hover:bg-[#f3eeff] transition"
                   >
-                    {item}
-                  </a>
+                    {service.label}
+                  </Link>
                 ))}
+
               </div>
             )}
           </div>
 
-          <a
-            href="#ai"
-            className="font-medium hover:text-[#6d63ff] transition-colors"
+          <button
+            onClick={scrollToContact}
+            style={{
+              backgroundColor:
+                progress > 0.6
+                  ? "rgba(124,58,237,0.95)"
+                  : "rgba(124,58,237,0.85)",
+            }}
+            className="px-5 py-2 rounded-full text-white font-semibold transition hover:scale-105"
           >
-            AI
-          </a>
+            Get Started
+          </button>
 
-          {/* About Dropdown */}
-          <div
-            className="relative font-medium hover:text-[#6d63ff] cursor-pointer flex items-center gap-1"
-            onMouseEnter={() => setIsAboutOpen(true)}
-            onMouseLeave={() => setIsAboutOpen(false)}
-          >
-            <span>
-              About <span className="text-xs">▼</span>
-            </span>
-            {isAboutOpen && (
-              <div className="absolute top-full left-0 mt-2 bg-white/90 backdrop-blur-md border border-[#dcd7ff] rounded-lg min-w-[200px] py-2 shadow-lg">
-                {["Our Story", "Our Team", "Careers"].map((item) => (
-                  <a
-                    key={item}
-                    href="#about"
-                    className="block px-6 py-3 text-[#4b4a7a] hover:bg-[#ebe7ff]"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <a
-            href="#contact"
-            className="font-medium hover:text-[#6d63ff] transition-colors"
-          >
-            Contact
-          </a>
         </nav>
 
-        {/* Desktop Button */}
-        <button className="hidden md:block bg-[#6d63ff] text-white px-8 py-3 font-semibold rounded-lg hover:bg-[#5b52e6] transition-all shadow-md">
-          Get Started
-        </button>
-
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <button
-          className="md:hidden flex flex-col gap-1 bg-transparent border-none cursor-pointer p-2"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden w-10 h-10 flex items-center justify-center"
         >
-          <span className="w-[25px] h-[3px] bg-[#4b4a7a] rounded-sm"></span>
-          <span className="w-[25px] h-[3px] bg-[#4b4a7a] rounded-sm"></span>
-          <span className="w-[25px] h-[3px] bg-[#4b4a7a] rounded-sm"></span>
+          <div className="space-y-1">
+            {[1, 2, 3].map((i) => (
+              <span
+                key={i}
+                style={{ backgroundColor: progress > 0.6 ? "#2d1b69" : "#fff" }}
+                className="block w-6 h-[2px]"
+              />
+            ))}
+          </div>
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed top-[70px] left-0 w-full bg-[rgba(233,228,250,0.95)] backdrop-blur-lg p-8 flex flex-col gap-6 text-[#4b4a7a]">
-          {["Home", "Services", "AI", "About", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="font-medium"
-            >
-              {item}
-            </a>
-          ))}
-          <button className="bg-[#6d63ff] text-white px-6 py-3 rounded-lg">
-            Get Started
-          </button>
+      {menuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+          <nav className="flex flex-col py-4">
+
+            {navItems.map((item) =>
+              item.id === "home" ? (
+                <Link
+                  key={item.id}
+                  to="/"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    scrollToHome();
+                  }}
+                  className="px-6 py-3 text-[#2d1b69] font-medium hover:bg-[#f3eeff]"
+                >
+                  {item.label}
+                </Link>
+              ) : item.id === "about" ? (
+                <Link
+                  key={item.id}
+                  to="/about"
+                  onClick={() => setMenuOpen(false)}
+                  className="px-6 py-3 text-[#2d1b69] font-medium hover:bg-[#f3eeff]"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="px-6 py-3 text-[#2d1b69] font-medium hover:bg-[#f3eeff]"
+                >
+                  {item.label}
+                </a>
+              )
+            )}
+
+            {/* Services (Mobile) */}
+            <div className="px-6 pt-3 pb-1 text-sm font-semibold text-gray-500 uppercase">
+              Services
+            </div>
+
+            {serviceItems.map((service) => (
+              <Link
+                key={service.label}
+                to={service.path}
+                onClick={() => setMenuOpen(false)}
+                className="px-10 py-2 text-[#2d1b69] hover:bg-[#f3eeff]"
+              >
+                {service.label}
+              </Link>
+            ))}
+
+
+            <div className="px-6 pt-4">
+              <button className="w-full py-3 rounded-full bg-[#7c3aed] text-white font-semibold">
+                Get Started
+              </button>
+            </div>
+
+          </nav>
         </div>
       )}
     </header>
