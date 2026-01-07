@@ -1,278 +1,157 @@
-// Header.jsx
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// src/components/Header.jsx
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const Header = () => {
-  const navigate = useNavigate();
-
   const [menuOpen, setMenuOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
-  const ticking = useRef(false);
-  const closeTimeout = useRef(null);
+  const isHome = location.pathname === "/";
+
+  // 🔥 Scroll logic
+  useEffect(() => {
+    if (!isHome) {
+      setIsScrolled(true);
+      return;
+    }
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome]);
 
   const scrollToContact = () => {
-    navigate("/", { replace: false });
-
-    // wait for Home page to mount
-    setTimeout(() => {
-      const el = document.getElementById("contact");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 100);
-  };
-
-  /* ✅ NEW: Home scroll handler */
-  const scrollToHome = () => {
-    const el = document.getElementById("home");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (ticking.current) return;
-      ticking.current = true;
-
-      requestAnimationFrame(() => {
-        const scrollY = window.scrollY;
-        const fadeRange = 80;
-        setProgress(Math.min(scrollY / fadeRange, 1));
-        ticking.current = false;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
-
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About Us" },
-    { id: "contact", label: "Contact" },
-  ];
-
-  const serviceItems = [
-    { label: "Generative AI", path: "/generative-ai" },
-    { label: "Cloud", path: "/cloud" },
-    { label: "Solutions", path: "/solutions" },
-    {
-      label: "Explore Programs",
-      path: "https://lms-full-stack-mcq7.vercel.app/",
-      external: true
-    },
-  ];
-
-
-
-  const handleServicesEnter = () => {
-    if (closeTimeout.current) clearTimeout(closeTimeout.current);
-    setServicesOpen(true);
-  };
-
-  const handleServicesLeave = () => {
-    closeTimeout.current = setTimeout(() => {
-      setServicesOpen(false);
-    }, 180);
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
   };
 
   return (
-    <header
-      style={{
-        backgroundColor: `rgba(255,255,255,${0.85 * progress})`,
-        backdropFilter: `blur(${10 * progress}px)`,
-        boxShadow: `0 6px 20px rgba(0,0,0,${0.08 * progress})`,
-      }}
-      className="fixed top-0 left-0 w-full z-50"
-    >
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-4 sm:px-8 md:px-14 lg:px-20 py-[12px]">
+    <header className="fixed top-0 left-0 w-full z-50 h-[72px]">
+      {/* 🔥 BACKGROUND LAYER (no layout shift) */}
+      <div
+        className={`absolute inset-0 transition-all duration-300
+          ${
+            isScrolled
+              ? "bg-[#fdfcff]/60 backdrop-blur-md"
+              : "bg-transparent backdrop-blur-md"
+          }
+        `}
+      />
 
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          <img src={logo} alt="Logo" className="w-9 h-9" />
+      {/* 🔥 CONTENT LAYER */}
+      <div className="relative max-w-[1400px] mx-auto flex items-center h-full px-6">
+        {/* LOGO */}
+        <Link to="/" className="flex items-center gap-2">
+          <img src={logo} alt="Aparaitech Logo" className="h-8 w-auto" />
           <span
-            style={{ color: progress > 0.6 ? "#2d1b69" : "#ffffff" }}
-            className="font-semibold text-lg md:text-xl transition-colors"
+            className={`font-semibold text-lg transition-colors ${
+              isScrolled ? "text-[#2d1b69]" : "text-white"
+            }`}
           >
             Aparaitech
           </span>
-        </div>
+        </Link>
 
-        {/* Desktop Nav */}
+        {/* DESKTOP LEFT MENU */}
         <nav
-          style={{
-            color: progress > 0.6 ? "#2d1b69" : "rgba(255,255,255,0.9)",
-          }}
-          className="hidden md:flex items-center gap-8 font-medium"
+          className={`hidden md:flex items-center gap-8 ml-16 font-medium ${
+            isScrolled ? "text-[#2d1b69]" : "text-white"
+          }`}
         >
-          {navItems.map((item) =>
-            item.id === "home" ? (
-              <Link
-                key={item.id}
-                to="/"
-                onClick={scrollToHome}
-                className="hover:text-[#7c3aed] transition"
-              >
-                {item.label}
-              </Link>
-            ) : item.id === "about" ? (
-              <Link
-                key={item.id}
-                to="/about"
-                className="hover:text-[#7c3aed] transition"
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <button
-                key={item.id}
-                onClick={scrollToContact}
-                className="hover:text-[#7c3aed] transition"
-              >
-                {item.label}
-              </button>
+          <Link to="/generative-ai" className="hover:text-[#7c3aed] transition">
+            Generative AI
+          </Link>
+          <Link to="/cloud" className="hover:text-[#7c3aed] transition">
+            Cloud
+          </Link>
+          <Link to="/solutions" className="hover:text-[#7c3aed] transition">
+            Solutions
+          </Link>
+        </nav>
 
-            )
-          )}
-
-          {/* Services Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={handleServicesEnter}
-            onMouseLeave={handleServicesLeave}
+        {/* DESKTOP RIGHT MENU */}
+        <div
+          className={`hidden md:flex items-center gap-8 ml-auto font-medium ${
+            isScrolled ? "text-[#2d1b69]" : "text-white"
+          }`}
+        >
+          <a
+            href="https://lms-full-stack-mcq7.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#7c3aed] transition"
           >
-            <button className="hover:text-[#7c3aed] transition">
-              Services
-            </button>
+            Explore Programs
+          </a>
 
-            {servicesOpen && (
-              <div
-                className="absolute top-full mt-3 w-56 rounded-xl bg-white shadow-xl border border-gray-100 overflow-hidden"
-                onMouseEnter={handleServicesEnter}
-                onMouseLeave={handleServicesLeave}
-              >
-                {serviceItems.map((service) => (
-                  <Link
-                    key={service.label}
-                    to={service.path}
-                    onClick={() => setServicesOpen(false)}
-                    className="block px-5 py-3 text-[#2d1b69] hover:bg-[#f3eeff] transition"
-                  >
-                    {service.label}
-                  </Link>
-                ))}
+          <Link to="/careers" className="hover:text-[#7c3aed] transition">
+            Careers
+          </Link>
 
-              </div>
-            )}
-          </div>
+          <Link to="/about" className="hover:text-[#7c3aed] transition">
+            About
+          </Link>
 
           <button
             onClick={scrollToContact}
-            style={{
-              backgroundColor:
-                progress > 0.6
-                  ? "rgba(124,58,237,0.95)"
-                  : "rgba(124,58,237,0.85)",
-            }}
-            className="px-5 py-2 rounded-full text-white font-semibold transition hover:scale-105"
+            className={`px-5 py-2 rounded-full transition ${
+              isScrolled
+                ? "bg-[#a78bfa]/90 text-white hover:bg-[#8b5cf6]"
+                : "border border-white/40 text-white hover:bg-white/10"
+            }`}
           >
-            Get Started
+            Contact Us
           </button>
+        </div>
 
-        </nav>
-
-        {/* Mobile Toggle */}
+        {/* MOBILE TOGGLE */}
         <button
+          className="md:hidden ml-auto"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden w-10 h-10 flex items-center justify-center"
         >
           <div className="space-y-1">
             {[1, 2, 3].map((i) => (
               <span
                 key={i}
-                style={{ backgroundColor: progress > 0.6 ? "#2d1b69" : "#fff" }}
-                className="block w-6 h-[2px]"
+                className={`block w-6 h-[2px] ${
+                  isScrolled ? "bg-[#2d1b69]" : "bg-white"
+                }`}
               />
             ))}
           </div>
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
-          <nav className="flex flex-col py-4">
-
-            {navItems.map((item) =>
-              item.id === "home" ? (
-                <Link
-                  key={item.id}
-                  to="/"
-                  onClick={() => {
-                    setMenuOpen(false);
-                    scrollToHome();
-                  }}
-                  className="px-6 py-3 text-[#2d1b69] font-medium hover:bg-[#f3eeff]"
-                >
-                  {item.label}
-                </Link>
-              ) : item.id === "about" ? (
-                <Link
-                  key={item.id}
-                  to="/about"
-                  onClick={() => setMenuOpen(false)}
-                  className="px-6 py-3 text-[#2d1b69] font-medium hover:bg-[#f3eeff]"
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="px-6 py-3 text-[#2d1b69] font-medium hover:bg-[#f3eeff]"
-                >
-                  {item.label}
-                </a>
-              )
-            )}
-
-            {/* Services (Mobile) */}
-            <div className="px-6 pt-3 pb-1 text-sm font-semibold text-gray-500 uppercase">
-              Services
-            </div>
-
-            {serviceItems.map((service) => (
-              <Link
-                key={service.label}
-                to={service.path}
-                onClick={() => setMenuOpen(false)}
-                className="px-10 py-2 text-[#2d1b69] hover:bg-[#f3eeff]"
-              >
-                {service.label}
-              </Link>
-            ))}
-
-
-            <div className="px-6 pt-4">
-              <button className="w-full py-3 rounded-full bg-[#7c3aed] text-white font-semibold">
-                Get Started
-              </button>
-            </div>
-
-          </nav>
+        <div className="md:hidden bg-black/90 backdrop-blur-xl px-6 py-6 space-y-4 text-white">
+          <Link to="/generative-ai" onClick={() => setMenuOpen(false)} className="block">
+            Generative AI
+          </Link>
+          <Link to="/cloud" onClick={() => setMenuOpen(false)} className="block">
+            Cloud
+          </Link>
+          <Link to="/solutions" onClick={() => setMenuOpen(false)} className="block">
+            Solutions
+          </Link>
+          <Link to="/careers" onClick={() => setMenuOpen(false)} className="block">
+            Careers
+          </Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)} className="block">
+            About
+          </Link>
+          <button
+            onClick={scrollToContact}
+            className="w-full mt-4 py-2 rounded-lg bg-[#8b5cf6] text-white"
+          >
+            Contact Us
+          </button>
         </div>
       )}
     </header>
