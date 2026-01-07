@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
@@ -10,7 +9,7 @@ const Header = () => {
 
   const isHome = location.pathname === "/";
 
-  // 🔥 Scroll logic
+  // 🔥 Scroll detection
   useEffect(() => {
     if (!isHome) {
       setIsScrolled(true);
@@ -32,22 +31,29 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 h-[72px]">
-      {/* 🔥 BACKGROUND LAYER (no layout shift) */}
+    <header className="fixed top-0 left-0 w-full z-50 h-[72px] overflow-x-hidden">
+      {/* 🔥 BACKGROUND (NON-BLOCKING) */}
       <div
-        className={`absolute inset-0 transition-all duration-300
+        className={`absolute inset-0 pointer-events-none transition-all duration-300
           ${
             isScrolled
-              ? "bg-[#fdfcff]/60 backdrop-blur-md"
-              : "bg-transparent backdrop-blur-md"
+              ? "bg-[#fdfcff]/70 backdrop-blur-xl"
+              : "bg-transparent"
           }
         `}
       />
 
-      {/* 🔥 CONTENT LAYER */}
-      <div className="relative max-w-[1400px] mx-auto flex items-center h-full px-6">
+      {/* 🔥 CONTENT */}
+      <div
+        className="
+          relative z-10 max-w-[1400px] mx-auto flex items-center h-full
+          px-4 sm:px-6
+          pr-[max(1rem,env(safe-area-inset-right))]
+          overflow-x-hidden
+        "
+      >
         {/* LOGO */}
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 shrink-0">
           <img src={logo} alt="Aparaitech Logo" className="h-8 w-auto" />
           <span
             className={`font-semibold text-lg transition-colors ${
@@ -102,7 +108,7 @@ const Header = () => {
             onClick={scrollToContact}
             className={`px-5 py-2 rounded-full transition ${
               isScrolled
-                ? "bg-[#a78bfa]/90 text-white hover:bg-[#8b5cf6]"
+                ? "bg-[#a78bfa] text-white hover:bg-[#8b5cf6]"
                 : "border border-white/40 text-white hover:bg-white/10"
             }`}
           >
@@ -110,16 +116,17 @@ const Header = () => {
           </button>
         </div>
 
-        {/* MOBILE TOGGLE */}
+        {/* ✅ MOBILE HAMBURGER (NO NEGATIVE MARGIN) */}
         <button
-          className="md:hidden ml-auto"
+          className="md:hidden ml-auto z-20 p-3"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Open menu"
         >
-          <div className="space-y-1">
+          <div className="space-y-1.5">
             {[1, 2, 3].map((i) => (
               <span
                 key={i}
-                className={`block w-6 h-[2px] ${
+                className={`block w-6 h-[2px] rounded ${
                   isScrolled ? "bg-[#2d1b69]" : "bg-white"
                 }`}
               />
@@ -128,9 +135,9 @@ const Header = () => {
         </button>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* ✅ MOBILE MENU (NO OVERFLOW) */}
       {menuOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-xl px-6 py-6 space-y-4 text-white">
+        <div className="md:hidden fixed top-[72px] inset-x-0 bg-black/90 backdrop-blur-xl px-6 py-6 space-y-4 text-white z-40 overflow-x-hidden">
           <Link to="/generative-ai" onClick={() => setMenuOpen(false)} className="block">
             Generative AI
           </Link>
@@ -148,7 +155,7 @@ const Header = () => {
           </Link>
           <button
             onClick={scrollToContact}
-            className="w-full mt-4 py-2 rounded-lg bg-[#8b5cf6] text-white"
+            className="w-full mt-4 py-2 rounded-lg bg-[#8b5cf6]"
           >
             Contact Us
           </button>

@@ -82,7 +82,9 @@ const HeroSection = () => {
       id="home"
       className="
     min-h-screen
-    pt-[25px]          // ✅ ADD THIS
+    flex items-center
+    pt-32 pb-12
+    md:pt-40 md:pb-20
     bg-gradient-to-br
     from-gray-900
     via-gray-800
@@ -99,12 +101,12 @@ const HeroSection = () => {
         <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-4000"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 py-12 md:py-24 lg:py-20">
+      <div className="relative container mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center lg:text-left">
             {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm mx-auto lg:mx-0">
               <Icons.TrendingUp />
               <span className="ml-2 text-sm font-medium">Trusted by industry leaders</span>
             </div>
@@ -118,13 +120,13 @@ const HeroSection = () => {
             </h1>
 
             {/* Description */}
-            <p className="text-xl text-gray-300 max-w-2xl">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0">
               We help companies and businesses of all sizes leverage cutting-edge technology to drive growth,
               increase efficiency, and stay ahead of the competition.
             </p>
 
             {/* Features list */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4 text-left max-w-lg mx-auto lg:mx-0">
               {[
                 'Custom software solutions',
                 '24/7 dedicated support team',
@@ -141,7 +143,7 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
               <button
                 onClick={() => window.open('https://lms-full-stack-mcq7.vercel.app/', '_blank')}
                 className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-blue-500/30"
@@ -162,7 +164,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right content - Visual cards */}
-          <div className="relative">
+          <div className="relative mt-8 lg:mt-0">
             {/* Main card container */}
             <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl overflow-hidden">
               {/* Animated background elements inside card */}
