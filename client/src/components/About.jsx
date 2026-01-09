@@ -53,7 +53,6 @@ const About = () => {
 scalable and reliable digital solutions. Our mission is to deliver
 efficient, user-friendly, and high-performance software through modern
 technology and thoughtful engineering.
-
         </motion.p>
 
         {/* Glass Cards */}
@@ -105,16 +104,10 @@ with the right tools to operate efficiently and grow with confidence.
             <p className="text-gray-600 text-sm leading-relaxed">
              To shape the future of software by combining innovation and technology
 into impactful digital products.
-
             </p>
           </div>
         </motion.div>
       </div>
-
-      {/* Footer
-      <footer className="relative w-full">
-        <Footer />
-      </footer> */}
     </div>
   );
 };
