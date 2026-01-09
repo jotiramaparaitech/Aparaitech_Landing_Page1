@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
   const [clientsCount, setClientsCount] = useState(0);
   const [satisfactionCount, setSatisfactionCount] = useState(0);
   const [projectsCount, setProjectsCount] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const animateCounter = (setter, target, duration = 2000) => {
@@ -31,6 +33,25 @@ const HeroSection = () => {
     }
   };
 
+  // Handle service card clicks
+  const handleServiceClick = (serviceType) => {
+    switch(serviceType) {
+      case 'growth-analytics':
+        navigate('/growth-analytics');
+        break;
+      case 'cloud-solutions':
+        navigate('/cloud-solutions');
+        break;
+      case 'secure-platform':
+        navigate('/secure-platform');
+        break;
+      case 'salesforce-solutions':
+        navigate('/salesforce-solutions');
+        break;
+      default:
+        break;
+    }
+  };
 
   // Icons as SVG components
   const Icons = {
@@ -77,23 +98,45 @@ const HeroSection = () => {
     )
   };
 
+  // Service data with navigation paths
+  const services = [
+    { 
+      icon: <Icons.ChartLine />, 
+      title: 'Growth Analytics', 
+      description: 'Data-driven insights for business growth', 
+      color: 'from-blue-500 to-cyan-400',
+      path: 'growth-analytics'
+    },
+    { 
+      icon: <Icons.Cloud />, 
+      title: 'Cloud Solutions', 
+      description: 'Scalable infrastructure for your needs', 
+      color: 'from-purple-500 to-pink-400',
+      path: 'cloud-solutions'
+    },
+    { 
+      icon: <Icons.Shield />, 
+      title: 'Secure Platform', 
+      description: 'Enterprise-grade security protocols', 
+      color: 'from-green-500 to-emerald-400',
+      path: 'secure-platform'
+    },
+  ];
+
   return (
     <div
       id="home"
       className="
-    min-h-screen
-    flex items-center
-    pt-32 pb-12
-    md:pt-40 md:pb-20
-    bg-gradient-to-br
-    from-gray-900
-    via-gray-800
-    to-blue-900
-    text-white
-    overflow-hidden
-  "
+        min-h-screen
+        pt-16 md:pt-20 lg:pt-24  /* ✅ INCREASED PADDING HERE */
+        bg-gradient-to-br
+        from-gray-900
+        via-gray-800
+        to-blue-900
+        text-white
+        overflow-hidden
+      "
     >
-
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
@@ -101,7 +144,8 @@ const HeroSection = () => {
         <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-4000"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6">
+      {/* ✅ ADDED TOP MARGIN TO THIS CONTAINER TOO */}
+      <div className="relative container mx-auto px-4 sm:px-6 mt-4 md:mt-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
           <div className="space-y-8 text-center lg:text-left">
@@ -173,13 +217,10 @@ const HeroSection = () => {
 
               <div className="relative space-y-6">
                 {/* Service cards */}
-                {[
-                  { icon: <Icons.ChartLine />, title: 'Growth Analytics', description: 'Data-driven insights for business growth', color: 'from-blue-500 to-cyan-400' },
-                  { icon: <Icons.Cloud />, title: 'Cloud Solutions', description: 'Scalable infrastructure for your needs', color: 'from-purple-500 to-pink-400' },
-                  { icon: <Icons.Shield />, title: 'Secure Platform', description: 'Enterprise-grade security protocols', color: 'from-green-500 to-emerald-400' },
-                ].map((service, index) => (
+                {services.map((service, index) => (
                   <div
                     key={index}
+                    onClick={() => handleServiceClick(service.path)}
                     className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105 cursor-pointer"
                   >
                     <div className="flex items-center space-x-4">
@@ -195,9 +236,10 @@ const HeroSection = () => {
                 ))}
 
                 {/* Testimonial card */}
-                {/* Testimonial card (hidden on mobile) */}
-                <div className="hidden md:block bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl p-6 border border-blue-500/30">
-
+                <div 
+                  onClick={() => handleServiceClick('salesforce-solutions')}
+                  className="hidden md:block bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl p-6 border border-blue-500/30 cursor-pointer hover:border-blue-500/50 transition-all duration-300"
+                >
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full flex items-center justify-center font-bold">
                       SS
