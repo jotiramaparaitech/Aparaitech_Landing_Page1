@@ -1,0 +1,465 @@
+// src/components/services/GrowthAnalytics.jsx
+import React, { useState } from 'react';
+
+const GrowthAnalytics = () => {
+  const [activeSection, setActiveSection] = useState('overview');
+
+  // Page section navigation
+  const pageSections = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'capabilities', label: 'Capabilities' },
+    { id: 'benefits', label: 'Benefits' },
+    { id: 'use-cases', label: 'Use Cases' },
+    { id: 'methodology', label: 'Methodology' },
+    { id: 'contact', label: 'Get Started' }
+  ];
+
+  // Analytics capabilities data
+  const analyticsCapabilities = [
+    {
+      title: 'Predictive Analytics',
+      description: 'Forecast trends and identify opportunities using advanced machine learning algorithms.',
+      icon: '🔮',
+      features: ['Sales forecasting', 'Customer churn prediction', 'Market trend analysis']
+    },
+    {
+      title: 'Real-Time Dashboards',
+      description: 'Monitor performance with up-to-the-minute insights and interactive visualizations.',
+      icon: '📊',
+      features: ['Custom KPIs tracking', 'Automated reporting', 'Interactive data exploration']
+    },
+    {
+      title: 'Customer Intelligence',
+      description: 'Deep understanding of customer behavior and segmentation for targeted strategies.',
+      icon: '👥',
+      features: ['Customer segmentation', 'Behavioral analysis', 'Personalization insights']
+    }
+  ];
+
+  // Use cases data
+  const useCases = [
+    {
+      industry: 'E-commerce',
+      challenge: 'Optimizing customer acquisition costs',
+      solution: 'Implemented predictive models that reduced CAC by 35%',
+      icon: '🛒'
+    },
+    {
+      industry: 'SaaS',
+      challenge: 'Reducing customer churn',
+      solution: 'Churn prediction system decreased churn rate by 28%',
+      icon: '💻'
+    },
+    {
+      industry: 'Manufacturing',
+      challenge: 'Improving supply chain efficiency',
+      solution: 'Analytics platform reduced inventory costs by 22%',
+      icon: '🏭'
+    },
+    {
+      industry: 'Healthcare',
+      challenge: 'Patient outcome optimization',
+      solution: 'Predictive analytics improved patient satisfaction by 40%',
+      icon: '🏥'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white text-gray-900">
+      {/* Page Navigation */}
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-blue-50 to-purple-50 py-16 md:py-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+            Transform Your Business With
+            <span className="block text-blue-600 mt-4">Intelligent Growth Analytics</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
+            Get data-driven insights that help you make smarter decisions, optimize operations, 
+            and accelerate business growth.
+          </p>
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* In-page Navigation */}
+        <div className="sticky top-20 bg-white z-40 border-b mb-12">
+          <div className="flex overflow-x-auto space-x-1 py-4">
+            {pageSections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => {
+                  setActiveSection(section.id);
+                  document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className={`px-6 py-3 whitespace-nowrap rounded-lg font-medium transition ${activeSection === section.id
+                    ? 'bg-blue-500 text-white'
+                    : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+              >
+                {section.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Overview Section */}
+        <section id="overview" className="mb-20 scroll-mt-32">
+          <div className="prose prose-lg max-w-none">
+            <h2 className="text-4xl font-bold mb-8">Drive Business Growth with Data Intelligence</h2>
+            <p className="text-xl text-gray-700 mb-8">
+              In today's competitive landscape, data is your most valuable asset. Our Growth Analytics platform transforms raw data into actionable insights that drive measurable business outcomes.
+            </p>
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl border-l-4 border-blue-500 mb-12">
+              <p className="text-2xl font-semibold text-gray-900">
+                From predictive modeling to real-time dashboards, we provide the tools and expertise to turn data into your competitive advantage.
+              </p>
+            </div>
+          </div>
+
+          {/* Quick Stats */}
+          <div className="grid md:grid-cols-4 gap-8 mt-12">
+            {[
+              { number: '40%', label: 'Average ROI Increase' },
+              { number: '2.5x', label: 'Faster Decision Making' },
+              { number: '99%', label: 'Customer Satisfaction' },
+              { number: '500+', label: 'Companies Trust Us' }
+            ].map((stat, index) => (
+              <div key={index} className="text-center bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                <div className="text-4xl font-bold text-blue-500 mb-2">{stat.number}</div>
+                <div className="text-gray-700">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Capabilities Section */}
+        <section id="capabilities" className="mb-20 scroll-mt-32">
+          <h2 className="text-4xl font-bold mb-12">Advanced Analytics Capabilities</h2>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {analyticsCapabilities.map((capability, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-shadow">
+                <div className="text-5xl mb-6">{capability.icon}</div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">{capability.title}</h3>
+                <p className="text-gray-700 mb-6">{capability.description}</p>
+                <ul className="space-y-3">
+                  {capability.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Additional Features */}
+          <div className="bg-gray-50 rounded-2xl p-10">
+            <h3 className="text-3xl font-bold mb-8 text-center">Platform Features</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { title: 'AI-Powered Insights', icon: '🤖' },
+                { title: 'Automated Reporting', icon: '📈' },
+                { title: 'Multi-Source Integration', icon: '🔗' },
+                { title: 'Enterprise Security', icon: '🛡️' },
+                { title: 'Real-Time Alerts', icon: '🔔' },
+                { title: 'Custom Dashboards', icon: '🎨' },
+                { title: 'Collaborative Analysis', icon: '👥' },
+                { title: 'Mobile Access', icon: '📱' }
+              ].map((feature, index) => (
+                <div key={index} className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition">
+                  <div className="text-3xl mb-3">{feature.icon}</div>
+                  <div className="font-bold">{feature.title}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section id="benefits" className="mb-20 scroll-mt-32">
+          <h2 className="text-4xl font-bold mb-8">Key Business Benefits</h2>
+          
+          <div className="space-y-6 mb-12">
+            {[
+              {
+                icon: '📈',
+                title: 'Predictive Insights',
+                desc: 'Forecast trends and identify opportunities before your competitors with advanced machine learning algorithms.'
+              },
+              {
+                icon: '🎯',
+                title: 'Actionable Intelligence',
+                desc: 'Get clear, data-backed recommendations, not just raw data. Make decisions with confidence.'
+              },
+              {
+                icon: '⚡',
+                title: 'Real-Time Analytics',
+                desc: 'Monitor performance with up-to-the-minute dashboards that update as your business evolves.'
+              },
+              {
+                icon: '🛡️',
+                title: 'Enterprise Security',
+                desc: 'Bank-level security protocols ensure your sensitive business data remains protected at all times.'
+              }
+            ].map((feature, idx) => (
+              <div key={idx} className="flex items-start space-x-6 p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div className="text-4xl flex-shrink-0">{feature.icon}</div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900">{feature.title}</h3>
+                  <p className="text-gray-700">{feature.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* ROI Calculator */}
+          <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-10 text-white">
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-2xl font-bold mb-6">Calculate Your Potential ROI</h3>
+              <p className="mb-8 text-lg">
+                On average, our clients see a 40% increase in ROI within the first 6 months of implementation.
+              </p>
+              <div className="grid md:grid-cols-3 gap-8 mb-10">
+                <div>
+                  <div className="text-4xl font-bold mb-2">3-6</div>
+                  <div>Months to Value</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold mb-2">40%</div>
+                  <div>Average ROI Increase</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold mb-2">70%</div>
+                  <div>Time Savings on Reporting</div>
+                </div>
+              </div>
+              <button className="px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition">
+                Request Personalized ROI Analysis
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Use Cases Section */}
+        <section id="use-cases" className="mb-20 scroll-mt-32">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6">Industry Success Stories</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              See how businesses across various industries are leveraging our analytics platform to drive growth.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {useCases.map((useCase, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition">
+                <div className="text-4xl mb-6">{useCase.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{useCase.industry}</h3>
+                <div className="mb-4">
+                  <div className="font-semibold text-gray-700 mb-1">Challenge:</div>
+                  <p className="text-gray-600">{useCase.challenge}</p>
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-700 mb-1">Solution:</div>
+                  <p className="text-gray-600">{useCase.solution}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Industry Adoption */}
+          <div className="bg-gray-50 rounded-2xl p-10">
+            <h3 className="text-2xl font-bold mb-8 text-center">Trusted Across Industries</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { name: 'Technology', clients: 150 },
+                { name: 'Retail', clients: 120 },
+                { name: 'Finance', clients: 90 },
+                { name: 'Healthcare', clients: 75 },
+                { name: 'Manufacturing', clients: 65 },
+                { name: 'Education', clients: 50 },
+                { name: 'Transportation', clients: 40 },
+                { name: 'Energy', clients: 35 }
+              ].map((industry, index) => (
+                <div key={index} className="bg-white rounded-xl p-6 text-center">
+                  <div className="text-2xl font-bold text-blue-600 mb-2">{industry.clients}+</div>
+                  <div className="font-medium">{industry.name}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Methodology Section */}
+        <section id="methodology" className="mb-20 scroll-mt-32">
+          <h2 className="text-4xl font-bold mb-8">Our Implementation Methodology</h2>
+          
+          <div className="grid md:grid-cols-5 gap-6 mb-12">
+            {[
+              { step: '1', title: 'Assessment', desc: 'Data audit & goal setting' },
+              { step: '2', title: 'Planning', desc: 'Solution architecture design' },
+              { step: '3', title: 'Integration', desc: 'Data pipeline setup' },
+              { step: '4', title: 'Training', desc: 'Team enablement' },
+              { step: '5', title: 'Optimization', desc: 'Continuous improvement' }
+            ].map((step, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                  {step.step}
+                </div>
+                <div className="font-bold text-lg mb-1">{step.title}</div>
+                <div className="text-sm text-gray-600">{step.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Process Details */}
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-10">
+            <div className="grid lg:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-bold mb-6">Expert Implementation</h3>
+                <ul className="space-y-4">
+                  {[
+                    'Dedicated implementation team',
+                    'Customized data integration',
+                    '24/7 support during deployment',
+                    'Regular progress reviews'
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-center">
+                      <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
+                        ✓
+                      </div>
+                      <span className="text-lg">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-6">Ongoing Support</h3>
+                <p className="text-gray-700 mb-6">
+                  We provide continuous support and optimization to ensure your analytics platform evolves with your business needs.
+                </p>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="bg-white rounded-xl p-4">
+                    <div className="text-xl font-bold text-blue-600 mb-1">99.9%</div>
+                    <div className="text-sm text-gray-600">Platform Uptime</div>
+                  </div>
+                  <div className="bg-white rounded-xl p-4">
+                    <div className="text-xl font-bold text-blue-600 mb-1">15min</div>
+                    <div className="text-sm text-gray-600">Avg. Support Response</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact/CTA Section */}
+        <section id="contact" className="scroll-mt-32">
+          <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl p-12 text-white text-center">
+            <h2 className="text-4xl font-bold mb-6">Ready to Accelerate Your Growth?</h2>
+            <p className="text-xl mb-10 max-w-3xl mx-auto">
+              Book a free consultation to discover how our Growth Analytics platform can transform your business decision-making.
+            </p>
+            
+            {/* Contact Options */}
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+                <div className="text-3xl mb-4">🎯</div>
+                <h3 className="text-xl font-bold mb-3">Strategy Session</h3>
+                <p>30-minute growth strategy consultation</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+                <div className="text-3xl mb-4">📊</div>
+                <h3 className="text-xl font-bold mb-3">Platform Demo</h3>
+                <p>Live demonstration of analytics capabilities</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+                <div className="text-3xl mb-4">📈</div>
+                <h3 className="text-xl font-bold mb-3">ROI Analysis</h3>
+                <p>Personalized growth potential assessment</p>
+              </div>
+            </div>
+            
+            <div className="max-w-md mx-auto">
+              <div className="mb-6">
+                <input
+                  type="email"
+                  placeholder="Enter your work email"
+                  className="w-full px-6 py-4 rounded-lg text-gray-900"
+                />
+              </div>
+              <button className="w-full px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300">
+                Schedule Free Consultation
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Testimonials Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-3xl font-bold text-center mb-12">Trusted by Industry Leaders</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              quote: "Growth Analytics helped us increase our marketing ROI by 45% in just 3 months.",
+              author: "Sarah Chen",
+              role: "CMO, TechScale Inc.",
+              avatar: "SC"
+            },
+            {
+              quote: "The predictive insights saved us $2M in operational costs this year.",
+              author: "Michael Rodriguez",
+              role: "COO, Global Retail Corp",
+              avatar: "MR"
+            },
+            {
+              quote: "Best analytics platform we've used. Implementation was seamless and results were immediate.",
+              author: "Priya Sharma",
+              role: "Head of Analytics, FinTech Pro",
+              avatar: "PS"
+            }
+          ].map((testimonial, idx) => (
+            <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+              <div className="text-yellow-400 text-2xl mb-4">★★★★★</div>
+              <p className="text-gray-700 italic mb-6">"{testimonial.quote}"</p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                  {testimonial.avatar}
+                </div>
+                <div className="ml-4">
+                  <div className="font-bold">{testimonial.author}</div>
+                  <div className="text-gray-600 text-sm">{testimonial.role}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-lg mb-8">Growth Analytics — Transform Data into Business Growth</p>
+            <div className="flex flex-wrap justify-center gap-8 text-gray-400 text-sm">
+              <a href="#" className="hover:text-white">Case Studies</a>
+              <a href="#" className="hover:text-white">Documentation</a>
+              <a href="#" className="hover:text-white">Blog</a>
+              <a href="#" className="hover:text-white">Support</a>
+              <a href="#" className="hover:text-white">Privacy Policy</a>
+            </div>
+            <div className="mt-8 pt-8 border-t border-gray-800 text-gray-500">
+              <p>© 2024 Growth Analytics. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default GrowthAnalytics;
