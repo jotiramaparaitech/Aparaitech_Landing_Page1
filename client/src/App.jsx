@@ -20,6 +20,26 @@ import Cloud from "./components/cloud";
 import Solutions from "./components/Solutions";
 import GenerativeAI from "./components/Generative_AI";
 
+// Product Pages
+import CustomSoftware from "./components/pages/products/CustomSoftware";
+import MobileApps from "./components/pages/products/MobileApps";
+import DevOps from "./components/pages/products/DevOps";
+import UIUXDesign from "./components/pages/products/UIUXDesign";
+
+// Industry Pages
+import Healthcare from "./components/pages/industries/Healthcare";
+import Finance from "./components/pages/industries/Finance";
+import Ecommerce from "./components/pages/industries/Ecommerce";
+import Education from "./components/pages/industries/Education";
+import Manufacturing from "./components/pages/industries/Manufacturing";
+import Startups from "./components/pages/industries/Startups";
+
+// Customer Pages
+import SuccessStories from "./components/pages/customers/SuccessStories";
+import CaseStudies from "./components/pages/customers/CaseStudies";
+import Testimonials from "./components/pages/customers/Testimonials";
+import Portfolio from "./components/pages/customers/Portfolio";
+
 // Home page (NO Header/Footer here)
 const HomePage = () => {
   return (
@@ -49,6 +69,20 @@ function App() {
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
+        <Route path="/products/custom-software" element={<CustomSoftware />} />
+        <Route path="/products/mobile-apps" element={<MobileApps />} />
+        <Route path="/products/devops" element={<DevOps />} />
+        <Route path="/products/ui-ux-design" element={<UIUXDesign />} />
+        <Route path="/industries/healthcare" element={<Healthcare />} />
+        <Route path="/industries/finance" element={<Finance />} />
+        <Route path="/industries/ecommerce" element={<Ecommerce />} />
+        <Route path="/industries/education" element={<Education />} />
+        <Route path="/industries/manufacturing" element={<Manufacturing />} />
+        <Route path="/industries/startups" element={<Startups />} />
+        <Route path="/customers/success-stories" element={<SuccessStories />} />
+        <Route path="/customers/case-studies" element={<CaseStudies />} />
+        <Route path="/customers/testimonials" element={<Testimonials />} />
+        <Route path="/customers/portfolio" element={<Portfolio />} />
       </Routes>
 
       {/* Footer only once */}
