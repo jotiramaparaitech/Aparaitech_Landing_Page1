@@ -128,7 +128,7 @@ const HeroSection = () => {
       id="home"
       className="
         min-h-screen
-        pt-[25px]
+        pt-16 md:pt-20 lg:pt-24  /* ✅ INCREASED PADDING HERE */
         bg-gradient-to-br
         from-gray-900
         via-gray-800
@@ -144,7 +144,8 @@ const HeroSection = () => {
         <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-4000"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6">
+      {/* ✅ ADDED TOP MARGIN TO THIS CONTAINER TOO */}
+      <div className="relative container mx-auto px-4 sm:px-6 mt-4 md:mt-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
           <div className="space-y-8 text-center lg:text-left">
