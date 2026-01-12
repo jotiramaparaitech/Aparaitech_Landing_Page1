@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 const HeroSection = () => {
   const [clientsCount, setClientsCount] = useState(0);
   const [satisfactionCount, setSatisfactionCount] = useState(0);
   const [projectsCount, setProjectsCount] = useState(0);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const animateCounter = (setter, target, duration = 2000) => {
@@ -172,29 +176,54 @@ const HeroSection = () => {
               <div className="relative space-y-6">
                 {/* Service cards */}
                 {[
-                  { icon: <Icons.ChartLine />, title: 'Growth Analytics', description: 'Data-driven insights for business growth', color: 'from-blue-500 to-cyan-400' },
-                  { icon: <Icons.Cloud />, title: 'Cloud Solutions', description: 'Scalable infrastructure for your needs', color: 'from-purple-500 to-pink-400' },
-                  { icon: <Icons.Shield />, title: 'Secure Platform', description: 'Enterprise-grade security protocols', color: 'from-green-500 to-emerald-400' },
-                ].map((service, index) => (
-                  <div
-                    key={index}
-                    className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105 cursor-pointer"
-                  >
-                    <div className="flex items-center space-x-4">
-                      <div className={`p-4 rounded-xl bg-gradient-to-br ${service.color}`}>
-                        {service.icon}
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-semibold">{service.title}</h3>
-                        <p className="text-gray-400 text-sm">{service.description}</p>
+                  {
+                    icon: <Icons.ChartLine />,
+                    title: 'Growth Analytics',
+                    description: 'Data-driven insights for business growth',
+                    color: 'from-blue-500 to-cyan-400',
+                    path: '/solutions',
+                  },
+                  {
+                    icon: <Icons.Cloud />,
+                    title: 'Cloud Solutions',
+                    description: 'Scalable infrastructure for your needs',
+                    color: 'from-purple-500 to-pink-400',
+                    path: '/cloud',
+                  },
+                  {
+                    icon: <Icons.Shield />,
+                    title: 'Secure Platform',
+                    description: 'Enterprise-grade security protocols',
+                    color: 'from-green-500 to-emerald-400',
+                    path: '/generative-ai',
+                  },
+                ]
+                  .map((service, index) => (
+                    <div
+                      key={index}
+                      onClick={() => navigate(service.path)}
+                      className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105 cursor-pointer"
+                    >
+
+                      <div className="flex items-center space-x-4">
+                        <div className={`p-4 rounded-xl bg-gradient-to-br ${service.color}`}>
+                          {service.icon}
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold">{service.title}</h3>
+                          <p className="text-gray-400 text-sm">{service.description}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
 
                 {/* Testimonial card */}
                 {/* Testimonial card (hidden on mobile) */}
-                <div className="hidden md:block bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl p-6 border border-blue-500/30">
+                <div
+                  onClick={() => navigate("/solutions")}
+                  className="hidden md:block cursor-pointer bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl p-6 border border-blue-500/30"
+                >
+
 
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full flex items-center justify-center font-bold">
