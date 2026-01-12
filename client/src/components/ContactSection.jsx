@@ -104,7 +104,7 @@ const ContactSection = () => {
           </div>
 
           {/* FORM WRAPPER */}
-          <div ref={formWrapperRef} style={{ perspective: "1400px" }}>
+          <div ref={formWrapperRef} id="contact-form" style={{ perspective: "1400px" }}>
             <motion.div
               style={{
                 rotateX,

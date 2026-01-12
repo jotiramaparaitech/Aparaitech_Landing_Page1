@@ -16,9 +16,14 @@ import ContactSection from "./components/ContactSection";
 // Pages
 import About from "./components/About";
 import Careers from "./components/Careers";
-import Cloud from "./components/cloud";
+import Cloud from "./components/Cloud";
 import Solutions from "./components/Solutions";
 import GenerativeAI from "./components/Generative_AI";
+
+// Service Detail Pages
+import CloudSolutions from "./components/pages/CloudSolutions";
+import WebDevelopment from "./components/pages/WebDevelopment";
+import ITConsulting from "./components/pages/ITConsulting";
 
 // Home page (NO Header/Footer here)
 const HomePage = () => {
@@ -49,6 +54,9 @@ function App() {
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
+        <Route path="/cloud-computing" element={<CloudSolutions />} />
+        <Route path="/web-development" element={<WebDevelopment />} />
+        <Route path="/it-consulting" element={<ITConsulting />} />
       </Routes>
 
       {/* Footer only once */}
