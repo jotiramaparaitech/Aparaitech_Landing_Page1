@@ -131,6 +131,11 @@ function App() {
 
         {/* ✅ Job Detail (FIXED) */}
         <Route path="/job-detail" element={<JobDetail />} />
+        <Route path="/growth-analytics" element={<GrowthAnalytics />} />
+        <Route path="/cloud-solutions" element={<CloudSolutions />} />
+        <Route path="/secure-platform" element={<SecurePlatformPage />} />
+        <Route path="/salesforce-solutions" element={<SalesforceSolutionsPage />} />
+
       </Routes>
 
       <Footer />
