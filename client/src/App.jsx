@@ -18,6 +18,12 @@ import Cloud from "./components/cloud";
 import Solutions from "./components/Solutions";
 import GenerativeAI from "./components/Generative_AI";
 
+/* ================= SERVICES PAGES (IMPORTANT FIX) ================= */
+import GrowthAnalytics from "./components/services/GrowthAnalytics";
+import CloudSolutions from "./components/services/CloudSolutions";
+import SecurePlatformPage from "./components/services/SecurePlatformPage";
+import SalesforceSolutionsPage from "./components/services/SalesforceSolutionsPage";
+
 /* ================= PRODUCT PAGES ================= */
 import CustomSoftware from "./components/pages/products/CustomSoftware";
 import MobileApps from "./components/pages/products/MobileApps";
@@ -32,7 +38,7 @@ import Education from "./components/pages/industries/Education";
 import Manufacturing from "./components/pages/industries/Manufacturing";
 import Startups from "./components/pages/industries/Startups";
 
-/* ================= CUSTOMER PAGES (✅ FIXED CASE) ================= */
+/* ================= CUSTOMER PAGES ================= */
 import SuccessStories from "./components/pages/Customers/SuccessStories";
 import CaseStudies from "./components/pages/Customers/CaseStudies";
 import Testimonials from "./components/pages/Customers/Testimonials";
@@ -89,6 +95,15 @@ function App() {
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
 
+        {/* Services */}
+        <Route path="/growth-analytics" element={<GrowthAnalytics />} />
+        <Route path="/cloud-solutions" element={<CloudSolutions />} />
+        <Route path="/secure-platform" element={<SecurePlatformPage />} />
+        <Route
+          path="/salesforce-solutions"
+          element={<SalesforceSolutionsPage />}
+        />
+
         {/* Products */}
         <Route path="/products/custom-software" element={<CustomSoftware />} />
         <Route path="/products/mobile-apps" element={<MobileApps />} />
@@ -131,11 +146,6 @@ function App() {
 
         {/* Job Detail */}
         <Route path="/job-detail" element={<JobDetail />} />
-        <Route path="/growth-analytics" element={<GrowthAnalytics />} />
-        <Route path="/cloud-solutions" element={<CloudSolutions />} />
-        <Route path="/secure-platform" element={<SecurePlatformPage />} />
-        <Route path="/salesforce-solutions" element={<SalesforceSolutionsPage />} />
-
       </Routes>
 
       <Footer />

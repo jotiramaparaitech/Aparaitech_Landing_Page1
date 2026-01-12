@@ -256,11 +256,171 @@ const Header = () => {
 
         {/* MOBILE TOGGLE */}
         <button
-          className="md:hidden ml-auto"
-          onClick={() => setMenuOpen(!menuOpen)}
+          className={`md:hidden ml-auto p-2 transition-colors ${
+            isScrolled ? "text-[#2d1b69]" : "text-white"
+          }`}
+          onClick={() => setMenuOpen(true)}
         >
-          ☰
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
         </button>
+      </div>
+
+      {/* MOBILE MENU OVERLAY */}
+      <div
+        className={`fixed inset-0 z-[60] bg-black/20 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+          menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+        onClick={() => setMenuOpen(false)}
+      />
+
+      {/* MOBILE MENU SIDEBAR */}
+      <div
+        className={`fixed top-0 right-0 z-[70] h-full w-[85%] max-w-sm bg-white shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Header of Mobile Menu */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-100">
+            <span className="font-bold text-xl text-[#2d1b69]">Menu</span>
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="p-2 text-gray-500 hover:text-red-500 transition-colors"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto p-6 space-y-6">
+            {/* Main Links */}
+            <div className="flex flex-col space-y-4">
+              <Link
+                to="/generative-ai"
+                className="text-lg font-medium text-gray-800"
+                onClick={() => setMenuOpen(false)}
+              >
+                Generative AI
+              </Link>
+              <Link
+                to="/cloud"
+                className="text-lg font-medium text-gray-800"
+                onClick={() => setMenuOpen(false)}
+              >
+                Cloud
+              </Link>
+              <Link
+                to="/solutions"
+                className="text-lg font-medium text-gray-800"
+                onClick={() => setMenuOpen(false)}
+              >
+                Solutions
+              </Link>
+            </div>
+
+            <hr className="border-gray-100" />
+
+            {/* More Content */}
+            <div className="space-y-6">
+              {Object.entries(moreDropdownContent).map(([category, items]) => (
+                <div key={category}>
+                  <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
+                    {category}
+                  </h4>
+                  <ul className="space-y-3 pl-3 border-l-2 border-gray-100">
+                    {items.map((item, index) => (
+                      <li key={index}>
+                        {item.external ? (
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-sm text-gray-600 hover:text-[#7c3aed]"
+                          >
+                            {item.name}
+                          </a>
+                        ) : item.onClick ? (
+                          <button
+                            onClick={item.onClick}
+                            className="block text-sm text-gray-600 hover:text-[#7c3aed] text-left w-full"
+                          >
+                            {item.name}
+                          </button>
+                        ) : (
+                          <Link
+                            to={item.link}
+                            className="block text-sm text-gray-600 hover:text-[#7c3aed]"
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            {item.name}
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <hr className="border-gray-100" />
+
+            {/* Bottom Links */}
+            <div className="flex flex-col space-y-4 pb-8">
+              <a
+                href="https://lms-full-stack-mcq7.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-base font-medium text-gray-800"
+              >
+                Explore Programs
+              </a>
+              <Link
+                to="/careers"
+                className="text-base font-medium text-gray-800"
+                onClick={() => setMenuOpen(false)}
+              >
+                Careers
+              </Link>
+              <Link
+                to="/about"
+                className="text-base font-medium text-gray-800"
+                onClick={() => setMenuOpen(false)}
+              >
+                About
+              </Link>
+              <button
+                onClick={scrollToContact}
+                className="w-full py-3 bg-[#7c3aed] text-white rounded-xl font-semibold shadow-lg shadow-purple-200"
+              >
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );
