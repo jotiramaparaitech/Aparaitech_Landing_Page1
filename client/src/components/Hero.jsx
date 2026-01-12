@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
   const [clientsCount, setClientsCount] = useState(0);
   const [satisfactionCount, setSatisfactionCount] = useState(0);
   const [projectsCount, setProjectsCount] = useState(0);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const animateCounter = (setter, target, duration = 2000) => {
@@ -33,25 +31,6 @@ const HeroSection = () => {
     }
   };
 
-  // Handle service card clicks
-  const handleServiceClick = (serviceType) => {
-    switch(serviceType) {
-      case 'growth-analytics':
-        navigate('/growth-analytics');
-        break;
-      case 'cloud-solutions':
-        navigate('/cloud-solutions');
-        break;
-      case 'secure-platform':
-        navigate('/secure-platform');
-        break;
-      case 'salesforce-solutions':
-        navigate('/salesforce-solutions');
-        break;
-      default:
-        break;
-    }
-  };
 
   // Icons as SVG components
   const Icons = {
@@ -98,58 +77,32 @@ const HeroSection = () => {
     )
   };
 
-  // Service data with navigation paths
-  const services = [
-    { 
-      icon: <Icons.ChartLine />, 
-      title: 'Growth Analytics', 
-      description: 'Data-driven insights for business growth', 
-      color: 'from-blue-500 to-cyan-400',
-      path: 'growth-analytics'
-    },
-    { 
-      icon: <Icons.Cloud />, 
-      title: 'Cloud Solutions', 
-      description: 'Scalable infrastructure for your needs', 
-      color: 'from-purple-500 to-pink-400',
-      path: 'cloud-solutions'
-    },
-    { 
-      icon: <Icons.Shield />, 
-      title: 'Secure Platform', 
-      description: 'Enterprise-grade security protocols', 
-      color: 'from-green-500 to-emerald-400',
-      path: 'secure-platform'
-    },
-  ];
-
   return (
     <div
       id="home"
       className="
-        min-h-[auto]
-        md:min-h-[95vh]
-        pt-16 md:pt-20 lg:pt-24
-        pb-6 md:pb-8
-        bg-gradient-to-br
-        from-gray-900
-        via-gray-800
-        to-blue-900
-        text-white
-        overflow-hidden
-      "
+    min-h-screen
+    pt-[25px]          // ✅ ADD THIS
+    bg-gradient-to-br
+    from-gray-900
+    via-gray-800
+    to-blue-900
+    text-white
+    overflow-hidden
+  "
     >
+
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
         <div className="absolute top-1/3 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
-        <div className="absolute bottom-8 left-1/3 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-4000"></div>
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-4000"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6 mt-2 md:mt-8">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start">
-          {/* Left content - CHANGED ALL TO TEXT-LEFT */}
-          <div className="space-y-6 md:space-y-8 text-left"> {/* CHANGED: text-center lg:text-left to text-left */}
+      <div className="relative container mx-auto px-4 py-12 md:py-24 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left content */}
+          <div className="space-y-8">
             {/* Badge */}
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm">
               <Icons.TrendingUp />
@@ -157,7 +110,7 @@ const HeroSection = () => {
             </div>
 
             {/* Main heading */}
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Transform Your Business With{' '}
               <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 Innovative Solutions
@@ -165,42 +118,42 @@ const HeroSection = () => {
             </h1>
 
             {/* Description */}
-            <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl">
+            <p className="text-xl text-gray-300 max-w-2xl">
               We help companies and businesses of all sizes leverage cutting-edge technology to drive growth,
               increase efficiency, and stay ahead of the competition.
             </p>
 
             {/* Features list */}
-            <div className="grid sm:grid-cols-2 gap-3 md:gap-4 max-w-lg"> {/* REMOVED: mx-auto and text-left since text-left is default */}
+            <div className="grid sm:grid-cols-2 gap-4">
               {[
                 'Custom software solutions',
                 '24/7 dedicated support team',
                 'Proven track record of success',
                 'Scalable and secure infrastructure',
               ].map((feature, index) => (
-                <div key={index} className="flex items-center space-x-2 md:space-x-3">
-                  <div className="flex-shrink-0 w-4 h-4 md:w-5 md:h-5">
+                <div key={index} className="flex items-center space-x-3">
+                  <div className="flex-shrink-0 w-5 h-5">
                     <Icons.CheckCircle />
                   </div>
-                  <span className="text-gray-300 text-sm md:text-base">{feature}</span>
+                  <span className="text-gray-300">{feature}</span>
                 </div>
               ))}
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-3 md:pt-4"> {/* REMOVED: justify-center lg:justify-start */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
                 onClick={() => window.open('https://lms-full-stack-mcq7.vercel.app/', '_blank')}
-                className="group inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-blue-500/30"
+                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-blue-500/30"
               >
-                <div className="mr-2 md:mr-3 group-hover:rotate-12 transition-transform">
+                <div className="mr-3 group-hover:rotate-12 transition-transform">
                   <Icons.Rocket />
                 </div>
                 Explore Programs
               </button>
 
-              <button onClick={handleConnectClick} className="group inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-105">
-                <div className="mr-2 md:mr-3 group-hover:scale-110 transition-transform">
+              <button onClick={handleConnectClick} className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-105">
+                <div className="mr-3 group-hover:scale-110 transition-transform">
                   <Icons.PlayCircle />
                 </div>
                 Connect Us
@@ -209,48 +162,50 @@ const HeroSection = () => {
           </div>
 
           {/* Right content - Visual cards */}
-          <div className="relative mt-6 md:mt-8 lg:mt-0">
+          <div className="relative">
             {/* Main card container */}
-            <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 border border-white/20 shadow-xl md:shadow-2xl overflow-hidden">
+            <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl overflow-hidden">
               {/* Animated background elements inside card */}
-              <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-xl md:rounded-2xl rotate-12 animate-bounce"></div>
-              <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-20 h-20 md:w-32 md:h-32 bg-gradient-to-br from-purple-500/20 to-pink-400/20 rounded-xl md:rounded-2xl -rotate-12 animate-bounce animation-delay-1000"></div>
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-2xl rotate-12 animate-bounce"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-purple-500/20 to-pink-400/20 rounded-2xl -rotate-12 animate-bounce animation-delay-1000"></div>
 
-              <div className="relative space-y-4 md:space-y-6">
+              <div className="relative space-y-6">
                 {/* Service cards */}
-                {services.map((service, index) => (
+                {[
+                  { icon: <Icons.ChartLine />, title: 'Growth Analytics', description: 'Data-driven insights for business growth', color: 'from-blue-500 to-cyan-400' },
+                  { icon: <Icons.Cloud />, title: 'Cloud Solutions', description: 'Scalable infrastructure for your needs', color: 'from-purple-500 to-pink-400' },
+                  { icon: <Icons.Shield />, title: 'Secure Platform', description: 'Enterprise-grade security protocols', color: 'from-green-500 to-emerald-400' },
+                ].map((service, index) => (
                   <div
                     key={index}
-                    onClick={() => handleServiceClick(service.path)}
-                    className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105 cursor-pointer"
+                    className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105 cursor-pointer"
                   >
-                    <div className="flex items-center space-x-3 md:space-x-4">
-                      <div className={`p-3 md:p-4 rounded-lg md:rounded-xl bg-gradient-to-br ${service.color}`}>
+                    <div className="flex items-center space-x-4">
+                      <div className={`p-4 rounded-xl bg-gradient-to-br ${service.color}`}>
                         {service.icon}
                       </div>
                       <div>
-                        <h3 className="text-lg md:text-xl font-semibold">{service.title}</h3>
-                        <p className="text-gray-400 text-xs md:text-sm">{service.description}</p>
+                        <h3 className="text-xl font-semibold">{service.title}</h3>
+                        <p className="text-gray-400 text-sm">{service.description}</p>
                       </div>
                     </div>
                   </div>
                 ))}
 
-                {/* Testimonial card - Show on all screens but smaller on mobile */}
-                <div 
-                  onClick={() => handleServiceClick('salesforce-solutions')}
-                  className="bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-xl md:rounded-2xl p-4 md:p-6 border border-blue-500/30 cursor-pointer hover:border-blue-500/50 transition-all duration-300"
-                >
-                  <div className="flex items-center space-x-3 md:space-x-4 mb-3 md:mb-4">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full flex items-center justify-center font-bold text-sm md:text-base">
+                {/* Testimonial card */}
+                {/* Testimonial card (hidden on mobile) */}
+                <div className="hidden md:block bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl p-6 border border-blue-500/30">
+
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full flex items-center justify-center font-bold">
                       SS
                     </div>
                     <div>
-                      <div className="font-semibold text-base md:text-lg">Salesforce Solutions</div>
-                      <div className="text-xs md:text-sm text-gray-300">Implementation • Customization • Integration</div>
+                      <div className="font-semibold">Salesforce Solutions</div>
+                      <div className="text-sm text-gray-300">Implementation • Customization • Integration</div>
                     </div>
                   </div>
-                  <p className="text-gray-300 italic text-xs md:text-sm">
+                  <p className="text-gray-300 italic">
                     Helping businesses unlock the full potential of Salesforce for smarter processes and stronger customer relationships.
                   </p>
                 </div>
@@ -258,13 +213,13 @@ const HeroSection = () => {
             </div>
 
             {/* Decorative floating elements */}
-            <div className="absolute -top-4 -right-4 w-16 h-16 md:w-20 md:h-20 border-2 border-blue-400/30 rounded-full animate-ping"></div>
-            <div className="absolute -bottom-4 -left-4 w-12 h-12 md:w-16 md:h-16 border-2 border-purple-400/30 rounded-full animate-ping animation-delay-500"></div>
+            <div className="absolute -top-4 -right-4 w-20 h-20 border-2 border-blue-400/30 rounded-full animate-ping"></div>
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 border-2 border-purple-400/30 rounded-full animate-ping animation-delay-500"></div>
           </div>
         </div>
 
-        {/* Scroll indicator - Only show on larger screens */}
-        <div className="absolute bottom-2 md:bottom-6 left-1/2 transform -translate-x-1/2 hidden lg:block">
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block">
           <div className="animate-bounce">
             <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
               <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
