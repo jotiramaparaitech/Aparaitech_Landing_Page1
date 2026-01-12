@@ -2,29 +2,31 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 // Home sections
-import Hero from "./components/Hero";
-import Services from "./components/Services";
-import WhyChooseUs from "./components/WhyChooseUs";
-import Partners from "./components/Partners";
-import ContactSection from "./components/ContactSection";
+import Hero from "./components/Hero.jsx";
+import Services from "./components/Services.jsx";
+import WhyChooseUs from "./components/WhyChooseUs.jsx";
+import Partners from "./components/Partners.jsx";
+import ContactSection from "./components/ContactSection.jsx";
 
 // Pages
-import About from "./components/About";
-import Careers from "./components/Careers";
-import Cloud from "./components/Cloud";                   // filename: Cloud.jsx
-import Solutions from "./components/Solutions";           // filename: Solutions.jsx
-import GenerativeAI from "./components/Generative_AI";   // filename: Generative_AI.jsx
-import JobDetail from "./components/pages/JobDetail";    // filename: JobDetail.jsx
+import About from "./components/About.jsx";
+import Careers from "./components/Careers.jsx";
+import Cloud from "./components/Cloud.jsx";
+import Solutions from "./components/Solutions.jsx";
 
-// Service Detail Pages
-import CloudSolutions from "./components/pages/CloudSolutions"; // CloudSolutions.jsx
-import WebDevelopment from "./components/pages/WebDevelopment"; // WebDevelopment.jsx
-import ITConsulting from "./components/pages/ITConsulting";     // ITConsulting.jsx
+// ⚠️ FIXED: use the file that actually exists
+import GenerativeAI from "./components/pages/Generative_AI.jsx";
+import JobDetail from "./components/pages/JobDetail.jsx";
+
+// Service Detail Pages (explicit .jsx)
+import CloudSolutions from "./components/pages/CloudSolutions.jsx";
+import WebDevelopment from "./components/pages/WebDevelopment.jsx";
+import ITConsulting from "./components/pages/ITConsulting.jsx";
 
 // Home page (NO Header/Footer here)
 const HomePage = () => {
@@ -42,10 +44,7 @@ const HomePage = () => {
 function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
-      {/* Auto scroll to top on route change */}
       <ScrollToTop />
-
-      {/* Header only once */}
       <Header />
 
       <Routes>
@@ -56,16 +55,13 @@ function App() {
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
 
-        {/* Job Page */}
         <Route path="/job-detail" element={<JobDetail />} />
 
-        {/* Services Detail Pages */}
         <Route path="/cloud-computing" element={<CloudSolutions />} />
         <Route path="/web-development" element={<WebDevelopment />} />
         <Route path="/it-consulting" element={<ITConsulting />} />
       </Routes>
 
-      {/* Footer only once */}
       <Footer />
     </div>
   );
