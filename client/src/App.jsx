@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop"; // ✅ NEW
 
 // Home sections
 import Hero from "./components/Hero";
@@ -16,15 +16,10 @@ import ContactSection from "./components/ContactSection";
 // Pages
 import About from "./components/About";
 import Careers from "./components/Careers";
-import Cloud from "./components/Cloud";
+import Cloud from "./components/cloud";
 import Solutions from "./components/Solutions";
 import GenerativeAI from "./components/Generative_AI";
 import JobDetail from "./components/pages/JobDetail";
-
-// Service Detail Pages
-import CloudSolutions from "./components/pages/CloudSolutions";
-import WebDevelopment from "./components/pages/WebDevelopment";
-import ITConsulting from "./components/pages/ITConsulting";
 
 // Home page (NO Header/Footer here)
 const HomePage = () => {
@@ -42,7 +37,7 @@ const HomePage = () => {
 function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
-      {/* Auto scroll to top on route change */}
+      {/* ✅ Auto scroll to top on route change */}
       <ScrollToTop />
 
       {/* Header only once */}
@@ -55,14 +50,7 @@ function App() {
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
-
-        {/* Job Page */}
         <Route path="/job-detail" element={<JobDetail />} />
-
-        {/* Services Detail Pages */}
-        <Route path="/cloud-computing" element={<CloudSolutions />} />
-        <Route path="/web-development" element={<WebDevelopment />} />
-        <Route path="/it-consulting" element={<ITConsulting />} />
       </Routes>
 
       {/* Footer only once */}
