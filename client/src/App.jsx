@@ -48,9 +48,10 @@ function App() {
       <Header />
 
       <Routes>
+        {/* Home */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/careers" element={<Careers />} />
+
+        {/* Core Pages */}
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />

@@ -61,7 +61,7 @@ const SalesforceSolutionsPage = () => {
     return (
         <div className="min-h-screen bg-white text-gray-900">
             {/* Hero Section */}
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16 md:py-24">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 py-5 md:py-24">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
                         Unlock the Full Potential of Salesforce for Your Business
@@ -353,31 +353,10 @@ const SalesforceSolutionsPage = () => {
                                 <p>Test-drive a customized solution</p>
                             </div>
                         </div>
-                        <button className="px-12 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300">
-                            Book Free Consultation
-                        </button>
                     </div>
                 </section>
             </div>
 
-            {/* Footer */}
-            <footer className="bg-gray-900 text-white py-12">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center">
-                        <p className="text-lg mb-8">Salesforce Solutions — Implementation • Customization • Integration</p>
-                        <div className="flex flex-wrap justify-center gap-8 text-gray-400 text-sm">
-                            <a href="#" className="hover:text-white">Case Studies</a>
-                            <a href="#" className="hover:text-white">Pricing</a>
-                            <a href="#" className="hover:text-white">Documentation</a>
-                            <a href="#" className="hover:text-white">Blog</a>
-                            <a href="#" className="hover:text-white">Support</a>
-                        </div>
-                        <div className="mt-8 pt-8 border-t border-gray-800 text-gray-500">
-                            <p>© 2024 Salesforce Solutions. All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 };
