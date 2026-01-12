@@ -16,15 +16,15 @@ import ContactSection from "./components/ContactSection";
 // Pages
 import About from "./components/About";
 import Careers from "./components/Careers";
-import Cloud from "./components/Cloud";
-import Solutions from "./components/Solutions";
-import GenerativeAI from "./components/Generative_AI";
-import JobDetail from "./components/pages/JobDetail";
+import Cloud from "./components/Cloud";                   // filename: Cloud.jsx
+import Solutions from "./components/Solutions";           // filename: Solutions.jsx
+import GenerativeAI from "./components/Generative_AI";   // filename: Generative_AI.jsx
+import JobDetail from "./components/pages/JobDetail";    // filename: JobDetail.jsx
 
 // Service Detail Pages
-import CloudSolutions from "./components/pages/CloudSolutions";
-import WebDevelopment from "./components/pages/WebDevelopment";
-import ITConsulting from "./components/pages/ITConsulting";
+import CloudSolutions from "./components/pages/CloudSolutions"; // CloudSolutions.jsx
+import WebDevelopment from "./components/pages/WebDevelopment"; // WebDevelopment.jsx
+import ITConsulting from "./components/pages/ITConsulting";     // ITConsulting.jsx
 
 // Home page (NO Header/Footer here)
 const HomePage = () => {
