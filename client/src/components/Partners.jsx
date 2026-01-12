@@ -63,7 +63,7 @@ const Partners = () => {
   const scrollRef = useRef(null);
   const animationFrameRef = useRef(null);
   const scrollPositionRef = useRef(0);
-  
+
   // Responsive scroll speed based on screen size
   const getScrollSpeed = () => {
     if (typeof window !== 'undefined') {
@@ -79,10 +79,10 @@ const Partners = () => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkIfMobile();
     window.addEventListener('resize', checkIfMobile);
-    
+
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
@@ -101,7 +101,7 @@ const Partners = () => {
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       observer.disconnect();
       if (animationFrameRef.current) {
@@ -115,19 +115,19 @@ const Partners = () => {
       if (scrollRef.current && !isHovered) {
         const currentScrollSpeed = getScrollSpeed();
         scrollPositionRef.current -= currentScrollSpeed;
-        
+
         // Reset position when scrolled halfway
         if (Math.abs(scrollPositionRef.current) >= scrollRef.current.scrollWidth / 2) {
           scrollPositionRef.current = 0;
         }
-        
+
         scrollRef.current.style.transform = `translateX(${scrollPositionRef.current}px)`;
       }
       animationFrameRef.current = requestAnimationFrame(scrollLogos);
     };
 
     animationFrameRef.current = requestAnimationFrame(scrollLogos);
-    
+
     return () => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
@@ -176,7 +176,7 @@ const Partners = () => {
   return (
     <>
       <style>{style}</style>
-      <section 
+      <section
         id="partners" // ✅ ADD THIS ID for scrolling
         ref={sectionRef}
         className="relative py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gradient-to-b from-[#f5f1ff] to-[#ede7ff] overflow-hidden"
@@ -196,7 +196,7 @@ const Partners = () => {
             }}
           />
         ))}
-        
+
         {/* Animated scan line effect - thinner on mobile */}
         <div className="absolute top-0 left-0 right-0 h-px sm:h-0.5 bg-gradient-to-r from-transparent via-purple-400/20 to-transparent opacity-30 animate-scan"></div>
 
@@ -223,8 +223,16 @@ const Partners = () => {
           </div>
 
           {/* Infinite Scrolling Logos Section - Responsive */}
-          <div className="relative overflow-hidden py-4 sm:py-6 md:py-8">
-            <div 
+          <div className="
+  relative
+  overflow-hidden
+  py-10 sm:py-14 md:py-18 lg:py-22
+  min-h-[180px] sm:min-h-[220px] md:min-h-[260px] lg:min-h-[300px]
+  -mx-3 sm:-mx-4 md:-mx-6 lg:-mx-16 xl:-mx-24 2xl:-mx-32
+">
+
+
+            <div
               ref={scrollRef}
               className="flex min-w-max transition-transform duration-75 ease-linear"
               style={{ willChange: 'transform' }}
@@ -290,13 +298,13 @@ const Partners = () => {
                   {/* Logo Container */}
                   <div className="relative w-full h-full flex items-center justify-center p-1 sm:p-2">
                     {/* Hover glow effect - reduced on mobile */}
-                    <div 
+                    <div
                       className="absolute inset-0 blur-xl opacity-0 group-hover:opacity-20 sm:group-hover:opacity-40 transition-opacity duration-500"
                       style={{
                         background: `radial-gradient(circle at center, ${partner.color}20, transparent 70%)`
                       }}
                     ></div>
-                    
+
                     {/* Logo - Responsive */}
                     <img
                       src={partner.logo}
@@ -335,10 +343,10 @@ const Partners = () => {
                 </div>
               ))}
             </div>
-            
+
             {/* Responsive gradient fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-12 md:w-16 lg:w-20 bg-gradient-to-r from-[#f5f1ff]/70 via-transparent to-transparent pointer-events-none"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-12 md:w-16 lg:w-20 bg-gradient-to-l from-[#f5f1ff]/70 via-transparent to-transparent pointer-events-none"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-2 sm:w-3 md:w-4 bg-gradient-to-r from-[#f5f1ff]/70 via-transparent to-transparent pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-2 sm:w-3 md:w-4 bg-gradient-to-l from-[#f5f1ff]/70 via-transparent to-transparent pointer-events-none"></div>
           </div>
 
           {/* Tech stats with animated counters - Responsive */}
@@ -350,7 +358,7 @@ const Partners = () => {
                 { value: "50+", label: "Enterprise Partners", delay: "0.2s", suffix: "+" },
                 { value: "<50ms", label: "Avg Response Time", delay: "0.3s", suffix: "ms" }
               ].map((stat, index) => (
-                <div 
+                <div
                   key={index}
                   className="text-center group opacity-0 animate-fadeInUp"
                   style={{ animationDelay: stat.delay }}
@@ -369,7 +377,7 @@ const Partners = () => {
           </div>
 
           {/* Animated CTA with code-like elements - Responsive */}
-          <div className="mt-12 sm:mt-14 md:mt-16 lg:mt-20 text-center animate-fadeInUp" style={{animationDelay: '0.4s'}}>
+          <div className="mt-12 sm:mt-14 md:mt-16 lg:mt-20 text-center animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
             <div className="
               relative 
               inline-flex 
@@ -413,7 +421,7 @@ const Partners = () => {
               <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-3 h-3 sm:w-4 sm:h-4 border-t-2 border-r-2 border-pink-400/50 rounded-tr-lg"></div>
               <div className="absolute -bottom-1 -left-1 sm:-bottom-2 sm:-left-2 w-3 h-3 sm:w-4 sm:h-4 border-b-2 border-l-2 border-purple-400/50 rounded-bl-lg"></div>
               <div className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 w-3 h-3 sm:w-4 sm:h-4 border-b-2 border-r-2 border-pink-400/50 rounded-br-lg"></div>
-              
+
               <div className="text-left">
                 <div className="flex items-center gap-2 mb-0.5 sm:mb-1">
                   <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse"></div>

@@ -1,27 +1,62 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from '../assets/Aparaitech_company_logo.jpeg';
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-  FaTwitter,
   FaYoutube,
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
+
+import { FaXTwitter } from "react-icons/fa6";
+
 
 const Footer = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("idle");
 
   const handleScroll = (targetId) => {
     const target = document.getElementById(targetId);
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+
+    if (!email) {
+      setStatus("error");
+      setMessage("Please enter a valid email.");
+      return;
+    }
+    
+    try {
+      setLoading(true);
+      setStatus("loading");
+      setMessage("Processing...");
+
+      await axios.post("http://localhost:5000/api/subscribe", { email });
+
+      setStatus("success");
+      setMessage("Thanks for subscribing!");
+      setEmail("");
+    } catch (error) {
+      setStatus("error");
+      if (error.response?.status === 409) {
+        setMessage("You are already subscribed.");
+      } else {
+        setMessage("Something went wrong. Please try again.");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -41,39 +76,28 @@ const Footer = () => {
     }
   };
 
-  const handleSubscribe = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
 
-    if (!email) {
-      setMessage("Please enter a valid email.");
-      return;
-    }
-
-    setMessage("Processing...");
-
-    const templateParams = {
-      to_email: email,
-      from_name: "Aparaitech",
-      message: "Thank you for subscribing to our newsletter!",
-    };
-
-    emailjs
-      .send(
-        "service_wdj15jn",
-        "template_xtmll8h",
-        templateParams,
-        "gpm7Cf-quPRpX09xI"
-      )
-      .then(
-        (response) => {
-          setMessage("✓ Subscription successful! Check your inbox.");
-          setEmail("");
-        },
-        (error) => {
-          setMessage("Failed to subscribe. Please try again.");
-        }
+    try {
+      await axios.post(
+        "http://localhost:5000/api/contacts",
+        formData,
+        { headers: { "Content-Type": "application/json" } }
       );
+
+      setSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      alert(error.response?.data?.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
   };
+
 
   return (
     <footer
@@ -239,49 +263,81 @@ const Footer = () => {
                             hover:scale-[1.02] active:scale-[0.98]
                             disabled:opacity-50 disabled:cursor-not-allowed
                             whitespace-nowrap group"
-                  disabled={message.includes("Processing")}
+                  disabled={loading}
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
-                    {message.includes("Processing") ? (
+                    {loading ? (
                       <>
-                        <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        <svg
+                          className="animate-spin h-4 w-4 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          />
                         </svg>
                         Processing...
                       </>
                     ) : (
                       <>
                         Subscribe
-                        <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        <svg
+                          className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          />
                         </svg>
                       </>
                     )}
                   </span>
+
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-600/0 via-white/10 to-purple-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
               </div>
 
               {message && (
-                <div className={`px-4 py-3 rounded-xl border backdrop-blur-sm transition-all duration-300 ${message.includes("✓")
-                  ? "bg-green-900/20 text-green-300 border-green-800/30"
-                  : "bg-red-900/20 text-red-300 border-red-800/30"
-                  }`}>
+                <div
+                  className={`py-3 rounded-xl border backdrop-blur-sm transition-all duration-300 ${status === "success"
+                      ? "bg-green-900/20 text-green-300 border-green-800/30"
+                      : status === "error"
+                        ? "bg-red-900/20 text-red-300 border-red-800/30"
+                        : "bg-gray-900/20 text-gray-300 border-gray-700/30"
+                    }`}
+                >
                   <div className="flex items-center gap-2 text-sm">
-                    {message.includes("✓") ? (
+                    {status === "success" && (
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    ) : (
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                     )}
                     {message}
                   </div>
                 </div>
               )}
+
             </div>
           </form>
 
@@ -321,12 +377,13 @@ const Footer = () => {
                   glow: "group-hover:shadow-blue-500/30"
                 },
                 {
-                  Icon: FaTwitter,
+                  Icon: FaXTwitter,
                   link: "https://twitter.com/yourprofile",
-                  color: "group-hover:text-sky-400",
-                  bg: "group-hover:bg-sky-500/20",
-                  glow: "group-hover:shadow-sky-500/30"
+                  color: "group-hover:text-white",
+                  bg: "group-hover:bg-white/10",
+                  glow: "group-hover:shadow-white/30"
                 },
+
               ].map(({ Icon, link, color, bg, glow }, idx) => (
                 <a
                   key={idx}
