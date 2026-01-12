@@ -32,11 +32,11 @@ import Education from "./components/pages/industries/Education";
 import Manufacturing from "./components/pages/industries/Manufacturing";
 import Startups from "./components/pages/industries/Startups";
 
-/* ================= CUSTOMER PAGES ================= */
-import SuccessStories from "./components/pages/customers/SuccessStories";
-import CaseStudies from "./components/pages/customers/CaseStudies";
-import Testimonials from "./components/pages/customers/Testimonials";
-import Portfolio from "./components/pages/customers/Portfolio";
+/* ================= CUSTOMER PAGES (✅ FIXED CASE) ================= */
+import SuccessStories from "./components/pages/Customers/SuccessStories";
+import CaseStudies from "./components/pages/Customers/CaseStudies";
+import Testimonials from "./components/pages/Customers/Testimonials";
+import Portfolio from "./components/pages/Customers/Portfolio";
 
 /* ================= LEARNING PAGES ================= */
 import Documentation from "./components/pages/Learning/Documentation";
@@ -58,7 +58,7 @@ import News from "./components/pages/Company/News";
 import PartnersPage from "./components/pages/Company/Partners";
 import InvestorRelations from "./components/pages/Company/InvestorRelations";
 
-/* ================= JOB DETAIL (✅ NEW – REQUIRED) ================= */
+/* ================= JOB DETAIL ================= */
 import JobDetail from "./components/pages/JobDetail";
 
 /* ================= HOME PAGE ================= */
@@ -129,7 +129,7 @@ function App() {
         <Route path="/company/partners" element={<PartnersPage />} />
         <Route path="/company/investors" element={<InvestorRelations />} />
 
-        {/* ✅ Job Detail (FIXED) */}
+        {/* Job Detail */}
         <Route path="/job-detail" element={<JobDetail />} />
         <Route path="/growth-analytics" element={<GrowthAnalytics />} />
         <Route path="/cloud-solutions" element={<CloudSolutions />} />
