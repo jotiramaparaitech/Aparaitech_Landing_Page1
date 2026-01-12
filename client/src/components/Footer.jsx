@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import logo from '../assets/Aparaitech_company_logo.jpeg';
+import logo from "../assets/Aparaitech_company_logo.jpeg";
 import {
   FaFacebookF,
   FaInstagram,
@@ -62,16 +62,28 @@ const Footer = () => {
 
   const handleLinkClick = (link, e) => {
     e.preventDefault();
-    if (link.id === "hero") {
+
+    // HOME
+    if (link.id === "home") {
       if (window.location.pathname === "/") {
-        handleScroll("hero");
+        document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
       } else {
         navigate("/");
-        setTimeout(() => handleScroll("hero"), 300);
+        setTimeout(() => {
+          document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
+        }, 300);
       }
-    } else if (link.id === "contact-section") {
-      handleScroll("contact-section");
-    } else if (link.route) {
+      return;
+    }
+
+    // SCROLL SECTIONS (like contact)
+    if (link.id) {
+      document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+
+    // ROUTES
+    if (link.route) {
       navigate(link.route);
     }
   };
@@ -102,133 +114,67 @@ const Footer = () => {
   return (
     <footer
       id="contact-section"
-      className="w-full bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white pt-0 pb-3"
+      className="w-full bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white pb-4"
     >
-      {/* Enhanced Top Gradient Border */}
-      <div className="h-[2px] bg-gradient-to-r animate-gradient-x shadow-lg shadow-blue-500/20"></div>
+      {/* Top Divider */}
+      <div className="h-[2px] bg-gradient-to-r from-blue-500 to-purple-600" />
 
-      {/* Subtle Glow Effect */}
-      <div className="absolute inset-0 bg-gradient-to-t from-blue-500/5 via-transparent to-purple-500/5 pointer-events-none"></div>
+      <div className="w-full flex flex-col md:flex-row gap-10 px-6 py-10">
 
-      {/* Main Content - True Full Width */}
-      <div className="relative z-10 w-full flex flex-col md:flex-row justify-between gap-8 md:gap-4 px-0 py-1 mt-5">
-        {/* Brand & Contact Section - Enhanced - Fixed responsive spacing */}
-        <div className="flex flex-col items-center md:items-start w-full md:w-2/5 px-4 sm:px-6 md:px-8">
-          {/* Premium Logo Container - Reduced bottom margin on mobile */}
-          <div className="relative mb-4 md:mb-6 group">
-            <div className="overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-blue-900/30 via-gray-900/50 to-purple-900/30 border border-white/15 p-3 backdrop-blur-sm">
-              <div className="relative">
-                <img
-                  src={logo}
-                  alt="Aparaitech Logo"
-                  className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 rounded-xl transition-all duration-500 group-hover:scale-[1.04] group-hover:brightness-110 group-hover:shadow-2xl object-cover"
-                />
-                {/* Subtle Glow Effect */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
-            </div>
-          </div>
+        {/* LEFT: BRAND */}
+        <div className="md:w-2/5 space-y-4">
+          <img src={logo} alt="Aparaitech" className="w-24 rounded-xl" />
 
-          {/* Enhanced Company Description - Updated with contact info - Reduced spacing on mobile */}
-          <div className="text-sm md:text-base text-gray-300 text-center md:text-left leading-relaxed mb-4 md:mb-6 font-light tracking-wide space-y-2 md:space-y-3">
-            {/* Contact Details - Adjusted spacing and alignment for mobile */}
-            <div className="space-y-1 md:space-y-2 pt-0 md:pt-2">
-              <div className="flex items-center justify-center md:justify-start gap-2">
-                <FaPhone className="text-blue-400 flex-shrink-0" />
-                <span className="text-sm sm:text-base">
-                  <strong>Mobile:</strong> +91 63643 26342
-                </span>
-              </div>
+          <div className="space-y-2 text-sm text-gray-300">
+            <p className="flex items-center gap-2">
+              <FaPhone className="text-blue-400" /> +91 63643 26342
+            </p>
+            <p className="flex items-center gap-2">
+              <FaEnvelope className="text-blue-400" /> info@aparaitech.org
+            </p>
 
-              <div className="flex items-center justify-center md:justify-start gap-2">
-                <FaEnvelope className="text-blue-400 flex-shrink-0" />
-                <span className="text-sm sm:text-base">
-                  <strong>Email:</strong> info@aparaitech.org
-                </span>
-              </div>
+            <p className="flex items-start gap-2">
+              <FaMapMarkerAlt className="text-blue-400 mt-1" />
+              360, Neeladri Rd, Electronic City Phase I, Bengaluru – 560100
+            </p>
 
-              <div className="space-y-4 text-xs sm:text-sm md:text-base text-center md:text-left">
-                {/* Branch Address */}
-                <div>
-                  <div className="flex justify-center md:justify-start items-center gap-2">
-                    <FaMapMarkerAlt className="text-blue-400 flex-shrink-0" />
-                    <span className="font-medium">Branch Address:</span>
-                  </div>
-                  <div className="mt-1 md:ml-6">
-                    360, Neeladri Rd, Karuna Nagar, Electronic City Phase I,<br />
-                    Electronic City, Bengaluru, Karnataka 560100
-                  </div>
-                </div>
-
-                {/* New Branch */}
-                <div>
-                  <div className="flex justify-center md:justify-start items-center gap-2">
-                    <FaMapMarkerAlt className="text-blue-400 flex-shrink-0" />
-                    <span className="font-medium">New Branch:</span>
-                  </div>
-                  <div className="mt-1 md:ml-6">
-                    Mukti Complex, Near Prashaskiya Bhawan, Baramati
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
+            <p className="flex items-start gap-2">
+              <FaMapMarkerAlt className="text-blue-400 mt-1" />
+              Mukti Complex, Near Prashaskiya Bhawan, Baramati
+            </p>
           </div>
         </div>
 
-        {/* Enhanced Company Links - Fixed hover area and layout stability */}
-        <div className="flex flex-col items-center md:items-start w-full md:w-1/4 px-4 sm:px-6 md:px-8">
-          <h2 className="font-semibold text-lg mb-6 relative inline-block">
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              Company
-            </span>
-            <span className="absolute -bottom-2 left-0 w-10 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></span>
-          </h2>
-
-          <ul className="space-y-3 w-full">
+        {/* CENTER: COMPANY LINKS */}
+        <div className="md:w-1/4">
+          <h3 className="text-lg font-semibold mb-4 text-blue-400">Company</h3>
+          <ul className="space-y-3 text-sm">
             {[
-              { name: "Home", id: "hero" },
-              { name: "Services", route: "/about" },
-              { name: "AI", route: "/course-list" },
-              { name: "About", id: "contact-section" },
-              { name: "Contact" },
+              { name: "Home", id: "home" },
+              { name: "Generative AI", route: "/generative-ai" },
+              { name: "Cloud", route: "/cloud" },
+              { name: "Solutions", route: "/solutions" },
+              { name: "About", route: "/about" },
+              { name: "Contact", id: "contact-section" },
             ].map((link, i) => (
-              <li key={i} className="min-h-[1rem] justify-center md:justify-between flex items-center">
+              <li key={i}>
                 <button
                   onClick={(e) => handleLinkClick(link, e)}
-                  className="inline-flex items-center text-gray-400 hover:text-white text-sm 
-                            transition-colors duration-200 relative group/link
-                            h-full"
-                  style={{
-                    transform: "translateZ(0)",
-                    willChange: "color",
-                    backfaceVisibility: "hidden"
-                  }}
+                  className="text-gray-400 hover:text-white transition"
                 >
-                  <span className="relative py-1">
-                    {link.name}
-                    <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 
-                                    group-hover/link:w-full transition-all duration-300"></span>
-                  </span>
+                  {link.name}
                 </button>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Enhanced Newsletter Section with Social Icons */}
-        <div className="flex flex-col items-center md:items-start w-full md:w-1/3 px-4 sm:px-6 md:px-8">
-          <h2 className="font-semibold text-lg mb-6 relative inline-block">
-            <span className="bg-gradient-to-r  from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              Stay Updated
-            </span>
-            <span className="absolute -bottom-2 left-0 w-10 h-0.5 bg-gradient-to-r  from-blue-400 to-blue-600 rounded-full"></span>
-          </h2>
+        {/* RIGHT: NEWSLETTER + SOCIAL */}
+        <div className="md:w-1/3 space-y-5">
+          <h3 className="text-lg font-semibold text-blue-400">Stay Updated</h3>
 
-          <p className="text-gray-300 text-sm leading-relaxed text-center md:text-left mb-6">
-            Subscribe to our newsletter and receive the latest insights,
-            tutorials, and exclusive updates directly to your inbox.
+          <p className="text-sm text-gray-300">
+            Subscribe for insights, tutorials & updates.
           </p>
 
           <form onSubmit={handleSubscribe} className="w-full">
@@ -407,30 +353,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Animation Keyframes */}
-      <style>{`
-        @keyframes gradient-x {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        
-        @keyframes gentlePulse {
-          0%, 100% {
-            transform: scale(1) translateZ(0);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-          }
-          50% {
-            transform: scale(1.05) translateZ(0);
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
-          }
-        }
-        
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 5s ease infinite;
-        }
-      `}</style>
     </footer>
   );
 };
