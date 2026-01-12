@@ -181,23 +181,24 @@ const HeroSection = () => {
                     title: 'Growth Analytics',
                     description: 'Data-driven insights for business growth',
                     color: 'from-blue-500 to-cyan-400',
-                    path: '/solutions',
+                    path: '/growth-analytics',
                   },
                   {
                     icon: <Icons.Cloud />,
                     title: 'Cloud Solutions',
                     description: 'Scalable infrastructure for your needs',
                     color: 'from-purple-500 to-pink-400',
-                    path: '/cloud',
+                    path: '/cloud-solutions',
                   },
                   {
                     icon: <Icons.Shield />,
                     title: 'Secure Platform',
                     description: 'Enterprise-grade security protocols',
                     color: 'from-green-500 to-emerald-400',
-                    path: '/generative-ai',
+                    path: '/secure-platform',
                   },
                 ]
+
                   .map((service, index) => (
                     <div
                       key={index}
@@ -219,12 +220,11 @@ const HeroSection = () => {
 
                 {/* Testimonial card */}
                 {/* Testimonial card (hidden on mobile) */}
+                {/* Testimonial card */}
                 <div
-                  onClick={() => navigate("/solutions")}
-                  className="hidden md:block cursor-pointer bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl p-6 border border-blue-500/30"
+                  onClick={() => navigate('/salesforce-solutions')}
+                  className="hidden md:block cursor-pointer bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl p-6 border border-blue-500/30 hover:border-blue-500/50 transition-all duration-300"
                 >
-
-
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full flex items-center justify-center font-bold">
                       SS
