@@ -60,10 +60,8 @@ const SalesforceSolutionsPage = () => {
 
     return (
         <div className="min-h-screen bg-white text-gray-900">
-            {/* Page Navigation */}
-
             {/* Hero Section */}
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16 md:py-24">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 py-5 md:py-24">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
                         Unlock the Full Potential of Salesforce for Your Business
@@ -71,14 +69,6 @@ const SalesforceSolutionsPage = () => {
                     <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
                         Helping businesses implement, customize, and integrate Salesforce for smarter processes, stronger customer relationships, and accelerated growth.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-bold rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
-                            Start Free Trial
-                        </button>
-                        <button className="px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 font-bold rounded-lg hover:bg-blue-50 transition">
-                            View Case Studies
-                        </button>
-                    </div>
                 </div>
             </div>
 
@@ -363,9 +353,6 @@ const SalesforceSolutionsPage = () => {
                                 <p>Test-drive a customized solution</p>
                             </div>
                         </div>
-                        <button className="px-12 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300">
-                            Book Free Consultation
-                        </button>
                     </div>
                 </section>
             </div>
