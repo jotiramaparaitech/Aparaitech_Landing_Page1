@@ -69,14 +69,6 @@ const SalesforceSolutionsPage = () => {
                     <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
                         Helping businesses implement, customize, and integrate Salesforce for smarter processes, stronger customer relationships, and accelerated growth.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-bold rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
-                            Start Free Trial
-                        </button>
-                        <button className="px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 font-bold rounded-lg hover:bg-blue-50 transition">
-                            View Case Studies
-                        </button>
-                    </div>
                 </div>
             </div>
 

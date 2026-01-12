@@ -5,7 +5,7 @@ const CloudSolutions = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <div className="min-h-screen bg-white mt-10 text-gray-900">
+    <div className="min-h-screen bg-white pt-20 md:pt-24 text-gray-900 overflow-x-hidden"> {/* CHANGED: mt-10 to pt-20 md:pt-24 */}
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,23 +17,21 @@ const CloudSolutions = () => {
               Harness the power of cloud technology to transform your business operations, 
               enhance scalability, and drive innovation with our comprehensive cloud computing solutions.
             </p>
-            <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-              Start Your Free Trial
-            </button>
           </div>
         </div>
       </div>
 
+      {/* Rest of the code remains exactly the same as the fixed version above */}
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
         {/* Tabs Navigation */}
-        <div className="border-b border-gray-200 mb-8">
-          <nav className="flex space-x-8">
+        <div className="border-b border-gray-200 mb-8 overflow-x-auto">
+          <nav className="flex space-x-8 min-w-max pb-2 hide-scrollbar">
             {['overview', 'types', 'services', 'benefits', 'applications'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`py-4 px-1 text-lg font-medium border-b-2 transition-colors ${
+                className={`py-4 px-1 text-lg font-medium border-b-2 transition-colors whitespace-nowrap flex-shrink-0 ${
                   activeTab === tab
                     ? 'border-blue-600 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -172,7 +170,7 @@ const CloudSolutions = () => {
                           <h4 className="font-bold text-lg mb-4">Common Use Cases:</h4>
                           <div className="flex flex-wrap gap-3">
                             {service.useCases.map((useCase, uIdx) => (
-                              <span key={uIdx} className="px-4 py-2 bg-white border border-gray-200 rounded-lg">
+                              <span key={uIdx} className="px-4 py-2 bg-white border border-gray-200 rounded-lg whitespace-nowrap">
                                 {useCase}
                               </span>
                             ))}
@@ -254,16 +252,19 @@ const CloudSolutions = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Start your cloud journey with a free consultation and discover how our solutions can drive your business growth.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition">
-              Schedule a Demo
-            </button>
-            <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition">
-              Start Free Trial
-            </button>
-          </div>
         </div>
       </div>
+
+      {/* Add custom CSS for hiding scrollbar */}
+      <style jsx>{`
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 };

@@ -65,9 +65,9 @@ const GrowthAnalytics = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-16 md:pt-0"> {/* ADDED: pt-16 for mobile top padding */}
+    <div className="min-h-screen bg-white text-gray-900 pt-16 md:pt-0 overflow-x-hidden"> {/* FIXED: Added overflow-x-hidden to prevent horizontal scroll */}
       {/* Hero Section - FIXED: Added more top padding for mobile */}
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50 pt-24 pb-16 md:pt-32 md:pb-24"> {/* CHANGED: Increased top padding */}
+      <div className="bg-gradient-to-br from-blue-50 to-purple-50 pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
             Transform Your Business With
@@ -81,10 +81,10 @@ const GrowthAnalytics = () => {
       </div>
 
       {/* Main Content Area - FIXED: Added more top padding for in-page nav */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16"> {/* CHANGED: Adjusted padding */}
-        {/* In-page Navigation - FIXED: Adjusted sticky positioning */}
-        <div className="sticky top-16 md:top-20 bg-white z-40 border-b mb-8 md:mb-12"> {/* CHANGED: top-16 for mobile */}
-          <div className="flex overflow-x-auto space-x-1 py-3 md:py-4"> {/* CHANGED: Adjusted padding */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 w-full"> {/* FIXED: Added w-full */}
+        {/* In-page Navigation - FIXED: Prevent horizontal overflow */}
+        <div className="sticky top-16 md:top-20 bg-white z-40 border-b mb-8 md:mb-12 overflow-hidden"> {/* FIXED: Added overflow-hidden */}
+          <div className="flex overflow-x-auto pb-2 space-x-1 py-3 md:py-4 hide-scrollbar"> {/* FIXED: Added pb-2 and hide-scrollbar class */}
             {pageSections.map((section) => (
               <button
                 key={section.id}
@@ -92,7 +92,7 @@ const GrowthAnalytics = () => {
                   setActiveSection(section.id);
                   document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`px-4 md:px-6 py-2 md:py-3 whitespace-nowrap rounded-lg font-medium text-sm md:text-base transition ${activeSection === section.id
+                className={`px-4 md:px-6 py-2 md:py-3 whitespace-nowrap rounded-lg font-medium text-sm md:text-base transition flex-shrink-0 ${activeSection === section.id
                     ? 'bg-blue-500 text-white'
                     : 'text-gray-700 hover:bg-gray-100'
                   }`}
@@ -104,7 +104,7 @@ const GrowthAnalytics = () => {
         </div>
 
         {/* Overview Section - FIXED: Adjusted scroll margin */}
-        <section id="overview" className="mb-16 md:mb-20 scroll-mt-24 md:scroll-mt-32"> {/* CHANGED: Adjusted scroll margin */}
+        <section id="overview" className="mb-16 md:mb-20 scroll-mt-24 md:scroll-mt-32">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Drive Business Growth with Data Intelligence</h2>
             <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8">
@@ -118,7 +118,7 @@ const GrowthAnalytics = () => {
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-8 md:mt-12"> {/* CHANGED: Adjusted grid for mobile */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-8 md:mt-12">
             {[
               { number: '40%', label: 'Average ROI Increase' },
               { number: '2.5x', label: 'Faster Decision Making' },
@@ -236,9 +236,6 @@ const GrowthAnalytics = () => {
                   <div className="text-sm md:text-base">Time Savings on Reporting</div>
                 </div>
               </div>
-              <button className="px-6 md:px-8 py-3 md:py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition text-sm md:text-base">
-                Request Personalized ROI Analysis
-              </button>
             </div>
           </div>
         </section>
@@ -382,18 +379,6 @@ const GrowthAnalytics = () => {
               </div>
             </div>
             
-            <div className="max-w-md mx-auto">
-              <div className="mb-4 md:mb-6">
-                <input
-                  type="email"
-                  placeholder="Enter your work email"
-                  className="w-full px-4 md:px-6 py-3 md:py-4 rounded-lg text-gray-900 text-sm md:text-base"
-                />
-              </div>
-              <button className="w-full px-6 md:px-8 py-3 md:py-4 bg-white text-blue-600 font-bold text-base md:text-lg rounded-lg hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300">
-                Schedule Free Consultation
-              </button>
-            </div>
           </div>
         </section>
       </div>
@@ -439,24 +424,16 @@ const GrowthAnalytics = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 md:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-base md:text-lg mb-6 md:mb-8">Growth Analytics — Transform Data into Business Growth</p>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-gray-400 text-xs md:text-sm">
-              <a href="#" className="hover:text-white">Case Studies</a>
-              <a href="#" className="hover:text-white">Documentation</a>
-              <a href="#" className="hover:text-white">Blog</a>
-              <a href="#" className="hover:text-white">Support</a>
-              <a href="#" className="hover:text-white">Privacy Policy</a>
-            </div>
-            <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-gray-800 text-gray-500 text-sm">
-              <p>© 2024 Growth Analytics. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Add custom CSS for hiding scrollbar */}
+      <style jsx>{`
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 };
