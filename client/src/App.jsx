@@ -13,6 +13,13 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Partners from "./components/Partners";
 import ContactSection from "./components/ContactSection";
 
+// Service pages
+import GrowthAnalytics from "./components/services/GrowthAnalytics";
+import CloudSolutions from "./components/services/CloudSolutions";
+import SecurePlatformPage from "./components/services/SecurePlatformPage";
+import SalesforceSolutionsPage from "./components/services/SalesforceSolutionsPage";
+
+
 // Pages
 import About from "./components/About";
 import Careers from "./components/Careers";
@@ -51,6 +58,11 @@ function App() {
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
         <Route path="/job-detail" element={<JobDetail />} />
+        <Route path="/growth-analytics" element={<GrowthAnalytics />} />
+        <Route path="/cloud-solutions" element={<CloudSolutions />} />
+        <Route path="/secure-platform" element={<SecurePlatformPage />} />
+        <Route path="/salesforce-solutions" element={<SalesforceSolutionsPage />} />
+
       </Routes>
 
       {/* Footer only once */}
