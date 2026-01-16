@@ -147,13 +147,13 @@ const HeroSection = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
-                onClick={() => window.open('https://lms-full-stack-mcq7.vercel.app/', '_blank')}
+                onClick={() => window.open('https://lms.aparaitech.org/', '_blank')}
                 className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-blue-500/30"
               >
                 <div className="mr-3 group-hover:rotate-12 transition-transform">
                   <Icons.Rocket />
                 </div>
-                Explore Programs
+                Live Programs
               </button>
 
               <button onClick={handleConnectClick} className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-105">
@@ -181,21 +181,21 @@ const HeroSection = () => {
                     title: 'Growth Analytics',
                     description: 'Data-driven insights for business growth',
                     color: 'from-blue-500 to-cyan-400',
-                    path: '/growth-analytics',
+                    path: "/services/growth-analytics"
                   },
                   {
                     icon: <Icons.Cloud />,
                     title: 'Cloud Solutions',
                     description: 'Scalable infrastructure for your needs',
                     color: 'from-purple-500 to-pink-400',
-                    path: '/cloud-solutions',
+                    path: "/services/cloud-solutions"
                   },
                   {
                     icon: <Icons.Shield />,
                     title: 'Secure Platform',
                     description: 'Enterprise-grade security protocols',
                     color: 'from-green-500 to-emerald-400',
-                    path: '/secure-platform',
+                    path: "/services/secure-platform"
                   },
                 ]
 
@@ -222,7 +222,7 @@ const HeroSection = () => {
                 {/* Testimonial card (hidden on mobile) */}
                 {/* Testimonial card */}
                 <div
-                  onClick={() => navigate('/salesforce-solutions')}
+                  onClick={() => navigate('/services/salesforce-solutions')}
                   className="hidden md:block cursor-pointer bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl p-6 border border-blue-500/30 hover:border-blue-500/50 transition-all duration-300"
                 >
                   <div className="flex items-center space-x-4 mb-4">
