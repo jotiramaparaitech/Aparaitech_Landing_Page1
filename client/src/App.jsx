@@ -112,7 +112,8 @@ function App() {
         <Route path="/services/growth-analytics" element={<GrowthAnalytics />} />
         <Route path="/services/cloud-solutions" element={<CloudSolutionsService />} />
         <Route path="/services/secure-platform" element={<SecurePlatformPage />} />
-        <Route path="/services/salesforce" element={<SalesforceSolutionsPage />} />
+        <Route path="/services/salesforce-solutions" element={<SalesforceSolutionsPage />} />
+
 
         {/* Products */}
         <Route path="/products/custom-software" element={<CustomSoftware />} />
