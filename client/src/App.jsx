@@ -14,15 +14,13 @@ import Partners from "./components/Partners";
 import ContactSection from "./components/ContactSection";
 
 // Pages
-import About from "./components/About";
-import Careers from "./components/Careers";
 import Cloud from "./components/Cloud";
 import Solutions from "./components/Solutions";
 import GenerativeAI from "./components/Generative_AI";
 
 /* ================= SERVICES PAGES (IMPORTANT FIX) ================= */
 import GrowthAnalytics from "./components/services/GrowthAnalytics";
-import CloudSolutions from "./components/services/CloudSolutions";
+import CloudSolutionsService from "./components/services/CloudSolutions";
 import SecurePlatformPage from "./components/services/SecurePlatformPage";
 import SalesforceSolutionsPage from "./components/services/SalesforceSolutionsPage";
 
@@ -61,7 +59,7 @@ import Status from "./components/pages/Support/Status";
 /* ================= COMPANY PAGES ================= */
 import AboutUs from "./components/pages/Company/AboutUs";
 import OurValues from "./components/pages/Company/OurValues";
-import Careers from "./components/pages/Company/Careers";
+import CareersPage from "./components/pages/Company/Careers";
 import News from "./components/pages/Company/News";
 import PartnersPage from "./components/pages/Company/Partners";
 import InvestorRelations from "./components/pages/Company/InvestorRelations";
@@ -70,7 +68,7 @@ import InvestorRelations from "./components/pages/Company/InvestorRelations";
 import JobDetail from "./components/pages/JobDetail";
 
 // Service Detail Pages
-import CloudSolutions from "./components/pages/CloudSolutions";
+import CloudSolutionsPage from "./components/pages/CloudSolutions";
 import WebDevelopment from "./components/pages/WebDevelopment";
 import ITConsulting from "./components/pages/ITConsulting";
 
@@ -107,9 +105,55 @@ function App() {
         <Route path="/job-detail" element={<JobDetail />} />
 
         {/* Services Detail Pages */}
-        <Route path="/cloud-computing" element={<CloudSolutions />} />
-        <Route path="/web-development" element={<WebDevelopment />} />
+        <Route path="/cloud-computing" element={<CloudSolutionsPage />} />
+        <Route path="/software-development" element={<WebDevelopment />} />
         <Route path="/it-consulting" element={<ITConsulting />} />
+
+        {/* Service Offerings */}
+        <Route path="/services/growth-analytics" element={<GrowthAnalytics />} />
+        <Route path="/services/cloud-solutions" element={<CloudSolutionsService />} />
+        <Route path="/services/secure-platform" element={<SecurePlatformPage />} />
+        <Route path="/services/salesforce" element={<SalesforceSolutionsPage />} />
+
+        {/* Products */}
+        <Route path="/products/custom-software" element={<CustomSoftware />} />
+        <Route path="/products/mobile-apps" element={<MobileApps />} />
+        <Route path="/products/devops" element={<DevOps />} />
+        <Route path="/products/ui-ux-design" element={<UIUXDesign />} />
+
+        {/* Industries */}
+        <Route path="/industries/healthcare" element={<Healthcare />} />
+        <Route path="/industries/finance" element={<Finance />} />
+        <Route path="/industries/ecommerce" element={<Ecommerce />} />
+        <Route path="/industries/education" element={<Education />} />
+        <Route path="/industries/manufacturing" element={<Manufacturing />} />
+        <Route path="/industries/startups" element={<Startups />} />
+
+        {/* Customers */}
+        <Route path="/customers/success-stories" element={<SuccessStories />} />
+        <Route path="/customers/case-studies" element={<CaseStudies />} />
+        <Route path="/customers/testimonials" element={<Testimonials />} />
+        <Route path="/customers/portfolio" element={<Portfolio />} />
+
+        {/* Learning */}
+        <Route path="/learning/documentation" element={<Documentation />} />
+        <Route path="/learning/tutorials" element={<Tutorials />} />
+        <Route path="/learning/webinars" element={<Webinars />} />
+        <Route path="/learning/certifications" element={<Certifications />} />
+
+        {/* Support */}
+        <Route path="/support/help-center" element={<HelpCenter />} />
+        <Route path="/support/contact" element={<ContactSupport />} />
+        <Route path="/support/community" element={<CommunityForum />} />
+        <Route path="/support/status" element={<Status />} />
+
+        {/* Company */}
+        <Route path="/company/about-us" element={<AboutUs />} />
+        <Route path="/company/values" element={<OurValues />} />
+        <Route path="/company/careers" element={<CareersPage />} />
+        <Route path="/company/news" element={<News />} />
+        <Route path="/company/partners" element={<PartnersPage />} />
+        <Route path="/company/investors" element={<InvestorRelations />} />
       </Routes>
 
       <Footer />
