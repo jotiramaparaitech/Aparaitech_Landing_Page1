@@ -243,11 +243,11 @@ const Header = () => {
           }`}
         >
           <a
-            href="https://lms-full-stack-mcq7.vercel.app/"
+            href="https://lms.aparaitech.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Explore Programs
+            Live Programs
           </a>
           <Link to="/careers">Careers</Link>
           <Link to="/about">About</Link>
@@ -396,7 +396,7 @@ const Header = () => {
                 rel="noopener noreferrer"
                 className="text-base font-medium text-gray-800"
               >
-                Explore Programs
+                Live Programs
               </a>
               <Link
                 to="/careers"
