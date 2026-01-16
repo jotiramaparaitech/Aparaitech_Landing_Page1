@@ -106,24 +106,24 @@ const Header = () => {
       { name: "Status", link: "/support/status" },
     ],
     Company: [
-      { name: "About Us", link: "/about" },
+      { name: "About Us", link: "/company/about-us" },
       { name: "Our Values", link: "/company/values" },
-      { name: "Careers", link: "/careers" },
+      { name: "Careers", link: "/company/careers" },
       { name: "News & Blog", link: "/company/news" },
       { name: "Partners", link: "/company/partners" },
       { name: "Investor Relations", link: "/company/investors" },
-    ],
+    ]
+
   };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 h-[72px]">
       {/* BACKGROUND */}
       <div
-        className={`absolute inset-0 transition-all duration-300 ${
-          isScrolled
-            ? "bg-[#fdfcff]/60 backdrop-blur-md"
-            : "bg-transparent backdrop-blur-md"
-        }`}
+        className={`absolute inset-0 transition-all duration-300 ${isScrolled
+          ? "bg-[#fdfcff]/60 backdrop-blur-md"
+          : "bg-transparent backdrop-blur-md"
+          }`}
       />
 
       {/* CONTENT */}
@@ -132,9 +132,8 @@ const Header = () => {
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="Aparaitech Logo" className="h-8 w-auto" />
           <span
-            className={`font-semibold text-lg ${
-              isScrolled ? "text-[#2d1b69]" : "text-white"
-            }`}
+            className={`font-semibold text-lg ${isScrolled ? "text-[#2d1b69]" : "text-white"
+              }`}
           >
             Aparaitech
           </span>
@@ -142,9 +141,8 @@ const Header = () => {
 
         {/* DESKTOP LEFT MENU */}
         <nav
-          className={`hidden md:flex items-center gap-8 ml-16 font-medium ${
-            isScrolled ? "text-[#2d1b69]" : "text-white"
-          }`}
+          className={`hidden md:flex items-center gap-8 ml-16 font-medium ${isScrolled ? "text-[#2d1b69]" : "text-white"
+            }`}
         >
           <Link to="/generative-ai">Generative AI</Link>
           <Link to="/cloud">Cloud</Link>
@@ -153,9 +151,8 @@ const Header = () => {
           {/* 🔥 EXACT SAME MORE DROPDOWN */}
           <div className="relative" ref={moreRef}>
             <button
-              className={`flex items-center gap-1 ${
-                moreOpen ? "text-[#7c3aed]" : ""
-              }`}
+              className={`flex items-center gap-1 ${moreOpen ? "text-[#7c3aed]" : ""
+                }`}
               onMouseEnter={() => setMoreOpen(true)}
               onMouseLeave={() =>
                 setTimeout(() => {
@@ -168,9 +165,8 @@ const Header = () => {
             >
               More
               <svg
-                className={`w-4 h-4 transition-transform ${
-                  moreOpen ? "rotate-180" : ""
-                }`}
+                className={`w-4 h-4 transition-transform ${moreOpen ? "rotate-180" : ""
+                  }`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -238,9 +234,8 @@ const Header = () => {
 
         {/* RIGHT MENU (unchanged old) */}
         <div
-          className={`hidden md:flex items-center gap-8 ml-auto font-medium ${
-            isScrolled ? "text-[#2d1b69]" : "text-white"
-          }`}
+          className={`hidden md:flex items-center gap-8 ml-auto font-medium ${isScrolled ? "text-[#2d1b69]" : "text-white"
+            }`}
         >
           <a
             href="https://lms.aparaitech.org/"
@@ -249,16 +244,15 @@ const Header = () => {
           >
             Live Programs
           </a>
-          <Link to="/careers">Careers</Link>
-          <Link to="/about">About</Link>
+          <Link to="/company/careers">Careers</Link>
+          <Link to="/company/about-us">About</Link>
           <button onClick={scrollToContact}>Contact Us</button>
         </div>
 
         {/* MOBILE TOGGLE */}
         <button
-          className={`md:hidden ml-auto p-2 transition-colors ${
-            isScrolled ? "text-[#2d1b69]" : "text-white"
-          }`}
+          className={`md:hidden ml-auto p-2 transition-colors ${isScrolled ? "text-[#2d1b69]" : "text-white"
+            }`}
           onClick={() => setMenuOpen(true)}
         >
           <svg
@@ -279,17 +273,15 @@ const Header = () => {
 
       {/* MOBILE MENU OVERLAY */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/20 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
-          menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 z-[60] bg-black/20 backdrop-blur-sm transition-opacity duration-300 md:hidden ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={() => setMenuOpen(false)}
       />
 
       {/* MOBILE MENU SIDEBAR */}
       <div
-        className={`fixed top-0 right-0 z-[70] h-full w-[85%] max-w-sm bg-white shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 z-[70] h-full w-[85%] max-w-sm bg-white shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex flex-col h-full">
           {/* Header of Mobile Menu */}
