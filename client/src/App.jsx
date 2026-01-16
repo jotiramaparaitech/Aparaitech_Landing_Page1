@@ -2,6 +2,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+/* ================= LAYOUT ================= */
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -13,18 +14,21 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Partners from "./components/Partners";
 import ContactSection from "./components/ContactSection";
 
-/* ================= PAGES ================= */
-import About from "./components/About";
-import Careers from "./components/Careers";
+/* ================= CORE PAGES ================= */
 import Cloud from "./components/Cloud";
 import Solutions from "./components/Solutions";
 import GenerativeAI from "./components/Generative_AI";
 
-/* ================= SERVICES PAGES ================= */
+/* ================= SERVICE OFFERINGS ================= */
 import GrowthAnalytics from "./components/services/GrowthAnalytics";
 import CloudSolutionsService from "./components/services/CloudSolutions";
 import SecurePlatformPage from "./components/services/SecurePlatformPage";
 import SalesforceSolutionsPage from "./components/services/SalesforceSolutionsPage";
+
+/* ================= SERVICE DETAIL PAGES ================= */
+import CloudSolutionsPage from "./components/pages/CloudSolutions";
+import WebDevelopment from "./components/pages/WebDevelopment";
+import ITConsulting from "./components/pages/ITConsulting";
 
 /* ================= PRODUCT PAGES ================= */
 import CustomSoftware from "./components/pages/products/CustomSoftware";
@@ -61,7 +65,7 @@ import Status from "./components/pages/Support/Status";
 /* ================= COMPANY PAGES ================= */
 import AboutUs from "./components/pages/Company/AboutUs";
 import OurValues from "./components/pages/Company/OurValues";
-import CompanyCareers from "./components/pages/Company/Careers";
+import CareersPage from "./components/pages/Company/Careers";
 import News from "./components/pages/Company/News";
 import PartnersPage from "./components/pages/Company/Partners";
 import InvestorRelations from "./components/pages/Company/InvestorRelations";
@@ -69,28 +73,21 @@ import InvestorRelations from "./components/pages/Company/InvestorRelations";
 /* ================= JOB DETAIL ================= */
 import JobDetail from "./components/pages/JobDetail";
 
-/* ================= SERVICE DETAIL PAGES ================= */
-import CloudSolutions from "./components/pages/CloudSolutions";
-import WebDevelopment from "./components/pages/WebDevelopment";
-import ITConsulting from "./components/pages/ITConsulting";
+/* ================= HOME PAGE ================= */
+const HomePage = () => (
+  <>
+    <Hero />
+    <Services />
+    <WhyChooseUs />
+    <Partners />
+    <ContactSection />
+  </>
+);
 
-/* ================= HOME PAGE (NO Header/Footer here) ================= */
-const HomePage = () => {
-  return (
-    <>
-      <Hero />
-      <Services />
-      <WhyChooseUs />
-      <Partners />
-      <ContactSection />
-    </>
-  );
-};
-
+/* ================= APP ================= */
 function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
-      {/* Auto scroll to top on route change */}
       <ScrollToTop />
       <Header />
 
@@ -98,53 +95,32 @@ function App() {
         {/* Home */}
         <Route path="/" element={<HomePage />} />
 
-        {/* Core Pages */}
+        {/* Core */}
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
 
-        {/* Example Basic Pages */}
-        <Route path="/about" element={<About />} />
-        <Route path="/careers" element={<Careers />} />
-
-        {/* Company Pages */}
-        <Route path="/company/about-us" element={<AboutUs />} />
-        <Route path="/company/our-values" element={<OurValues />} />
-        <Route path="/company/careers" element={<CompanyCareers />} />
-        <Route path="/company/news" element={<News />} />
-        <Route path="/company/partners" element={<PartnersPage />} />
-        <Route path="/company/investor-relations" element={<InvestorRelations />} />
-
-        {/* Job Page */}
+        {/* Job */}
         <Route path="/job-detail" element={<JobDetail />} />
 
-        {/* Services Detail Pages */}
-        <Route path="/cloud-computing" element={<CloudSolutions />} />
-        <Route path="/web-development" element={<WebDevelopment />} />
+        {/* Service Detail */}
+        <Route path="/cloud-computing" element={<CloudSolutionsPage />} />
+        <Route path="/software-development" element={<WebDevelopment />} />
         <Route path="/it-consulting" element={<ITConsulting />} />
 
-        {/* Service Pages (Optional Routes if you want) */}
+        {/* Services */}
         <Route path="/services/growth-analytics" element={<GrowthAnalytics />} />
-        <Route
-          path="/services/cloud-solutions"
-          element={<CloudSolutionsService />}
-        />
-        <Route
-          path="/services/secure-platform"
-          element={<SecurePlatformPage />}
-        />
-        <Route
-          path="/services/salesforce-solutions"
-          element={<SalesforceSolutionsPage />}
-        />
+        <Route path="/services/cloud-solutions" element={<CloudSolutionsService />} />
+        <Route path="/services/secure-platform" element={<SecurePlatformPage />} />
+        <Route path="/services/salesforce" element={<SalesforceSolutionsPage />} />
 
-        {/* Product Pages (Optional Routes if you want) */}
+        {/* Products */}
         <Route path="/products/custom-software" element={<CustomSoftware />} />
         <Route path="/products/mobile-apps" element={<MobileApps />} />
         <Route path="/products/devops" element={<DevOps />} />
-        <Route path="/products/uiux-design" element={<UIUXDesign />} />
+        <Route path="/products/ui-ux-design" element={<UIUXDesign />} />
 
-        {/* Industry Pages (Optional Routes if you want) */}
+        {/* Industries */}
         <Route path="/industries/healthcare" element={<Healthcare />} />
         <Route path="/industries/finance" element={<Finance />} />
         <Route path="/industries/ecommerce" element={<Ecommerce />} />
@@ -152,23 +128,31 @@ function App() {
         <Route path="/industries/manufacturing" element={<Manufacturing />} />
         <Route path="/industries/startups" element={<Startups />} />
 
-        {/* Customer Pages (Optional Routes if you want) */}
+        {/* Customers */}
         <Route path="/customers/success-stories" element={<SuccessStories />} />
         <Route path="/customers/case-studies" element={<CaseStudies />} />
         <Route path="/customers/testimonials" element={<Testimonials />} />
         <Route path="/customers/portfolio" element={<Portfolio />} />
 
-        {/* Learning Pages (Optional Routes if you want) */}
+        {/* Learning */}
         <Route path="/learning/documentation" element={<Documentation />} />
         <Route path="/learning/tutorials" element={<Tutorials />} />
         <Route path="/learning/webinars" element={<Webinars />} />
         <Route path="/learning/certifications" element={<Certifications />} />
 
-        {/* Support Pages (Optional Routes if you want) */}
+        {/* Support */}
         <Route path="/support/help-center" element={<HelpCenter />} />
-        <Route path="/support/contact-support" element={<ContactSupport />} />
-        <Route path="/support/community-forum" element={<CommunityForum />} />
+        <Route path="/support/contact" element={<ContactSupport />} />
+        <Route path="/support/community" element={<CommunityForum />} />
         <Route path="/support/status" element={<Status />} />
+
+        {/* Company */}
+        <Route path="/company/about-us" element={<AboutUs />} />
+        <Route path="/company/values" element={<OurValues />} />
+        <Route path="/company/careers" element={<CareersPage />} />
+        <Route path="/company/news" element={<News />} />
+        <Route path="/company/partners" element={<PartnersPage />} />
+        <Route path="/company/investors" element={<InvestorRelations />} />
       </Routes>
 
       <Footer />
