@@ -14,7 +14,7 @@ import Partners from "./components/Partners";
 import ContactSection from "./components/ContactSection";
 
 // Pages
-import Cloud from "./Cloud";
+import Cloud from "./components/Cloud";
 import Solutions from "./components/Solutions";
 import GenerativeAI from "./components/Generative_AI";
 
