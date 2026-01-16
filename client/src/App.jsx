@@ -13,16 +13,16 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Partners from "./components/Partners";
 import ContactSection from "./components/ContactSection";
 
-// Pages
+/* ================= CORE PAGES ================= */
 import About from "./components/About";
-import Careers from "./components/Careers";
+import Careers from "./components/Careers"; // General Careers
 import Cloud from "./components/Cloud";
 import Solutions from "./components/Solutions";
 import GenerativeAI from "./components/Generative_AI";
 
-/* ================= SERVICES PAGES (IMPORTANT FIX) ================= */
+/* ================= SERVICES PAGES ================= */
 import GrowthAnalytics from "./components/services/GrowthAnalytics";
-import CloudSolutions from "./components/services/CloudSolutions";
+import CloudSolutionsService from "./components/services/CloudSolutions";
 import SecurePlatformPage from "./components/services/SecurePlatformPage";
 import SalesforceSolutionsPage from "./components/services/SalesforceSolutionsPage";
 
@@ -61,20 +61,21 @@ import Status from "./components/pages/Support/Status";
 /* ================= COMPANY PAGES ================= */
 import AboutUs from "./components/pages/Company/AboutUs";
 import OurValues from "./components/pages/Company/OurValues";
-import Careers from "./components/pages/Company/Careers";
+import CompanyCareers from "./components/pages/Company/Careers"; // RENAMED
 import News from "./components/pages/Company/News";
 import PartnersPage from "./components/pages/Company/Partners";
 import InvestorRelations from "./components/pages/Company/InvestorRelations";
 
 /* ================= JOB DETAIL ================= */
 import JobDetail from "./components/pages/JobDetail";
+import ApplicationForm from "./components/pages/ApplicationForm";
 
-// Service Detail Pages
-import CloudSolutions from "./components/pages/CloudSolutions";
+/* ================= SERVICE DETAIL PAGES ================= */
+import CloudSolutionsPage from "./components/pages/CloudSolutions"; // RENAMED
 import WebDevelopment from "./components/pages/WebDevelopment";
 import ITConsulting from "./components/pages/ITConsulting";
 
-// Home page (NO Header/Footer here)
+/* ================= HOME PAGE ================= */
 const HomePage = () => {
   return (
     <>
@@ -90,7 +91,6 @@ const HomePage = () => {
 function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
-      {/* Auto scroll to top on route change */}
       <ScrollToTop />
       <Header />
 
@@ -98,18 +98,35 @@ function App() {
         {/* Home */}
         <Route path="/" element={<HomePage />} />
 
-        {/* Core Pages */}
+        {/* Core */}
+        <Route path="/about" element={<About />} />
+        <Route path="/careers" element={<Careers />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
 
-        {/* Job Page */}
-        <Route path="/job-detail" element={<JobDetail />} />
+        {/* Company */}
+        <Route path="/company/about" element={<AboutUs />} />
+        <Route path="/company/values" element={<OurValues />} />
+        <Route path="/company/careers" element={<CompanyCareers />} />
+        <Route path="/company/news" element={<News />} />
+        <Route path="/company/partners" element={<PartnersPage />} />
+        <Route path="/company/investors" element={<InvestorRelations />} />
 
-        {/* Services Detail Pages */}
-        <Route path="/cloud-computing" element={<CloudSolutions />} />
+        {/* Services */}
+        <Route path="/growth-analytics" element={<GrowthAnalytics />} />
+        <Route path="/cloud-services" element={<CloudSolutionsService />} />
+        <Route path="/secure-platform" element={<SecurePlatformPage />} />
+        <Route path="/salesforce" element={<SalesforceSolutionsPage />} />
+
+        {/* Service Detail */}
+        <Route path="/cloud-computing" element={<CloudSolutionsPage />} />
         <Route path="/web-development" element={<WebDevelopment />} />
         <Route path="/it-consulting" element={<ITConsulting />} />
+
+        {/* Job */}
+        <Route path="/job-detail" element={<JobDetail />} />
+        <Route path="/apply" element={<ApplicationForm />} />
       </Routes>
 
       <Footer />
