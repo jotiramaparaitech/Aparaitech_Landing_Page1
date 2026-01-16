@@ -2,6 +2,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+/* ================= LAYOUT ================= */
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -13,16 +14,21 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Partners from "./components/Partners";
 import ContactSection from "./components/ContactSection";
 
-// Pages
+/* ================= CORE PAGES ================= */
 import Cloud from "./components/Cloud";
 import Solutions from "./components/Solutions";
 import GenerativeAI from "./components/Generative_AI";
 
-/* ================= SERVICES PAGES (IMPORTANT FIX) ================= */
+/* ================= SERVICE OFFERINGS ================= */
 import GrowthAnalytics from "./components/services/GrowthAnalytics";
 import CloudSolutionsService from "./components/services/CloudSolutions";
 import SecurePlatformPage from "./components/services/SecurePlatformPage";
 import SalesforceSolutionsPage from "./components/services/SalesforceSolutionsPage";
+
+/* ================= SERVICE DETAIL PAGES ================= */
+import CloudSolutionsPage from "./components/pages/CloudSolutions";
+import WebDevelopment from "./components/pages/WebDevelopment";
+import ITConsulting from "./components/pages/ITConsulting";
 
 /* ================= PRODUCT PAGES ================= */
 import CustomSoftware from "./components/pages/products/CustomSoftware";
@@ -67,28 +73,21 @@ import InvestorRelations from "./components/pages/Company/InvestorRelations";
 /* ================= JOB DETAIL ================= */
 import JobDetail from "./components/pages/JobDetail";
 
-// Service Detail Pages
-import CloudSolutionsPage from "./components/pages/CloudSolutions";
-import WebDevelopment from "./components/pages/WebDevelopment";
-import ITConsulting from "./components/pages/ITConsulting";
+/* ================= HOME PAGE ================= */
+const HomePage = () => (
+  <>
+    <Hero />
+    <Services />
+    <WhyChooseUs />
+    <Partners />
+    <ContactSection />
+  </>
+);
 
-// Home page (NO Header/Footer here)
-const HomePage = () => {
-  return (
-    <>
-      <Hero />
-      <Services />
-      <WhyChooseUs />
-      <Partners />
-      <ContactSection />
-    </>
-  );
-};
-
+/* ================= APP ================= */
 function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
-      {/* Auto scroll to top on route change */}
       <ScrollToTop />
       <Header />
 
@@ -96,20 +95,20 @@ function App() {
         {/* Home */}
         <Route path="/" element={<HomePage />} />
 
-        {/* Core Pages */}
+        {/* Core */}
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
 
-        {/* Job Page */}
+        {/* Job */}
         <Route path="/job-detail" element={<JobDetail />} />
 
-        {/* Services Detail Pages */}
+        {/* Service Detail */}
         <Route path="/cloud-computing" element={<CloudSolutionsPage />} />
         <Route path="/software-development" element={<WebDevelopment />} />
         <Route path="/it-consulting" element={<ITConsulting />} />
 
-        {/* Service Offerings */}
+        {/* Services */}
         <Route path="/services/growth-analytics" element={<GrowthAnalytics />} />
         <Route path="/services/cloud-solutions" element={<CloudSolutionsService />} />
         <Route path="/services/secure-platform" element={<SecurePlatformPage />} />
