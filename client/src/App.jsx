@@ -2,6 +2,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+/* ================= LAYOUT ================= */
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -25,6 +26,11 @@ import GrowthAnalytics from "./components/services/GrowthAnalytics";
 import CloudSolutionsService from "./components/services/CloudSolutions";
 import SecurePlatformPage from "./components/services/SecurePlatformPage";
 import SalesforceSolutionsPage from "./components/services/SalesforceSolutionsPage";
+
+/* ================= SERVICE DETAIL PAGES ================= */
+import CloudSolutionsPage from "./components/pages/CloudSolutions";
+import WebDevelopment from "./components/pages/WebDevelopment";
+import ITConsulting from "./components/pages/ITConsulting";
 
 /* ================= PRODUCT PAGES ================= */
 import CustomSoftware from "./components/pages/products/CustomSoftware";
@@ -70,11 +76,6 @@ import InvestorRelations from "./components/pages/Company/InvestorRelations";
 import JobDetail from "./components/pages/JobDetail";
 import ApplicationForm from "./components/pages/ApplicationForm";
 
-/* ================= SERVICE DETAIL PAGES ================= */
-import CloudSolutionsPage from "./components/pages/CloudSolutions"; // RENAMED
-import WebDevelopment from "./components/pages/WebDevelopment";
-import ITConsulting from "./components/pages/ITConsulting";
-
 /* ================= HOME PAGE ================= */
 const HomePage = () => {
   return (
@@ -88,6 +89,7 @@ const HomePage = () => {
   );
 };
 
+/* ================= APP ================= */
 function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
@@ -123,6 +125,38 @@ function App() {
         <Route path="/cloud-computing" element={<CloudSolutionsPage />} />
         <Route path="/web-development" element={<WebDevelopment />} />
         <Route path="/it-consulting" element={<ITConsulting />} />
+
+        {/* Products */}
+        <Route path="/products/custom-software" element={<CustomSoftware />} />
+        <Route path="/products/mobile-apps" element={<MobileApps />} />
+        <Route path="/products/devops" element={<DevOps />} />
+        <Route path="/products/ui-ux-design" element={<UIUXDesign />} />
+
+        {/* Industries */}
+        <Route path="/industries/healthcare" element={<Healthcare />} />
+        <Route path="/industries/finance" element={<Finance />} />
+        <Route path="/industries/ecommerce" element={<Ecommerce />} />
+        <Route path="/industries/education" element={<Education />} />
+        <Route path="/industries/manufacturing" element={<Manufacturing />} />
+        <Route path="/industries/startups" element={<Startups />} />
+
+        {/* Customers */}
+        <Route path="/customers/success-stories" element={<SuccessStories />} />
+        <Route path="/customers/case-studies" element={<CaseStudies />} />
+        <Route path="/customers/testimonials" element={<Testimonials />} />
+        <Route path="/customers/portfolio" element={<Portfolio />} />
+
+        {/* Learning */}
+        <Route path="/learning/documentation" element={<Documentation />} />
+        <Route path="/learning/tutorials" element={<Tutorials />} />
+        <Route path="/learning/webinars" element={<Webinars />} />
+        <Route path="/learning/certifications" element={<Certifications />} />
+
+        {/* Support */}
+        <Route path="/support/help-center" element={<HelpCenter />} />
+        <Route path="/support/contact" element={<ContactSupport />} />
+        <Route path="/support/community" element={<CommunityForum />} />
+        <Route path="/support/status" element={<Status />} />
 
         {/* Job */}
         <Route path="/job-detail" element={<JobDetail />} />

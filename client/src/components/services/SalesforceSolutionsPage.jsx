@@ -59,7 +59,7 @@ const SalesforceSolutionsPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white text-gray-900">
+        <div className="min-h-screen bg-white text-gray-900 pt-16 md:pt-0"> {/* Added pt-16 for mobile, md:pt-0 for desktop */}
             {/* Hero Section */}
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 py-5 md:py-24">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
