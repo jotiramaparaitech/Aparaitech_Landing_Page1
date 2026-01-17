@@ -243,7 +243,7 @@ const CloudSolutions = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Drive operational excellence with scalable, secure cloud infrastructure designed for enterprises. Reduce costs, improve agility, and accelerate time-to-market with our comprehensive cloud solutions.
+              Drive operational excellence with scalable, secure cloud infrastructure designed for enterprises. Reduce costs, improve agility, and accelerate time-to-market with our comprehensive cloud solutions
             </p>
             
           
