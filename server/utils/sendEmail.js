@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
-dotenv.config(); // ✅ ADD THIS
+dotenv.config();
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -20,9 +20,9 @@ const sendAutoReply = async ({ name, email, message }) => {
     subject: "Thanks for contacting us!",
     html: `
       <h3>Hello ${name},</h3>
-      <p>Thank you for contacting <strong>${process.env.FROM_NAME} Pvt Ltd</strong>.</p>
+      <p>Thank you for contacting <strong>${process.env.FROM_NAME} Software</strong>.</p>
       <p>We’ve received your message and our team will reach out soon.</p>
-      <p>Regards,<br/>${process.env.FROM_NAME} Pvt Ltd</p>
+      <p>Regards,<br/>${process.env.FROM_NAME} Software.</p>
     `,
   });
 };
