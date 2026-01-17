@@ -54,7 +54,7 @@ const CloudSolutions = () => {
                   Cloud computing delivers computing resources—servers, storage, databases, networking, 
                   and software—over the internet on a pay-as-you-go basis. This eliminates the need for 
                   businesses to purchase, manage, or maintain physical hardware, providing instant access 
-                  to powerful infrastructure whenever needed.
+                  to powerful infrastructure whenever required.
                 </p>
                 <div className="bg-blue-50 rounded-2xl p-8">
                   <h3 className="text-2xl font-bold mb-4">How It Works</h3>
