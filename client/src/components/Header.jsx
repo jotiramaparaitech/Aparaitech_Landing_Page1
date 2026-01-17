@@ -163,7 +163,7 @@ const Header = () => {
               }
               onClick={() => setMoreOpen(!moreOpen)}
             >
-              More
+              Mores
               <svg
                 className={`w-4 h-4 transition-transform ${moreOpen ? "rotate-180" : ""
                   }`}
