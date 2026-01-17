@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import ApplicationForm from "./components/pages/ApplicationForm";
 
 /* ================= LAYOUT ================= */
 import Header from "./components/Header";
@@ -15,13 +16,11 @@ import Partners from "./components/Partners";
 import ContactSection from "./components/ContactSection";
 
 /* ================= CORE PAGES ================= */
-import About from "./components/About";
-import Careers from "./components/Careers"; // General Careers
 import Cloud from "./components/Cloud";
 import Solutions from "./components/Solutions";
 import GenerativeAI from "./components/Generative_AI";
 
-/* ================= SERVICES PAGES ================= */
+/* ================= SERVICE OFFERINGS ================= */
 import GrowthAnalytics from "./components/services/GrowthAnalytics";
 import CloudSolutionsService from "./components/services/CloudSolutions";
 import SecurePlatformPage from "./components/services/SecurePlatformPage";
@@ -67,27 +66,24 @@ import Status from "./components/pages/Support/Status";
 /* ================= COMPANY PAGES ================= */
 import AboutUs from "./components/pages/Company/AboutUs";
 import OurValues from "./components/pages/Company/OurValues";
-import CompanyCareers from "./components/pages/Company/Careers"; // RENAMED
+import CareersPage from "./components/pages/Company/Careers";
 import News from "./components/pages/Company/News";
 import PartnersPage from "./components/pages/Company/Partners";
 import InvestorRelations from "./components/pages/Company/InvestorRelations";
 
 /* ================= JOB DETAIL ================= */
 import JobDetail from "./components/pages/JobDetail";
-import ApplicationForm from "./components/pages/ApplicationForm";
 
 /* ================= HOME PAGE ================= */
-const HomePage = () => {
-  return (
-    <>
-      <Hero />
-      <Services />
-      <WhyChooseUs />
-      <Partners />
-      <ContactSection />
-    </>
-  );
-};
+const HomePage = () => (
+  <>
+    <Hero />
+    <Services />
+    <WhyChooseUs />
+    <Partners />
+    <ContactSection />
+  </>
+);
 
 /* ================= APP ================= */
 function App() {
@@ -101,30 +97,25 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         {/* Core */}
-        <Route path="/about" element={<About />} />
-        <Route path="/careers" element={<Careers />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
 
-        {/* Company */}
-        <Route path="/company/about" element={<AboutUs />} />
-        <Route path="/company/values" element={<OurValues />} />
-        <Route path="/company/careers" element={<CompanyCareers />} />
-        <Route path="/company/news" element={<News />} />
-        <Route path="/company/partners" element={<PartnersPage />} />
-        <Route path="/company/investors" element={<InvestorRelations />} />
-
-        {/* Services */}
-        <Route path="/growth-analytics" element={<GrowthAnalytics />} />
-        <Route path="/cloud-services" element={<CloudSolutionsService />} />
-        <Route path="/secure-platform" element={<SecurePlatformPage />} />
-        <Route path="/salesforce" element={<SalesforceSolutionsPage />} />
+        {/* Job */}
+        <Route path="/job-detail" element={<JobDetail />} />
+        <Route path='/apply' element={<ApplicationForm />}/>
 
         {/* Service Detail */}
         <Route path="/cloud-computing" element={<CloudSolutionsPage />} />
-        <Route path="/web-development" element={<WebDevelopment />} />
+        <Route path="/software-development" element={<WebDevelopment />} />
         <Route path="/it-consulting" element={<ITConsulting />} />
+
+        {/* Services */}
+        <Route path="/services/growth-analytics" element={<GrowthAnalytics />} />
+        <Route path="/services/cloud-solutions" element={<CloudSolutionsService />} />
+        <Route path="/services/secure-platform" element={<SecurePlatformPage />} />
+        <Route path="/services/salesforce-solutions" element={<SalesforceSolutionsPage />} />
+
 
         {/* Products */}
         <Route path="/products/custom-software" element={<CustomSoftware />} />
@@ -158,13 +149,16 @@ function App() {
         <Route path="/support/community" element={<CommunityForum />} />
         <Route path="/support/status" element={<Status />} />
 
-        {/* Job */}
-        <Route path="/job-detail" element={<JobDetail />} />
-        <Route path="/apply" element={<ApplicationForm />} />
+        {/* Company */}
+        <Route path="/company/about-us" element={<AboutUs />} />
+        <Route path="/company/values" element={<OurValues />} />
+        <Route path="/company/careers" element={<CareersPage />} />
+        <Route path="/company/news" element={<News />} />
+        <Route path="/company/partners" element={<PartnersPage />} />
+        <Route path="/company/investors" element={<InvestorRelations />} />
       </Routes>
 
       <Footer />
-      
     </div>
   );
 }
