@@ -226,10 +226,11 @@ const Partners = () => {
           <div className="
   relative
   overflow-hidden
-  py-10 sm:py-14 md:py-18 lg:py-22
-  min-h-[180px] sm:min-h-[220px] md:min-h-[260px] lg:min-h-[300px]
+  py-4 sm:py-6 md:py-8
+  min-h-[90px] sm:min-h-[110px] md:min-h-[130px]
   -mx-3 sm:-mx-4 md:-mx-6 lg:-mx-16 xl:-mx-24 2xl:-mx-32
 ">
+
 
 
             <div
@@ -353,26 +354,27 @@ const Partners = () => {
           <div className="mt-12 sm:mt-14 md:mt-16 lg:mt-20 pt-8 sm:pt-10 md:pt-12 lg:pt-16 border-t border-purple-200/30">
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
               {[
-                { value: "99.9%", label: "Uptime SLA", delay: "0s", suffix: "%" },
-                { value: "10M+", label: "API Requests/Day", delay: "0.1s", suffix: "+" },
-                { value: "50+", label: "Enterprise Partners", delay: "0.2s", suffix: "+" },
-                { value: "<50ms", label: "Avg Response Time", delay: "0.3s", suffix: "ms" }
-              ].map((stat, index) => (
-                <div
-                  key={index}
-                  className="text-center group opacity-0 animate-fadeInUp"
-                  style={{ animationDelay: stat.delay }}
-                >
-                  <div className="relative inline-block">
-                    <div className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-1 sm:mb-2">
-                      {stat.value}
-                      <span className="absolute -right-2 sm:-right-3 -top-1 sm:-top-1.5 text-sm sm:text-base md:text-lg lg:text-xl">{stat.suffix}</span>
+                { value: "200+", label: "Projects Delivered", delay: "0s" },
+                { value: "80+", label: "Happy Clients", delay: "0.1s" },
+                { value: "15+", label: "Industries Served", delay: "0.2s" },
+                { value: "24/7", label: "Support & Maintenance", delay: "0.3s" }
+              ]
+                .map((stat, index) => (
+                  <div
+                    key={index}
+                    className="text-center group opacity-0 animate-fadeInUp"
+                    style={{ animationDelay: stat.delay }}
+                  >
+                    <div className="relative inline-block">
+                      <div className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-1 sm:mb-2">
+                        {stat.value}
+                        <span className="absolute -right-2 sm:-right-3 -top-1 sm:-top-1.5 text-sm sm:text-base md:text-lg lg:text-xl">{stat.suffix}</span>
+                      </div>
+                      <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-lg sm:rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
-                    <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-lg sm:rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <p className="text-gray-700 font-medium mt-1 sm:mt-2 text-xs sm:text-sm">{stat.label}</p>
                   </div>
-                  <p className="text-gray-700 font-medium mt-1 sm:mt-2 text-xs sm:text-sm">{stat.label}</p>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
 
@@ -471,7 +473,15 @@ const Partners = () => {
                 md:text-base
                 w-full
                 sm:w-auto
-              ">
+              " onClick={() => {
+                  const section = document.getElementById("contact");
+                  if (section) {
+                    const yOffset = -5; // adjust based on your navbar height
+                    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                  }
+                }}>
+
                 <span className="relative z-10 flex items-center gap-1.5 sm:gap-2 justify-center">
                   <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
