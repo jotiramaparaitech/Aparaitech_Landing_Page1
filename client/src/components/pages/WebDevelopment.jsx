@@ -113,7 +113,7 @@ const WebDevelopment = () => {
   const developmentProcess = [
     { step: 1, title: "Discovery & Planning", description: "Understanding requirements and creating detailed project roadmap" },
     { step: 2, title: "Design & Prototyping", description: "Creating wireframes and interactive prototypes for approval" },
-    { step: 3, title: "Development", description: "Building robust and scalable web applications" },
+    { step: 3, title: "Development", description: "Building robust and scalable web applications." },
     { step: 4, title: "Testing & QA", description: "Comprehensive testing and quality assurance" },
     { step: 5, title: "Deployment", description: "Launching to production with minimal downtime" },
     { step: 6, title: "Support & Maintenance", description: "Ongoing support, updates, and optimization" }

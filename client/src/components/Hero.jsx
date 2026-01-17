@@ -222,6 +222,7 @@ const HeroSection = () => {
                 {/* Testimonial card (hidden on mobile) */}
                 {/* Testimonial card */}
                 <div
+
                   onClick={() => navigate('/services/salesforce-solutions')}
                   className="hidden md:block cursor-pointer bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl p-6 border border-blue-500/30 hover:border-blue-500/50 transition-all duration-300"
                 >
@@ -235,7 +236,7 @@ const HeroSection = () => {
                     </div>
                   </div>
                   <p className="text-gray-300 italic">
-                    Helping businesses unlock the full potential of Salesforce for smarter processes and stronger customer relationships.
+                    Helping businesses unlock the full potential of Salesforce for smarter processes and stronger customer relationships
                   </p>
                 </div>
               </div>

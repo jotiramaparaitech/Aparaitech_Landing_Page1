@@ -153,7 +153,7 @@ const ITConsulting = () => {
     },
     {
       pillar: "Implementation",
-      description: "Executing strategic initiatives",
+      description: "Executing strategic initiatives.",
       items: ["Project Management", "Vendor Selection", "Deployment", "Integration"]
     },
     {
