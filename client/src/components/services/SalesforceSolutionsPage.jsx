@@ -98,7 +98,7 @@ const SalesforceSolutionsPage = () => {
                 {/* Overview Section */}
                 <section id="overview" className="mb-20 scroll-mt-32">
                     <div className="prose prose-lg max-w-none">
-                        <h2 className="text-4xl font-bold mb-8">Transform Your Business with Salesforce</h2>
+                        <h2 className="text-4xl font-bold mb-8">Transform Your Business with Salesforce integration</h2>
                         <p className="text-xl text-gray-700 mb-8">
                             As the world's #1 CRM platform, Salesforce empowers businesses to connect with customers in entirely new ways. Our expertise helps you harness this power through strategic implementation, intelligent customization, and seamless integration.
                         </p>

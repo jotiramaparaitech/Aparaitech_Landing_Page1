@@ -115,7 +115,7 @@ const HeroSection = () => {
 
             {/* Main heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Transform Your Business With{' '}
+              Transform dfdvsscd Your Business With{' '}
               <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 Innovative Solutions
               </span>

@@ -55,7 +55,7 @@ const SecurePlatformPage = () => {
                         Build Trust and Transparency with Protection Built into All Our Products
                     </h1>
                     <p className="text-lg md:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 md:mb-12"> {/* CHANGED: Smaller text on mobile */}
-                        Across sales, service, marketing, and more, we're dedicated to keeping your customers' data safe and secure, building a trusted digital environment.
+                        Across sales, service, marketing, and more, we're dedicated to keeping your customers' data safe and secure, building a trusted digital world.
                     </p>
                 </div>
             </div>
