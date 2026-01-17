@@ -9,12 +9,15 @@ import {
   Briefcase,
   ChevronLeft,
   CheckCircle,
+  X,
+  File,
 } from "lucide-react";
 
 const ApplicationForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const job = location.state?.job || {};
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -32,21 +35,15 @@ const ApplicationForm = () => {
     github: "",
     portfolio: "",
     coverLetter: "",
-    source: "",
     workAuthorization: "",
     veteranStatus: "",
-    disability: "",
-    gender: "",
-    ethnicity: "",
-    pronouns: "",
     resume: null,
-    coverLetterFile: null,
   });
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
+  const [resumeUploaded, setResumeUploaded] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -81,21 +78,18 @@ const ApplicationForm = () => {
 
         setFormData((prev) => ({ ...prev, [name]: file }));
         setErrors((prev) => ({ ...prev, [name]: "" }));
-
-        // Simulate upload progress
-        let progress = 0;
-        const interval = setInterval(() => {
-          progress += 10;
-          setUploadProgress(progress);
-          if (progress >= 100) {
-            clearInterval(interval);
-          }
-        }, 100);
+        setResumeUploaded(true);
       }
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
+  };
+
+  const removeResume = () => {
+    setFormData((prev) => ({ ...prev, resume: null }));
+    setResumeUploaded(false);
+    setErrors((prev) => ({ ...prev, resume: "" }));
   };
 
   const validateForm = () => {
@@ -213,14 +207,6 @@ const ApplicationForm = () => {
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          {/* Progress Bar */}
-          <div className="h-2 bg-gray-200">
-            <div
-              className="h-full bg-blue-600 transition-all duration-300"
-              style={{ width: `${uploadProgress}%` }}
-            ></div>
-          </div>
-
           <form onSubmit={handleSubmit} className="p-6 md:p-8">
             {/* Personal Information */}
             <div className="mb-10">
@@ -230,6 +216,7 @@ const ApplicationForm = () => {
               </h2>
 
               <div className="grid md:grid-cols-2 gap-6">
+                {/* First Name */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     First Name *
@@ -239,10 +226,12 @@ const ApplicationForm = () => {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all ${
-                      errors.firstName ? "border-red-500" : "border-gray-300"
-                    }`}
-                    placeholder="name"
+                    className={`w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+          border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+          transition-all outline-none ${
+            errors.firstName ? "border-red-500" : "border-gray-300"
+          }`}
+                    placeholder="Enter your first name"
                   />
                   {errors.firstName && (
                     <p className="mt-1 text-sm text-red-600">
@@ -251,6 +240,7 @@ const ApplicationForm = () => {
                   )}
                 </div>
 
+                {/* Last Name */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Last Name *
@@ -260,10 +250,12 @@ const ApplicationForm = () => {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all ${
-                      errors.lastName ? "border-red-500" : "border-gray-300"
-                    }`}
-                    placeholder="last name"
+                    className={`w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+          border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+          transition-all outline-none ${
+            errors.lastName ? "border-red-500" : "border-gray-300"
+          }`}
+                    placeholder="Enter your last name"
                   />
                   {errors.lastName && (
                     <p className="mt-1 text-sm text-red-600">
@@ -282,6 +274,7 @@ const ApplicationForm = () => {
               </h2>
 
               <div className="space-y-6">
+                {/* Email */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Email Address *
@@ -291,16 +284,19 @@ const ApplicationForm = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all ${
-                      errors.email ? "border-red-500" : "border-gray-300"
-                    }`}
-                    placeholder="doe@example.com"
+                    className={`w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+          border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+          transition-all outline-none ${
+            errors.email ? "border-red-500" : "border-gray-300"
+          }`}
+                    placeholder="your.email@example.com"
                   />
                   {errors.email && (
                     <p className="mt-1 text-sm text-red-600">{errors.email}</p>
                   )}
                 </div>
 
+                {/* Phone */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Phone Number *
@@ -310,9 +306,11 @@ const ApplicationForm = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all ${
-                      errors.phone ? "border-red-500" : "border-gray-300"
-                    }`}
+                    className={`w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+          border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+          transition-all outline-none ${
+            errors.phone ? "border-red-500" : "border-gray-300"
+          }`}
                     placeholder="(123) 456-7890"
                   />
                   {errors.phone && (
@@ -329,6 +327,7 @@ const ApplicationForm = () => {
               </h2>
 
               <div className="space-y-6">
+                {/* LinkedIn */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     LinkedIn Profile
@@ -338,11 +337,15 @@ const ApplicationForm = () => {
                     name="linkedin"
                     value={formData.linkedin}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                    placeholder="https://linkedin.com/in/username"
+                    className="w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+                   border border-gray-300 rounded-lg
+                   focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                   transition-all outline-none"
+                    placeholder="https://linkedin.com/in/yourprofile"
                   />
                 </div>
 
+                {/* GitHub */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     GitHub Profile
@@ -352,11 +355,15 @@ const ApplicationForm = () => {
                     name="github"
                     value={formData.github}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                    placeholder="https://github.com/username"
+                    className="w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+                   border border-gray-300 rounded-lg
+                   focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                   transition-all outline-none"
+                    placeholder="https://github.com/yourusername"
                   />
                 </div>
 
+                {/* Portfolio */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Portfolio Website
@@ -366,7 +373,10 @@ const ApplicationForm = () => {
                     name="portfolio"
                     value={formData.portfolio}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                    className="w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+                   border border-gray-300 rounded-lg
+                   focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                   transition-all outline-none"
                     placeholder="https://yourportfolio.com"
                   />
                 </div>
@@ -377,7 +387,7 @@ const ApplicationForm = () => {
             <div className="mb-10">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <Upload className="w-6 h-6 text-blue-600" />
-                Resume & Documents
+                Resume Upload
               </h2>
 
               <div className="space-y-6">
@@ -388,84 +398,110 @@ const ApplicationForm = () => {
                       (PDF, DOC, DOCX, max 5MB)
                     </span>
                   </label>
+
+                  {/* Resume Upload Area */}
                   <div
-                    className={`border-2 border-dashed rounded-lg p-6 text-center transition-all ${
+                    className={`border-2 border-dashed rounded-lg p-6 text-center transition-all cursor-pointer ${
                       errors.resume
                         ? "border-red-500 bg-red-50"
-                        : "border-gray-300 hover:border-blue-400"
+                        : resumeUploaded
+                          ? "border-green-500 bg-green-50"
+                          : "border-gray-300 hover:border-blue-400 hover:bg-blue-50/30"
                     }`}
+                    onClick={() =>
+                      !resumeUploaded &&
+                      document.getElementById("resume-upload").click()
+                    }
                   >
-                    <Upload className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-                    <input
-                      type="file"
-                      name="resume"
-                      onChange={handleChange}
-                      accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                      className="hidden"
-                      id="resume-upload"
-                    />
-                    <label htmlFor="resume-upload" className="cursor-pointer">
-                      <span className="text-blue-600 font-medium">
-                        Click to upload
-                      </span>
-                      <span className="text-gray-600"> or drag and drop</span>
-                    </label>
-                    <p className="text-sm text-gray-500 mt-2">
-                      {formData.resume
-                        ? formData.resume.name
-                        : "No file selected"}
-                    </p>
+                    {!resumeUploaded ? (
+                      <>
+                        <Upload className="w-12 h-12 mx-auto mb-4 text-gray-400" />
+                        <input
+                          type="file"
+                          name="resume"
+                          onChange={handleChange}
+                          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                          className="hidden"
+                          id="resume-upload"
+                        />
+                        <div className="cursor-pointer">
+                          <div className="text-blue-600 font-medium text-lg mb-1">
+                            Click to upload your resume
+                          </div>
+                          <div className="text-gray-600 text-sm">
+                            or drag and drop your file here
+                          </div>
+                        </div>
+                        <p className="text-xs text-gray-500 mt-3">
+                          Supported formats: PDF, DOC, DOCX (Max 5MB)
+                        </p>
+                      </>
+                    ) : (
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-4">
+                          <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center">
+                            <File className="w-8 h-8 text-green-600" />
+                          </div>
+
+                          <div className="text-left">
+                            <p className="font-semibold text-green-700 mb-1">
+                              Resume Uploaded Successfully
+                            </p>
+                            <p className="text-gray-700 text-sm mb-1">
+                              {formData.resume.name}
+                            </p>
+                            <p className="text-xs text-gray-500">
+                              {(formData.resume.size / 1024 / 1024).toFixed(2)}{" "}
+                              MB •{" "}
+                              {formData.resume.type === "application/pdf"
+                                ? "PDF"
+                                : formData.resume.type === "application/msword"
+                                  ? "DOC"
+                                  : formData.resume.type ===
+                                      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                    ? "DOCX"
+                                    : "Document"}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* ✅ Professional Remove Button */}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            removeResume();
+                          }}
+                          className="flex items-center gap-2 text-sm text-red-600 border border-red-300 hover:border-red-400 hover:bg-red-50 px-3 py-1.5 rounded-md transition"
+                          title="Remove resume"
+                        >
+                          <File className="w-4 h-4 text-red-600" />
+                          Remove
+                        </button>
+                      </div>
+                    )}
                   </div>
+
                   {errors.resume && (
-                    <p className="mt-1 text-sm text-red-600">{errors.resume}</p>
+                    <p className="mt-2 text-sm text-red-600">{errors.resume}</p>
                   )}
                 </div>
 
+                {/* Additional Information */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Cover Letter (Optional)
+                    Cover Letter / Additional Information
                     <span className="text-gray-500 text-sm ml-2">
-                      (PDF, DOC, DOCX, max 5MB)
+                      (Optional)
                     </span>
-                  </label>
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-all">
-                    <FileText className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-                    <input
-                      type="file"
-                      name="coverLetterFile"
-                      onChange={handleChange}
-                      accept=".pdf,.doc,.docx"
-                      className="hidden"
-                      id="cover-letter-upload"
-                    />
-                    <label
-                      htmlFor="cover-letter-upload"
-                      className="cursor-pointer"
-                    >
-                      <span className="text-blue-600 font-medium">
-                        Click to upload
-                      </span>
-                      <span className="text-gray-600"> or drag and drop</span>
-                    </label>
-                    <p className="text-sm text-gray-500 mt-2">
-                      {formData.coverLetterFile
-                        ? formData.coverLetterFile.name
-                        : "No file selected"}
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Additional Information (Optional)
                   </label>
                   <textarea
                     name="coverLetter"
                     value={formData.coverLetter}
                     onChange={handleChange}
-                    rows="4"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                    placeholder="Tell us why you're interested in this position, or any additional information you'd like to share..."
+                    rows="5"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none resize-none text-gray-900 placeholder:text-gray-500 focus:text-gray-900"
+                    placeholder="Tell us why you're interested in this position, what makes you a great fit, and any additional information you'd like to share..."
                   ></textarea>
                 </div>
               </div>
@@ -483,57 +519,91 @@ const ApplicationForm = () => {
                 status, veteran status, or disability status.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
                     Are you legally authorized to work in the country where this
                     job is located? *
                   </label>
-                  <div className="flex gap-6">
+                  <div className="flex flex-wrap gap-4">
                     {["Yes", "No"].map((option) => (
-                      <label key={option} className="flex items-center gap-2">
-                        <input
-                          type="radio"
-                          name="workAuthorization"
-                          value={option}
-                          checked={formData.workAuthorization === option}
-                          onChange={handleChange}
-                          className="text-blue-600"
-                        />
-                        <span className="text-gray-800">{option}</span>{" "}
-                        {/* Added text-gray-800 here */}
+                      <label
+                        key={option}
+                        className="flex items-center gap-3 cursor-pointer p-3 hover:bg-white rounded-lg transition-colors"
+                      >
+                        <div className="relative">
+                          <input
+                            type="radio"
+                            name="workAuthorization"
+                            value={option}
+                            checked={formData.workAuthorization === option}
+                            onChange={handleChange}
+                            className="sr-only"
+                          />
+                          <div
+                            className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                              formData.workAuthorization === option
+                                ? "border-blue-600"
+                                : "border-gray-300"
+                            }`}
+                          >
+                            {formData.workAuthorization === option && (
+                              <div className="w-2.5 h-2.5 bg-blue-600 rounded-full"></div>
+                            )}
+                          </div>
+                        </div>
+                        <span className="text-gray-900 font-medium">
+                          {option}
+                        </span>
                       </label>
                     ))}
                   </div>
                   {errors.workAuthorization && (
-                    <p className="mt-1 text-sm text-red-600">
+                    <p className="mt-2 text-sm text-red-600">
                       {errors.workAuthorization}
                     </p>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Are you a veteran of the U.S. Armed Forces? *
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    Have you any experience ? *
                   </label>
-                  <div className="flex gap-6">
-                    {["Yes", "No", "Prefer not to say"].map((option) => (
-                      <label key={option} className="flex items-center gap-2">
-                        <input
-                          type="radio"
-                          name="veteranStatus"
-                          value={option}
-                          checked={formData.veteranStatus === option}
-                          onChange={handleChange}
-                          className="text-blue-600"
-                        />
-                        <span className="text-gray-800">{option}</span>{" "}
-                        {/* Added text-gray-800 here */}
+                  <div className="flex flex-wrap gap-4">
+                    {["Yes", "No"].map((option) => (
+                      <label
+                        key={option}
+                        className="flex items-center gap-3 cursor-pointer p-3 hover:bg-white rounded-lg transition-colors"
+                      >
+                        <div className="relative">
+                          <input
+                            type="radio"
+                            name="veteranStatus"
+                            value={option}
+                            checked={formData.veteranStatus === option}
+                            onChange={handleChange}
+                            className="sr-only"
+                          />
+                          <div
+                            className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                              formData.veteranStatus === option
+                                ? "border-blue-600"
+                                : "border-gray-300"
+                            }`}
+                          >
+                            {formData.veteranStatus === option && (
+                              <div className="w-2.5 h-2.5 bg-blue-600 rounded-full"></div>
+                            )}
+                          </div>
+                        </div>
+                        <span className="text-gray-900 font-medium">
+                          {option}
+                        </span>
                       </label>
                     ))}
                   </div>
                   {errors.veteranStatus && (
-                    <p className="mt-1 text-sm text-red-600">
+                    <p className="mt-2 text-sm text-red-600">
                       {errors.veteranStatus}
                     </p>
                   )}
@@ -555,7 +625,7 @@ const ApplicationForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 shadow-lg hover:shadow-xl"
                 >
                   {isSubmitting ? (
                     <>

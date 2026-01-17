@@ -673,11 +673,7 @@ const JobDetail = () => {
                   alt={job.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent"></div>
               </div>
-              
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-yellow-400 rounded-full opacity-20"></div>
-              <div className="absolute -top-6 -right-6 w-48 h-48 bg-blue-400 rounded-full opacity-20"></div>
             </div>
           </div>
         </div>
