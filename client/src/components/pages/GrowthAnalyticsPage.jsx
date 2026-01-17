@@ -71,8 +71,12 @@ const GrowthAnalytics = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
             Transform Your Business With
-            <span className="block text-blue-600 mt-4">Intelligent Growth Analytics</span>
+            <span className="block text-blue-600 mt-4">Smart Growth Analytics</span>
           </h1>
+          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
+            Get data-driven insights that help you make smarter decisions, optimize operations, 
+            and accelerate business .
+          </p>
           <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
             Get data-driven insights that help you make smarter decisions, optimize operations, 
             and accelerate business growth.
