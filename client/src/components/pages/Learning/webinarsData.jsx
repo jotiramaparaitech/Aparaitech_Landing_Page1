@@ -3,15 +3,15 @@ export const upcomingWebinarData = {
   id: 1,
   title: "The Future of Generative AI in Enterprise",
   description: "Join our expert panel as we discuss how Large Language Models are reshaping business operations and decision-making.",
-  date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-  time: "4:25 PM",
+  // date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+  // time: "3:05 PM",
   duration: "60 minutes",
   speaker: "Dr. Sarah Miller",
   role: "AI Research Lead at TechCorp",
   image: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=800&q=80",
   category: "AI & Machine Learning",
-  meetingLink: "#", // Configurable meeting link
-  startTimeISO: new Date().toISOString().split("T")[0] + "T16:25:00+05:30" // ISO time for logic
+  meetingLink: "https://meet.google.com/ght-igyd-qea", // Configurable meeting link
+  startTimeISO: new Date().toISOString().split("T")[0] + "T15:30:00+05:30" // ISO time for logic
 };
 
 export const pastWebinarsData = [

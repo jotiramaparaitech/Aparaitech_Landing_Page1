@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaCalendarAlt, FaClock, FaCheckCircle, FaArrowRight, FaVideo, FaPlay, FaUserTie } from "react-icons/fa";
 import { toast, Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
@@ -6,37 +6,9 @@ import { upcomingWebinarData, pastWebinarsData } from "./webinarsData";
 
 const Webinars = () => {
   const [registered, setRegistered] = useState(false);
-  const [timeLeft, setTimeLeft] = useState("");
 
   // 🔥 TODAY 16:21 IST
   const webinar = upcomingWebinarData;
-
-  // check join condition
-  const isJoinAllowed = () => {
-    const now = new Date();
-    const start = new Date(webinar.startTimeISO);
-    const diff = start - now;
-    return diff <= 15 * 60 * 1000; // 15 min before
-  };
-
-  // Countdown timer logic
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date();
-      const start = new Date(webinar.startTimeISO);
-      const diff = start - now;
-
-      if (diff <= 0) {
-        setTimeLeft("Live Now");
-      } else {
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        setTimeLeft(`${hours}h ${minutes}m ${seconds}s`);
-      }
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [webinar.startTimeISO]);
 
   return (
     <div className="min-h-screen bg-slate-50 pt-20 font-sans">
@@ -123,8 +95,8 @@ const Webinars = () => {
               <div className="flex flex-col sm:flex-row gap-4 items-center">
                 {/* Timer */}
                 <div className="px-4 py-2 bg-slate-100 rounded-lg border border-slate-200 text-center min-w-[140px]">
-                  <div className="text-xs text-slate-500 uppercase font-bold">Starts In</div>
-                  <div className="text-lg font-mono font-bold text-blue-600">{timeLeft}</div>
+                  <div className="text-xs text-slate-500 uppercase font-bold">Status</div>
+                  <div className="text-lg font-mono font-bold text-red-600 animate-pulse">Starts Soon</div>
                 </div>
 
                 {/* Action Button */}
@@ -141,23 +113,11 @@ const Webinars = () => {
                 ) : (
                   <button
                     onClick={() => {
-                      if (!isJoinAllowed()) {
-                        toast.error(`Event hasn't started yet. Please wait until ${webinar.time}.`);
-                        return;
-                      }
                       window.open(webinar.meetingLink, "_blank");
                     }}
-                    className={`flex-1 w-full py-3 font-bold rounded-lg flex items-center justify-center gap-2 transition-all ${
-                      isJoinAllowed()
-                        ? "bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-500/30 cursor-pointer"
-                        : "bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200"
-                    }`}
+                    className="flex-1 w-full py-3 font-bold rounded-lg flex items-center justify-center gap-2 transition-all bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-500/30 cursor-pointer"
                   >
-                    {isJoinAllowed() ? (
-                      <>Join Meeting Now <FaVideo /></>
-                    ) : (
-                      <>Registered • Waiting for Start</>
-                    )}
+                    Join Meeting Now <FaVideo />
                   </button>
                 )}
               </div>
