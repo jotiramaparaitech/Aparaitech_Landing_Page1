@@ -110,7 +110,7 @@ const GrowthAnalytics = () => {
             <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8">
               In today's competitive landscape, data is your most valuable asset. Our Growth Analytics platform transforms raw data into actionable insights that drive measurable business outcomes.
             </p>
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 md:p-8 rounded-2xl border-l-4 border-blue-500 mb-8 md:mb-12">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 md:p-8 rounded-2xl mb-8 md:mb-12">
               <p className="text-xl md:text-2xl font-semibold text-gray-900">
                 From predictive modeling to real-time dashboards, we provide the tools and expertise to turn data into your competitive advantage.
               </p>

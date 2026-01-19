@@ -102,7 +102,7 @@ const SalesforceSolutionsPage = () => {
                         <p className="text-xl text-gray-700 mb-8">
                             As the world's #1 CRM platform, Salesforce empowers businesses to connect with customers in entirely new ways. Our expertise helps you harness this power through strategic implementation, intelligent customization, and seamless integration.
                         </p>
-                        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-2xl border-l-4 border-blue-500 mb-12">
+                        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-2xl mb-12">
                             <p className="text-2xl font-semibold text-gray-900">
                                 From initial strategy to ongoing optimization, we ensure your Salesforce investment delivers maximum ROI and drives sustainable business growth.
                             </p>

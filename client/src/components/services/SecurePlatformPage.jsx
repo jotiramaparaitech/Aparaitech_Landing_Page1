@@ -90,7 +90,7 @@ const SecurePlatformPage = () => {
                         <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8">
                             As data intelligence becomes more prevalent as a way for companies to understand and better serve customers, companies must remain accountable for safeguarding the privacy and security of individuals' data. As the leading CRM platform, we provide companies like yours with tools to build trust while enhancing customer experiences.
                         </p>
-                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 md:p-8 rounded-2xl border-l-4 border-blue-600 mb-8 md:mb-12"> {/* CHANGED: Adjusted padding */}
+                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 md:p-8 rounded-2xl mb-8 md:mb-12"> {/* CHANGED: Adjusted padding */}
                             <p className="text-xl md:text-2xl font-semibold text-gray-900">
                                 Gain increased transparency and control of your customers' data, while harnessing the power of that data to connect with customers in new ways.
                             </p>
