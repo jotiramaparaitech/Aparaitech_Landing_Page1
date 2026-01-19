@@ -131,7 +131,7 @@ const CloudComputingPage = () => {
                                 ))}
                             </div>
 
-                            {/* Cloud Computing Services - This section was already there, keeping it */}
+                            {/* Cloud Computing Services */}
                             <h3 className="text-2xl font-bold mb-6 text-gray-800">Cloud computing services</h3>
                             <div className="space-y-8">
                                 {[
@@ -174,7 +174,7 @@ const CloudComputingPage = () => {
                             </div>
                         </section>
 
-                        {/* Benefits of Cloud Computing - This section was already there, keeping it */}
+                        {/* Benefits of Cloud Computing */}
                         <section id="benefits" className="mb-16 scroll-mt-24">
                             <h2 className="text-4xl font-bold mb-8 text-gray-900">Benefits of Cloud Computing</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -195,7 +195,7 @@ const CloudComputingPage = () => {
                             </div>
                         </section>
 
-                        {/* How Does Cloud Computing Work - ADDED NEW SECTION */}
+                        {/* How Does Cloud Computing Work */}
                         <section id="how-it-works" className="mb-16 scroll-mt-24">
                             <h2 className="text-4xl font-bold mb-6 text-gray-900">How does cloud computing work?</h2>
                             <div className="prose prose-lg max-w-none">
@@ -228,7 +228,7 @@ const CloudComputingPage = () => {
                             </div>
                         </section>
 
-                        {/* Applications and Uses - This section was already there, keeping it */}
+                        {/* Applications and Uses */}
                         <section id="applications" className="mb-16 scroll-mt-24">
                             <h2 className="text-4xl font-bold mb-8 text-gray-900">Applications and uses of cloud computing</h2>
                             <div className="grid md:grid-cols-2 gap-8">
@@ -271,7 +271,7 @@ const CloudComputingPage = () => {
                             </div>
                         </section>
 
-                        {/* Examples of Cloud Computing - ADDED NEW SECTION */}
+                        {/* Examples of Cloud Computing */}
                         <section id="examples" className="mb-16 scroll-mt-24">
                             <h2 className="text-4xl font-bold mb-8 text-gray-900">Examples of cloud computing</h2>
                             <div className="prose prose-lg max-w-none">
@@ -339,7 +339,7 @@ const CloudComputingPage = () => {
                             </div>
                         </section>
 
-                        {/* Future Trends - ADDED NEW SECTION */}
+                        {/* Future Trends */}
                         <section id="future" className="mb-16 scroll-mt-24">
                             <h2 className="text-4xl font-bold mb-8 text-gray-900">Future of cloud computing and trends to watch for</h2>
                             <div className="prose prose-lg max-w-none">
@@ -407,7 +407,7 @@ const CloudComputingPage = () => {
                             </div>
                         </section>
 
-                        {/* How to Choose - ADDED NEW SECTION */}
+                        {/* How to Choose */}
                         <section id="choose-solution" className="mb-16 scroll-mt-24">
                             <h2 className="text-4xl font-bold mb-8 text-gray-900">How to choose the best cloud computing solution</h2>
                             <div className="prose prose-lg max-w-none">
