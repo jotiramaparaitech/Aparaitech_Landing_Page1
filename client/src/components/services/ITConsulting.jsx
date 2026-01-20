@@ -250,49 +250,63 @@ const ITConsulting = () => {
         </div>
       </section>
 
-      {/* Consulting Services */}
-      <section className="px-4 md:px-8 py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Consulting Services</h2>
-            <p className="text-gray-600 text-lg">Comprehensive IT consulting solutions for enterprises</p>
-          </div>
+   {/* Consulting Services */}
+<section className="px-4 md:px-8 py-20">
+  <div className="max-w-6xl mx-auto">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        Our Consulting Services
+      </h2>
+      <p className="text-gray-600 text-lg">
+        Comprehensive IT consulting solutions for enterprises
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {consultingServices.map((service) => (
-              <button
-                key={service.id}
-                type="button"
-                onMouseEnter={() => setActiveService(service.id)}
-                className={`group text-left cursor-pointer rounded-xl border border-gray-200 p-8 transition-all duration-300 hover:border-orange-500/50 ${service.gradient}`}
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-orange-600 transition-colors">{service.title}</h3>
-                <p className="text-gray-600 mb-6 text-sm">{service.description}</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {consultingServices.map((service) => (
+        <div
+          key={service.id}
+          className={`group text-left rounded-xl border border-gray-200 p-8 transition-all duration-300 hover:border-orange-500/50 ${service.gradient}`}
+        >
+          <div className="text-4xl mb-4">{service.icon}</div>
 
-                {activeService === service.id && (
-                  <div className="space-y-4 animate-fadeIn border-t border-gray-200 pt-4">
-                    <div>
-                      <p className="text-sm text-gray-700 font-semibold mb-3">Key Benefits:</p>
-                      <ul className="space-y-2">
-                        {service.benefits.map((benefit, benefitId) => (
-                          <li key={`benefit-${service.id}-${benefitId}`} className="text-sm text-gray-600 flex items-center">
-                            <span className="text-orange-600 mr-2">✓</span>
-                            {benefit}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="pt-2 text-sm text-orange-600 font-semibold">
-                      Timeline: {service.duration}
-                    </div>
-                  </div>
-                )}
-              </button>
-            ))}
+          <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-orange-600 transition-colors">
+            {service.title}
+          </h3>
+
+          <p className="text-gray-600 mb-6 text-sm">
+            {service.description}
+          </p>
+
+          {/* CONTENT ALWAYS VISIBLE (NO HOVER) */}
+          <div className="space-y-4 border-t border-gray-200 pt-4">
+            <div>
+              <p className="text-sm text-gray-700 font-semibold mb-3">
+                Key Benefits:
+              </p>
+              <ul className="space-y-2">
+                {service.benefits.map((benefit, benefitId) => (
+                  <li
+                    key={`benefit-${service.id}-${benefitId}`}
+                    className="text-sm text-gray-600 flex items-center"
+                  >
+                    <span className="text-orange-600 mr-2">✓</span>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-2 text-sm text-orange-600 font-semibold">
+              Timeline: {service.duration}
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Consulting Pillars */}
       <section className="px-4 md:px-8 py-20 bg-gradient-to-b from-gray-900/50 to-transparent">

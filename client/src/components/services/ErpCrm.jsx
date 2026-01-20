@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Database, Users, Link, TrendingUp, Shield, BarChart3, Zap, Settings } from 'lucide-react';
 
-const ERPCRM = () => {
+const ErpCrm = () => {
   const navigate = useNavigate();
   const [stats, setStats] = useState({
     implementations: 0,
@@ -325,4 +325,4 @@ const ERPCRM = () => {
   );
 };
 
-export default ERPCRM;
+export default ErpCrm;

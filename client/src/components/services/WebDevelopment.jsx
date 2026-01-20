@@ -172,56 +172,75 @@ const WebDevelopment = () => {
       </section>
 
       {/* Web Services Section */}
-      <section className="px-4 md:px-8 py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Web Development Services</h2>
-            <p className="text-gray-600 text-lg">Comprehensive web solutions tailored to your business needs</p>
-          </div>
+<section className="px-4 md:px-8 py-20">
+  <div className="max-w-6xl mx-auto">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        Our Web Development Services
+      </h2>
+      <p className="text-gray-600 text-lg">
+        Comprehensive web solutions tailored to your business needs
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {webServices.map((service) => (
-              <button
-                key={service.id}
-                type="button"
-                onMouseEnter={() => setHoveredService(service.id)}
-                onMouseLeave={() => setHoveredService(null)}
-                className={`group text-left cursor-pointer rounded-xl border border-gray-200 p-8 transition-all duration-300 hover:border-purple-500/50 ${service.gradient}`}
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-purple-600 transition-colors">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {webServices.map((service) => (
+        <div
+          key={service.id}
+          className={`group text-left rounded-xl border border-gray-200 p-8 transition-all duration-300 hover:border-purple-500/50 ${service.gradient}`}
+        >
+          <div className="text-4xl mb-4">{service.icon}</div>
 
-                {hoveredService === service.id && (
-                  <div className="space-y-4 animate-fadeIn">
-                    <div>
-                      <p className="text-sm text-gray-700 font-semibold mb-2">Technologies:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {service.technologies.map((tech, techId) => (
-                          <span key={`tech-${service.id}-${techId}`} className="text-xs bg-blue-500/20 text-purple-700 px-3 py-1 rounded-full border border-purple-500/30">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-700 font-semibold mb-2">Key Features:</p>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        {service.features.map((feature, featureId) => (
-                          <li key={`feature-${service.id}-${featureId}`}>✓ {feature}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="pt-4 border-t border-gray-200">
-                      <p className="text-sm text-purple-600 font-semibold">{service.timeToMarket}</p>
-                    </div>
-                  </div>
-                )}
-              </button>
-            ))}
+          <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-purple-600 transition-colors">
+            {service.title}
+          </h3>
+
+          <p className="text-gray-600 mb-6">
+            {service.description}
+          </p>
+
+          {/* CONTENT ALWAYS VISIBLE (NO HOVER) */}
+          <div className="space-y-4">
+            <div>
+              <p className="text-sm text-gray-700 font-semibold mb-2">
+                Technologies:
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {service.technologies.map((tech, techId) => (
+                  <span
+                    key={`tech-${service.id}-${techId}`}
+                    className="text-xs bg-blue-500/20 text-purple-700 px-3 py-1 rounded-full border border-purple-500/30"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="text-sm text-gray-700 font-semibold mb-2">
+                Key Features:
+              </p>
+              <ul className="text-sm text-gray-600 space-y-1">
+                {service.features.map((feature, featureId) => (
+                  <li key={`feature-${service.id}-${featureId}`}>
+                    ✓ {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-4 border-t border-gray-200">
+              <p className="text-sm text-purple-600 font-semibold">
+                {service.timeToMarket}
+              </p>
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Development Process */}
       <section className="px-4 md:px-8 py-20 bg-gradient-to-b from-gray-900/50 to-transparent">
