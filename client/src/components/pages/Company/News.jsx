@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const News = () => {
   const articles = [
@@ -32,10 +33,12 @@ const News = () => {
     }
   ];
 
+  const navigate = useNavigate();
+
   return (
     <div className="pt-16 min-h-screen bg-white font-sans">
       {/* HERO */}
-      <div className="bg-white border-b border-gray-100 py-20">
+      <div className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">Newsroom</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -49,7 +52,11 @@ const News = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-10">
             {articles.map((article, idx) => (
-              <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer">
+              <div 
+                key={idx} 
+                onClick={() => navigate('/news-detail', { state: article })}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer"
+              >
                 <div className="h-64 overflow-hidden">
                   <img 
                     src={article.image} 
