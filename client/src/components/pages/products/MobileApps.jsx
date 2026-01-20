@@ -137,7 +137,7 @@ const MobileApps = () => {
               { step: "03", title: "Development", desc: "Agile coding sprints with regular updates." },
               { step: "04", title: "Launch", desc: "App store submission and post-launch support." }
             ].map((phase, idx) => (
-              <div key={idx} className="relative p-6 border-l-2 border-blue-200 hover:border-blue-600 transition-colors">
+              <div key={idx} className="relative p-6 hover:bg-blue-50 transition-colors rounded-lg">
                 <span className="text-5xl font-bold text-gray-100 absolute -top-4 -left-4 -z-10">{phase.step}</span>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{phase.title}</h3>
                 <p className="text-gray-600 text-sm">{phase.desc}</p>

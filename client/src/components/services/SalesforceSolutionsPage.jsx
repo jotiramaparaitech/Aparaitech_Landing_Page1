@@ -102,7 +102,7 @@ const SalesforceSolutionsPage = () => {
                         <p className="text-xl text-gray-700 mb-8">
                             As the world's #1 CRM platform, Salesforce empowers businesses to connect with customers in entirely new ways. Our expertise helps you harness this power through strategic implementation, intelligent customization, and seamless integration.
                         </p>
-                        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-2xl border-l-4 border-blue-500 mb-12">
+                        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-2xl mb-12">
                             <p className="text-2xl font-semibold text-gray-900">
                                 From initial strategy to ongoing optimization, we ensure your Salesforce investment delivers maximum ROI and drives sustainable business growth.
                             </p>
@@ -151,7 +151,7 @@ const SalesforceSolutionsPage = () => {
                     </div>
 
                     {/* Implementation Process */}
-                    <div className="bg-gray-50 rounded-2xl p-10">
+                    <div className="bg-white rounded-2xl p-10 border border-gray-100">
                         <h3 className="text-3xl font-bold mb-8 text-center">Our Implementation Process</h3>
                         <div className="grid md:grid-cols-5 gap-6">
                             {[
@@ -199,7 +199,7 @@ const SalesforceSolutionsPage = () => {
                     </div>
 
                     {/* Customization Examples */}
-                    <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-10">
+                    <div className="bg-white rounded-2xl p-10 border border-gray-100">
                         <h3 className="text-2xl font-bold mb-6">Customization Success Stories</h3>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="bg-white rounded-xl p-6">
@@ -217,43 +217,6 @@ const SalesforceSolutionsPage = () => {
                                     <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
                                     <span>Automated compliance tracking</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Integration Section */}
-                <section id="integration" className="mb-20 scroll-mt-32">
-                    <div className="bg-gradient-to-r from-blue-500 to-cyan-400 rounded-3xl p-12 text-white">
-                        <div className="max-w-3xl">
-                            <h2 className="text-4xl font-bold mb-6">Seamless Integration Capabilities</h2>
-                            <p className="text-xl mb-10 opacity-90">
-                                Connect Salesforce with your existing systems, third-party applications, and data sources for a unified business ecosystem.
-                            </p>
-                            <div className="grid md:grid-cols-3 gap-8">
-                                {[
-                                    {
-                                        title: 'API Integration',
-                                        desc: 'REST and SOAP API integration with enterprise systems',
-                                        icon: '🔗'
-                                    },
-                                    {
-                                        title: 'Data Migration',
-                                        desc: 'Secure migration from legacy systems to Salesforce',
-                                        icon: '📊'
-                                    },
-                                    {
-                                        title: 'Third-Party Apps',
-                                        desc: 'Integration with marketing, accounting, and ERP systems',
-                                        icon: '🔄'
-                                    }
-                                ].map((item, idx) => (
-                                    <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                                        <div className="text-3xl mb-4">{item.icon}</div>
-                                        <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                                        <p className="opacity-80">{item.desc}</p>
-                                    </div>
-                                ))}
                             </div>
                         </div>
                     </div>
@@ -315,7 +278,7 @@ const SalesforceSolutionsPage = () => {
                                     </div>
                                 ))}
                             </div>
-                            <div className="mt-8 bg-gray-50 rounded-xl p-8">
+                            <div className="mt-8 bg-white rounded-xl p-8 border border-gray-100">
                                 <h4 className="font-bold text-lg mb-4">Certifications</h4>
                                 <div className="flex flex-wrap gap-4">
                                     {['Salesforce Admin', 'Platform Developer', 'App Builder', 'Sales Cloud', 'Service Cloud'].map((cert, idx) => (

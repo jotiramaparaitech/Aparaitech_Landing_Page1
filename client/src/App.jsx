@@ -77,6 +77,7 @@ import AboutUs from "./components/pages/Company/AboutUs";
 import OurValues from "./components/pages/Company/OurValues";
 import CareersPage from "./components/pages/Company/Careers";
 import News from "./components/pages/Company/News";
+import NewsDetail from "./components/pages/Company/NewsDetail";
 import PartnersPage from "./components/pages/Company/Partners";
 import InvestorRelations from "./components/pages/Company/InvestorRelations";
 
@@ -171,6 +172,7 @@ function App() {
         <Route path="/company/values" element={<OurValues />} />
         <Route path="/company/careers" element={<CareersPage />} />
         <Route path="/company/news" element={<News />} />
+        <Route path="/news-detail" element={<NewsDetail />} />
         <Route path="/company/partners" element={<PartnersPage />} />
         <Route path="/company/investors" element={<InvestorRelations />} />
       </Routes>

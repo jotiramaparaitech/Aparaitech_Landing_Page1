@@ -48,7 +48,7 @@ const CloudComputingPage = () => {
                                             document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
                                         }}
                                         className={`block text-left w-full px-4 py-3 rounded-lg transition ${activeSection === item.id
-                                                ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600 font-semibold'
+                                                ? 'bg-blue-50 text-blue-600 font-semibold'
                                                 : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
                                             }`}
                                     >
@@ -71,7 +71,7 @@ const CloudComputingPage = () => {
                                     for what you use (pay-as-you-go pricing). It removes the need to buy, manage, or
                                     maintain physical hardware yourself.
                                 </p>
-                                <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg my-8">
+                                <div className="bg-blue-50 p-6 rounded-lg my-8">
                                     <p className="text-gray-800 italic">
                                         Whether you're a startup building an app, a global business crunching massive data sets,
                                         or simply storing personal files, cloud computing puts the power of top-tier IT
