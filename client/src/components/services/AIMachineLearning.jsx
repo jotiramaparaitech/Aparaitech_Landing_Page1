@@ -151,20 +151,7 @@ const AIMachineLearning = () => {
               Transform your business with cutting-edge AI solutions. From predictive analytics to computer vision, 
               we deliver ML/CNN models that drive real results.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button
-                onClick={() => navigate('/#contact-form')}
-                className="px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                Get Started Today
-              </button>
-              <button
-                onClick={() => navigate('/#services')}
-                className="px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg border-2 border-purple-200 hover:border-purple-400 hover:shadow-lg transition-all duration-300"
-              >
-                View All Services
-              </button>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -331,20 +318,7 @@ const AIMachineLearning = () => {
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
             Let's discuss how AI and machine learning can drive innovation and growth for your organization.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => navigate('/#contact-form')}
-              className="px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-xl"
-            >
-              Schedule a Consultation
-            </button>
-            <button
-              onClick={() => navigate('/#services')}
-              className="px-8 py-4 bg-transparent text-white font-semibold rounded-lg border-2 border-white hover:bg-white/10 transition-all duration-300"
-            >
-              Explore More Services
-            </button>
-          </div>
+        
         </div>
       </section>
     </div>

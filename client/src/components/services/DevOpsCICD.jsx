@@ -161,20 +161,7 @@ const DevOpsCICD = () => {
               Accelerate your software delivery with automated pipelines, containerization, and cloud infrastructure. 
               Deploy faster, scale effortlessly, and maintain reliability.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button
-                onClick={() => navigate('/#contact-form')}
-                className="px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                Get Started
-              </button>
-              <button
-                onClick={() => navigate('/#services')}
-                className="px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg border-2 border-orange-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300"
-              >
-                View All Services
-              </button>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -317,20 +304,7 @@ const DevOpsCICD = () => {
           <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
             Let's discuss how DevOps and CI/CD can transform your software delivery process.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => navigate('/#contact-form')}
-              className="px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-xl"
-            >
-              Schedule a Consultation
-            </button>
-            <button
-              onClick={() => navigate('/#services')}
-              className="px-8 py-4 bg-transparent text-white font-semibold rounded-lg border-2 border-white hover:bg-white/10 transition-all duration-300"
-            >
-              Explore More Services
-            </button>
-          </div>
+          
         </div>
       </section>
     </div>

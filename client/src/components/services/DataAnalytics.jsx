@@ -142,20 +142,7 @@ const DataAnalytics = () => {
               Transform raw data into actionable insights. Dashboards, ETL pipelines, and business intelligence 
               solutions that drive smarter decisions and better outcomes.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button
-                onClick={() => navigate('/#contact-form')}
-                className="px-8 py-4 bg-gradient-to-r from-teal-600 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                Get Analytics Solution
-              </button>
-              <button
-                onClick={() => navigate('/#services')}
-                className="px-8 py-4 bg-white text-teal-600 font-semibold rounded-lg border-2 border-teal-200 hover:border-teal-400 hover:shadow-lg transition-all duration-300"
-              >
-                View All Services
-              </button>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -279,20 +266,7 @@ const DataAnalytics = () => {
           <p className="text-xl text-teal-100 mb-8 max-w-2xl mx-auto">
             Let's discuss how data analytics can drive better decisions and growth for your business.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => navigate('/#contact-form')}
-              className="px-8 py-4 bg-white text-teal-600 font-semibold rounded-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-xl"
-            >
-              Get Started
-            </button>
-            <button
-              onClick={() => navigate('/#services')}
-              className="px-8 py-4 bg-transparent text-white font-semibold rounded-lg border-2 border-white hover:bg-white/10 transition-all duration-300"
-            >
-              Explore More Services
-            </button>
-          </div>
+         
         </div>
       </section>
     </div>
