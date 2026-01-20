@@ -25,17 +25,26 @@ import GrowthAnalytics from "./components/services/GrowthAnalytics";
 import CloudSolutionsService from "./components/services/CloudSolutions";
 import SecurePlatformPage from "./components/services/SecurePlatformPage";
 import SalesforceSolutionsPage from "./components/services/SalesforceSolutionsPage";
+import AIMachineLearning from "./components/services/AIMachineLearning";
+import DevOpsCICD from "./components/services/DevOpsCICD";
+import Cybersecurity from "./components/services/Cybersecurity";
+import MobileAppDevelopment from "./components/services/MobileAppDevelopment";
+import DataAnalytics from "./components/services/DataAnalytics";
+import DigitalTransformation from "./components/services/DigitalTransformation";
+import UIUXDesign from "./components/services/UIUXDesign";
+import ERPCRM from "./components/services/ERPCRM";
+import ELearning from "./components/services/ELearning";
 
 /* ================= SERVICE DETAIL PAGES ================= */
-import CloudSolutionsPage from "./components/pages/CloudSolutions";
-import WebDevelopment from "./components/pages/WebDevelopment";
-import ITConsulting from "./components/pages/ITConsulting";
+import CloudComputingPage from "./components/services/CloudComputingPage";
+import WebDevelopment from "./components/services/WebDevelopment";
+import ITConsulting from "./components/services/ITConsulting";
 
 /* ================= PRODUCT PAGES ================= */
 import CustomSoftware from "./components/pages/products/CustomSoftware";
 import MobileApps from "./components/pages/products/MobileApps";
 import DevOps from "./components/pages/products/DevOps";
-import UIUXDesign from "./components/pages/products/UIUXDesign";
+import UIUXDesignProduct from "./components/pages/products/UIUXDesign";
 
 /* ================= INDUSTRY PAGES ================= */
 import Healthcare from "./components/pages/industries/Healthcare";
@@ -104,10 +113,10 @@ function App() {
 
         {/* Job */}
         <Route path="/job-detail" element={<JobDetail />} />
-        <Route path='/apply' element={<ApplicationForm />}/>
+        <Route path="/apply" element={<ApplicationForm />} />
 
         {/* Service Detail */}
-        <Route path="/cloud-computing" element={<CloudSolutionsPage />} />
+        <Route path="/cloud-computing" element={<CloudComputingPage />} />
         <Route path="/software-development" element={<WebDevelopment />} />
         <Route path="/it-consulting" element={<ITConsulting />} />
 
@@ -116,13 +125,21 @@ function App() {
         <Route path="/services/cloud-solutions" element={<CloudSolutionsService />} />
         <Route path="/services/secure-platform" element={<SecurePlatformPage />} />
         <Route path="/services/salesforce-solutions" element={<SalesforceSolutionsPage />} />
-
+        <Route path="/services/ai-machine-learning" element={<AIMachineLearning />} />
+        <Route path="/services/devops-cicd" element={<DevOpsCICD />} />
+        <Route path="/services/cybersecurity" element={<Cybersecurity />} />
+        <Route path="/services/mobile-app-development" element={<MobileAppDevelopment />} />
+        <Route path="/services/data-analytics" element={<DataAnalytics />} />
+        <Route path="/services/digital-transformation" element={<DigitalTransformation />} />
+        <Route path="/services/ui-ux-design" element={<UIUXDesign />} />
+        <Route path="/services/erp-crm" element={<ERPCRM />} />
+        <Route path="/services/e-learning" element={<ELearning />} />
 
         {/* Products */}
         <Route path="/products/custom-software" element={<CustomSoftware />} />
         <Route path="/products/mobile-apps" element={<MobileApps />} />
         <Route path="/products/devops" element={<DevOps />} />
-        <Route path="/products/ui-ux-design" element={<UIUXDesign />} />
+        <Route path="/products/ui-ux-design" element={<UIUXDesignProduct />} />
 
         {/* Industries */}
         <Route path="/industries/healthcare" element={<Healthcare />} />
