@@ -293,12 +293,7 @@ const MobileAppDevelopment = () => {
             Let’s discuss your idea and build a mobile application that drives
             real business results.
           </p>
-          <button
-            onClick={() => navigate('/contact')}
-            className="px-12 py-4 rounded-xl bg-white text-indigo-700 font-semibold hover:scale-105 transition"
-          >
-            Talk to Our Experts
-          </button>
+          
         </div>
       </section>
     </div>
