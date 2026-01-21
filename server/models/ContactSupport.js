@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const contactSchema = new mongoose.Schema({
+const contactSupportSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -13,7 +13,7 @@ const contactSchema = new mongoose.Schema({
     },
     subject: {
         type: String,
-        required: false,
+        required: true,
         trim: true
     },
     priority: {
@@ -25,13 +25,17 @@ const contactSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    type: {
+    status: {
         type: String,
-        enum: ['contact', 'support'],
-        default: 'contact'
+        enum: ['Open', 'In Progress', 'Resolved', 'Closed'],
+        default: 'Open'
+    },
+    ticketId: {
+        type: String,
+        unique: true
     }
 }, { timestamps: true });
 
-const Contact = mongoose.model("Contact", contactSchema);
+const ContactSupport = mongoose.model("ContactSupport", contactSupportSchema);
 
-export default Contact;
+export default ContactSupport;

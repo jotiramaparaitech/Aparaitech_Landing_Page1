@@ -96,7 +96,7 @@ const Portfolio = () => {
       {/* CTA */}
       <section className="py-20 bg-gray-50 text-center">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">Have a project in mind?</h2>
-        <Link to="/#contact" className="inline-block px-8 py-4 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition-colors shadow-lg">Let's Talk</Link>
+        <Link to="/contact" className="inline-block px-8 py-4 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition-colors shadow-lg">Let's Talk</Link>
       </section>
 
     </div>

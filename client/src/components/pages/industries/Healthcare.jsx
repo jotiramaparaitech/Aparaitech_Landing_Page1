@@ -24,13 +24,13 @@ const Healthcare = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
-                to="/#contact" 
+                to="/contact" 
                 className="px-8 py-4 bg-[#0f766e] hover:bg-[#115e59] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-teal-500/50 text-center"
               >
-                Schedule Consultation
+                Start Your Transformation
               </Link>
-              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center">
-                View Solutions
+              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center" onClick={(e) => e.preventDefault()}>
+                View Demo
               </button>
             </div>
           </div>
@@ -195,12 +195,12 @@ const Healthcare = () => {
             Partner with us to build secure, scalable, and innovative healthcare solutions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/#contact" className="px-8 py-4 bg-[#2dd4bf] hover:bg-[#14b8a6] text-[#0d2b28] font-bold rounded-lg transition-all shadow-lg hover:shadow-teal-500/50">
+            <Link to="/contact" className="px-8 py-4 bg-[#2dd4bf] hover:bg-[#14b8a6] text-[#0d2b28] font-bold rounded-lg transition-all shadow-lg hover:shadow-teal-500/50">
               Contact Sales
             </Link>
-            <Link to="/about" className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all">
-              Read Case Studies
-            </Link>
+            <button className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all" onClick={(e) => e.preventDefault()}>
+              Read Success Stories
+            </button>
           </div>
         </div>
       </section>

@@ -25,12 +25,12 @@ const Startups = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
-                to="/#contact" 
+                to="/contact" 
                 className="px-8 py-4 bg-[#ec4899] hover:bg-[#db2777] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-pink-500/50 text-center"
               >
                 Build Your MVP
               </Link>
-              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center">
+              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center" onClick={(e) => e.preventDefault()}>
                 See Portfolio
               </button>
             </div>
@@ -155,12 +155,12 @@ const Startups = () => {
             Let's build something extraordinary together.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/#contact" className="px-8 py-4 bg-[#ec4899] hover:bg-[#db2777] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-pink-500/50">
+            <Link to="/contact" className="px-8 py-4 bg-[#ec4899] hover:bg-[#db2777] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-pink-500/50">
               Start Your Project
             </Link>
-            <Link to="/about" className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all">
+            <button className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all" onClick={(e) => e.preventDefault()}>
               Read Success Stories
-            </Link>
+            </button>
           </div>
         </div>
       </section>

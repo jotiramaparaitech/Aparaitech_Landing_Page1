@@ -194,6 +194,9 @@ function App() {
         <Route path="/support/community" element={<CommunityForum />} />
         <Route path="/support/status" element={<Status />} />
 
+        {/* Contact */}
+        <Route path="/contact" element={<ContactSection />} />
+
         {/* Company */}
         <Route path="/company/about-us" element={<AboutUs />} />
         <Route path="/company/values" element={<OurValues />} />
