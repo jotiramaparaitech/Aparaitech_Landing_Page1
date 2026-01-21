@@ -7,24 +7,21 @@ import {
   Database, GraduationCap
 } from "lucide-react";
 
-import cloudImg from "../assets/cloud.png";
-import codeImg from "../assets/code.png";
-import consultingImg from "../assets/consulting.png";
 
 const services = [
   {
     title: "Cloud Computing",
     description:
       "Scalable, secure cloud solutions designed for enterprise performance and reliability.",
-    image: cloudImg,
-    path: "/cloud-computing",
+    image: null,
+    path: null,
     icon: <Cloud className="w-6 h-6 text-blue-500" />,
   },
   {
     title: "Software Development",
     description:
       "Modern web and mobile application development using robust, scalable architectures.",
-    image: codeImg,
+    image: null,
     path: "/software-development",
     icon: <Code className="w-6 h-6 text-green-500" />,
   },
@@ -32,7 +29,7 @@ const services = [
     title: "IT Consulting",
     description:
       "Strategic consulting to optimize infrastructure, systems, and digital growth.",
-    image: consultingImg,
+    image: null,
     path: "/it-consulting",
     icon: <Cpu className="w-6 h-6 text-purple-500" />,
   },
@@ -143,7 +140,7 @@ const Services = () => {
     const scroll = () => {
       if (!scrollRef.current || isHovered || hovered !== null) return;
 
-      scrollPositionRef.current += 0.9;
+      scrollPositionRef.current += 0.5;
       const maxScroll = scrollRef.current.scrollWidth / 2;
 
       if (scrollPositionRef.current >= maxScroll) {
@@ -241,7 +238,9 @@ const Services = () => {
         </section>
       </div>
     </section>
+    
   );
+  
 };
 
 export default Services;

@@ -12,7 +12,25 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "https://www.aparaitech.org",
+  "https://aparaitech.org",
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+
+// ✅ preflight for all routes
+app.options(/.*/, cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 
 app.use(express.json());
 
@@ -27,7 +45,8 @@ app.get("/", (req, res) => {
   res.send("Backend running 🚀");
 });
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log(`✅ Server running on port ${process.env.PORT}`);
-});
+// app.listen(5000, ()=> {
+//   console.log('Listening');
+// })
+
 export default app;

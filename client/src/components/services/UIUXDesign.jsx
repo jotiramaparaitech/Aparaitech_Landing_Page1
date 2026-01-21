@@ -143,20 +143,7 @@ const UIUXDesign = () => {
               Create intuitive and engaging user experiences. Wireframes, design systems, and user research 
               that transform ideas into beautiful, functional interfaces.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button
-                onClick={() => navigate('/#contact-form')}
-                className="px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                Start Your Project
-              </button>
-              <button
-                onClick={() => navigate('/#services')}
-                className="px-8 py-4 bg-white text-violet-600 font-semibold rounded-lg border-2 border-violet-200 hover:border-violet-400 hover:shadow-lg transition-all duration-300"
-              >
-                View All Services
-              </button>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -295,20 +282,7 @@ const UIUXDesign = () => {
           <p className="text-xl text-violet-100 mb-8 max-w-2xl mx-auto">
             Let's discuss how great design can transform your product and delight your users.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => navigate('/#contact-form')}
-              className="px-8 py-4 bg-white text-violet-600 font-semibold rounded-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-xl"
-            >
-              Start Your Design Project
-            </button>
-            <button
-              onClick={() => navigate('/#services')}
-              className="px-8 py-4 bg-transparent text-white font-semibold rounded-lg border-2 border-white hover:bg-white/10 transition-all duration-300"
-            >
-              Explore More Services
-            </button>
-          </div>
+         
         </div>
       </section>
     </div>

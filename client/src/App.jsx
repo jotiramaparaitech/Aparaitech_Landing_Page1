@@ -1,6 +1,9 @@
 // src/App.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
+/* ================= PAGES ================= */
 import ApplicationForm from "./components/pages/ApplicationForm";
 
 /* ================= LAYOUT ================= */
@@ -32,7 +35,7 @@ import MobileAppDevelopment from "./components/services/MobileAppDevelopment";
 import DataAnalytics from "./components/services/DataAnalytics";
 import DigitalTransformation from "./components/services/DigitalTransformation";
 import UIUXDesign from "./components/services/UIUXDesign";
-import ERPCRM from "./components/services/ERPCRM";
+import ErpCrm from "./components/services/ErpCrm";
 import ELearning from "./components/services/ELearning";
 
 /* ================= SERVICE DETAIL PAGES ================= */
@@ -99,6 +102,30 @@ const HomePage = () => (
 function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
+      {/* 🔔 Toast Container (Required Once) */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: "#111827",
+            color: "#fff",
+          },
+          success: {
+            iconTheme: {
+              primary: "#22c55e",
+              secondary: "#111827",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: "#111827",
+            },
+          },
+        }}
+      />
+
       <ScrollToTop />
       <Header />
 
@@ -132,7 +159,7 @@ function App() {
         <Route path="/services/data-analytics" element={<DataAnalytics />} />
         <Route path="/services/digital-transformation" element={<DigitalTransformation />} />
         <Route path="/services/ui-ux-design" element={<UIUXDesign />} />
-        <Route path="/services/erp-crm" element={<ERPCRM />} />
+        <Route path="/services/erp-crm" element={<ErpCrm />} />
         <Route path="/services/e-learning" element={<ELearning />} />
 
         {/* Products */}
