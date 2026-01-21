@@ -85,7 +85,7 @@ const Testimonials = () => {
       <section className="py-20 bg-white text-center">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Join our happy clients</h2>
-          <Link to="/#contact" className="inline-block px-8 py-4 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition-colors shadow-lg">
+          <Link to="/contact" className="inline-block px-8 py-4 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition-colors shadow-lg">
             Start Your Project
           </Link>
         </div>

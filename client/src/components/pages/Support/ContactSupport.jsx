@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { contactAPI } from '../../../utils/api';
 
 const ContactSupport = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const ContactSupport = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,31 +20,37 @@ const ContactSupport = () => {
       ...prev,
       [name]: value
     }));
+    setError('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log('Support ticket submitted:', formData);
-    setSubmitStatus('success');
-    
-    // Reset form after successful submission
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        priority: 'Normal'
-      });
-      setSubmitStatus('');
-    }, 3000);
-    
-    setIsSubmitting(false);
+    try {
+      const response = await contactAPI.submitSupport(formData);
+      
+      if (response.success) {
+        setSubmitStatus('success');
+        
+        // Reset form after successful submission
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+            priority: 'Normal'
+          });
+          setSubmitStatus('');
+        }, 3000);
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to submit support ticket. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -59,6 +67,15 @@ const ContactSupport = () => {
             <div className="flex items-center">
               <div className="w-5 h-5 bg-green-500 rounded-full mr-3"></div>
               <p className="text-green-800 font-medium">Ticket submitted successfully! We'll respond within 24 hours.</p>
+            </div>
+          </div>
+        )}
+
+        {error && (
+          <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+            <div className="flex items-center">
+              <div className="w-5 h-5 bg-red-500 rounded-full mr-3"></div>
+              <p className="text-red-800 font-medium">{error}</p>
             </div>
           </div>
         )}
