@@ -42,25 +42,30 @@ const ContactSection = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setSuccess(false);
+  e.preventDefault();
+  setLoading(true);
+  setSuccess(false);
 
-    try {
-      await axios.post(
-        "http://localhost:5000/api/contacts",
-        formData,
-        { headers: { "Content-Type": "application/json" } }
-      );
+  console.log("API URL:", import.meta.env.VITE_API_URL);
 
-      setSuccess(true);
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      alert(error.response?.data?.message || "Something went wrong");
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    await axios.post(
+      `${import.meta.env.VITE_API_URL}/api/contacts`,
+      formData,
+      { headers: { "Content-Type": "application/json" } }
+    );
+
+    setSuccess(true);
+    setFormData({ name: "", email: "", message: "" });
+  } catch (error) {
+    console.log("ERROR:", error);
+    console.log("RESPONSE:", error.response);
+    alert(error.response?.data?.message || error.message || "Something went wrong");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <section

@@ -11,14 +11,17 @@ export const createContact = async (req, res) => {
 
     await Contact.create({ name, email, message });
 
-     await sendAutoReply({ name, email, message });
+    await sendAutoReply({ name, email, message });
 
     res.status(201).json({
       success: true,
       message: "Form submitted successfully",
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error" });
+    console.error("CREATE CONTACT ERROR:", error);
+    return res.status(500).json({
+      message: error.message,
+      errorName: error.name,
+    });
   }
 };
