@@ -15,12 +15,11 @@ export const createContact = async (req, res) => {
 
     await Contact.create({ name, email, message, type: 'contact' });
 
-    // ✅ Enable email AFTER DB works perfectly
-    // try {
-    //   await sendAutoReply({ name, email, message });
-    // } catch (emailError) {
-    //   console.error("Email failed:", emailError);
-    // }
+    try {
+      await sendAutoReply({ name, email, message });
+    } catch (emailError) {
+      console.error("Email failed:", emailError);
+    }
 
     return res.status(201).json({
       success: true,
