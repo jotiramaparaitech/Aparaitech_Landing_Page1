@@ -34,8 +34,6 @@ app.options(/.*/, cors({
 
 app.use(express.json());
 
-connectDB();
-
 app.use("/api/contacts", contactRoutes);
 app.use("/api/subscribe", subscriberUser);
 app.use("/api/partner", partnerRoutes);
