@@ -13,7 +13,7 @@ export const createContact = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    await Contact.create({ name, email, message });
+    await Contact.create({ name, email, message, type: 'contact' });
 
     // ✅ Enable email AFTER DB works perfectly
     // try {

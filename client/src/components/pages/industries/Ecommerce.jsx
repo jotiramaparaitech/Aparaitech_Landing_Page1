@@ -24,12 +24,12 @@ const Ecommerce = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
-                to="/#contact" 
+                to="/contact" 
                 className="px-8 py-4 bg-[#00a1e0] hover:bg-[#008cc2] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/50 text-center"
               >
                 Start Your Transformation
               </Link>
-              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center">
+              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center" onClick={(e) => e.preventDefault()}>
                 View Demo
               </button>
             </div>
@@ -116,7 +116,7 @@ const Ecommerce = () => {
                 title: "Omnichannel Order Mgmt",
                 desc: "Gain a single view of inventory and orders across all channels for seamless fulfillment.",
                 icon: (
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4"></path></svg>
                 ),
                 color: "bg-indigo-600"
               }
@@ -198,12 +198,12 @@ const Ecommerce = () => {
             Join the leaders in digital commerce. Scalable, secure, and built for the future.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/#contact" className="px-8 py-4 bg-[#00a1e0] hover:bg-[#008cc2] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/50">
+            <Link to="/contact" className="px-8 py-4 bg-[#00a1e0] hover:bg-[#008cc2] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/50">
               Contact Sales
             </Link>
-            <Link to="/about" className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all">
+            <button className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all" onClick={(e) => e.preventDefault()}>
               Read Success Stories
-            </Link>
+            </button>
           </div>
         </div>
       </section>

@@ -128,7 +128,7 @@ const SuccessStories = () => {
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to write your success story?</h2>
-          <Link to="/#contact" className="inline-block px-8 py-4 bg-[#0f172a] text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-lg">
+          <Link to="/contact" className="inline-block px-8 py-4 bg-[#0f172a] text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-lg">
             Start Your Project
           </Link>
         </div>

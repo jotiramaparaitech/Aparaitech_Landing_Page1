@@ -13,6 +13,16 @@ const contactSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    subject: {
+        type: String,
+        required: false,
+        trim: true
+    },
+    priority: {
+        type: String,
+        enum: ['Low', 'Normal', 'High', 'Critical'],
+        default: 'Normal'
+    },
     message: {
       type: String,
       required: true,
