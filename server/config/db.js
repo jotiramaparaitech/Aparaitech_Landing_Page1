@@ -1,3 +1,4 @@
+// config/db.js
 import mongoose from "mongoose";
 
 let cached = global.mongoose;
@@ -12,21 +13,12 @@ const connectDB = async () => {
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(process.env.MONGO_URL, {
-      bufferCommands: false,
-      serverSelectionTimeoutMS: 10000,
-    });
+    cached.promise = mongoose
+      .connect(process.env.MONGO_URL)
+      .then((mongoose) => mongoose);
   }
 
-  try {
-    cached.conn = await cached.promise;
-    console.log("MongoDB Connected (cached)");
-  } catch (error) {
-    cached.promise = null;
-    console.error("MongoDB connection failed:", error);
-    throw error;
-  }
-
+  cached.conn = await cached.promise;
   return cached.conn;
 };
 

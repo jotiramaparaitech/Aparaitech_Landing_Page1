@@ -1,10 +1,10 @@
+// controllers/contactController.js
 import Contact from "../models/Contact.js";
-import sendAutoReply from "../utils/sendEmail.js";
 import connectDB from "../config/db.js";
+// import sendAutoReply from "../utils/sendEmail.js"; // enable later
 
 export const createContact = async (req, res) => {
   try {
-  
     await connectDB();
 
     const { name, email, message } = req.body;
@@ -15,11 +15,12 @@ export const createContact = async (req, res) => {
 
     await Contact.create({ name, email, message });
 
-    try {
-      await sendAutoReply({ name, email, message });
-    } catch (emailError) {
-      console.error("Email failed:", emailError);
-    }
+    // ✅ Enable email AFTER DB works perfectly
+    // try {
+    //   await sendAutoReply({ name, email, message });
+    // } catch (emailError) {
+    //   console.error("Email failed:", emailError);
+    // }
 
     return res.status(201).json({
       success: true,
@@ -27,6 +28,7 @@ export const createContact = async (req, res) => {
     });
   } catch (error) {
     console.error("CREATE CONTACT ERROR:", error);
+
     return res.status(500).json({
       message: "Internal server error",
     });
