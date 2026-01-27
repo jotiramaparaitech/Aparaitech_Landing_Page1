@@ -1,8 +1,12 @@
 import Contact from "../models/Contact.js";
 import sendAutoReply from "../utils/sendEmail.js";
+import connectDB from "../config/db.js";
 
 export const createContact = async (req, res) => {
   try {
+  
+    await connectDB();
+
     const { name, email, message } = req.body;
 
     if (!name || !email || !message) {
@@ -11,17 +15,20 @@ export const createContact = async (req, res) => {
 
     await Contact.create({ name, email, message });
 
-    await sendAutoReply({ name, email, message });
+    try {
+      await sendAutoReply({ name, email, message });
+    } catch (emailError) {
+      console.error("Email failed:", emailError);
+    }
 
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
       message: "Form submitted successfully",
     });
   } catch (error) {
     console.error("CREATE CONTACT ERROR:", error);
     return res.status(500).json({
-      message: error.message,
-      errorName: error.name,
+      message: "Internal server error",
     });
   }
 };
