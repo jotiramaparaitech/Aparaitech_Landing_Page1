@@ -16,7 +16,7 @@ export const createContact = async (req, res) => {
     await Contact.create({ name, email, message, type: 'contact' });
 
     try {
-      await sendAutoReply({ name, email, message });
+      // await sendAutoReply({ name, email, message });
     } catch (emailError) {
       console.error("Email failed:", emailError);
     }
