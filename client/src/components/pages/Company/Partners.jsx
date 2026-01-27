@@ -1,13 +1,42 @@
 import React, { useState } from 'react';
-import { X, CheckCircle, Building, User, Mail, MessageSquare } from 'lucide-react';
+import { X, CheckCircle, Building, User, Mail, MessageSquare, Loader2 } from 'lucide-react';
+import { partnerAPI } from '../../../utils/api';
 
 const Partners = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [applicationSent, setApplicationSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const [formData, setFormData] = useState({
+    companyName: '',
+    name: '',
+    email: '',
+    message: ''
+  });
 
-  const handleApplySubmit = (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    setError('');
+  };
+
+  const handleApplySubmit = async (e) => {
     e.preventDefault();
-    setApplicationSent(true);
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      await partnerAPI.apply(formData);
+      setApplicationSent(true);
+      setFormData({ companyName: '', name: '', email: '', message: '' });
+    } catch (err) {
+      setError(err.message || 'Failed to submit application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -120,7 +149,15 @@ const Partners = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
                     <div className="relative">
                       <Building className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                      <input required type="text" className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900" placeholder="Your Company Inc." />
+                      <input 
+                        required 
+                        type="text" 
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleInputChange}
+                        className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900" 
+                        placeholder="Your Company Inc." 
+                      />
                     </div>
                   </div>
 
@@ -128,7 +165,15 @@ const Partners = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
                     <div className="relative">
                       <User className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                      <input required type="text" className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900" placeholder="Your Name" />
+                      <input 
+                        required 
+                        type="text" 
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900" 
+                        placeholder="Your Name" 
+                      />
                     </div>
                   </div>
 
@@ -136,7 +181,15 @@ const Partners = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">Work Email</label>
                     <div className="relative">
                       <Mail className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                      <input required type="email" className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900" placeholder="jane@yourcompany.com" />
+                      <input 
+                        required 
+                        type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900" 
+                        placeholder="jane@yourcompany.com" 
+                      />
                     </div>
                   </div>
 
@@ -144,13 +197,37 @@ const Partners = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">Tell us about your company</label>
                     <div className="relative">
                       <MessageSquare className="w-5 h-5 text-gray-400 absolute left-4 top-5" />
-                      <textarea rows="4" className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all resize-none text-gray-900" placeholder="What does your company do and why do you want to partner with Aparaitech?"></textarea>
+                      <textarea 
+                        rows="4" 
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all resize-none text-gray-900" 
+                        placeholder="What does your company do and why do you want to partner with Aparaitech?"
+                      ></textarea>
                     </div>
                   </div>
 
+                  {error && (
+                    <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                      <p className="text-red-600 text-sm">{error}</p>
+                    </div>
+                  )}
+
                   <div className="pt-4">
-                    <button type="submit" className="w-full py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl">
-                      Submit Application
+                    <button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="w-full py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        'Submit Application'
+                      )}
                     </button>
                   </div>
                 </form>

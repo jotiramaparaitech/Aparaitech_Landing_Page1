@@ -25,12 +25,12 @@ const Education = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
-                to="/#contact" 
+                to="/contact" 
                 className="px-8 py-4 bg-[#4f46e5] hover:bg-[#4338ca] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-indigo-500/50 text-center"
               >
                 Get Started
               </Link>
-              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center">
+              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center" onClick={(e) => e.preventDefault()}>
                 View Solutions
               </button>
             </div>
@@ -202,12 +202,12 @@ const Education = () => {
             Partner with Aparaitech to build the next generation of learning platforms.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/#contact" className="px-8 py-4 bg-[#4f46e5] hover:bg-[#4338ca] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-indigo-500/50">
+            <Link to="/contact" className="px-8 py-4 bg-[#4f46e5] hover:bg-[#4338ca] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-indigo-500/50">
               Contact Sales
             </Link>
-            <Link to="/about" className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all">
+            <button className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all" onClick={(e) => e.preventDefault()}>
               Read Case Studies
-            </Link>
+            </button>
           </div>
         </div>
       </section>
