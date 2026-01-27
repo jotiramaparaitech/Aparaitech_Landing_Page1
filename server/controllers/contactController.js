@@ -1,7 +1,7 @@
 // controllers/contactController.js
 import Contact from "../models/Contact.js";
 import connectDB from "../config/db.js";
-// import sendAutoReply from "../utils/sendEmail.js"; // enable later
+import sendAutoReply from "../utils/sendEmail.js"; // enable later
 
 export const createContact = async (req, res) => {
   try {
