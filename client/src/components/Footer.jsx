@@ -98,7 +98,7 @@ const Footer = () => {
 
             <div className="flex gap-2 justify-center md:justify-start">
               <FaEnvelope className="text-blue-400" />
-              <span>info@aparaitech.org</span>
+              <span>info@aparaitechsoftware.org</span>
             </div>
 
             <div>
