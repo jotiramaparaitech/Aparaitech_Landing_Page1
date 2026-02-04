@@ -122,7 +122,7 @@ const Footer = () => {
                   }}
                   title="Click to open in Google Maps"
                 >
-                  <FaMapMarkerAlt className="text-blue-400 flex-shrink-0 group-hover/address:text-blue-300 transition-colors mt-1" />
+                  {/* <FaMapMarkerAlt className="text-blue-400 flex-shrink-0 group-hover/address:text-blue-300 transition-colors mt-1" /> */}
                   <div className="flex-1">
                     <span className="font-medium transition-colors">
                       Branch Address
@@ -145,11 +145,11 @@ const Footer = () => {
                   }}
                   title="Click to open in Google Maps"
                 >
-                  <FaMapMarkerAlt className="text-blue-400 flex-shrink-0 group-hover/address:text-blue-300 transition-colors mt-1" />
                   <div className="flex-1">
                     <span className="font-medium transition-colors">
                       New Branch
                     </span>
+                  {/* <FaMapMarkerAlt className="text-blue-400 flex-shrink-0 group-hover/address:text-blue-300 transition-colors mt-1" /> */}
                     <p className="mt-1 hover:text-blue-300 transition-colors cursor-pointer">
                       Mukti Complex, Near Prashaskiya Bhawan, Baramati
                     </p>
