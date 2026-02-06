@@ -163,7 +163,7 @@ const Header = () => {
               }
               onClick={() => setMoreOpen(!moreOpen)}
             >
-              More
+              Services
               <svg
                 className={`w-4 h-4 transition-transform ${moreOpen ? "rotate-180" : ""
                   }`}
@@ -286,7 +286,7 @@ const Header = () => {
         <div className="flex flex-col h-full">
           {/* Header of Mobile Menu */}
           <div className="flex items-center justify-between p-6 border-b border-gray-100">
-            <span className="font-bold text-xl text-[#2d1b69]">Menu</span>
+            <span className="font-bold text-xl text-[#2d1b69]">Services</span>
             <button
               onClick={() => setMenuOpen(false)}
               className="p-2 text-gray-500 hover:text-red-500 transition-colors"
