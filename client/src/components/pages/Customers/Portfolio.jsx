@@ -35,6 +35,7 @@ const Portfolio = () => {
       type: "video",
       video: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7445739612481953792?compact=1",
       link: "https://www.linkedin.com/posts/harshad-dhaigude-40653a2b0_aparaitech-hiring-careers-ugcPost-7445739612481953792-9oqJ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQ5x2IBm41Hen-TDzd-DSFj4GyXYNo5Wkk"
+
     },
     {
       title: "Aparaitech Activity",
@@ -49,6 +50,7 @@ const Portfolio = () => {
       type: "video",
       video: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7445738360092000256?compact=1",
       link: "https://www.linkedin.com/posts/aditya-raut-184232331_aparaitech-hiring-careers-ugcPost-7445738360092000256-gwc2/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQ5x2IBm41Hen-TDzd-DSFj4GyXYNo5Wkk"
+
     }
   ];
 
