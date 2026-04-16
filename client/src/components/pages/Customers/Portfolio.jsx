@@ -32,6 +32,20 @@ const Portfolio = () => {
       type: "video",
       video: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7445739612481953792?compact=1",
       link: "https://www.linkedin.com/posts/harshad-dhaigude-40653a2b0_aparaitech-hiring-careers-ugcPost-7445739612481953792-9oqJ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQ5x2IBm41Hen-TDzd-DSFj4GyXYNo5Wkk"
+    },
+    {
+      title: "Aparaitech Activity",
+      category: "Enterprise",
+      type: "video",
+      video: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7445742848412524544?compact=1",
+      link: "https://www.linkedin.com/posts/pooja-chavan7270_aparaitech-hiring-careers-ugcPost-7445742848412524544-p6Zz/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQ5x2IBm41Hen-TDzd-DSFj4GyXYNo5Wkk"
+    },
+    {
+      title: "Aparaitech Activity",
+      category: "Enterprise",
+      type: "video",
+      video: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7445738360092000256?compact=1",
+      link: "https://www.linkedin.com/posts/pooja-chavan7270_aparaitech-hiring-careers-ugcPost-7445742848412524544-p6Zz/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQ5x2IBm41Hen-TDzd-DSFj4GyXYNo5Wkk"
     }
   ];
 
