@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   const projects = [
     {
@@ -45,7 +48,7 @@ const Portfolio = () => {
       category: "Enterprise",
       type: "video",
       video: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7445738360092000256?compact=1",
-      link: "https://www.linkedin.com/posts/pooja-chavan7270_aparaitech-hiring-careers-ugcPost-7445742848412524544-p6Zz/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQ5x2IBm41Hen-TDzd-DSFj4GyXYNo5Wkk"
+      link: "https://www.linkedin.com/posts/aditya-raut-184232331_aparaitech-hiring-careers-ugcPost-7445738360092000256-gwc2/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQ5x2IBm41Hen-TDzd-DSFj4GyXYNo5Wkk"
     }
   ];
 
@@ -53,6 +56,29 @@ const Portfolio = () => {
     activeFilter === 'All'
       ? projects
       : projects.filter((project) => project.category === activeFilter);
+
+  // Mouse drag scrolling handlers
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - e.currentTarget.offsetLeft);
+    setScrollLeft(e.currentTarget.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - e.currentTarget.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    e.currentTarget.scrollLeft = scrollLeft - walk;
+  };
 
   return (
     <div className="pt-16 min-h-screen bg-white font-sans">
@@ -70,9 +96,9 @@ const Portfolio = () => {
         </div>
       </div>
 
-      {/* PORTFOLIO GRID */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* PORTFOLIO HORIZONTAL SCROLL SECTION */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="px-6">
           
           {/* Filter Tabs */}
           <div className="flex justify-center gap-4 mb-16 flex-wrap">
@@ -91,41 +117,100 @@ const Portfolio = () => {
             ))}
           </div>
 
-          {/* Portfolio Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, idx) => (
-              <a
-                key={idx}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-white"
-              >
-                {project.type === "video" ? (
-                  <iframe
-                    src={project.video}
-                    className="w-full h-80"
-                    title={project.title}
-                    allowFullScreen
-                  />
-                ) : (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-80 object-cover"
-                  />
-                )}
+          {/* Horizontal Scroll Container */}
+          <div className="relative group">
+            {/* Left Gradient Fade */}
+            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            
+            {/* Right Gradient Fade */}
+            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-                <div className="p-5">
-                  <span className="text-blue-500 text-sm font-bold uppercase tracking-wider">
-                    {project.category}
-                  </span>
-                  <h3 className="text-gray-900 text-xl font-bold mt-2">
-                    {project.title}
-                  </h3>
-                </div>
-              </a>
-            ))}
+            {/* Scroll Buttons */}
+            <button 
+              onClick={() => {
+                const container = document.getElementById('horizontal-scroll-container');
+                container.scrollBy({ left: -400, behavior: 'smooth' });
+              }}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/80 hover:bg-black text-white rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-auto"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button 
+              onClick={() => {
+                const container = document.getElementById('horizontal-scroll-container');
+                container.scrollBy({ left: 400, behavior: 'smooth' });
+              }}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/80 hover:bg-black text-white rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-auto"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Horizontal Scrollable Grid */}
+            <div 
+              id="horizontal-scroll-container"
+              className="flex gap-8 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing pb-8"
+              style={{ 
+                scrollbarWidth: 'none', 
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch'
+              }}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+            >
+              {filteredProjects.map((project, idx) => (
+                <a
+                  key={idx}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/project flex-shrink-0 w-[350px] md:w-[400px] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-white transform hover:-translate-y-2"
+                >
+                  {project.type === "video" ? (
+                    <div className="relative overflow-hidden h-80">
+                      <iframe
+                        src={project.video}
+                        className="w-full h-full"
+                        title={project.title}
+                        allowFullScreen
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-80 object-cover"
+                    />
+                  )}
+
+                  <div className="p-5">
+                    <span className="text-blue-500 text-sm font-bold uppercase tracking-wider">
+                      {project.category}
+                    </span>
+                    <h3 className="text-gray-900 text-xl font-bold mt-2 group-hover/project:text-blue-600 transition-colors">
+                      {project.title}
+                    </h3>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="flex justify-center mt-8 gap-2">
+            <div className="flex gap-1">
+              <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+            </div>
+            <span className="text-sm text-gray-500 ml-2">← Drag to scroll →</span>
           </div>
         </div>
       </section>
@@ -142,6 +227,17 @@ const Portfolio = () => {
           Let's Talk
         </Link>
       </section>
+
+      {/* Add custom CSS for hiding scrollbar */}
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </div>
   );
 };
