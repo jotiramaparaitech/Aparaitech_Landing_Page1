@@ -147,6 +147,9 @@ const Header = () => {
           <Link to="/generative-ai">Generative AI</Link>
           <Link to="/cloud">Cloud</Link>
           <Link to="/solutions">Solutions</Link>
+          
+          {/* need changes for the documentation */}
+          <Link to="/company/blog">Blog</Link>   
 
           {/* 🔥 EXACT SAME MORE DROPDOWN */}
           <div className="relative" ref={moreRef}>
@@ -332,8 +335,16 @@ const Header = () => {
               >
                 Solutions
               </Link>
-            </div>
 
+              <Link
+                to="/learning/documentation"
+                className="text-lg font-medium text-gray-800"
+                onClick={() => setMenuOpen(false)}
+                >
+                Blog
+                </Link>
+
+            </div>
             <hr className="border-gray-100" />
 
             {/* More Content */}
