@@ -1,12 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useAnimationFrame, useMotionValue, useTransform, animate } from 'framer-motion';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-  const scrollRef = useRef(null);
+  const [windowWidth, setWindowWidth] = useState(0);
+  const [containerCenter, setContainerCenter] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  
+  const containerRef = useRef(null);
   const isHoveringRef = useRef(false);
-  const isScrollingRef = useRef(false);
-  const scrollTimeoutRef = useRef(null);
+  // Purely controls the infinite carousel track
+  const globalOffset = useMotionValue(0);
 
   const projects = [
     {
@@ -58,104 +63,91 @@ const Portfolio = () => {
       ? projects
       : projects.filter((project) => project.category === activeFilter);
 
-  // Expands small filtered arrays so they constantly fill the ultra-wide desktop monitors
-  const getExtendedProjects = (projs) => {
+  // Measure environment rigorously to prevent SSR hydration jumps
+  useEffect(() => {
+    const updateMeasurements = () => {
+      setWindowWidth(window.innerWidth);
+      if (containerRef.current) {
+        setContainerCenter(containerRef.current.getBoundingClientRect().width / 2);
+      }
+    };
+    
+    setMounted(true);
+    updateMeasurements();
+    window.addEventListener("resize", updateMeasurements);
+    return () => window.removeEventListener("resize", updateMeasurements);
+  }, []);
+
+  // Ensures enough duplicated array geometry to maintain seamless loops visually 
+  const getExtendedProjects = (projs, winWidth) => {
     if (projs.length === 0) return [];
     let extended = [...projs];
-    while (extended.length < 8) {
+    const cWidth = winWidth < 640 ? winWidth * 0.75 : 350;
+    const requiredLen = Math.ceil((winWidth + cWidth * 4) / cWidth);
+    
+    // Safety loop: must be at least 10 cards for math overflow safety 
+    while (extended.length < Math.max(10, requiredLen)) {
       extended = [...extended, ...projs];
     }
     return extended;
   };
 
-  const displayProjects = getExtendedProjects(filteredProjects);
+  const displayProjects = mounted ? getExtendedProjects(filteredProjects, windowWidth) : [];
 
-  // 1. Core JS Game Loop for perfectly fluid horizontal auto-scrolling
+  // Reset scroll smoothly when filter changes
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
+    if (mounted) globalOffset.set(0);
+  }, [activeFilter, mounted, globalOffset]);
 
-    el.scrollLeft = 0; // Reset starting line on tab switch
-    let animationFrameId;
-    let exactScroll = 0;
-    let lastTime = performance.now();
+  // Framer native physics game loop - pushes the global offset consistently 
+  useAnimationFrame((t, delta) => {
+    if (isHoveringRef.current || !mounted) return;
+    const speed = 0.05; // Base pace setup config (px per ms)
+    globalOffset.set(globalOffset.get() - (speed * delta));
+  });
 
-    const scroll = (time) => {
-      const delta = time - lastTime;
-      
-      // Stop moving the carousel natively if a user is dragging/hovering or just clicked navigation buttons
-      if (!isHoveringRef.current && !isScrollingRef.current && el) {
-        // Speed Calculation (px per ms). 0.05px/ms = ~50px per second. Constant regardless of refresh rate monitor.
-        exactScroll += delta * 0.05; 
-        
-        const halfWidth = el.scrollWidth / 2;
-        if (exactScroll >= halfWidth) exactScroll -= halfWidth; // The loop magic marker
-        
-        el.scrollLeft = exactScroll;
-      } else {
-        // Resync exactScroll seamlessly if the scroll position was externally nudged via drag or button
-        exactScroll = el.scrollLeft;
-      }
-      
-      lastTime = time;
-      animationFrameId = requestAnimationFrame(scroll);
-    };
+  // Responsive Metrics
+  const isMobile = windowWidth < 640;
+  const isTablet = windowWidth >= 640 && windowWidth < 1024;
+  const cardWidth = isMobile ? windowWidth * 0.75 : (isTablet ? 300 : 350); 
+  const gap = isMobile ? 16 : 32;
+  const totalWidth = displayProjects.length * (cardWidth + gap);
 
-    animationFrameId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [activeFilter, displayProjects.length]);
-
-  // 2. Button Intercepter to smoothly glide by exactly 1 card without crashing into infinite loop walls
+  // Physical Forward / Back Jumps 
   const slide = (direction) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    
-    isScrollingRef.current = true; // Lock auto trigger
-    
-    // Calculate accurate card widths + visual gap widths
-    const set1 = el.firstElementChild;
-    const card = set1 ? set1.firstElementChild : null;
-    const gap = window.innerWidth >= 640 ? 32 : 24; 
-    const offset = direction * (card ? card.offsetWidth + gap : 350);
-
-    const halfWidth = el.scrollWidth / 2;
-    
-    // Infinite bounding box check before smooth jump triggers
-    if (direction === -1 && el.scrollLeft <= Math.abs(offset)) {
-       el.scrollLeft += halfWidth;
-    } else if (direction === 1 && el.scrollLeft > halfWidth) {
-       el.scrollLeft -= halfWidth;
-    }
-
-    // Trigger Native Smooth Step
-    el.scrollBy({ left: offset, behavior: 'smooth' });
-
-    // Wipe prior active limits to support aggressive rapid clicks safely
-    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-    
-    // Release the manual scroll lock to continue auto-scroll after the animation jump finishes
-    scrollTimeoutRef.current = setTimeout(() => {
-      isScrollingRef.current = false;
-    }, 600);
+    isHoveringRef.current = true;
+    const targetOffset = globalOffset.get() + (direction * (cardWidth + gap));
+    animate(globalOffset, targetOffset, {
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
+      onComplete: () => {
+        isHoveringRef.current = false;
+      }
+    });
   };
 
+  if (!mounted) return null; // Safe guard vs SSR hydration styling cracks 
+
   return (
-    <div className="pt-16 min-h-screen bg-white font-sans">
-      <style>
-        {`
-          /* Completely hide browsers brutal grey scrollbar tracking track */
-          .no-scrollbar::-webkit-scrollbar { display: none; }
-          .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        `}
-      </style>
+    <div className="pt-16 min-h-screen bg-gray-50 flex flex-col font-sans">
       
       {/* HERO SECTION */}
-      <div className="bg-black text-white py-24">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+      <div className="relative bg-black text-white py-32 sm:py-40 flex items-center justify-center overflow-hidden">
+        {/* Supplied Image Layer */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-70"
+          style={{ 
+            backgroundImage: "url('https://images.openai.com/static-rsc-4/CRizB3SS_krGI6E6ugBI2N1dDBON68ncG7lx1WqE_wPzFxhvZY_UWqeRNfcQsmDXe_XkwBoTEW9E4LpP3yF-jsIy9DLDF_YjNSZnMTDen-KJTe8_u5clYqQzAjL83MDjzCQzBkuB2z_q3NBzfEjwIJj_96a2ePz8sGFW-ceqqt5BzXax-lmoQq5jQsmwlSET?purpose=fullsize')" 
+          }}
+        />
+        {/* High contrast legibility gradient Overlay */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/40 via-black/50 to-black/80" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight drop-shadow-lg">
             Our Work Speaks for Itself
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed drop-shadow-md font-medium">
             A showcase of digital products, websites, and enterprise systems
             we've crafted with precision and passion.
           </p>
@@ -163,19 +155,19 @@ const Portfolio = () => {
       </div>
 
       {/* PORTFOLIO CAROUSEL */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[100vw] mx-auto overflow-hidden">
+      <section className="py-24 overflow-hidden relative">
+        <div className="max-w-[100vw] mx-auto">
           
-          {/* Filter Tabs */}
-          <div className="flex justify-center gap-4 mb-16 flex-wrap px-6 text-center">
+          {/* Filters */}
+          <div className="flex justify-center gap-4 mb-20 flex-wrap px-6 text-center relative z-20">
             {['All', 'Web Development', 'Enterprise'].map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   activeFilter === filter
                     ? 'bg-black text-white shadow-lg scale-105'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 {filter}
@@ -183,67 +175,66 @@ const Portfolio = () => {
             ))}
           </div>
 
-          {/* Scrolling Portfolio Track */}
-          {displayProjects.length > 0 ? (
-            <div className="relative w-full pb-8">
-              {/* Premium Ghost Edge Fades */}
-              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
+          <div className="relative w-full pb-4" ref={containerRef}>
+            
+            {/* Prev Navigation Button */}
+            <button 
+              onClick={() => slide(1)}
+              className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-50 w-12 h-12 flex items-center justify-center bg-white/95 backdrop-blur border border-gray-100 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] text-black hover:bg-black hover:text-white transition-all transform hover:scale-110"
+            >
+              <svg className="w-6 h-6 ml-[-2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+            </button>
 
-              {/* Prev / Left Navigation Button */}
-              <button 
-                onClick={() => slide(-1)}
-                className="absolute left-4 lg:left-8 top-[40%] sm:top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-white/95 backdrop-blur shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 rounded-full text-black hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-110 group focus:outline-none"
-                aria-label="Scroll left"
-              >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 sm:ml-[-2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
-              </button>
+            {/* Next Navigation Button */}
+            <button 
+              onClick={() => slide(-1)}
+              className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-50 w-12 h-12 flex items-center justify-center bg-white/95 backdrop-blur border border-gray-100 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] text-black hover:bg-black hover:text-white transition-all transform hover:scale-110"
+            >
+              <svg className="w-6 h-6 mr-[-2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+            </button>
 
-              {/* Next / Right Navigation Button */}
-              <button 
-                onClick={() => slide(1)}
-                className="absolute right-4 lg:right-8 top-[40%] sm:top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-white/95 backdrop-blur shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 rounded-full text-black hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-110 group focus:outline-none"
-                aria-label="Scroll right"
+            {/* Carousel Canvas Layer */}
+            {displayProjects.length > 0 ? (
+              <motion.div 
+                className="relative w-full h-[480px] sm:h-[550px]"
+                onHoverStart={() => isHoveringRef.current = true}
+                onHoverEnd={() => isHoveringRef.current = false}
+                onPanSessionStart={() => isHoveringRef.current = true}
+                onPan={(e, info) => {
+                  globalOffset.set(globalOffset.get() + info.delta.x);
+                }}
+                onPanEnd={() => isHoveringRef.current = false}
+                style={{ cursor: "grab" }}
+                whileTap={{ cursor: "grabbing" }}
               >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 sm:mr-[-2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
-              </button>
-
-              <div 
-                ref={scrollRef}
-                onMouseEnter={() => (isHoveringRef.current = true)}
-                onMouseLeave={() => (isHoveringRef.current = false)}
-                onTouchStart={() => (isHoveringRef.current = true)}
-                onTouchEnd={() => (isHoveringRef.current = false)}
-                className="flex overflow-x-auto no-scrollbar"
-              >
-                {/* SET 1 */}
-                <div className="flex w-max gap-6 sm:gap-8 pr-6 sm:pr-8 py-4 px-4 sm:px-0">
-                  {displayProjects.map((project, idx) => (
-                    <ProjectCard key={`orig-${idx}`} project={project} />
-                  ))}
-                </div>
-                {/* SET 2 (Identical mirror set mimicking the infinite back half loop) */}
-                <div className="flex w-max gap-6 sm:gap-8 pr-6 sm:pr-8 py-4 px-4 sm:px-0">
-                  {displayProjects.map((project, idx) => (
-                    <ProjectCard key={`dup-${idx}`} project={project} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="text-center text-gray-400 py-10 font-medium">No projects found.</div>
-          )}
+                {displayProjects.map((project, idx) => (
+                  <CardItem
+                    key={`${activeFilter}-${idx}`} // Force clean reset instances on filters
+                    project={project}
+                    index={idx}
+                    cardWidth={cardWidth}
+                    gap={gap}
+                    totalWidth={totalWidth}
+                    globalOffset={globalOffset}
+                    viewportCenter={containerCenter || windowWidth / 2}
+                  />
+                ))}
+              </motion.div>
+            ) : (
+              <div className="text-center text-gray-500 py-10 text-lg relative z-20">No matching projects found.</div>
+            )}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gray-50 text-center border-t border-gray-100">
+      <section className="mt-auto py-20 bg-white text-center border-t border-gray-100">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">
           Have a project in mind?
         </h2>
         <Link
           to="/contact"
-          className="inline-block px-8 py-4 bg-black text-white font-bold rounded-lg hover:bg-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-lg"
+          className="inline-block px-10 py-4 bg-black text-white font-bold rounded-xl hover:bg-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-lg"
         >
           Let's Talk
         </Link>
@@ -252,45 +243,99 @@ const Portfolio = () => {
   );
 };
 
-const ProjectCard = ({ project }) => (
-  <a
-    href={project.link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="block w-[85vw] sm:w-[300px] md:w-[350px] flex-shrink-0 group overflow-hidden rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_45px_rgba(0,0,0,0.12)] transition-all duration-500 bg-white hover:scale-[1.02] transform cursor-pointer"
-    style={{ willChange: "transform" }}
-  >
-    <div className="relative w-full h-72 sm:h-80 bg-gray-50">
-      {/* Invisible overlay captures mouse signals and lets 'Hover' cleanly pause the engine avoiding buggy iframe pointer intercepts */}
-      <div className="absolute inset-0 z-10 transition-colors duration-300 group-hover:bg-black/5" />
-      
-      {project.type === "video" ? (
-        <iframe
-          src={project.video}
-          className="w-full h-full border-0 absolute top-0 left-0"
-          title={project.title}
-          allowFullScreen
-          loading="lazy"
-        />
-      ) : (
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover absolute top-0 left-0"
-          loading="lazy"
-        />
-      )}
-    </div>
+// -------------------------------------------------------------------------------------------------
+// Internal Micro Component: Governs strictly its own localized calculations & bounds
+// -------------------------------------------------------------------------------------------------
+const CardItem = ({ project, index, cardWidth, gap, totalWidth, globalOffset, viewportCenter }) => {
+  const basePosition = index * (cardWidth + gap);
 
-    <div className="p-6 relative z-20 bg-white">
-      <span className="text-blue-600 text-xs font-black uppercase tracking-wider block mb-2">
-        {project.category}
-      </span>
-      <h3 className="text-gray-900 text-[1.1rem] sm:text-xl font-bold leading-snug line-clamp-2">
-        {project.title}
-      </h3>
-    </div>
-  </a>
-);
+  // Mathematical Modulo bounds to permit perfectly infinite circling bounds logic
+  const x = useTransform(globalOffset, (offset) => {
+    const virtualX = basePosition + offset;
+    const wrappedX = ((virtualX % totalWidth) + totalWidth) % totalWidth;
+    return wrappedX - cardWidth; // -cardWidth shifts the zero point deliberately so teleport snaps happen out of camera
+  });
+
+  // Scale computation utilizing exact dynamic distance from the viewport center 
+  const scale = useTransform(x, (currentX) => {
+    const cardCenter = currentX + cardWidth / 2;
+    const dist = Math.abs(cardCenter - viewportCenter);
+    const maxDist = cardWidth + gap; // Peak decay 
+
+    if (dist > maxDist) return 0.85;
+
+    const ratio = 1 - (dist / maxDist);
+    return 0.85 + (ratio * 0.3); // High peak 1.15 scaling mapping exactly to 0 range 
+  });
+
+  // Derived properties tied sequentially off the master scale 
+  const y = useTransform(scale, [0.85, 1.15], [30, 0]); // Provides the physical drop-back shelf geometry
+  const zIndex = useTransform(scale, (s) => Math.round(s * 100)); // Natural physical layering 
+  const opacity = useTransform(scale, [0.85, 1.15], [0.4, 1]); // Desaturated background depth
+
+  // Centercast shadow illumination mapping 
+  const shadowAlpha = useTransform(scale, [0.85, 1.15], [0.03, 0.4]); 
+  const boxShadow = useTransform(shadowAlpha, a => `0 25px 50px -12px rgba(0,0,0,${a})`);
+  const dimOpacity = useTransform(scale, [0.85, 1.1], [0.45, 0]); // Film overlay
+
+  return (
+    <motion.div
+      style={{
+        position: "absolute",
+        left: 0,
+        top: 0,
+        width: cardWidth,
+        x,
+        y,
+        scale,
+        zIndex,
+        opacity,
+        boxShadow
+      }}
+      className="group overflow-hidden rounded-3xl border border-gray-100 bg-white"
+    >
+      <a
+         href={project.link}
+         target="_blank"
+         rel="noopener noreferrer"
+         className="block relative w-full h-full cursor-pointer"
+         draggable="false"
+      >
+        <div className="relative w-full h-[220px] sm:h-[280px] bg-gray-100 border-b border-gray-100">
+          
+          {/* Dimmer atmospheric haze for side cards */}
+          <motion.div 
+            style={{ opacity: dimOpacity }} 
+            className="absolute inset-0 bg-black z-20 pointer-events-none" 
+          />
+
+          {project.type === "video" ? (
+             <iframe
+               src={project.video}
+               className="w-full h-full border-0 relative z-10"
+               title={project.title}
+               allowFullScreen
+               loading="lazy"
+             />
+          ) : (
+             <img src={project.image} alt={project.title} className="w-full h-full object-cover relative z-10" draggable="false" />
+          )}
+
+          {/* Imperative click guard - avoids iframe swallowing global UX inputs & drags  */}
+          <div className="absolute inset-0 z-30 pointer-events-auto opacity-0" />
+        </div>
+
+        <div className="p-6 sm:p-7 relative z-10 bg-white flex flex-col justify-center min-h-[140px]">
+          <span className="text-blue-600 text-[10px] sm:text-xs font-black uppercase tracking-widest block mb-2">
+            {project.category}
+          </span>
+          <h3 className="text-gray-900 text-lg sm:text-xl font-bold leading-tight line-clamp-2">
+            {project.title}
+          </h3>
+        </div>
+      </a>
+    </motion.div>
+  );
+};
 
 export default Portfolio;
