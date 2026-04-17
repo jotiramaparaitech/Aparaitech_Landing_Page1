@@ -83,6 +83,7 @@ import News from "./components/pages/Company/News";
 import NewsDetail from "./components/pages/Company/NewsDetail";
 import PartnersPage from "./components/pages/Company/Partners";
 import InvestorRelations from "./components/pages/Company/InvestorRelations";
+import Blog from "./components/pages/Company/Blog";
 
 /* ================= JOB DETAIL ================= */
 import JobDetail from "./components/pages/JobDetail";
@@ -205,6 +206,7 @@ function App() {
         <Route path="/news-detail" element={<NewsDetail />} />
         <Route path="/company/partners" element={<PartnersPage />} />
         <Route path="/company/investors" element={<InvestorRelations />} />
+        <Route path="/company/blog" element={<Blog />} />
       </Routes>
 
       <Footer />
