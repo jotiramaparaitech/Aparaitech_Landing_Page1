@@ -108,11 +108,11 @@ const categories = [
         thumbnail: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80",
         slides: [
           {
-            image: "https://media.licdn.com/dms/image/v2/D5622AQF2FoZE8qxw7Q/feedshare-shrink_800/B56Zu6iH7yKkAg-/0/1768361067194?e=2147483647&v=beta&t=JKSlUEu8qWXDU1i74TqXiSTpLbR0ZUMrzGu-jc1deCE",
+            image: "",
             text: "Helping startups grow with technology.",
           },
           {
-            image: "https://media.licdn.com/dms/image/v2/D5622AQGr7tseOOhn4Q/feedshare-shrink_800/B56Zu6iEaYGQAg-/0/1768361052312?e=2147483647&v=beta&t=79lWQajgTXSv36wRj7CKyklACJVwYnM1mDXs4EBclVU",
+            image: "",
             text: "Helping startups grow with technology.",
           },
           {
@@ -285,49 +285,38 @@ const Modal = ({ item, onClose }) => {
 
 /* ─── Blog Card ─── */
 const BlogCard = ({ item, categoryId, categoryTitle, onOpen }) => (
-  <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200 flex flex-col">
-
-    {/* Thumbnail */}
-    <div className="relative overflow-hidden" style={{ height: '200px', background: '#f1f5f9' }}>
-      {item.thumbnail ? (
+    <div
+      onClick={() => onOpen(item)}
+      className="max-w-6xl mx-auto px-6"
+    >
+      {/* IMAGE */}
+      <div className="overflow-hidden">
         <img
           src={item.thumbnail}
           alt={item.title}
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
         />
-      ) : (
-        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900">
-          <span className="text-white/40 text-sm">No preview</span>
-        </div>
-      )}
-      {/* photo count badge */}
-      {item.slides.length > 1 && (
-        <span className="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-0.5 rounded-full">
-          {item.slides.length} photos
-        </span>
-      )}
+      </div>
+  
+      {/* CONTENT */}
+      <div className="pt-4">
+        {/* TITLE */}
+        <h3 className="text-lg font-semibold text-gray-900 group-hover:underline leading-snug">
+          {item.title}
+        </h3>
+  
+        {/* DATE + CATEGORY */}
+        <p className="text-xs text-gray-500 mt-2">
+          April 9, 2026 • {categoryTitle}
+        </p>
+  
+        {/* DESCRIPTION */}
+        <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+          {item.desc}
+        </p>
+      </div>
     </div>
-
-    {/* Body */}
-    <div className="p-5 flex flex-col flex-1">
-      <span className={`text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full w-fit mb-3 ${badgeColors[categoryId] || 'bg-gray-100 text-gray-600'}`}>
-        {categoryTitle}
-      </span>
-      <h4 className="text-gray-900 font-semibold text-base mb-1">{item.title}</h4>
-      <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-4">{item.desc}</p>
-
-      <button
-        onClick={() => onOpen(item)}
-        className="mt-auto flex items-center gap-2 text-sm font-medium text-white bg-[#0f172a] hover:bg-[#1e293b] px-4 py-2 rounded-lg transition-colors duration-150 w-fit"
-      >
-        View gallery
-        <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </button>
-    </div>
-  </div>
-);
+  );
 
 /* ─── Main Blog Page ─── */
 const Blog = () => {
@@ -421,7 +410,7 @@ const Blog = () => {
             <p className="text-lg">No results found for &ldquo;{searchTerm}&rdquo;</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
             {allCards.map((item, i) => (
               <BlogCard
                 key={i}

@@ -165,3 +165,7 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+.break-inside-avoid {
+  break-inside: avoid;
+}
