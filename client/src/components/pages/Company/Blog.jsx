@@ -8,6 +8,8 @@ import InternationalPartner3 from "../../../assets/blog/internationalpartner/Int
 import companypartnership1 from "../../../assets/blog/companypartnership/companypartnership1.jpeg";
 import companypartnership2 from "../../../assets/blog/companypartnership/companypartnership2.jpeg";
 import companypartnership3 from "../../../assets/blog/companypartnership/companypartnership3.jpeg";
+import companypartnership4 from "../../../assets/blog/companypartnership/companypartnership4.jpeg";
+import companypartnership5 from "../../../assets/blog/companypartnership/companypartnership5.jpeg";
 
 import StudentInteraction1 from "../../../assets/blog/studentinteraction/StudentInteraction1.jpeg";
 import StudentInteraction2 from "../../../assets/blog/studentinteraction/StudentInteraction2.jpeg";
@@ -19,6 +21,15 @@ import StudentInteraction7 from "../../../assets/blog/studentinteraction/Student
 import StudentInteraction8 from "../../../assets/blog/studentinteraction/StudentInteraction8.jpeg";
 import StudentInteraction9 from "../../../assets/blog/studentinteraction/StudentInteraction9.jpeg";
 import StudentInteraction10 from "../../../assets/blog/studentinteraction/StudentInteraction10.jpeg";
+import StudentInteraction11 from "../../../assets/blog/studentinteraction/StudentInteraction11.jpeg";
+import StudentInteraction12 from "../../../assets/blog/studentinteraction/StudentInteraction12.jpeg";
+import StudentInteraction13 from "../../../assets/blog/studentinteraction/StudentInteraction13.jpeg";
+import StudentInteraction14 from "../../../assets/blog/studentinteraction/StudentInteraction14.jpeg";
+import StudentInteraction15 from "../../../assets/blog/studentinteraction/StudentInteraction15.jpeg";
+
+import team1 from "../../../assets/blog/ourteam/team1.jpeg";
+import team2 from "../../../assets/blog/ourteam/team2.jpeg";
+import team3 from "../../../assets/blog/ourteam/team3.jpeg";
 
 import Celebrate1 from "../../../assets/blog/celebration/Celebrate1.jpeg";
 import Celebrate2 from "../../../assets/blog/celebration/Celebrate2.jpeg";
@@ -87,7 +98,7 @@ const categories = [
       {
         title: "Company Partnerships",
         desc: "Strategic alliances that expand our reach and capabilities.",
-        thumbnail: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80",
+        thumbnail: companypartnership1,
         slides: [
           {
             image: "https://media.licdn.com/dms/image/v2/D4D22AQElx0nDI-Bhmg/feedshare-shrink_1280/B4DZ126WqrJYAM-/0/1775816502273?e=1778112000&v=beta&t=gyPoLVHzy5ocZeMJa2auG9kS0dr2s8wp9sXbN_M6ajY",
@@ -100,6 +111,8 @@ const categories = [
           { image: companypartnership1, text: "" },
           { image: companypartnership2, text: "" },
           { image: companypartnership3, text: "" },
+          { image: companypartnership4, text: "" },
+          { image: companypartnership5, text: "" },
         ],
       },
       {
@@ -143,14 +156,21 @@ const categories = [
           { image: StudentInteraction8, text: "" },
           { image: StudentInteraction9, text: "" },
           { image: StudentInteraction10, text: "" },
+          { image: StudentInteraction11, text: "" },
+          { image: StudentInteraction12, text: "" },
+          { image: StudentInteraction13, text: "" },
+          { image: StudentInteraction14, text: "" },
+          { image: StudentInteraction15, text: "" },
         ],
       },
       {
         title: "Our Team",
         desc: "Meet the passionate people behind Aparaitech's technology and culture.",
-        thumbnail: "",
+        thumbnail: team1,
         slides: [
-          { image: "", text: "Meet the passionate team behind Aparaitech's success." },
+          { image: team1, text: "Meet the passionate team behind Aparaitech's success." },
+          { image: team2, text: "Meet the passionate team behind Aparaitech's success." },
+          { image: team3, text: "Meet the passionate team behind Aparaitech's success." },
         ],
       },
     ],
