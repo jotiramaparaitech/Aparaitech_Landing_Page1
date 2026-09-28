@@ -289,12 +289,12 @@ const SecurePlatformPage = () => {
                             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8">
                                 <div className="text-2xl md:text-3xl mb-3 md:mb-4">📧</div> {/* CHANGED: Adjusted icon size */}
                                 <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">Email Contact</h3> {/* CHANGED: Adjusted text size */}
-                                <p className="text-sm md:text-base">info@aparaitech.org</p> {/* CHANGED: Adjusted text size */}
+                                <p className="text-sm md:text-base">info@ai.aparaitech.org</p> {/* CHANGED: Adjusted text size */}
                             </div>
                             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8">
                                 <div className="text-2xl md:text-3xl mb-3 md:mb-4">📞</div> {/* CHANGED: Adjusted icon size */}
                                 <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">Phone Support</h3> {/* CHANGED: Adjusted text size */}
-                                <p className="text-sm md:text-base">+6364326342</p> {/* CHANGED: Adjusted text size */}
+                                <p className="text-sm md:text-base">+91 82618 40199</p> {/* CHANGED: Adjusted text size */}
                             </div>
                             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8">
                                 <div className="text-2xl md:text-3xl mb-3 md:mb-4">📋</div> {/* CHANGED: Adjusted icon size */}

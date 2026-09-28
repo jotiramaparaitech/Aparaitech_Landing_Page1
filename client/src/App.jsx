@@ -1,7 +1,8 @@
-// src/App.jsx
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+
+import AltrdHome from "./components/AltrdHome";
 
 /* ================= PAGES ================= */
 import ApplicationForm from "./components/pages/ApplicationForm";
@@ -100,8 +101,11 @@ const HomePage = () => (
 
 /* ================= APP ================= */
 function App() {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/" || location.pathname === "/altrd";
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white">
+    <div className="min-h-screen bg-[#0C0D0F] text-white">
       {/* 🔔 Toast Container (Required Once) */}
       <Toaster
         position="top-right"
@@ -131,12 +135,16 @@ function App() {
 
       <Routes>
         {/* Home */}
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<AltrdHome />} />
+        <Route path="/altrd" element={<AltrdHome />} />
+        <Route path="/classic-home" element={<HomePage />} />
 
         {/* Core */}
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/cloud" element={<Cloud />} />
         <Route path="/generative-ai" element={<GenerativeAI />} />
+        <Route path="/generative_ai" element={<GenerativeAI />} />
+        <Route path="/ai-solutions" element={<GenerativeAI />} />
 
         {/* Job */}
         <Route path="/job-detail" element={<JobDetail />} />

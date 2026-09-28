@@ -1,211 +1,206 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
-  FaPhone,
-  FaEnvelope,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+// src/components/Footer.jsx
+import React from "react";
+import { Link } from "react-router-dom";
+import { Shield, Phone, Mail, MapPin, ExternalLink } from "lucide-react";
 
 const Footer = () => {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("idle");
-
-  const handleLinkClick = (link, e) => {
-    e.preventDefault();
-
-    if (link.id) {
-      if (window.location.pathname === "/") {
-        document
-          .getElementById(link.id)
-          ?.scrollIntoView({ behavior: "smooth" });
-      } else {
-        navigate("/");
-        setTimeout(() => {
-          document
-            .getElementById(link.id)
-            ?.scrollIntoView({ behavior: "smooth" });
-        }, 400);
-      }
-      return;
-    }
-
-    if (link.route) navigate(link.route);
-  };
-
-  const handleSubscribe = async (e) => {
-    e.preventDefault();
-
-    if (!email) {
-      setStatus("error");
-      setMessage("Please enter a valid email.");
-      return;
-    }
-
-    try {
-      setLoading(true);
-      setStatus("loading");
-      setMessage("Processing...");
-
-      await axios.post("http://localhost:5000/api/subscribe", { email });
-
-      setStatus("success");
-      setMessage("Thanks for subscribing!");
-      setEmail("");
-    } catch (error) {
-      setStatus("error");
-      if (error.response?.status === 409) {
-        setMessage("You are already subscribed.");
-      } else {
-        setMessage("Something went wrong. Please try again.");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
-    <footer
-      id="contact-section"
-      className="relative w-full overflow-hidden bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white"
-    >
-      {/* Clean Top Divider */}
-      <div className="h-[1px] bg-gray-800" />
-
-      {/* Main Content */}
-      <div className="relative z-10 w-full px-4 sm:px-6 md:px-10 py-10 flex flex-col md:flex-row gap-10">
-        {/* Brand & Contact */}
-        <div className="w-full md:w-2/5 flex flex-col items-center md:items-start">
-          <img
-            src="/Aparaitech_company_logo.jpeg"
-            alt="Aparaitech Logo"
-            className="h-24 w-24 rounded-xl shadow-xl mb-6"
-          />
-
-          <div className="text-gray-300 text-sm space-y-3 text-center md:text-left">
-            <div className="flex gap-2 justify-center md:justify-start">
-              <FaPhone className="text-blue-400" />
-              <span>+91 63643 26342</span>
-            </div>
-
-            <div className="flex gap-2 justify-center md:justify-start">
-              <FaEnvelope className="text-blue-400" />
-              <span>info@aparaitech.org</span>
-            </div>
-
-            <div>
-              <div className="flex gap-2 justify-center md:justify-start">
-                <FaMapMarkerAlt className="text-blue-400" />
-                <span className="font-medium">Branch Address</span>
-              </div>
-              <p className="md:ml-6 mt-1">
-                360, Neeladri Rd, Electronic City Phase I, Bengaluru – 560100
-              </p>
-            </div>
-
-            <div>
-              <div className="flex gap-2 justify-center md:justify-start">
-                <FaMapMarkerAlt className="text-blue-400" />
-                <span className="font-medium">New Branch</span>
-              </div>
-              <p className="md:ml-6 mt-1">
-                Mukti Complex, Near Prashaskiya Bhawan, Baramati
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Company Links */}
-        <div className="w-full md:w-1/4 text-center md:text-left">
-          <h2 className="text-lg font-semibold mb-5 text-blue-400">Company</h2>
-          <ul className="space-y-3">
-            {[
-              { name: "Home", id: "home" },
-              { name: "Generative AI", route: "/generative-ai" },
-              { name: "Cloud", route: "/cloud" },
-              { name: "Solutions", route: "/solutions" },
-              { name: "About", route: "/company/about-us" },
-              { name: "Contact", id: "contact" },
-            ].map((link, i) => (
-              <li key={i}>
-                <button
-                  onClick={(e) => handleLinkClick(link, e)}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Newsletter */}
-        <div className="w-full md:w-1/3 text-center md:text-left">
-          <h2 className="text-lg font-semibold mb-4 text-blue-400">
-            Stay Updated
-          </h2>
-          <p className="text-gray-300 text-sm mb-4">
-            Subscribe to our newsletter for latest updates.
-          </p>
-
-          <form onSubmit={handleSubscribe} className="space-y-3">
-            <input
-              type="email"
-              placeholder="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 outline-none focus:border-blue-600"
-              required
-            />
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 py-3 rounded-lg font-medium hover:opacity-90 transition"
-            >
-              {loading ? "Processing..." : "Subscribe"}
-            </button>
-
-            {message && (
-              <p
-                className={`text-sm ${
-                  status === "success"
-                    ? "text-green-400"
-                    : status === "error"
-                    ? "text-red-400"
-                    : "text-blue-400"
-                }`}
+    <footer className="relative bg-[#0C0D0F] text-slate-400 pt-20 pb-12 overflow-hidden border-t border-[#22242A]">
+      <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-16 border-b border-[#22242A]">
+          {/* Brand & Address */}
+          <div className="space-y-4">
+            <Link to="/" className="flex items-center gap-3 group">
+              <img
+                src="/aparaitech_logo.jpg"
+                alt="Aparaitech Software"
+                className="h-8 w-8 rounded-lg object-contain bg-white/5 border border-white/10 group-hover:border-[#00E5C9] transition-all shadow-md shadow-[#00E5C9]/10"
+              />
+              <span className="font-semibold text-white text-base tracking-tight">
+                Aparaitech Software
+              </span>
+            </Link>
+            <p className="text-xs text-slate-400 leading-relaxed font-mono">
+              Partner in building an AI-native enterprise. Engineering scalable intelligent systems, autonomous agents, and enterprise cloud infrastructure.
+            </p>
+            <div className="text-xs text-slate-300 space-y-2 font-mono pt-2">
+              <a
+                href="https://maps.app.goo.gl/zshFooG4n2aS8Dr3A"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 hover:text-[#D4FD53] transition-colors"
               >
-                {message}
-              </p>
-            )}
-          </form>
+                <MapPin className="w-4 h-4 text-[#D4FD53] shrink-0 mt-0.5" />
+                <span>Gera Imperium, Hinjawadi Phase 2, Pune, Maharashtra, India</span>
+              </a>
+              <a
+                href="tel:+918261840199"
+                className="flex items-center gap-2 hover:text-[#D4FD53] transition-colors"
+              >
+                <Phone className="w-4 h-4 text-[#D4FD53] shrink-0" />
+                <span>+91 82618 40199</span>
+              </a>
+              <a
+                href="mailto:info@ai.aparaitech.org"
+                className="flex items-center gap-2 hover:text-[#D4FD53] transition-colors"
+              >
+                <Mail className="w-4 h-4 text-[#D4FD53] shrink-0" />
+                <span>info@ai.aparaitech.org</span>
+              </a>
+            </div>
+          </div>
 
-          {/* Social Icons */}
-          <div className="flex gap-4 mt-6 justify-center md:justify-start">
-            {[FaLinkedinIn, FaYoutube, FaInstagram, FaFacebookF, FaXTwitter].map(
-              (Icon, idx) => (
-                <Icon
-                  key={idx}
-                  className="text-gray-400 hover:text-white text-lg cursor-pointer transition"
-                />
-              )
-            )}
+          {/* Navigation Links */}
+          <div>
+            <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-4">
+              Navigation
+            </h4>
+            <ul className="space-y-2.5 text-xs font-mono">
+              <li>
+                <Link to="/" className="hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/generative-ai" className="hover:text-[#D4FD53] transition-colors flex items-center gap-1">
+                  Generative AI Solutions <span className="h-1.5 w-1.5 rounded-full bg-[#D4FD53] animate-pulse"></span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/cloud" className="hover:text-white transition-colors">
+                  Cloud Infrastructure
+                </Link>
+              </li>
+              <li>
+                <Link to="/solutions" className="hover:text-white transition-colors">
+                  Enterprise Solutions
+                </Link>
+              </li>
+              <li>
+                <Link to="/company/about-us" className="hover:text-white transition-colors">
+                  About Aparaitech
+                </Link>
+              </li>
+              <li>
+                <Link to="/company/careers" className="hover:text-white transition-colors">
+                  Careers & Engineering Pods
+                </Link>
+              </li>
+              <li>
+                <Link to="/company/values" className="hover:text-white transition-colors">
+                  Our Values & Ethics
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Live SaaS Platforms */}
+          <div>
+            <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-4">
+              Live Production Platforms
+            </h4>
+            <ul className="space-y-2.5 text-xs font-mono">
+              <li>
+                <a
+                  href="https://cloudkitchen.aparaitech.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D4FD53] transition-colors flex items-center gap-1"
+                >
+                  Cloud Kitchen AI <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://attendance.aparaitech.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D4FD53] transition-colors flex items-center gap-1"
+                >
+                  Attendance SaaS <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://apnastore.aparaitech.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D4FD53] transition-colors flex items-center gap-1"
+                >
+                  APNA Store <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://servicehub.aparaitech.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D4FD53] transition-colors flex items-center gap-1"
+                >
+                  Service Hub Dispatch <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://svpmalumni.aparaitech.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D4FD53] transition-colors flex items-center gap-1"
+                >
+                  SVPM Alumni Portal <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://tests.apraitech.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#D4FD53] transition-colors flex items-center gap-1"
+                >
+                  Online Test Platform <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Governance & Compliance */}
+          <div>
+            <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-4">
+              Governance & Security
+            </h4>
+            <div className="space-y-3 text-xs font-mono text-slate-300">
+              <p className="flex items-center gap-1.5 text-white">
+                <Shield className="w-4 h-4 text-[#D4FD53]" />
+                ISO 27001 & 9001 Certified Architecture
+              </p>
+              <p>SOC2 Type II Aligned Security Controls</p>
+              <p>On-Premises / Private VPC Isolated Deployments</p>
+              <p className="text-[#D4FD53]">1-Hour Response SLA for Inquiries</p>
+              <div className="pt-2">
+                <a
+                  href="https://www.linkedin.com/company/aparaitech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-mono text-[#D4FD53] hover:underline flex items-center gap-1"
+                >
+                  Follow on LinkedIn ↗
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Text */}
-      <div className="text-center text-xs text-gray-500 py-4 border-t border-gray-800">
-        © {new Date().getFullYear()} Aparaitech. All rights reserved.
+        {/* Massive Architectural Lettermark */}
+        <div className="pt-12 text-center select-none pointer-events-none">
+          <h1 className="text-[clamp(3.5rem,14vw,11.5rem)] font-bold tracking-tighter text-[#16171B] leading-none uppercase">
+            APARAITECH
+          </h1>
+        </div>
+
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-4">
+          <p>© {new Date().getFullYear()} Aparaitech Software Private Limited. All rights reserved.</p>
+          <p>Headquarters: Gera Imperium, Hinjawadi Phase 2, Pune, India</p>
+        </div>
       </div>
     </footer>
   );
