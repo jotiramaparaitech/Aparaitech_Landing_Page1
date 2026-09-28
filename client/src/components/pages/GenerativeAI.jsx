@@ -344,7 +344,7 @@ export default function GenerativeAI() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-[clamp(2.4rem,5.5vw,4.5rem)] font-bold tracking-tight text-white mb-6 leading-[1.12]">
+          <h1 className="text-[clamp(1.85rem,5vw,4.5rem)] font-bold tracking-tight text-white mb-6 leading-[1.12]">
             Transform Your Enterprise with Production Generative AI
           </h1>
 

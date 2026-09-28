@@ -142,7 +142,7 @@ const News = () => {
             </span>
           </div>
 
-          <h1 className="text-[clamp(2.5rem,5.5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
             Aparaitech Software Newsroom
           </h1>
 

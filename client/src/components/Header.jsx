@@ -9,6 +9,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [mobileCategory, setMobileCategory] = useState(null);
 
   // Form State
   const [form, setForm] = useState({
@@ -133,23 +134,23 @@ const Header = () => {
   };
 
   return (
-    <>
+    <div className="sticky top-0 z-40 w-full">
       {/* 1. TOP ANNOUNCEMENT BANNER */}
       <div
-        className="flex min-h-[42px] flex-wrap items-center justify-center gap-2 px-6 py-1.5 text-center text-[12px] sm:text-[13px] text-white font-medium sticky top-0 z-50 shadow-sm"
+        className="flex min-h-[38px] flex-wrap items-center justify-center gap-1.5 px-3 sm:px-6 py-1.5 text-center text-[11px] sm:text-[13px] text-white font-medium shadow-sm"
         style={{ background: "linear-gradient(90deg, #028090 0%, #00A896 50%, #473BFD 100%)" }}
       >
         <span>Discover how Aparaitech Software accelerates enterprise AI workflows in under 30 minutes.</span>
         <button
           onClick={() => setModalOpen(true)}
-          className="flex cursor-pointer items-center gap-1 text-white underline font-semibold hover:opacity-90 transition-opacity ml-1"
+          className="inline-flex cursor-pointer items-center gap-1 text-white underline font-semibold hover:opacity-90 transition-opacity whitespace-nowrap ml-1"
         >
-          Schedule an Architectural Consultation <span>→</span>
+          Schedule Consultation <span>→</span>
         </button>
       </div>
 
       {/* 2. TECHNICAL NAVBAR */}
-      <header className="sticky top-[42px] z-40 w-full border-b border-[#22242A] bg-[#0C0D0F]/95 backdrop-blur-md">
+      <header className="relative w-full border-b border-[#22242A] bg-[#0C0D0F]/95 backdrop-blur-md">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
           <div className="flex h-[72px] items-center justify-between">
             {/* Official Logo & Brand */}
@@ -309,65 +310,118 @@ const Header = () => {
 
         {/* Mobile Nav Overlay */}
         {menuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-[114px] bottom-0 bg-[#0C0D0F] border-t border-[#22242A] p-6 overflow-y-auto z-50">
-            <nav className="space-y-4 font-mono text-sm">
-              <Link
-                to="/"
-                onClick={() => setMenuOpen(false)}
-                className="block py-2 text-white hover:text-[#00E5C9]"
-              >
-                Home
-              </Link>
-              <Link
-                to="/generative-ai"
-                onClick={() => setMenuOpen(false)}
-                className="block py-2 text-[#00E5C9]"
-              >
-                AI Solutions (28 Frameworks)
-              </Link>
-              <Link
-                to="/cloud"
-                onClick={() => setMenuOpen(false)}
-                className="block py-2 text-white hover:text-[#00E5C9]"
-              >
-                Cloud Infrastructure
-              </Link>
-              <Link
-                to="/solutions"
-                onClick={() => setMenuOpen(false)}
-                className="block py-2 text-white hover:text-[#00E5C9]"
-              >
-                Enterprise Solutions
-              </Link>
-              <Link
-                to="/company/about-us"
-                onClick={() => setMenuOpen(false)}
-                className="block py-2 text-white hover:text-[#00E5C9]"
-              >
-                About Aparaitech Software
-              </Link>
-              <Link
-                to="/company/careers"
-                onClick={() => setMenuOpen(false)}
-                className="block py-2 text-white hover:text-[#00E5C9]"
-              >
-                Careers & Engineering Pods
-              </Link>
-              <div className="pt-4 border-t border-white/10 space-y-2">
+          <div className="lg:hidden absolute top-full left-0 right-0 h-[calc(100vh-120px)] bg-[#0C0D0F] border-t border-[#22242A] p-4 sm:p-6 overflow-y-auto z-50 shadow-2xl">
+            <nav className="space-y-2 font-mono text-sm pb-16">
+              {/* Primary Pages */}
+              <div className="space-y-1 pb-3 border-b border-[#22242A]">
+                <Link
+                  to="/"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-3 rounded hover:bg-[#141518] text-white hover:text-[#00E5C9] transition-colors"
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/generative-ai"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-between py-2 px-3 rounded hover:bg-[#141518] text-[#00E5C9] transition-colors"
+                >
+                  <span>AI Solutions</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-[#00E5C9]/10 text-[#00E5C9] border border-[#00E5C9]/20">21+ Systems</span>
+                </Link>
+                <Link
+                  to="/cloud"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-3 rounded hover:bg-[#141518] text-white hover:text-[#00E5C9] transition-colors"
+                >
+                  Cloud Infrastructure
+                </Link>
+                <Link
+                  to="/solutions"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-3 rounded hover:bg-[#141518] text-white hover:text-[#00E5C9] transition-colors"
+                >
+                  Enterprise Solutions
+                </Link>
+              </div>
+
+              {/* Categorized Dropdown Sections for All Subpages */}
+              <div className="pt-2 space-y-1.5">
+                <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest px-3 py-1">
+                  Explore Architecture & Subpages
+                </div>
+
+                {Object.entries(moreDropdownContent).map(([category, items]) => {
+                  const isOpen = mobileCategory === category;
+                  return (
+                    <div key={category} className="rounded-lg border border-[#22242A] bg-[#141518] overflow-hidden">
+                      <button
+                        onClick={() => setMobileCategory(isOpen ? null : category)}
+                        className="w-full flex items-center justify-between px-3.5 py-2.5 text-xs text-left font-mono font-semibold text-slate-200 hover:text-[#00E5C9] transition-colors"
+                      >
+                        <span className="uppercase tracking-wider">{category}</span>
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isOpen ? "rotate-180 text-[#00E5C9]" : "text-slate-500"}`} />
+                      </button>
+
+                      {isOpen && (
+                        <div className="px-3.5 pb-3 pt-1 space-y-1.5 border-t border-[#22242A] bg-[#0C0D0F]">
+                          {items.map((item, idx) => (
+                            <div key={idx}>
+                              {item.external ? (
+                                <a
+                                  href={item.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => setMenuOpen(false)}
+                                  className="block py-1 text-xs text-slate-400 hover:text-[#D4FD53] transition-colors"
+                                >
+                                  {item.name} ↗
+                                </a>
+                              ) : item.onClick ? (
+                                <button
+                                  onClick={() => {
+                                    setMenuOpen(false);
+                                    item.onClick();
+                                  }}
+                                  className="block w-full text-left py-1 text-xs text-slate-400 hover:text-[#00E5C9] transition-colors"
+                                >
+                                  {item.name}
+                                </button>
+                              ) : (
+                                <Link
+                                  to={item.link}
+                                  onClick={() => setMenuOpen(false)}
+                                  className="block py-1 text-xs text-slate-400 hover:text-[#00E5C9] transition-colors"
+                                >
+                                  {item.name}
+                                </Link>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Direct Actions in Mobile Menu */}
+              <div className="pt-4 border-t border-[#22242A] space-y-2.5">
                 <a
                   href="tel:+918261840199"
-                  className="block py-2 text-[#00E5C9]"
+                  className="flex items-center justify-center gap-2 py-2.5 rounded bg-[#141518] border border-[#22242A] text-xs text-[#00E5C9]"
                 >
-                  📞 Call: +91 82618 40199
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Call Pune CoE: +91 82618 40199</span>
                 </a>
                 <button
                   onClick={() => {
                     setMenuOpen(false);
                     setModalOpen(true);
                   }}
-                  className="w-full py-3 bg-[#00E5C9] text-[#0C0D0F] font-semibold text-center rounded"
+                  className="w-full py-3 bg-[#00E5C9] text-[#0C0D0F] font-bold text-xs uppercase tracking-wider text-center rounded hover:brightness-110 shadow-lg shadow-[#00E5C9]/20"
                 >
-                  Request Consultation →
+                  Schedule Architectural Consultation →
                 </button>
               </div>
             </nav>
@@ -377,11 +431,11 @@ const Header = () => {
 
       {/* 3. INTERACTIVE CONSULTATION MODAL */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="relative w-full max-w-lg bg-[#141518] border border-white/20 rounded-xl p-8 shadow-2xl text-white">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#141518] border border-white/20 rounded-xl p-5 sm:p-8 shadow-2xl text-white">
             <button
               onClick={() => setModalOpen(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-mono"
+              className="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-mono p-1"
             >
               ✕
             </button>
@@ -420,7 +474,7 @@ const Header = () => {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-mono text-slate-300 mb-1">Work Email *</label>
                     <input
@@ -500,7 +554,7 @@ const Header = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full h-11 rounded bg-[#00E5C9] text-[#0C0D0F] font-bold text-sm hover:brightness-105 transition-all flex items-center justify-center gap-2 mt-4"
+                  className="w-full h-11 rounded bg-[#00E5C9] text-[#0C0D0F] font-bold text-sm hover:brightness-105 transition-all flex items-center justify-center gap-2 mt-4 cursor-pointer"
                 >
                   {submitting ? "Transmitting..." : "Submit Consultation Request →"}
                 </button>
@@ -509,7 +563,7 @@ const Header = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -8,16 +8,26 @@
     @apply box-border;
   }
 
-  body {
-    @apply m-0 font-sans antialiased bg-[#0a0a0f] text-white overflow-x-hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  html, body {
+    background-color: #0C0D0F;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
-  html, body {
-  background-color: #0a0a0f;
-}
+  body {
+    @apply m-0 font-sans antialiased bg-[#0C0D0F] text-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+  }
 
+  img, video, canvas, svg {
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    overflow-wrap: break-word;
+  }
 
   html {
     scroll-behavior: smooth;

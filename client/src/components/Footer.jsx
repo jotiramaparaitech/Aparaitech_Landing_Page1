@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="relative bg-[#0C0D0F] text-slate-400 pt-20 pb-12 overflow-hidden border-t border-[#22242A]">
       <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-16 border-b border-[#22242A]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 pb-16 border-b border-[#22242A]">
           {/* Brand & Address */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-3 group">
@@ -191,8 +191,8 @@ const Footer = () => {
         </div>
 
         {/* Massive Architectural Lettermark */}
-        <div className="pt-12 text-center select-none pointer-events-none">
-          <h1 className="text-[clamp(3.5rem,14vw,11.5rem)] font-bold tracking-tighter text-[#16171B] leading-none uppercase">
+        <div className="pt-12 text-center select-none pointer-events-none overflow-hidden">
+          <h1 className="text-[clamp(2.25rem,13vw,11.5rem)] font-bold tracking-tighter text-[#16171B] leading-none uppercase">
             APARAITECH
           </h1>
         </div>

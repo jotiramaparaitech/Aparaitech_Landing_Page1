@@ -125,7 +125,7 @@ const Webinars = () => {
               <span>LIVE ENGINEERING BROADCASTS // PUNE COE</span>
             </div>
 
-            <h1 className="text-[clamp(2.5rem,5.5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight">
+            <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight">
               Aparaitech Technical Webinars
             </h1>
 
@@ -295,7 +295,7 @@ const Webinars = () => {
       {/* 3. REGISTRATION MODAL */}
       {isRegisterModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg rounded-2xl border border-[#22242A] bg-[#141518] p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-[#22242A] bg-[#141518] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsRegisterModalOpen(false)}
               className="absolute right-5 top-5 text-slate-400 hover:text-white"

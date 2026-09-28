@@ -284,7 +284,7 @@ spec:
             <span>PRACTICAL ARCHITECTURE // HANDS-ON LABS</span>
           </div>
 
-          <h1 className="text-[clamp(2.5rem,5.5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-3xl mx-auto">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-3xl mx-auto">
             Production Engineering Tutorials
           </h1>
 
@@ -511,7 +511,7 @@ spec:
       {/* 5. WORKSHOP CONSULTATION MODAL */}
       {isWorkshopModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg rounded-2xl border border-[#22242A] bg-[#141518] p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-[#22242A] bg-[#141518] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsWorkshopModalOpen(false)}
               className="absolute right-5 top-5 text-slate-400 hover:text-white"

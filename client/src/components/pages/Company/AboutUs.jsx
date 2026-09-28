@@ -112,7 +112,7 @@ const AboutUs = () => {
             </span>
           </div>
 
-          <h1 className="text-[clamp(2.5rem,5.5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
             Architecting the AI-run enterprise from Pune to the world.
           </h1>
 
@@ -408,7 +408,7 @@ const AboutUs = () => {
       {/* EXECUTIVE BRIEFING MODAL */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg rounded-2xl bg-[#141518] border border-[#22242A] p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-[#141518] border border-[#22242A] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setModalOpen(false)}
               className="absolute top-4 right-4 text-slate-400 hover:text-white"

@@ -451,20 +451,20 @@ export default function AltrdHome() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-[clamp(2.4rem,5.6vw,4.5rem)] font-bold tracking-tight text-white leading-[1.08]">
+            <h1 className="text-[clamp(1.85rem,5.5vw,4.5rem)] font-bold tracking-tight text-white leading-[1.1] max-w-4xl">
               Engineering Autonomous AI & Intelligent Cloud Systems
             </h1>
 
             {/* Subhead */}
-            <p className="mt-6 text-[clamp(1.05rem,1.9vw,1.3rem)] leading-relaxed text-slate-300 max-w-3xl font-normal">
+            <p className="mt-5 text-[clamp(1rem,1.8vw,1.25rem)] leading-relaxed text-slate-300 max-w-3xl font-normal">
               Aparaitech Software designs, builds, and deploys production-grade Generative AI, autonomous multi-agent workflows, and sovereign cloud infrastructure tailored to your enterprise data.
             </p>
 
             {/* CTA Action Buttons */}
-            <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <button
                 onClick={() => setModalOpen(true)}
-                className="inline-flex h-[52px] cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md bg-[#00E5C9] px-7 text-[15px] font-bold text-[#0C0D0F] transition-all hover:-translate-y-0.5 hover:brightness-110 w-full sm:w-auto shadow-lg shadow-[#00E5C9]/20"
+                className="inline-flex h-[52px] cursor-pointer items-center justify-center gap-2 rounded-md bg-[#00E5C9] px-5 sm:px-7 text-sm sm:text-[15px] font-bold text-[#0C0D0F] transition-all hover:-translate-y-0.5 hover:brightness-110 w-full sm:w-auto shadow-lg shadow-[#00E5C9]/20"
               >
                 <span>Schedule Architectural Consultation</span>
                 <ArrowUpRight className="w-4 h-4 text-[#0C0D0F]" />
@@ -472,7 +472,7 @@ export default function AltrdHome() {
 
               <Link
                 to="/generative-ai"
-                className="inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-md border border-[#22242A] bg-[#141518] px-7 text-[15px] font-mono text-white transition-all hover:border-[#00E5C9]/50 hover:bg-[#1C1C1E] w-full sm:w-auto"
+                className="inline-flex h-[52px] items-center justify-center gap-2 rounded-md border border-[#22242A] bg-[#141518] px-5 sm:px-7 text-sm sm:text-[15px] font-mono text-white transition-all hover:border-[#00E5C9]/50 hover:bg-[#1C1C1E] w-full sm:w-auto"
               >
                 <span>Explore 21+ AI Frameworks</span>
                 <ArrowRight className="w-4 h-4 text-[#00E5C9]" />
@@ -857,22 +857,22 @@ export default function AltrdHome() {
             </div>
 
             {/* Projected Result Card */}
-            <div className="lg:col-span-6 rounded-2xl bg-[#141518] border border-[#22242A] p-8 shadow-2xl relative overflow-hidden">
+            <div className="lg:col-span-6 rounded-2xl bg-[#141518] border border-[#22242A] p-5 sm:p-8 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#00E5C9]/5 rounded-full blur-3xl pointer-events-none"></div>
 
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#22242A]">
                 <div className="flex items-center gap-2">
                   <div className="h-2 w-2 rounded-full bg-[#00E5C9] animate-pulse"></div>
-                  <span className="font-mono text-xs uppercase tracking-wider text-slate-400">
+                  <span className="font-mono text-[11px] sm:text-xs uppercase tracking-wider text-slate-400">
                     PROJECTED OPERATIONAL RECOVERY
                   </span>
                 </div>
-                <span className="font-mono text-xs text-[#D4FD53]">65% Automation Target</span>
+                <span className="font-mono text-[11px] sm:text-xs text-[#D4FD53]">65% Automation Target</span>
               </div>
 
-              <div className="grid grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8">
                 <div>
-                  <div className="font-mono text-3xl sm:text-4xl font-bold text-white">
+                  <div className="font-mono text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
                     {hoursSavedPerWeek.toLocaleString()}
                   </div>
                   <div className="text-xs font-mono text-slate-400 mt-1">
@@ -881,7 +881,7 @@ export default function AltrdHome() {
                 </div>
 
                 <div>
-                  <div className="font-mono text-3xl sm:text-4xl font-bold text-[#00E5C9]">
+                  <div className="font-mono text-2xl sm:text-3xl lg:text-4xl font-bold text-[#00E5C9] truncate">
                     ${annualCostSaved}
                   </div>
                   <div className="text-xs font-mono text-slate-400 mt-1">
@@ -977,10 +977,10 @@ export default function AltrdHome() {
               </p>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
               <button
                 onClick={() => setModalOpen(true)}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded bg-[#00E5C9] px-5 text-xs font-bold text-[#0C0D0F] hover:brightness-110 transition-all shadow-lg"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded bg-[#00E5C9] px-5 text-xs font-bold text-[#0C0D0F] hover:brightness-110 transition-all shadow-lg w-full sm:w-auto"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Schedule Executive Briefing</span>
@@ -988,7 +988,7 @@ export default function AltrdHome() {
 
               <Link
                 to="/company/about-us"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded border border-white/20 bg-[#141518] px-5 text-xs font-mono text-white hover:border-[#D4FD53] hover:text-[#D4FD53] transition-all"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded border border-white/20 bg-[#141518] px-5 text-xs font-mono text-white hover:border-[#D4FD53] hover:text-[#D4FD53] transition-all w-full sm:w-auto"
               >
                 <span>About Us</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -1011,7 +1011,7 @@ export default function AltrdHome() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-85"></div>
                   
                   {/* Badge Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 p-3 sm:p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-mono text-[11px] uppercase tracking-wider text-[#D4FD53] font-bold">
                         FOUNDER & CEO
@@ -1020,7 +1020,7 @@ export default function AltrdHome() {
                         <MapPin className="w-3 h-3 text-[#00E5C9]" /> Pune CoE
                       </span>
                     </div>
-                    <h4 className="text-xl font-bold text-white tracking-tight">
+                    <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                       Pratik Pawar
                     </h4>
                     <p className="text-xs text-[#00E5C9] font-mono mt-0.5">
@@ -1047,7 +1047,7 @@ export default function AltrdHome() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-85"></div>
                   
                   {/* Badge Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 p-3 sm:p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-mono text-[11px] uppercase tracking-wider text-[#00E5C9] font-bold">
                         CO-FOUNDER & COO
@@ -1056,7 +1056,7 @@ export default function AltrdHome() {
                         <MapPin className="w-3 h-3 text-[#D4FD53]" /> Pune CoE
                       </span>
                     </div>
-                    <h4 className="text-xl font-bold text-white tracking-tight">
+                    <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                       Akansha Atole
                     </h4>
                     <p className="text-xs text-[#D4FD53] font-mono mt-0.5">
@@ -1194,11 +1194,11 @@ export default function AltrdHome() {
 
       {/* 11. INTAKE MODAL */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="relative w-full max-w-lg bg-[#141518] border border-white/20 rounded-xl p-8 shadow-2xl text-white">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#141518] border border-white/20 rounded-xl p-5 sm:p-8 shadow-2xl text-white">
             <button
               onClick={() => setModalOpen(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-mono"
+              className="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-mono p-1"
             >
               ✕
             </button>
@@ -1241,7 +1241,7 @@ export default function AltrdHome() {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-mono text-slate-300 mb-1">Work Email *</label>
                     <input

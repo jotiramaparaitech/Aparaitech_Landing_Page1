@@ -332,7 +332,7 @@ console.log('Telemetry payload:', response);`,
             <span>DEVELOPER DOCUMENTATION & API SCHEMAS</span>
           </div>
 
-          <h1 className="text-[clamp(2.5rem,5.5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-3xl mx-auto">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-3xl mx-auto">
             Build with Aparaitech Production Engines
           </h1>
 
@@ -499,7 +499,7 @@ console.log('Telemetry payload:', response);`,
           onClick={() => setShowModal(false)}
         >
           <div
-            className="bg-[#141518] border border-[#22242A] rounded-2xl max-w-xl w-full p-8 shadow-2xl relative"
+            className="bg-[#141518] border border-[#22242A] rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-8 shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
