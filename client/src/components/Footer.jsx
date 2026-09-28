@@ -1,5 +1,6 @@
 // src/components/Footer.jsx
 import React from "react";
+import { GOOGLE_SHEET_VIEW_URL, exportAppointmentsToCSV } from "../utils/sheetService";
 import { Link } from "react-router-dom";
 import { Shield, Phone, Mail, MapPin, ExternalLink } from "lucide-react";
 
@@ -176,6 +177,14 @@ const Footer = () => {
               <p>SOC2 Type II Aligned Security Controls</p>
               <p>On-Premises / Private VPC Isolated Deployments</p>
               <p className="text-[#D4FD53]">1-Hour Response SLA for Inquiries</p>
+              <div className="pt-2 border-t border-white/10 space-y-1.5">
+                <a href={GOOGLE_SHEET_VIEW_URL} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-[#00E5C9] hover:underline flex items-center gap-1">
+                  📊 View Appointments Sheet (Live) ↗
+                </a>
+                <button onClick={exportAppointmentsToCSV} className="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1 cursor-pointer">
+                  📥 Export Appointments (Excel .CSV)
+                </button>
+              </div>
               <div className="pt-2">
                 <a
                   href="https://www.linkedin.com/company/aparaitech/"

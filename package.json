@@ -1,0 +1,11 @@
+{
+  "name": "aparaitech-software-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix client start",
+    "vercel-build": "npm --prefix client run build"
+  }
+}

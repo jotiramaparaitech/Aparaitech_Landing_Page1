@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowUpRight, Phone, CheckCircle2, ChevronDown } from "lucide-react";
 import toast from "react-hot-toast";
+import { recordAppointmentBooking, exportAppointmentsToCSV, GOOGLE_SHEET_VIEW_URL } from "../utils/sheetService";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -110,6 +111,8 @@ const Header = () => {
     ],
     Support: [
       { name: "Help Center", link: "/support/help-center" },
+      { name: "📊 Customer Bookings Sheet", link: GOOGLE_SHEET_VIEW_URL, external: true },
+      { name: "📥 Export Appointments (Excel)", onClick: exportAppointmentsToCSV },
       { name: "Contact Support", onClick: scrollToContact },
       { name: "Developer Community", link: "/support/community" },
       { name: "System Status (99.9% Live)", link: "/support/status" },

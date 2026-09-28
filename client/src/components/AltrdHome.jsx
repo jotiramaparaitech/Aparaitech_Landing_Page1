@@ -32,6 +32,7 @@ import {
   Send
 } from "lucide-react";
 import toast from "react-hot-toast";
+import { recordAppointmentBooking } from "../utils/sheetService";
 
 export default function AltrdHome() {
   const [modalOpen, setModalOpen] = useState(false);
