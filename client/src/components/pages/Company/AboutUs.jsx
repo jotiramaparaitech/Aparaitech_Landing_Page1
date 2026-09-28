@@ -16,12 +16,10 @@ import {
   Briefcase,
   Sparkles,
   Calendar,
-  X,
-  FileSpreadsheet,
-  Download
+  X
 } from "lucide-react";
 import { toast } from "react-hot-toast";
-import { saveAppointmentToSheet, GOOGLE_SHEET_VIEW_URL, exportAppointmentsToCSV } from "../../../utils/sheetService";
+import { saveAppointmentToSheet } from "../../../utils/sheetService";
 
 const AboutUs = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -238,17 +236,6 @@ const AboutUs = () => {
                   <Calendar className="w-4 h-4" />
                   <span>Book Executive Briefing</span>
                 </button>
-
-                <a
-                  href={GOOGLE_SHEET_VIEW_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded border border-white/20 bg-[#141518] px-5 text-xs font-mono text-slate-300 hover:text-white hover:border-[#00E5C9] transition-all"
-                >
-                  <FileSpreadsheet className="w-4 h-4 text-[#00E5C9]" />
-                  <span>View Leadership Appointments Sheet</span>
-                  <ExternalLink className="w-3 h-3 text-slate-400" />
-                </a>
               </div>
             </div>
           </div>
@@ -475,20 +462,11 @@ const AboutUs = () => {
                 </label>
               </div>
 
-              <div className="pt-2 flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={exportAppointmentsToCSV}
-                  className="inline-flex items-center gap-1.5 text-slate-400 hover:text-white text-[11px]"
-                >
-                  <Download className="w-3.5 h-3.5 text-[#00E5C9]" />
-                  <span>Download Records CSV</span>
-                </button>
-
+              <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex items-center gap-2 rounded bg-[#00E5C9] px-5 py-2.5 font-bold text-[#0C0D0F] hover:brightness-110 disabled:opacity-50 transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#00E5C9] px-5 py-3 font-bold text-[#0C0D0F] hover:brightness-110 disabled:opacity-50 transition-all"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{isSubmitting ? "Dispatching..." : "Confirm Briefing Request"}</span>

@@ -60,13 +60,16 @@ export default function AltrdHome() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      await recordAppointmentBooking({
+        ...form,
+        source: "Homepage Consultation Intake Modal",
+      });
       setSubmitted(true);
-      toast.success("Consultation request received! Our Lead AI Architect will respond within 1 hour.");
+      toast.success("Consultation request received! Recorded to inquiry sheet.");
       setTimeout(() => {
         setModalOpen(false);
         setSubmitted(false);
@@ -80,7 +83,12 @@ export default function AltrdHome() {
           nda: true,
         });
       }, 2000);
-    }, 850);
+    } catch (err) {
+      console.error(err);
+      toast.error("Saved locally. Our team will contact you shortly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   // 6 Live Production Platforms

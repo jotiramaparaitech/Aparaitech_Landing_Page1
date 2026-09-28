@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowUpRight, Phone, CheckCircle2, ChevronDown } from "lucide-react";
 import toast from "react-hot-toast";
-import { recordAppointmentBooking, exportAppointmentsToCSV, GOOGLE_SHEET_VIEW_URL } from "../utils/sheetService";
+import { recordAppointmentBooking } from "../utils/sheetService";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -51,13 +51,16 @@ const Header = () => {
     setMoreOpen(false);
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      await recordAppointmentBooking({
+        ...form,
+        source: "Header Consultation Modal",
+      });
       setSubmitted(true);
-      toast.success("Consultation request received! Our AI Architect will respond within 1 hour.");
+      toast.success("Consultation request received! Logged to inquiry sheet.");
       setTimeout(() => {
         setModalOpen(false);
         setSubmitted(false);
@@ -71,7 +74,12 @@ const Header = () => {
           nda: true,
         });
       }, 2000);
-    }, 900);
+    } catch (err) {
+      console.error(err);
+      toast.error("Saved locally. Our team will contact you shortly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   /* Dropdown Data */
@@ -110,8 +118,6 @@ const Header = () => {
       { name: "AI Certifications", link: "/learning/certifications" },
     ],
     Support: [
-      { name: "📊 Customer Bookings Sheet", link: GOOGLE_SHEET_VIEW_URL, external: true },
-      { name: "📥 Export Appointments (Excel)", onClick: exportAppointmentsToCSV },
       { name: "Contact Support", onClick: scrollToContact },
       { name: "Developer Community", link: "/support/community" },
       { name: "System Status (99.9% Live)", link: "/support/status" },

@@ -15,14 +15,15 @@ export const setSheetEndpoint = (url) => {
   localStorage.setItem("aparaitech_sheet_webhook", url);
 };
 
-// Google Sheet public view link for customer appointments
+// Google Sheet public view link for Aparaitech Software Website Inquiries
 export const GOOGLE_SHEET_VIEW_URL =
-  "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit?usp=sharing";
+  "https://docs.google.com/spreadsheets/d/1tMYCOrRboqy8aXjQ1MT9zqkTlJO2h8DRj17CfGwd-f4/edit?usp=sharing";
 
 /**
  * Records an appointment booking:
  * 1. Dispatches data to the Google Sheet Webhook
  * 2. Caches the appointment in localStorage as an immutable backup
+ * 3. Also forwards to backend API for database retention
  */
 export const recordAppointmentBooking = async (bookingData) => {
   const timestamp = new Date().toLocaleString("en-IN", {
@@ -32,17 +33,17 @@ export const recordAppointmentBooking = async (bookingData) => {
   });
 
   const record = {
-    id: "APT-" + Date.now().toString(36).toUpperCase(),
+    id: "INQ-" + Date.now().toString(36).toUpperCase(),
     timestamp,
     name: bookingData.name || "",
     email: bookingData.email || "",
     phone: bookingData.phone || "",
     company: bookingData.company || "",
     service: bookingData.service || "Enterprise AI Diagnostic",
-    message: bookingData.message || "",
+    message: bookingData.message || bookingData.notes || "",
     nda: bookingData.nda ? "Yes (Required)" : "No",
     source: bookingData.source || "Website Consultation Modal",
-    status: "Pending Consultation",
+    status: "New Inquiry",
   };
 
   // 1. Save to local storage cache immediately
@@ -67,6 +68,26 @@ export const recordAppointmentBooking = async (bookingData) => {
     });
   } catch (error) {
     console.warn("Google Sheet webhook notice (lead safely cached locally):", error);
+  }
+
+  // 3. Forward to backend API for database backup
+  try {
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    if (apiBase) {
+      await fetch(`${apiBase}/api/contacts`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: record.name,
+          email: record.email,
+          phone: record.phone,
+          company: record.company,
+          message: `[${record.service}] ${record.message} (Source: ${record.source}, NDA: ${record.nda})`,
+        }),
+      });
+    }
+  } catch (backendErr) {
+    // Non-blocking
   }
 
   return record;

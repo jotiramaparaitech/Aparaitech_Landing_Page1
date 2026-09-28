@@ -19,7 +19,7 @@ import {
   Users
 } from "lucide-react";
 import { toast } from "react-hot-toast";
-import { saveAppointmentToSheet, GOOGLE_SHEET_VIEW_URL, exportAppointmentsToCSV } from "../../../utils/sheetService";
+import { saveAppointmentToSheet } from "../../../utils/sheetService";
 
 const Testimonials = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -309,15 +309,6 @@ const Testimonials = () => {
               <Calendar className="w-4 h-4" />
               <span>Book Discovery Sprint</span>
             </button>
-            <a
-              href={GOOGLE_SHEET_VIEW_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-white/20 bg-[#1C1C1E] px-8 text-sm font-mono text-white hover:bg-[#2C2C30] transition-all"
-            >
-              <span>View Executive Schedule Sheet</span>
-              <ExternalLink className="w-4 h-4 text-[#D4FD53]" />
-            </a>
           </div>
         </div>
       </section>
