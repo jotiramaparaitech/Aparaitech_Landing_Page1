@@ -161,7 +161,7 @@ const AboutUs = () => {
                   <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-[#0C0D0F]">
                     <img
                       src="/founder.jpg"
-                      alt="Jotiram Shinde - Founder & CEO, Aparaitech Software"
+                      alt="Pratik Pawar - Founder & CEO, Aparaitech Software"
                       className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-80"></div>
@@ -177,7 +177,7 @@ const AboutUs = () => {
                         </span>
                       </div>
                       <h4 className="text-xl font-bold text-white tracking-tight">
-                        Jotiram Shinde
+                        Pratik Pawar
                       </h4>
                       <p className="text-xs text-slate-400 font-mono">
                         Aparaitech Software Pvt. Ltd.
@@ -200,7 +200,7 @@ const AboutUs = () => {
               </h2>
 
               <p className="text-slate-300 text-base leading-relaxed">
-                Under the strategic direction of <span className="text-white font-semibold">Jotiram Shinde</span>, Aparaitech Software has evolved from a vision in Pune to an enterprise-grade AI powerhouse operating six live commercial SaaS platforms and serving clients globally.
+                Under the strategic direction of <span className="text-white font-semibold">Pratik Pawar</span>, Aparaitech Software has evolved from a vision in Pune to an enterprise-grade AI powerhouse operating six live commercial SaaS platforms and serving clients globally.
               </p>
 
               <p className="text-slate-400 text-sm leading-relaxed font-mono">
@@ -385,7 +385,7 @@ const AboutUs = () => {
             <div className="mb-6 flex items-center gap-3">
               <img
                 src="/founder.jpg"
-                alt="Jotiram Shinde"
+                alt="Pratik Pawar"
                 className="w-12 h-12 rounded-full object-cover object-top border border-[#00E5C9]"
               />
               <div>
@@ -393,7 +393,7 @@ const AboutUs = () => {
                   EXECUTIVE BRIEFING INTAKE
                 </span>
                 <h3 className="text-lg font-bold text-white">
-                  Connect with Jotiram Shinde & Pune Leads
+                  Connect with Pratik Pawar & Pune Leads
                 </h3>
               </div>
             </div>

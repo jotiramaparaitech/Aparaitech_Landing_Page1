@@ -968,7 +968,7 @@ export default function AltrdHome() {
                   <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-[#0C0D0F]">
                     <img
                       src="/founder.jpg"
-                      alt="Jotiram Shinde - Founder & CEO, Aparaitech Software"
+                      alt="Pratik Pawar - Founder & CEO, Aparaitech Software"
                       className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-80"></div>
@@ -984,7 +984,7 @@ export default function AltrdHome() {
                         </span>
                       </div>
                       <h4 className="text-xl font-bold text-white tracking-tight">
-                        Jotiram Shinde
+                        Pratik Pawar
                       </h4>
                       <p className="text-xs text-slate-400 font-mono">
                         Aparaitech Software Pvt. Ltd.
