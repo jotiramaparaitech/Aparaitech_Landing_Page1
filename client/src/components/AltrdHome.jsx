@@ -29,7 +29,9 @@ import {
   ShieldCheck,
   Check,
   ChevronRight,
-  Send
+  Send,
+  MapPin,
+  Briefcase
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { recordAppointmentBooking } from "../utils/sheetService";
@@ -938,6 +940,110 @@ export default function AltrdHome() {
                   <Check className="w-4 h-4 text-[#00E5C9] shrink-0" />
                   <span>Full Model Weight Ownership</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8.5 EXECUTIVE LEADERSHIP & PUNE COE */}
+      <section className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A] relative overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#00E5C9]/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-[#D4FD53]/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 relative z-10">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="block h-2.5 w-2.5 bg-[#00E5C9]"></span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
+              EXECUTIVE LEADERSHIP & PUNE COE
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Founder Card */}
+            <div className="lg:col-span-5">
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#00E5C9]/30 to-[#D4FD53]/30 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-3 shadow-2xl">
+                  <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-[#0C0D0F]">
+                    <img
+                      src="/founder.jpg"
+                      alt="Jotiram Shinde - Founder & CEO, Aparaitech Software"
+                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-80"></div>
+                    
+                    {/* Badge Overlay */}
+                    <div className="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="font-mono text-[11px] uppercase tracking-wider text-[#D4FD53] font-bold">
+                          FOUNDER & CEO
+                        </span>
+                        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-300">
+                          <MapPin className="w-3 h-3 text-[#00E5C9]" /> Pune CoE
+                        </span>
+                      </div>
+                      <h4 className="text-xl font-bold text-white tracking-tight">
+                        Jotiram Shinde
+                      </h4>
+                      <p className="text-xs text-slate-400 font-mono">
+                        Aparaitech Software Pvt. Ltd.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Leadership Content */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+                <Briefcase className="w-3.5 h-3.5 text-[#00E5C9]" />
+                Principal Architect & Technology Strategist
+              </div>
+
+              <h2 className="text-[clamp(2rem,3.5vw,3rem)] font-bold text-white tracking-tight leading-tight">
+                Led by Systems Architects, Rooted in Hinjawadi, Pune.
+              </h2>
+
+              <p className="text-slate-300 text-base leading-relaxed">
+                "Enterprise AI is not an experimental novelty—it is mission-critical infrastructure. At Aparaitech Software, our obsession is engineering deterministic, zero-hallucination agentic systems and private cloud deployments that eliminate operational friction and deliver verifiable ROI for enterprises worldwide."
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="p-4 rounded-xl bg-[#141518] border border-white/5 space-y-1">
+                  <div className="font-mono text-2xl font-bold text-[#00E5C9]">6 Systems</div>
+                  <div className="text-xs text-slate-300 font-semibold">Live Production SaaS</div>
+                  <p className="text-[11px] text-slate-400 font-mono">
+                    CloudKitchen AI, Attendance SaaS, ApnaStore, ServiceHub & more running at scale.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#141518] border border-white/5 space-y-1">
+                  <div className="font-mono text-2xl font-bold text-[#D4FD53]">Pune CoE</div>
+                  <div className="text-xs text-slate-300 font-semibold">Hinjawadi Phase 2</div>
+                  <p className="text-[11px] text-slate-400 font-mono">
+                    Direct on-site engineering pods and executive architectural consulting.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-4 flex flex-wrap items-center gap-4">
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded bg-[#00E5C9] px-6 text-sm font-bold text-[#0C0D0F] hover:brightness-110 transition-all shadow-lg"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  <span>Schedule Executive Briefing</span>
+                </button>
+
+                <Link
+                  to="/company/about-us"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded border border-white/20 bg-[#141518] px-6 text-sm font-mono text-white hover:border-[#D4FD53] hover:text-[#D4FD53] transition-all"
+                >
+                  <span>Explore Company & Vision</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
