@@ -5,10 +5,10 @@
  * Connected to live Google Sheet for real-time lead capture.
  */
 const DEFAULT_SHEET_ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbx7fF3K-6R9zJ_eYpZ7qM1a_aparaitech-leads/exec";
+  "https://script.google.com/macros/s/AKfycbyusSnV3NCIZtRvNdlGHM6fqwPI3UymNoufnHX2p9_OD9DX3DxTNLiU24j2cZfZbwzUtw/exec";
 
 export const getSheetEndpoint = () => {
-  return localStorage.getItem("aparaitech_sheet_webhook") || DEFAULT_SHEET_ENDPOINT;
+  return DEFAULT_SHEET_ENDPOINT;
 };
 
 export const setSheetEndpoint = (url) => {

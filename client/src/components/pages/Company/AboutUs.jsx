@@ -137,7 +137,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* 2. EXECUTIVE LEADERSHIP & FOUNDER SPOTLIGHT */}
+      {/* 2. EXECUTIVE LEADERSHIP & FOUNDERS SPOTLIGHT */}
       <section className="py-24 border-b border-[#22242A] relative overflow-hidden bg-[#0e0f13]">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#00E5C9]/5 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#D4FD53]/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -150,92 +150,139 @@ const AboutUs = () => {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Founder Portrait Card */}
-            <div className="lg:col-span-5">
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#00E5C9]/30 to-[#D4FD53]/30 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
-                <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-3 shadow-2xl">
-                  <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-[#0C0D0F]">
-                    <img
-                      src="/founder.jpg"
-                      alt="Pratik Pawar - Founder & CEO, Aparaitech Software"
-                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-80"></div>
-                    
-                    {/* Floating Badge */}
-                    <div className="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-mono text-[11px] uppercase tracking-wider text-[#D4FD53] font-bold">
-                          FOUNDER & CEO
-                        </span>
-                        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-300">
-                          <MapPin className="w-3 h-3 text-[#00E5C9]" /> Pune CoE
-                        </span>
-                      </div>
-                      <h4 className="text-xl font-bold text-white tracking-tight">
-                        Pratik Pawar
-                      </h4>
-                      <p className="text-xs text-slate-400 font-mono">
-                        Aparaitech Software Pvt. Ltd.
-                      </p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <h2 className="text-[clamp(2.2rem,4vw,3.25rem)] font-bold text-white tracking-tight leading-tight">
+                The Architects Behind Aparaitech Software
+              </h2>
+              <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
+                Founded and directed from Hinjawadi Phase 2, Pune, uniting frontier AI systems engineering with enterprise delivery excellence.
+              </p>
+            </div>
+
+            <button
+              onClick={() => setModalOpen(true)}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded bg-[#00E5C9] px-6 text-sm font-bold text-[#0C0D0F] hover:brightness-110 transition-all shadow-lg shrink-0"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>Book Executive Briefing</span>
+            </button>
+          </div>
+
+          {/* Dual Founders Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* Founder 1: Pratik Pawar */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#00E5C9]/25 to-[#D4FD53]/25 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-3 shadow-2xl">
+                <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-[#0C0D0F]">
+                  <img
+                    src="/founder.jpg"
+                    alt="Pratik Pawar - Founder & CEO, Aparaitech Software"
+                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-85"></div>
+                  
+                  {/* Floating Badge */}
+                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#D4FD53] font-bold">
+                        FOUNDER & CEO
+                      </span>
+                      <span className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-300">
+                        <MapPin className="w-3 h-3 text-[#00E5C9]" /> Pune CoE
+                      </span>
                     </div>
+                    <h4 className="text-xl font-bold text-white tracking-tight">
+                      Pratik Pawar
+                    </h4>
+                    <p className="text-xs text-[#00E5C9] font-mono mt-0.5">
+                      Systems Architect & Technology Strategist
+                    </p>
+                    <p className="text-[11px] text-slate-400 font-mono mt-1">
+                      Aparaitech Software Pvt. Ltd.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Leadership Manifesto & Vision */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
-                <Briefcase className="w-3.5 h-3.5 text-[#D4FD53]" />
-                Principal Systems Architect & Technology Leader
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
-                "We don't build speculative prototypes. We engineer resilient, sovereign AI systems that run real enterprises."
-              </h2>
-
-              <p className="text-slate-300 text-base leading-relaxed">
-                Under the strategic direction of <span className="text-white font-semibold">Pratik Pawar</span>, Aparaitech Software has evolved from a vision in Pune to an enterprise-grade AI powerhouse operating six live commercial SaaS platforms and serving clients globally.
-              </p>
-
-              <p className="text-slate-400 text-sm leading-relaxed font-mono">
-                "Our guiding thesis is that enterprise AI must be deterministic, auditable, and sovereign. By pairing world-class frontier models with rigorous verification pipelines and private VPC isolation, our engineering pods in Hinjawadi give enterprises the confidence to run mission-critical workflows with zero hallucination risk."
-              </p>
-
-              {/* Founder Pillars */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#22242A]">
-                <div className="p-4 rounded-lg bg-[#141518] border border-white/5 space-y-1">
-                  <div className="flex items-center gap-2 text-white font-semibold text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-[#00E5C9]" />
-                    <span>Hands-On Engineering</span>
+            {/* Founder 2: Akansha Atole */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#D4FD53]/25 to-[#00E5C9]/25 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-3 shadow-2xl">
+                <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-[#0C0D0F]">
+                  <img
+                    src="/co_founder.jpg"
+                    alt="Akansha Atole - Co-Founder & COO, Aparaitech Software"
+                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-85"></div>
+                  
+                  {/* Floating Badge */}
+                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#00E5C9] font-bold">
+                        CO-FOUNDER & COO
+                      </span>
+                      <span className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-300">
+                        <MapPin className="w-3 h-3 text-[#D4FD53]" /> Pune CoE
+                      </span>
+                    </div>
+                    <h4 className="text-xl font-bold text-white tracking-tight">
+                      Akansha Atole
+                    </h4>
+                    <p className="text-xs text-[#D4FD53] font-mono mt-0.5">
+                      Enterprise Operations & Delivery Leadership
+                    </p>
+                    <p className="text-[11px] text-slate-400 font-mono mt-1">
+                      Aparaitech Software Pvt. Ltd.
+                    </p>
                   </div>
-                  <p className="text-xs text-slate-400 font-mono">
-                    Direct technical oversight on every enterprise client architecture and VPC deployment.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-lg bg-[#141518] border border-white/5 space-y-1">
-                  <div className="flex items-center gap-2 text-white font-semibold text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-[#D4FD53]" />
-                    <span>Pune CoE Innovation</span>
-                  </div>
-                  <p className="text-xs text-slate-400 font-mono">
-                    Incubating next-generation multi-agent systems and real-time biometric vision from Hinjawadi Phase 2.
-                  </p>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={() => setModalOpen(true)}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded bg-[#00E5C9] px-6 text-sm font-bold text-[#0C0D0F] hover:brightness-110 transition-all shadow-lg"
-                >
-                  <Calendar className="w-4 h-4" />
-                  <span>Book Executive Briefing</span>
-                </button>
+          {/* Strategic Narrative & Vision */}
+          <div className="rounded-2xl bg-[#141518] border border-[#22242A] p-8 sm:p-10 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <Briefcase className="w-3.5 h-3.5 text-[#D4FD53]" />
+              Executive Strategic Vision
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+              "We don't build speculative prototypes. We engineer resilient, sovereign AI systems that run real enterprises."
+            </h3>
+
+            <p className="text-slate-300 text-base leading-relaxed">
+              Under the joint executive direction of <span className="text-white font-semibold">Pratik Pawar</span> and <span className="text-white font-semibold">Akansha Atole</span>, Aparaitech Software has evolved from an engineering lab in Pune into an enterprise-grade AI powerhouse operating six live commercial SaaS platforms and serving clients globally.
+            </p>
+
+            <p className="text-slate-400 text-sm leading-relaxed font-mono">
+              "Our guiding thesis is that enterprise AI must be deterministic, auditable, and sovereign. By pairing world-class frontier models with rigorous verification pipelines and private VPC isolation, our engineering pods in Hinjawadi give enterprises the confidence to run mission-critical workflows with zero hallucination risk."
+            </p>
+
+            {/* Founder Pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#22242A]">
+              <div className="p-4 rounded-lg bg-[#0C0D0F] border border-white/5 space-y-1">
+                <div className="flex items-center gap-2 text-white font-semibold text-sm">
+                  <CheckCircle2 className="w-4 h-4 text-[#00E5C9]" />
+                  <span>Hands-On Engineering Leadership</span>
+                </div>
+                <p className="text-xs text-slate-400 font-mono">
+                  Direct technical oversight on every enterprise client architecture and private cloud VPC rollout.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-[#0C0D0F] border border-white/5 space-y-1">
+                <div className="flex items-center gap-2 text-white font-semibold text-sm">
+                  <CheckCircle2 className="w-4 h-4 text-[#D4FD53]" />
+                  <span>Operational & Delivery Excellence</span>
+                </div>
+                <p className="text-xs text-slate-400 font-mono">
+                  Standardized SLAs, SOC2 & ISO 27001 compliance, and end-to-end client enablement from Pune CoE.
+                </p>
               </div>
             </div>
           </div>
@@ -370,17 +417,24 @@ const AboutUs = () => {
             </button>
 
             <div className="mb-6 flex items-center gap-3">
-              <img
-                src="/founder.jpg"
-                alt="Pratik Pawar"
-                className="w-12 h-12 rounded-full object-cover object-top border border-[#00E5C9]"
-              />
+              <div className="flex -space-x-3">
+                <img
+                  src="/founder.jpg"
+                  alt="Pratik Pawar"
+                  className="w-12 h-12 rounded-full object-cover object-top border-2 border-[#00E5C9] z-10"
+                />
+                <img
+                  src="/co_founder.jpg"
+                  alt="Akansha Atole"
+                  className="w-12 h-12 rounded-full object-cover object-top border-2 border-[#D4FD53] z-20"
+                />
+              </div>
               <div>
                 <span className="font-mono text-xs uppercase tracking-widest text-[#00E5C9]">
                   EXECUTIVE BRIEFING INTAKE
                 </span>
                 <h3 className="text-lg font-bold text-white">
-                  Connect with Pratik Pawar & Pune Leads
+                  Connect with Founders & Pune Leadership
                 </h3>
               </div>
             </div>
