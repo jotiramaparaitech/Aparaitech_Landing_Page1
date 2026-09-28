@@ -72,6 +72,9 @@ export const recordAppointmentBooking = async (bookingData) => {
   return record;
 };
 
+// Compatibility alias for subpages
+export const saveAppointmentToSheet = recordAppointmentBooking;
+
 /**
  * Get all cached appointment records
  */

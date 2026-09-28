@@ -1,169 +1,389 @@
-// src/pages/products/MobileApps.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
+// src/components/pages/products/MobileApps.jsx
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  Smartphone,
+  Cpu,
+  ShieldCheck,
+  Zap,
+  ArrowUpRight,
+  Lock,
+  Layers,
+  Activity,
+  Send,
+  Calendar,
+  X,
+  Radio,
+  WifiOff,
+  Sparkles
+} from "lucide-react";
+import { toast } from "react-hot-toast";
+import { saveAppointmentToSheet, GOOGLE_SHEET_VIEW_URL, exportAppointmentsToCSV } from "../../../utils/sheetService";
 
 const MobileApps = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    platformFocus: "iOS & Android (React Native / Flutter)",
+    preferredTime: "",
+    notes: ""
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.phone) {
+      toast.error("Please provide your name, corporate email, and phone number.");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const result = await saveAppointmentToSheet({
+        ...formData,
+        service: "Enterprise Mobile App Engineering",
+        source: "Mobile Apps Product Page"
+      });
+      if (result.success) {
+        toast.success("Mobile consultation sprint booked! Details synced to executive sheet.");
+        setIsModalOpen(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          platformFocus: "iOS & Android (React Native / Flutter)",
+          preferredTime: "",
+          notes: ""
+        });
+      } else {
+        toast.error("Booking saved locally. Our Pune mobile pod will reach out shortly.");
+        setIsModalOpen(false);
+      }
+    } catch (err) {
+      toast.error("Submission error. Please email direct to info@ai.aparaitech.org");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const capabilities = [
+    {
+      code: "01 / NATIVE PERFORMANCE",
+      title: "SwiftUI & Jetpack Compose",
+      desc: "Pixel-perfect native user interfaces engineered with modern Swift and Kotlin, achieving guaranteed 60fps and 120fps ProMotion animations under heavy compute loads.",
+      icon: <Smartphone className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "02 / CROSS-PLATFORM SPEED",
+      title: "React Native & Flutter",
+      desc: "Single codebase, dual native performance. Architected with custom C++ JSI bindings and skia renderers to eliminate bridge latency across high-frequency screens.",
+      icon: <Layers className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "03 / EDGE AI ON-DEVICE",
+      title: "CoreML & TensorFlow Lite",
+      desc: "Run neural models on-device without cloud round-trips. Powers real-time facial biometric check-in, document OCR scanning, and anomaly detection.",
+      icon: <Cpu className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "04 / OFFLINE-FIRST RESILIENCE",
+      title: "SQLite & Background Sync",
+      desc: "Robust local-first persistence engines. Seamlessly operates in zero-connectivity environments with automated conflict-free differential synchronization upon reconnection.",
+      icon: <WifiOff className="w-5 h-5 text-[#D4FD53]" />
+    }
+  ];
+
+  const platforms = [
+    {
+      name: "Native iOS Suite",
+      badge: "Apple Ecosystem",
+      tech: "Swift 5.9, SwiftUI, CoreML, Metal",
+      desc: "Engineered specifically for enterprise fleets utilizing Apple Vision Pro, iPhone, and iPadOS with Apple Enterprise Developer provisioning."
+    },
+    {
+      name: "Native Android Suite",
+      badge: "Google Ecosystem",
+      tech: "Kotlin, Jetpack Compose, Coroutines, TFLite",
+      desc: "Hardened for enterprise Android tablets, ruggedized field hardware, and multi-OEM compatibility with strict memory profiling."
+    },
+    {
+      name: "Unified Cross-Platform",
+      badge: "Single Codebase",
+      tech: "React Native (New Architecture) / Flutter",
+      desc: "Ideal for consumer and employee applications requiring synchronized feature releases across iOS and Android with rapid sprint cycles."
+    }
+  ];
+
   return (
-    <div className="pt-24 min-h-screen bg-white font-sans">
-      
-      {/* Hero Section */}
-      <div className="relative bg-[#0f172a] text-white py-24 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-           <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-           <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-6 text-center z-10">
-          <span className="inline-block py-1 px-3 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-semibold mb-6">
-            Mobile First Solutions
-          </span>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-            Mobile App Development
+    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+      {/* 1. HERO SECTION */}
+      <section className="relative overflow-hidden border-b border-[#22242A] pt-24 pb-20">
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(#766DFE 1.2px, transparent 1.2px)",
+            backgroundSize: "28px 28px",
+          }}
+        ></div>
+
+        <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="block h-3 w-3 bg-[#D4FD53]"></span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53]">
+              CORE PRODUCTS // NATIVE & HYBRID MOBILE
+            </span>
+          </div>
+
+          <h1 className="text-[clamp(2.5rem,5.5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+            Enterprise Mobile Engineering & Edge AI
           </h1>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            We engineer powerful, scalable, and intuitive mobile applications that drive user engagement and business growth.
+
+          <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+            High-performance iOS, Android, and cross-platform mobile systems. Built for offline resilience, biometric security, and on-device CoreML intelligence by our Pune engineering center.
           </p>
-        </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        
-        {/* Services Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-24">
-          {/* iOS Card */}
-          <div className="group bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300">
-            <div className="h-64 overflow-hidden relative">
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" 
-                alt="iOS Development" 
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute bottom-4 left-4 z-20">
-                <span className="px-3 py-1 bg-white/90 backdrop-blur text-gray-900 text-xs font-bold rounded-full uppercase tracking-wider">
-                  Apple Ecosystem
-                </span>
-              </div>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              Sub-100ms On-Device Inference
             </div>
-            <div className="p-8">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">iOS Development</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Leverage the full potential of the Apple ecosystem with native iOS applications built using Swift and SwiftUI. We ensure pixel-perfect design and seamless performance across all Apple devices.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  "Native Swift & SwiftUI Development",
-                  "Advanced ARKit & CoreML Integration",
-                  "App Store Optimization & Compliance",
-                  "Secure Data & Cloud Sync"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <Lock className="w-3.5 h-3.5 text-[#D4FD53]" />
+              Biometric Hardware KeyStore
+            </div>
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <Radio className="w-3.5 h-3.5 text-[#00E5C9]" />
+              Offline-First SQLite Engine
             </div>
           </div>
 
-          {/* Android Card */}
-          <div className="group bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300">
-            <div className="h-64 overflow-hidden relative">
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=800&q=80" 
-                alt="Android Development" 
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute bottom-4 left-4 z-20">
-                <span className="px-3 py-1 bg-white/90 backdrop-blur text-gray-900 text-xs font-bold rounded-full uppercase tracking-wider">
-                  Android Platform
-                </span>
-              </div>
-            </div>
-            <div className="p-8">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Android Development</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Reach the widest global audience with robust Android applications. Our experts utilize Kotlin and Jetpack Compose to build responsive, adaptable apps for the diverse Android ecosystem.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  "Modern Kotlin & Jetpack Compose",
-                  "Material Design 3 Implementation",
-                  "Google Play Store Deployment",
-                  "Multi-device Compatibility Testing"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all shadow-lg shadow-[#D4FD53]/10"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>Schedule Mobile Architecture Review</span>
+            </button>
+            <a
+              href="tel:+918261840199"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-white/20 bg-[#1C1C1E] px-8 text-sm font-mono text-white hover:bg-[#2C2C30] transition-all"
+            >
+              <span>+91 82618 40199</span>
+            </a>
           </div>
         </div>
+      </section>
 
-        {/* Cross Platform Section */}
-        <div className="relative rounded-3xl overflow-hidden bg-slate-900 text-white mb-24">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-purple-900 opacity-90"></div>
-          <div className="relative z-10 p-12 md:p-16 text-center">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6">Cross-Platform Excellence</h3>
-            <p className="text-blue-100 max-w-2xl mx-auto mb-12 text-lg">
-              Maximize your reach and minimize development time with our high-performance cross-platform solutions.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-8 text-left">
-              {[
-                { title: "React Native", desc: "Native performance with a single codebase using Meta's framework.", icon: "⚛️" },
-                { title: "Flutter", desc: "Beautiful, natively compiled applications from a single codebase.", icon: "🐦" },
-                { title: "Ionic", desc: "Web-based mobile app development for rapid deployment.", icon: "⚡" }
-              ].map((tech, idx) => (
-                <div key={idx} className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:bg-white/20 transition-colors">
-                  <div className="text-4xl mb-4">{tech.icon}</div>
-                  <h4 className="text-xl font-bold mb-3">{tech.title}</h4>
-                  <p className="text-blue-200 text-sm leading-relaxed">{tech.desc}</p>
+      {/* 2. CAPABILITIES GRID */}
+      <section className="py-20 border-b border-[#22242A]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53] block mb-2">
+              MOBILE CORE ARCHITECTURE
+            </span>
+            <h2 className="text-3xl font-semibold tracking-tight text-white">
+              Engineered for Field-Grade Reliability
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {capabilities.map((cap, i) => (
+              <div
+                key={i}
+                className="p-8 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#D4FD53]/50 transition-all group"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-mono text-xs text-[#D4FD53]">{cap.code}</span>
+                  <div className="p-2 rounded bg-[#1C1C1E] border border-white/5 group-hover:border-[#D4FD53]/30 transition-all">
+                    {cap.icon}
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Development Process */}
-        <div className="mb-24">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-16">Our Development Lifecycle</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Strategy", desc: "Market research and technical feasibility analysis." },
-              { step: "02", title: "Design", desc: "UI/UX prototyping and user journey mapping." },
-              { step: "03", title: "Development", desc: "Agile coding sprints with regular updates." },
-              { step: "04", title: "Launch", desc: "App store submission and post-launch support." }
-            ].map((phase, idx) => (
-              <div key={idx} className="relative p-6 hover:bg-blue-50 transition-colors rounded-lg">
-                <span className="text-5xl font-bold text-gray-100 absolute -top-4 -left-4 -z-10">{phase.step}</span>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{phase.title}</h3>
-                <p className="text-gray-600 text-sm">{phase.desc}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{cap.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed font-mono">
+                  {cap.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* CTA */}
-        <div className="text-center bg-gray-50 rounded-3xl p-12 border border-gray-100">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Ready to transform your idea?
-          </h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg">
-            Let's build a mobile application that stands out in the app store and delivers real value to your users.
-          </p>
-          <Link
-            to="/#contact"
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/30"
-          >
-            Start Your Project
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-          </Link>
+      {/* 3. PLATFORM ARCHITECTURE TIERS */}
+      <section className="py-20 border-b border-[#22242A] bg-[#0E0F12]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
+              TARGET PLATFORMS
+            </span>
+            <h2 className="text-3xl font-semibold tracking-tight text-white">
+              Specialized Stacks for Every Deployment Target
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {platforms.map((p, idx) => (
+              <div key={idx} className="p-8 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#00E5C9]/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-mono text-xs text-[#00E5C9] uppercase tracking-wider">{p.badge}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{p.name}</h3>
+                  <p className="text-xs text-[#D4FD53] font-mono mb-4">{p.tech}</p>
+                  <p className="text-sm text-slate-400 leading-relaxed font-mono">
+                    {p.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+      </section>
 
-      </div>
+      {/* 4. REAL SYSTEMS ANCHOR */}
+      <section className="py-20 border-b border-[#22242A]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="rounded-xl bg-[#141518] border border-[#22242A] p-8 lg:p-12 relative overflow-hidden">
+            <div className="max-w-3xl relative z-10">
+              <span className="font-mono text-xs text-[#D4FD53] uppercase tracking-[0.2em] block mb-3">
+                FIELD VERIFIED
+              </span>
+              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                Powering Live Attendance & Field Workforce Operations
+              </h3>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-mono">
+                Our mobile frameworks power Aparaitech's live workforce systems: Attendance AI (biometric face detection with geofenced check-in) and ServiceHub (real-time technician task dispatch with offline signature capture).
+              </p>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="https://attendance.aparaitech.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-mono text-xs text-[#D4FD53] hover:underline"
+                >
+                  <span>Inspect Attendance AI Platform</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. MODAL */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="relative w-full max-w-lg rounded-xl bg-[#141518] border border-[#22242A] p-8 shadow-2xl">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-5 right-5 text-slate-400 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-2 mb-2">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              <span className="font-mono text-xs text-[#D4FD53] uppercase">Hinjawadi Mobile Engineering Pod</span>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">Book Mobile Architecture Consultation</h3>
+            <p className="text-xs text-slate-400 mb-6 font-mono">
+              Discuss target platforms, offline sync requirements, and edge AI feasibility with our mobile leads.
+            </p>
+
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">Full Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="e.g. Priyadarshini Patil"
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 mb-1">Work Email *</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="name@enterprise.com"
+                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="+91 98765 43210"
+                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">Platform Focus</label>
+                <select
+                  name="platformFocus"
+                  value={formData.platformFocus}
+                  onChange={handleInputChange}
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                >
+                  <option value="iOS & Android (React Native / Flutter)">iOS & Android (React Native / Flutter)</option>
+                  <option value="Pure Native Swift (iOS)">Pure Native Swift (iOS)</option>
+                  <option value="Pure Native Kotlin (Android)">Pure Native Kotlin (Android)</option>
+                  <option value="On-Device Edge AI / Computer Vision">On-Device Edge AI / Computer Vision</option>
+                  <option value="Field Ops & Offline Sync Engine">Field Ops & Offline Sync Engine</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">App Requirements / Field Spec</label>
+                <textarea
+                  name="notes"
+                  rows="3"
+                  value={formData.notes}
+                  onChange={handleInputChange}
+                  placeholder="Outline hardware requirements, security standards, and launch goals..."
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 bg-[#D4FD53] text-[#0C0D0F] font-bold text-sm rounded hover:brightness-105 transition-all flex items-center justify-center gap-2 mt-4"
+              >
+                {isSubmitting ? (
+                  <span>Recording Appointment...</span>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Confirm Consultation Sprint</span>
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

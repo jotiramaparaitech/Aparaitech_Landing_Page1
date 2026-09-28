@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import AltrdHome from "./components/AltrdHome";
@@ -197,7 +197,7 @@ function App() {
         <Route path="/learning/certifications" element={<Certifications />} />
 
         {/* Support */}
-        <Route path="/support/help-center" element={<HelpCenter />} />
+        <Route path="/support/help-center" element={<Navigate to="/support/community" replace />} />
         <Route path="/support/contact" element={<ContactSupport />} />
         <Route path="/support/community" element={<CommunityForum />} />
         <Route path="/support/status" element={<Status />} />

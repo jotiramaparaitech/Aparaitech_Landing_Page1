@@ -1,170 +1,338 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+// src/components/pages/industries/Startups.jsx
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  Rocket,
+  Cpu,
+  ShieldCheck,
+  Zap,
+  Layers,
+  ArrowUpRight,
+  Lock,
+  Calendar,
+  X,
+  Send,
+  CheckCircle2,
+  TrendingUp,
+  Award
+} from "lucide-react";
+import { toast } from "react-hot-toast";
+import { saveAppointmentToSheet, GOOGLE_SHEET_VIEW_URL, exportAppointmentsToCSV } from "../../../utils/sheetService";
 
 const Startups = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    startupName: "",
+    startupStage: "Seed / Pre-Series A (MVP Acceleration)",
+    preferredTime: "",
+    notes: ""
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.phone) {
+      toast.error("Please provide your name, founder email, and phone number.");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const result = await saveAppointmentToSheet({
+        ...formData,
+        company: formData.startupName,
+        service: "Startup AI MVP & Venture Sprint",
+        source: "Startups Industry Page"
+      });
+      if (result.success) {
+        toast.success("Founder sprint booked! Recorded to executive appointment sheet.");
+        setIsModalOpen(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          startupName: "",
+          startupStage: "Seed / Pre-Series A (MVP Acceleration)",
+          preferredTime: "",
+          notes: ""
+        });
+      } else {
+        toast.error("Booking saved locally. Our Pune venture engineering pod will reach out shortly.");
+        setIsModalOpen(false);
+      }
+    } catch (err) {
+      toast.error("Submission error. Please email direct to info@ai.aparaitech.org");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const capabilities = [
+    {
+      code: "01 / 6-TO-8 WEEK MVP SPRINT",
+      title: "Venture-Grade Launch Velocity",
+      desc: "Turn specifications into production systems in 45 days. Built with modular TypeScript, Go, Python, and scalable PostgreSQL schemas ready for immediate live customer onboarding.",
+      icon: <Rocket className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "02 / INVESTOR TECHNICAL DUE DILIGENCE",
+      title: "Zero Technical Debt Architecture",
+      desc: "Clean Git histories, automated CI/CD test gates, SOC 2 alignment, and strict microservice decoupling designed to pass venture capital technical audits with flying colors.",
+      icon: <ShieldCheck className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "03 / SEED-TO-SCALE RESILIENCE",
+      title: "Autoscaling Cloud Foundations",
+      desc: "Terraform-defined AWS / GCP environments that operate efficiently on seed budgets while seamlessly scaling to 1,000,000+ daily active users without architectural rewrites.",
+      icon: <TrendingUp className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "04 / FRACTIONAL CTO & AI ARCHITECT",
+      title: "Senior Pune Pod Leadership",
+      desc: "Direct access to our Hinjawadi Center of Excellence leads for AI strategy, model selection (RAG vs fine-tuning), and infrastructure cost optimization.",
+      icon: <Cpu className="w-5 h-5 text-[#D4FD53]" />
+    }
+  ];
+
+  const terms = [
+    { label: "IP Ownership", value: "100% intellectual property & source code transferred to founder" },
+    { label: "Delivery Guarantee", value: "Sprint-scoped milestone deliverables with weekly working demos" },
+    { label: "Engineering Pod", value: "Dedicated Senior Architect + Full-Stack Pod in Pune CoE" },
+    { label: "Post-Launch Warranty", value: "60-day zero-defect warranty and production handover training" }
+  ];
+
   return (
-    <div className="pt-16 min-h-screen bg-white font-sans">
-      
-      {/* HERO SECTION */}
-      <div className="relative bg-[#18181b] text-white overflow-hidden">
-        {/* Background patterns */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#ec4899]/20 to-transparent"></div>
-        
-        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-fadeInUp">
-            <div className="inline-block px-4 py-1 mb-6 border border-pink-400/30 rounded-full bg-pink-900/30 backdrop-blur-sm">
-              <span className="text-pink-300 font-semibold tracking-wide text-sm uppercase">Startup Accelerator</span>
+    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+      {/* 1. HERO SECTION */}
+      <section className="relative overflow-hidden border-b border-[#22242A] pt-24 pb-20">
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(#766DFE 1.2px, transparent 1.2px)",
+            backgroundSize: "28px 28px",
+          }}
+        ></div>
+
+        <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="block h-3 w-3 bg-[#D4FD53]"></span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53]">
+              ENTERPRISE INDUSTRIES // VENTURE SCALE & HIGH-GROWTH
+            </span>
+          </div>
+
+          <h1 className="text-[clamp(2.5rem,5.5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+            High-Growth Startups & AI Venture Sprint Pods
+          </h1>
+
+          <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+            6-to-8 week venture MVP sprints, investor-grade cloud architectures, and dedicated engineering pods stationed at our Hinjawadi Phase 2, Pune Center of Excellence.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              6-8 Week MVP Turnaround
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Launch Fast. <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ec4899] to-[#8b5cf6]">Scale Fearlessly.</span>
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-lg">
-              We turn ambitious ideas into market-ready products. MVP development, scalable architecture, and growth-focused engineering.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                to="/contact" 
-                className="px-8 py-4 bg-[#ec4899] hover:bg-[#db2777] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-pink-500/50 text-center"
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <Lock className="w-3.5 h-3.5 text-[#D4FD53]" />
+              100% Founder IP Ownership
+            </div>
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <Rocket className="w-3.5 h-3.5 text-[#00E5C9]" />
+              Investor Due Diligence Ready
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all shadow-lg shadow-[#D4FD53]/10"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>Schedule Founder Architecture Sprint</span>
+            </button>
+            <a
+              href="tel:+918261840199"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-white/20 bg-[#1C1C1E] px-8 text-sm font-mono text-white hover:bg-[#2C2C30] transition-all"
+            >
+              <span>+91 82618 40199</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. CAPABILITIES GRID */}
+      <section className="py-20 border-b border-[#22242A]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53] block mb-2">
+              VENTURE ACCELERATION
+            </span>
+            <h2 className="text-3xl font-semibold tracking-tight text-white">
+              Engineering Capabilities for Founders
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {capabilities.map((cap, i) => (
+              <div
+                key={i}
+                className="p-8 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#D4FD53]/50 transition-all group"
               >
-                Build Your MVP
-              </Link>
-              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center" onClick={(e) => e.preventDefault()}>
-                See Portfolio
-              </button>
-            </div>
-          </div>
-          
-          <div className="relative hidden lg:block">
-            {/* Abstract UI for Startups */}
-            <div className="relative z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-2xl transform -rotate-1 hover:rotate-0 transition-all duration-500">
-               <div className="flex items-center justify-between mb-8">
-                 <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 bg-pink-500 rounded-full flex items-center justify-center text-xl">🚀</div>
-                    <div>
-                        <div className="text-sm text-pink-200">Monthly Growth</div>
-                        <div className="text-lg font-bold">Exponential</div>
-                    </div>
-                 </div>
-                 <div className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm font-bold">Series A Ready</div>
-               </div>
-               
-               <div className="space-y-6">
-                 <div className="flex items-end gap-2 h-32">
-                    <div className="w-1/5 bg-pink-500/30 rounded-t-lg h-[20%]"></div>
-                    <div className="w-1/5 bg-pink-500/50 rounded-t-lg h-[40%]"></div>
-                    <div className="w-1/5 bg-pink-500/70 rounded-t-lg h-[60%]"></div>
-                    <div className="w-1/5 bg-pink-500/90 rounded-t-lg h-[80%]"></div>
-                    <div className="w-1/5 bg-pink-500 rounded-t-lg h-[100%] relative">
-                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white text-black text-xs font-bold px-2 py-1 rounded shadow">
-                            IPO
-                        </div>
-                    </div>
-                 </div>
-                 <div className="flex justify-between text-xs text-gray-400">
-                    <span>Q1</span>
-                    <span>Q2</span>
-                    <span>Q3</span>
-                    <span>Q4</span>
-                    <span>Future</span>
-                 </div>
-               </div>
-            </div>
-            {/* Decorative blobs */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse animation-delay-2000"></div>
-          </div>
-        </div>
-      </div>
-
-      {/* TRUST INDICATORS */}
-      <div className="bg-gray-50 border-b border-gray-200 py-8">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">Fueling the next generation of unicorns</p>
-          <div className="flex flex-wrap justify-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <span className="text-xl font-bold text-gray-800">Disruptor Inc</span>
-            <span className="text-xl font-bold text-gray-800">NextGen AI</span>
-            <span className="text-xl font-bold text-gray-800">FinFlow</span>
-            <span className="text-xl font-bold text-gray-800">HealthMate</span>
-            <span className="text-xl font-bold text-gray-800">EcoTech</span>
-          </div>
-        </div>
-      </div>
-
-      {/* VALUE PROPOSITION GRID */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#18181b] mb-6">Built for Speed & Scalability</h2>
-            <p className="text-lg text-gray-600">
-              We understand the startup lifecycle. Our agile teams deliver high-quality code fast, so you can validate, iterate, and grow.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              {
-                title: "Rapid MVP Development",
-                desc: "Go from concept to launch in weeks, not months. Validate your idea with a functional product.",
-                icon: (
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                ),
-                color: "bg-pink-600"
-              },
-              {
-                title: "Scalable Architecture",
-                desc: "Future-proof codebases designed to handle millions of users as you grow.",
-                icon: (
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                ),
-                color: "bg-purple-600"
-              },
-              {
-                title: "Fractional CTO",
-                desc: "Get expert technical leadership and strategy without the full-time executive cost.",
-                icon: (
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                ),
-                color: "bg-indigo-600"
-              }
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group">
-                <div className={`w-16 h-16 rounded-xl ${feature.color} flex items-center justify-center mb-6 shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
-                  {feature.icon}
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-mono text-xs text-[#D4FD53]">{cap.code}</span>
+                  <div className="p-2 rounded bg-[#1C1C1E] border border-white/5 group-hover:border-[#D4FD53]/30 transition-all">
+                    {cap.icon}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-[#18181b] mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
-                <a href="#" className="inline-flex items-center mt-4 text-pink-600 font-semibold hover:text-pink-800">
-                  Learn more <span className="ml-2">→</span>
-                </a>
+                <h3 className="text-xl font-bold text-white mb-3">{cap.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed font-mono">
+                  {cap.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-24 bg-[#18181b] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Ready to disrupt the market?
-          </h2>
-          <p className="text-xl text-pink-200 mb-10">
-            Let's build something extraordinary together.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/contact" className="px-8 py-4 bg-[#ec4899] hover:bg-[#db2777] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-pink-500/50">
-              Start Your Project
-            </Link>
-            <button className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all" onClick={(e) => e.preventDefault()}>
-              Read Success Stories
-            </button>
+      {/* 3. PARTNERSHIP TERMS */}
+      <section className="py-20 border-b border-[#22242A] bg-[#0E0F12]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
+              FOUNDER COMMITMENTS
+            </span>
+            <h2 className="text-3xl font-semibold tracking-tight text-white">
+              Venture Partnership Principles
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {terms.map((t, idx) => (
+              <div key={idx} className="p-6 rounded-lg bg-[#141518] border border-[#22242A]">
+                <h4 className="font-mono text-xs text-[#D4FD53] uppercase tracking-wider mb-2">
+                  {t.label}
+                </h4>
+                <p className="text-sm text-white font-mono">{t.value}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* 4. MODAL */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="relative w-full max-w-lg rounded-xl bg-[#141518] border border-[#22242A] p-8 shadow-2xl">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-5 right-5 text-slate-400 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-2 mb-2">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              <span className="font-mono text-xs text-[#D4FD53] uppercase">Hinjawadi Venture Pod</span>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">Book Founder Architecture Sprint</h3>
+            <p className="text-xs text-slate-400 mb-6 font-mono">
+              Review product scope, technical architecture, and 6-week MVP delivery timeline with our Venture CTO.
+            </p>
+
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">Full Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="e.g. Siddharth Mehra"
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 mb-1">Work Email *</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="founder@startup.io"
+                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="+91 98765 43210"
+                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">Venture Stage</label>
+                <select
+                  name="startupStage"
+                  value={formData.startupStage}
+                  onChange={handleInputChange}
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                >
+                  <option value="Pre-Seed (Idea to Initial MVP)">Pre-Seed (Idea to Initial MVP)</option>
+                  <option value="Seed / Pre-Series A (MVP Acceleration)">Seed / Pre-Series A (MVP Acceleration)</option>
+                  <option value="Series A Scaleup (High-Concurrency Scaling)">Series A Scaleup (High-Concurrency Scaling)</option>
+                  <option value="AI Integration into Existing SaaS">AI Integration into Existing SaaS</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">Product Vision & Core Requirements</label>
+                <textarea
+                  name="notes"
+                  rows="3"
+                  value={formData.notes}
+                  onChange={handleInputChange}
+                  placeholder="Target market, core user action, preferred tech stack, and funding status..."
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 bg-[#D4FD53] text-[#0C0D0F] font-bold text-sm rounded hover:brightness-105 transition-all flex items-center justify-center gap-2 mt-4"
+              >
+                {isSubmitting ? (
+                  <span>Recording Appointment...</span>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Confirm Founder Sprint</span>
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

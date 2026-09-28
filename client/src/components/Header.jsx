@@ -110,7 +110,6 @@ const Header = () => {
       { name: "AI Certifications", link: "/learning/certifications" },
     ],
     Support: [
-      { name: "Help Center", link: "/support/help-center" },
       { name: "📊 Customer Bookings Sheet", link: GOOGLE_SHEET_VIEW_URL, external: true },
       { name: "📥 Export Appointments (Excel)", onClick: exportAppointmentsToCSV },
       { name: "Contact Support", onClick: scrollToContact },

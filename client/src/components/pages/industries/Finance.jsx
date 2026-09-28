@@ -1,218 +1,340 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+// src/components/pages/industries/Finance.jsx
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  DollarSign,
+  ShieldCheck,
+  Lock,
+  Cpu,
+  Database,
+  ArrowUpRight,
+  Zap,
+  Calendar,
+  X,
+  Send,
+  CheckCircle2,
+  TrendingUp,
+  CreditCard,
+  Scale
+} from "lucide-react";
+import { toast } from "react-hot-toast";
+import { saveAppointmentToSheet, GOOGLE_SHEET_VIEW_URL, exportAppointmentsToCSV } from "../../../utils/sheetService";
 
 const Finance = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    financialInstitution: "",
+    fintechFocus: "Sub-15ms Real-Time Fraud Detection Engine",
+    preferredTime: "",
+    notes: ""
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.phone) {
+      toast.error("Please provide your name, corporate email, and phone number.");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const result = await saveAppointmentToSheet({
+        ...formData,
+        company: formData.financialInstitution,
+        service: "FinTech & Banking AI Systems",
+        source: "Finance Industry Page"
+      });
+      if (result.success) {
+        toast.success("FinTech consultation sprint booked! Recorded to executive sheet.");
+        setIsModalOpen(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          financialInstitution: "",
+          fintechFocus: "Sub-15ms Real-Time Fraud Detection Engine",
+          preferredTime: "",
+          notes: ""
+        });
+      } else {
+        toast.error("Booking saved locally. Our Pune FinTech pod will reach out shortly.");
+        setIsModalOpen(false);
+      }
+    } catch (err) {
+      toast.error("Submission error. Please email direct to info@ai.aparaitech.org");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const capabilities = [
+    {
+      code: "01 / REAL-TIME FRAUD DEFENSE",
+      title: "Sub-15ms Fraud Inference",
+      desc: "Graph neural networks and streaming decision trees scoring millions of concurrent payment requests against dynamic velocity rules with zero impact on checkout latency.",
+      icon: <ShieldCheck className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "02 / PCI-DSS LEVEL 1 ENCLAVES",
+      title: "Zero-Knowledge Tokenization",
+      desc: "Isolated Hardware Security Module (HSM) key storage, ephemeral PAN tokenization, and strict cryptographic role-based access preventing database leak vectors.",
+      icon: <Lock className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "03 / IMMUTABLE LEDGERS",
+      title: "Double-Entry Accounting Core",
+      desc: "High-throughput ACID-compliant ledger microservices engineered with strict idempotency keys, automated batch settlement, and continuous end-of-day reconciliation.",
+      icon: <Database className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "04 / REGULATORY AI CO-PILOT",
+      title: "Autonomous AML & SAR Reporting",
+      desc: "Automated Suspicious Activity Report (SAR) dossier generation, KYC identity cross-referencing, and continuous compliance telemetry aligned with global regulatory mandates.",
+      icon: <Scale className="w-5 h-5 text-[#D4FD53]" />
+    }
+  ];
+
+  const standards = [
+    { label: "Security Certification", value: "PCI-DSS v4.0 Level 1 & SOC 2 Type II compliant" },
+    { label: "Execution Latency", value: "Sub-15ms P99 fraud scoring across payment webhooks" },
+    { label: "Data Integrity", value: "Immutable append-only distributed ledger with SHA-256 audit hashing" },
+    { label: "Disaster Recovery", value: "Active-active multi-region failover with RPO = 0, RTO < 30s" }
+  ];
+
   return (
-    <div className="pt-16 min-h-screen bg-white font-sans">
-      
-      {/* HERO SECTION */}
-      <div className="relative bg-[#0f172a] text-white overflow-hidden">
-        {/* Background patterns */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#3b82f6]/20 to-transparent"></div>
-        
-        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-fadeInUp">
-            <div className="inline-block px-4 py-1 mb-6 border border-blue-400/30 rounded-full bg-blue-900/30 backdrop-blur-sm">
-              <span className="text-blue-300 font-semibold tracking-wide text-sm uppercase">Fintech & Banking</span>
+    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+      {/* 1. HERO SECTION */}
+      <section className="relative overflow-hidden border-b border-[#22242A] pt-24 pb-20">
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(#766DFE 1.2px, transparent 1.2px)",
+            backgroundSize: "28px 28px",
+          }}
+        ></div>
+
+        <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="block h-3 w-3 bg-[#D4FD53]"></span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53]">
+              ENTERPRISE INDUSTRIES // FINTECH & BANKING
+            </span>
+          </div>
+
+          <h1 className="text-[clamp(2.5rem,5.5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+            FinTech & Banking Intelligence Architecture
+          </h1>
+
+          <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+            Sub-millisecond fraud scoring pipelines, PCI-DSS Level 1 tokenized vaults, and resilient transactional core ledgers engineered by our Pune Center of Excellence.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              PCI-DSS v4.0 Level 1
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Secure the Future of <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#60a5fa] to-[#34d399]">Digital Finance.</span>
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-lg">
-              We build high-performance, compliant, and secure software solutions for banks, insurers, and fintech startups.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                to="/contact" 
-                className="px-8 py-4 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/50 text-center"
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <Lock className="w-3.5 h-3.5 text-[#D4FD53]" />
+              Zero-Knowledge Tokenization
+            </div>
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <Zap className="w-3.5 h-3.5 text-[#00E5C9]" />
+              Sub-15ms P99 Scoring
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all shadow-lg shadow-[#D4FD53]/10"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>Schedule FinTech Architecture Sprint</span>
+            </button>
+            <a
+              href="tel:+918261840199"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-white/20 bg-[#1C1C1E] px-8 text-sm font-mono text-white hover:bg-[#2C2C30] transition-all"
+            >
+              <span>+91 82618 40199</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. CAPABILITIES GRID */}
+      <section className="py-20 border-b border-[#22242A]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53] block mb-2">
+              FINANCIAL RIGOR
+            </span>
+            <h2 className="text-3xl font-semibold tracking-tight text-white">
+              Institutional Core Capabilities
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {capabilities.map((cap, i) => (
+              <div
+                key={i}
+                className="p-8 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#D4FD53]/50 transition-all group"
               >
-                Start Your Transformation
-              </Link>
-              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center" onClick={(e) => e.preventDefault()}>
-                View Demo
-              </button>
-            </div>
-          </div>
-          
-          <div className="relative hidden lg:block">
-            {/* Abstract UI for Finance */}
-            <div className="relative z-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl transform rotate-1 hover:rotate-0 transition-all duration-500">
-               <div className="flex justify-between items-center mb-8">
-                 <div>
-                   <div className="text-gray-400 text-sm">Total Assets</div>
-                   <div className="text-3xl font-bold text-white">$4,250,000.00</div>
-                 </div>
-                 <div className="h-10 w-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-400">
-                   ▲ 12%
-                 </div>
-               </div>
-               <div className="space-y-4">
-                 <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                   <div className="h-full w-3/4 bg-blue-500"></div>
-                 </div>
-                 <div className="flex justify-between text-sm text-gray-400">
-                   <span>Processing</span>
-                   <span>75%</span>
-                 </div>
-                 <div className="grid grid-cols-2 gap-4 mt-6">
-                    <div className="p-4 bg-white/5 rounded-lg border border-white/5">
-                        <div className="text-blue-400 mb-1">Transactions</div>
-                        <div className="text-xl font-bold">8,542</div>
-                    </div>
-                    <div className="p-4 bg-white/5 rounded-lg border border-white/5">
-                        <div className="text-purple-400 mb-1">Fraud Blocked</div>
-                        <div className="text-xl font-bold">142</div>
-                    </div>
-                 </div>
-               </div>
-            </div>
-            {/* Decorative blobs */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-emerald-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse animation-delay-2000"></div>
-          </div>
-        </div>
-      </div>
-
-      {/* TRUST INDICATORS */}
-      <div className="bg-gray-50 border-b border-gray-200 py-8">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">Powering financial innovation for</p>
-          <div className="flex flex-wrap justify-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <span className="text-xl font-bold text-gray-800">NeoBank</span>
-            <span className="text-xl font-bold text-gray-800">SecurePay</span>
-            <span className="text-xl font-bold text-gray-800">Alpha Capital</span>
-            <span className="text-xl font-bold text-gray-800">Global Insure</span>
-            <span className="text-xl font-bold text-gray-800">TradeFlow</span>
-          </div>
-        </div>
-      </div>
-
-      {/* VALUE PROPOSITION GRID */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-6">Enterprise-Grade Financial Technology</h2>
-            <p className="text-lg text-gray-600">
-              We provide the digital infrastructure that modern financial institutions need to compete, scale, and stay secure.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              {
-                title: "Fraud Detection AI",
-                desc: "Real-time transaction monitoring using machine learning to detect and prevent fraudulent activities instantly.",
-                icon: (
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                ),
-                color: "bg-red-600"
-              },
-              {
-                title: "Regulatory Compliance",
-                desc: "Automated compliance reporting for GDPR, PCI-DSS, and KYC/AML regulations built into the core architecture.",
-                icon: (
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                ),
-                color: "bg-blue-600"
-              },
-              {
-                title: "Blockchain Integration",
-                desc: "Secure, decentralized ledger solutions for transparent cross-border payments and smart contracts.",
-                icon: (
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                ),
-                color: "bg-indigo-600"
-              }
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group">
-                <div className={`w-16 h-16 rounded-xl ${feature.color} flex items-center justify-center mb-6 shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
-                  {feature.icon}
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-mono text-xs text-[#D4FD53]">{cap.code}</span>
+                  <div className="p-2 rounded bg-[#1C1C1E] border border-white/5 group-hover:border-[#D4FD53]/30 transition-all">
+                    {cap.icon}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-[#0f172a] mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
-                <a href="#" className="inline-flex items-center mt-4 text-blue-600 font-semibold hover:text-blue-800">
-                  Learn more <span className="ml-2">→</span>
-                </a>
+                <h3 className="text-xl font-bold text-white mb-3">{cap.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed font-mono">
+                  {cap.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FEATURE SPOTLIGHT */}
-      <section className="py-24 bg-[#f1f5f9]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="w-full md:w-1/2">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
-                <img 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Financial Dashboard" 
-                  className="w-full h-auto"
+      {/* 3. STANDARDS */}
+      <section className="py-20 border-b border-[#22242A] bg-[#0E0F12]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
+              BANKING SPECIFICATIONS
+            </span>
+            <h2 className="text-3xl font-semibold tracking-tight text-white">
+              Regulatory Standards & Resilience
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {standards.map((std, idx) => (
+              <div key={idx} className="p-6 rounded-lg bg-[#141518] border border-[#22242A]">
+                <h4 className="font-mono text-xs text-[#D4FD53] uppercase tracking-wider mb-2">
+                  {std.label}
+                </h4>
+                <p className="text-sm text-white font-mono">{std.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. MODAL */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="relative w-full max-w-lg rounded-xl bg-[#141518] border border-[#22242A] p-8 shadow-2xl">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-5 right-5 text-slate-400 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-2 mb-2">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              <span className="font-mono text-xs text-[#D4FD53] uppercase">Hinjawadi FinTech Pod</span>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">Book FinTech Architecture Sprint</h3>
+            <p className="text-xs text-slate-400 mb-6 font-mono">
+              Review transaction scale requirements, payment gateways, and PCI-DSS compliance blueprints with our Financial Systems Lead.
+            </p>
+
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">Full Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="e.g. Alok Agarwal"
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 to-transparent flex items-end p-8">
-                  <div className="text-white">
-                    <p className="font-bold text-lg">Real-Time Trading Analytics</p>
-                    <p className="text-sm text-gray-300">Millisecond latency for high-frequency trading platforms.</p>
-                  </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 mb-1">Work Email *</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="name@finbank.com"
+                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="+91 98765 43210"
+                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                  />
                 </div>
               </div>
-            </div>
-            <div className="w-full md:w-1/2">
-              <div className="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wide mb-4">
-                Digital Transformation
+
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">FinTech Architecture Focus</label>
+                <select
+                  name="fintechFocus"
+                  value={formData.fintechFocus}
+                  onChange={handleInputChange}
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                >
+                  <option value="Sub-15ms Real-Time Fraud Detection Engine">Sub-15ms Real-Time Fraud Detection Engine</option>
+                  <option value="PCI-DSS v4.0 Level 1 Tokenization Vault">PCI-DSS v4.0 Level 1 Tokenization Vault</option>
+                  <option value="Double-Entry Core Ledger & Batch Settlement">Double-Entry Core Ledger & Batch Settlement</option>
+                  <option value="Open Banking & Payment Gateway Aggregator">Open Banking & Payment Gateway Aggregator</option>
+                  <option value="Autonomous AML / SAR Regulatory Drafting">Autonomous AML / SAR Regulatory Drafting</option>
+                </select>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-6">
-                Modernize Legacy Banking Systems.
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Move away from monolithic mainframes to agile microservices. We help financial institutions migrate to the cloud securely, enabling faster product launches and better customer experiences.
-              </p>
-              <ul className="space-y-4 mb-8">
-                {[
-                  "Cloud Migration Strategy",
-                  "Open Banking API Integration",
-                  "Secure Mobile Banking Apps"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center text-gray-700">
-                    <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <button className="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors">
-                Explore Banking Solutions
+
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">Transaction Scale & System Scope</label>
+                <textarea
+                  name="notes"
+                  rows="3"
+                  value={formData.notes}
+                  onChange={handleInputChange}
+                  placeholder="Expected TPS, payment rails (UPI, Card, ACH), and banking partners..."
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 bg-[#D4FD53] text-[#0C0D0F] font-bold text-sm rounded hover:brightness-105 transition-all flex items-center justify-center gap-2 mt-4"
+              >
+                {isSubmitting ? (
+                  <span>Recording Appointment...</span>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Confirm FinTech Sprint</span>
+                  </>
+                )}
               </button>
-            </div>
+            </form>
           </div>
         </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section className="py-24 bg-[#0f172a] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Secure. Scalable. Compliant.
-          </h2>
-          <p className="text-xl text-blue-200 mb-10">
-            Partner with Aparaitech to build the next generation of financial technology.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/contact" className="px-8 py-4 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/50">
-              Contact Sales
-            </Link>
-            <button className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all" onClick={(e) => e.preventDefault()}>
-              Read Success Stories
-            </button>
-          </div>
-        </div>
-      </section>
-
+      )}
     </div>
   );
 };

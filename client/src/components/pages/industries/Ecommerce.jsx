@@ -1,213 +1,370 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+// src/components/pages/industries/Ecommerce.jsx
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  ShoppingBag,
+  Cpu,
+  ShieldCheck,
+  Zap,
+  Layers,
+  Database,
+  ArrowUpRight,
+  Lock,
+  Calendar,
+  X,
+  Send,
+  CheckCircle2,
+  Package,
+  TrendingUp
+} from "lucide-react";
+import { toast } from "react-hot-toast";
+import { saveAppointmentToSheet, GOOGLE_SHEET_VIEW_URL, exportAppointmentsToCSV } from "../../../utils/sheetService";
 
 const Ecommerce = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    retailBrand: "",
+    commerceFocus: "High-Concurrency Flash-Sale & Inventory Architecture",
+    preferredTime: "",
+    notes: ""
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.phone) {
+      toast.error("Please provide your name, corporate email, and phone number.");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const result = await saveAppointmentToSheet({
+        ...formData,
+        company: formData.retailBrand,
+        service: "Enterprise Commerce & Retail AI",
+        source: "Ecommerce Industry Page"
+      });
+      if (result.success) {
+        toast.success("Commerce consultation sprint booked! Recorded to executive sheet.");
+        setIsModalOpen(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          retailBrand: "",
+          commerceFocus: "High-Concurrency Flash-Sale & Inventory Architecture",
+          preferredTime: "",
+          notes: ""
+        });
+      } else {
+        toast.error("Booking saved locally. Our Pune commerce pod will reach out shortly.");
+        setIsModalOpen(false);
+      }
+    } catch (err) {
+      toast.error("Submission error. Please email direct to info@ai.aparaitech.org");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const capabilities = [
+    {
+      code: "01 / VECTOR SEARCH & RERANKING",
+      title: "Semantic Catalog Intelligence",
+      desc: "Sub-50ms neural product search across millions of SKUs with hybrid keyword-vector reranking, typo tolerance, and intent-aware visual lookalikes.",
+      icon: <Zap className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "02 / CONCURRENCY AT FLASH-SALE PEAKS",
+      title: "Queue-Backed Checkout Engines",
+      desc: "Optimistic locking and Redis-backed stock reservation pipelines preventing inventory overselling during massive promotional traffic spikes.",
+      icon: <Layers className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "03 / DISTRIBUTED FULFILLMENT",
+      title: "Omnichannel Warehouse Sync",
+      desc: "Unified inventory state connecting dark stores, central fulfillment hubs, retail POS terminals, and third-party delivery dispatch in real time.",
+      icon: <Package className="w-5 h-5 text-[#D4FD53]" />
+    },
+    {
+      code: "04 / PROVEN IN PRODUCTION",
+      title: "ApnaStore Live Architecture",
+      desc: "Our production retail platform operates live B2B and consumer storefronts with integrated WhatsApp checkout, dynamic pricing, and hyper-local routing.",
+      icon: <ShoppingBag className="w-5 h-5 text-[#D4FD53]" />
+    }
+  ];
+
+  const metrics = [
+    { label: "Search Latency", value: "< 45ms P99 neural catalog query response" },
+    { label: "Peak Concurrency", value: "100,000+ simultaneous checkouts per node" },
+    { label: "Inventory Accuracy", value: "100% zero-drift atomic inventory locking" },
+    { label: "Live Reference", value: "ApnaStore omnichannel commerce engine" }
+  ];
+
   return (
-    <div className="pt-16 min-h-screen bg-white font-sans">
-      
-      {/* HERO SECTION */}
-      <div className="relative bg-[#0a1f44] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#00a1e0]/20 to-transparent"></div>
-        
-        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-fadeInUp">
-            <div className="inline-block px-4 py-1 mb-6 border border-blue-400/30 rounded-full bg-blue-900/30 backdrop-blur-sm">
-              <span className="text-blue-300 font-semibold tracking-wide text-sm uppercase">Retail & Consumer Goods</span>
+    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+      {/* 1. HERO SECTION */}
+      <section className="relative overflow-hidden border-b border-[#22242A] pt-24 pb-20">
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(#766DFE 1.2px, transparent 1.2px)",
+            backgroundSize: "28px 28px",
+          }}
+        ></div>
+
+        <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="block h-3 w-3 bg-[#D4FD53]"></span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53]">
+              ENTERPRISE INDUSTRIES // OMNICHANNEL COMMERCE
+            </span>
+          </div>
+
+          <h1 className="text-[clamp(2.5rem,5.5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+            Unified Retail & High-Concurrency Commerce AI
+          </h1>
+
+          <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+            Neural product discovery, real-time multi-warehouse inventory synchronization, and zero-downtime flash-sale checkout engines engineered by our Pune Center of Excellence.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              Powering ApnaStore Platform
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Unified Commerce. <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4facfe] to-[#00f2fe]">Limitless Growth.</span>
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-lg">
-              Connect every touchpoint of the shopper journey. Deliver personalized experiences at scale with our AI-powered commerce solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                to="/contact" 
-                className="px-8 py-4 bg-[#00a1e0] hover:bg-[#008cc2] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/50 text-center"
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <Lock className="w-3.5 h-3.5 text-[#D4FD53]" />
+              Zero Inventory Drift
+            </div>
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+              <Zap className="w-3.5 h-3.5 text-[#00E5C9]" />
+              Sub-50ms Vector Search
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all shadow-lg shadow-[#D4FD53]/10"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>Schedule Commerce Architecture Sprint</span>
+            </button>
+            <a
+              href="tel:+918261840199"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-white/20 bg-[#1C1C1E] px-8 text-sm font-mono text-white hover:bg-[#2C2C30] transition-all"
+            >
+              <span>+91 82618 40199</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. CAPABILITIES GRID */}
+      <section className="py-20 border-b border-[#22242A]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53] block mb-2">
+              COMMERCE INFRASTRUCTURE
+            </span>
+            <h2 className="text-3xl font-semibold tracking-tight text-white">
+              Omnichannel Engineering Capabilities
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {capabilities.map((cap, i) => (
+              <div
+                key={i}
+                className="p-8 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#D4FD53]/50 transition-all group"
               >
-                Start Your Transformation
-              </Link>
-              <button className="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all text-center" onClick={(e) => e.preventDefault()}>
-                View Demo
-              </button>
-            </div>
-          </div>
-          
-          <div className="relative hidden lg:block">
-            <div className="relative z-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl transform rotate-2 hover:rotate-0 transition-all duration-500">
-              {/* Abstract Dashboard UI Representation */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="h-4 w-32 bg-gray-600/50 rounded"></div>
-                <div className="h-8 w-8 bg-blue-500 rounded-full"></div>
-              </div>
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="h-24 bg-blue-600/20 rounded-lg border border-blue-500/30 p-4">
-                  <div className="text-2xl font-bold text-blue-400 mb-1">+124%</div>
-                  <div className="text-xs text-gray-400">Conversion Rate</div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-mono text-xs text-[#D4FD53]">{cap.code}</span>
+                  <div className="p-2 rounded bg-[#1C1C1E] border border-white/5 group-hover:border-[#D4FD53]/30 transition-all">
+                    {cap.icon}
+                  </div>
                 </div>
-                <div className="h-24 bg-purple-600/20 rounded-lg border border-purple-500/30 p-4">
-                  <div className="text-2xl font-bold text-purple-400 mb-1">2.4s</div>
-                  <div className="text-xs text-gray-400">Page Load Speed</div>
-                </div>
-                <div className="h-24 bg-green-600/20 rounded-lg border border-green-500/30 p-4">
-                  <div className="text-2xl font-bold text-green-400 mb-1">98%</div>
-                  <div className="text-xs text-gray-400">CSAT Score</div>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="h-2 w-full bg-gray-700/50 rounded"></div>
-                <div className="h-2 w-5/6 bg-gray-700/50 rounded"></div>
-                <div className="h-2 w-4/6 bg-gray-700/50 rounded"></div>
-              </div>
-            </div>
-            {/* Decorative blobs */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse animation-delay-2000"></div>
-          </div>
-        </div>
-      </div>
-
-      {/* TRUST INDICATORS */}
-      <div className="bg-gray-50 border-b border-gray-200 py-8">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">Trusted by leading retail innovators</p>
-          <div className="flex flex-wrap justify-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            {/* Simple Text Logos for demo purposes */}
-            <span className="text-xl font-bold text-gray-800">FashionNova</span>
-            <span className="text-xl font-bold text-gray-800">TechMart</span>
-            <span className="text-xl font-bold text-gray-800">GlobalGrocer</span>
-            <span className="text-xl font-bold text-gray-800">LuxeLiving</span>
-            <span className="text-xl font-bold text-gray-800">AutoParts Direct</span>
-          </div>
-        </div>
-      </div>
-
-      {/* VALUE PROPOSITION GRID */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-6">Everything you need to scale</h2>
-            <p className="text-lg text-gray-600">
-              Our comprehensive suite of e-commerce solutions empowers you to adapt quickly to market changes and customer demands.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              {
-                title: "Headless Commerce",
-                desc: "Decouple frontend and backend to deliver lightning-fast experiences on any device.",
-                icon: (
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                ),
-                color: "bg-blue-600"
-              },
-              {
-                title: "AI Personalization",
-                desc: "Drive higher conversion rates with real-time product recommendations and tailored content.",
-                icon: (
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                ),
-                color: "bg-purple-600"
-              },
-              {
-                title: "Omnichannel Order Mgmt",
-                desc: "Gain a single view of inventory and orders across all channels for seamless fulfillment.",
-                icon: (
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4"></path></svg>
-                ),
-                color: "bg-indigo-600"
-              }
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group">
-                <div className={`w-16 h-16 rounded-xl ${feature.color} flex items-center justify-center mb-6 shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold text-[#0a1f44] mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
-                <a href="#" className="inline-flex items-center mt-4 text-blue-600 font-semibold hover:text-blue-800">
-                  Learn more <span className="ml-2">→</span>
-                </a>
+                <h3 className="text-xl font-bold text-white mb-3">{cap.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed font-mono">
+                  {cap.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FEATURE SPOTLIGHT (Salesforce Style) */}
-      <section className="py-24 bg-[#f8faff]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="w-full md:w-1/2">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
-                <img 
-                  src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Analytics Dashboard" 
-                  className="w-full h-auto"
+      {/* 3. METRICS */}
+      <section className="py-20 border-b border-[#22242A] bg-[#0E0F12]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
+              PRODUCTION METRICS
+            </span>
+            <h2 className="text-3xl font-semibold tracking-tight text-white">
+              Performance Under Heavy Load
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {metrics.map((m, idx) => (
+              <div key={idx} className="p-6 rounded-lg bg-[#141518] border border-[#22242A]">
+                <h4 className="font-mono text-xs text-[#D4FD53] uppercase tracking-wider mb-2">
+                  {m.label}
+                </h4>
+                <p className="text-sm text-white font-mono">{m.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. REAL APNASTORE ANCHOR */}
+      <section className="py-20 border-b border-[#22242A]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="rounded-xl bg-[#141518] border border-[#22242A] p-8 lg:p-12 relative overflow-hidden">
+            <div className="max-w-3xl relative z-10">
+              <span className="font-mono text-xs text-[#D4FD53] uppercase tracking-[0.2em] block mb-3">
+                LIVE PRODUCTION BENCHMARK
+              </span>
+              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                Explore the Live ApnaStore Retail Engine
+              </h3>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-mono">
+                Engineered and operated by Aparaitech Software, ApnaStore demonstrates multi-tier wholesale and retail ordering, sub-second product filtering, and instant checkout sync.
+              </p>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="https://apnastore.aparaitech.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-mono text-xs text-[#D4FD53] hover:underline"
+                >
+                  <span>Launch Live ApnaStore System</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. MODAL */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="relative w-full max-w-lg rounded-xl bg-[#141518] border border-[#22242A] p-8 shadow-2xl">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-5 right-5 text-slate-400 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-2 mb-2">
+              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              <span className="font-mono text-xs text-[#D4FD53] uppercase">Hinjawadi Commerce Engineering Pod</span>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">Book Commerce Architecture Sprint</h3>
+            <p className="text-xs text-slate-400 mb-6 font-mono">
+              Discuss catalog vector search, high-volume flash sales, and ERP/POS integrations with our Principal Architect.
+            </p>
+
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">Full Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="e.g. Rohini Gaikwad"
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f44]/80 to-transparent flex items-end p-8">
-                  <div className="text-white">
-                    <p className="font-bold text-lg">Real-time Analytics</p>
-                    <p className="text-sm text-gray-200">Monitor sales performance across all regions instantly.</p>
-                  </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 mb-1">Work Email *</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="name@retailbrand.com"
+                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="+91 98765 43210"
+                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                  />
                 </div>
               </div>
-            </div>
-            <div className="w-full md:w-1/2">
-              <div className="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wide mb-4">
-                Data-Driven Insights
+
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">Commerce Architecture Focus</label>
+                <select
+                  name="commerceFocus"
+                  value={formData.commerceFocus}
+                  onChange={handleInputChange}
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                >
+                  <option value="High-Concurrency Flash-Sale & Inventory Architecture">High-Concurrency Flash-Sale & Inventory Architecture</option>
+                  <option value="Neural Vector Product Search & Reranking">Neural Vector Product Search & Reranking</option>
+                  <option value="Multi-Warehouse & POS Omnichannel Sync">Multi-Warehouse & POS Omnichannel Sync</option>
+                  <option value="Headless Commerce Modernization (Next.js / Shopify Plus)">Headless Commerce Modernization (Next.js / Shopify Plus)</option>
+                  <option value="Conversational WhatsApp Commerce Automation">Conversational WhatsApp Commerce Automation</option>
+                </select>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-6">
-                Make smarter decisions with unified data.
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Break down silos. Our platform connects data from sales, marketing, and service to give you a 360-degree view of your customer. Predict trends, optimize inventory, and personalize marketing campaigns with precision.
-              </p>
-              <ul className="space-y-4 mb-8">
-                {[
-                  "Customer 360 View",
-                  "Predictive Demand Forecasting",
-                  "Automated Marketing Workflows"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center text-gray-700">
-                    <div className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <button className="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors">
-                Explore Analytics Features
+
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-1">Store Scope & Traffic Estimates</label>
+                <textarea
+                  name="notes"
+                  rows="3"
+                  value={formData.notes}
+                  onChange={handleInputChange}
+                  placeholder="SKU count, peak orders per minute, current platform (Magento, Shopify, Custom)..."
+                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 bg-[#D4FD53] text-[#0C0D0F] font-bold text-sm rounded hover:brightness-105 transition-all flex items-center justify-center gap-2 mt-4"
+              >
+                {isSubmitting ? (
+                  <span>Recording Appointment...</span>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Confirm Commerce Sprint</span>
+                  </>
+                )}
               </button>
-            </div>
+            </form>
           </div>
         </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section className="py-24 bg-[#0a1f44] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Ready to revolutionize your retail business?
-          </h2>
-          <p className="text-xl text-blue-200 mb-10">
-            Join the leaders in digital commerce. Scalable, secure, and built for the future.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/contact" className="px-8 py-4 bg-[#00a1e0] hover:bg-[#008cc2] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/50">
-              Contact Sales
-            </Link>
-            <button className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all" onClick={(e) => e.preventDefault()}>
-              Read Success Stories
-            </button>
-          </div>
-        </div>
-      </section>
-
+      )}
     </div>
   );
 };
