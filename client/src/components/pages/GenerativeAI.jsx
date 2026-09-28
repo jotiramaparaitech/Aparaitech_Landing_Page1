@@ -45,6 +45,7 @@ import {
   ChevronDown,
   Shield,
   ArrowUpRight,
+  Lock,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import toast from "react-hot-toast";
