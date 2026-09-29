@@ -16,7 +16,9 @@ import {
   Briefcase,
   Sparkles,
   Calendar,
-  X
+  X,
+  FileText,
+  ShieldCheck
 } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { saveAppointmentToSheet } from "../../../utils/sheetService";
@@ -146,17 +148,17 @@ const AboutUs = () => {
           <div className="flex items-center gap-2 mb-4">
             <span className="h-2 w-2 rounded-full bg-[#00E5C9] animate-pulse"></span>
             <span className="font-mono text-xs uppercase tracking-widest text-[#00E5C9]">
-              EXECUTIVE LEADERSHIP & GOVERNANCE
+              EXECUTIVE LEADERSHIP & STATUTORY COMPLIANCE
             </span>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
               <h2 className="text-[clamp(2.2rem,4vw,3.25rem)] font-bold text-white tracking-tight leading-tight">
-                The Architects Behind Aparaitech Software
+                Founder Leadership & Statutory Governance
               </h2>
               <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
-                Founded and directed from Hinjawadi Phase 2, Pune, uniting frontier AI systems engineering with enterprise delivery excellence.
+                Founded and directed by Pratik Pawar from Hinjawadi Phase 2, Pune, uniting sovereign frontier AI systems engineering with Government of India statutory registrations, MSME certification, and enterprise compliance.
               </p>
             </div>
 
@@ -169,16 +171,16 @@ const AboutUs = () => {
             </button>
           </div>
 
-          {/* Dual Founders Cards Grid */}
+          {/* Founder & Government Accreditations Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {/* Founder 1: Pratik Pawar */}
+            {/* Founder: Pratik Pawar */}
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#00E5C9]/25 to-[#D4FD53]/25 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-3 shadow-2xl">
+              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-3 shadow-2xl h-full flex flex-col justify-between">
                 <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-[#0C0D0F]">
                   <img
                     src="/founder.jpg"
-                    alt="Pratik Pawar - Founder & CEO, Aparaitech Software"
+                    alt="Pratik Pawar - Founder & Sole Proprietor, Aparaitech Software"
                     className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-85"></div>
@@ -187,7 +189,7 @@ const AboutUs = () => {
                   <div className="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-mono text-[11px] uppercase tracking-wider text-[#D4FD53] font-bold">
-                        FOUNDER & CEO
+                        FOUNDER & SOLE PROPRIETOR
                       </span>
                       <span className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-300">
                         <MapPin className="w-3 h-3 text-[#00E5C9]" /> Pune CoE
@@ -200,45 +202,124 @@ const AboutUs = () => {
                       Systems Architect & Technology Strategist
                     </p>
                     <p className="text-[11px] text-slate-400 font-mono mt-1">
-                      Aparaitech Software Pvt. Ltd.
+                      Aparaitech Software • Sole Proprietorship Firm
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Founder 2: Akansha Atole */}
-            <div className="relative group">
+            {/* Government Statutory Licences & Accreditations Card */}
+            <div className="relative group flex flex-col">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#D4FD53]/25 to-[#00E5C9]/25 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-3 shadow-2xl">
-                <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-[#0C0D0F]">
-                  <img
-                    src="/co_founder.jpg"
-                    alt="Akansha Atole - Co-Founder & COO, Aparaitech Software"
-                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-85"></div>
-                  
-                  {/* Floating Badge */}
-                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#00E5C9] font-bold">
-                        CO-FOUNDER & COO
-                      </span>
-                      <span className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-300">
-                        <MapPin className="w-3 h-3 text-[#D4FD53]" /> Pune CoE
-                      </span>
+              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-6 sm:p-7 shadow-2xl flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-4 pb-4 border-b border-white/10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00E5C9]/10 border border-[#00E5C9]/30 text-[#00E5C9] font-mono text-[11px] font-bold tracking-wider uppercase">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      Statutory Accreditations
                     </div>
-                    <h4 className="text-xl font-bold text-white tracking-tight">
-                      Akansha Atole
-                    </h4>
-                    <p className="text-xs text-[#D4FD53] font-mono mt-0.5">
-                      Enterprise Operations & Delivery Leadership
-                    </p>
-                    <p className="text-[11px] text-slate-400 font-mono mt-1">
-                      Aparaitech Software Pvt. Ltd.
-                    </p>
+                    <span className="font-mono text-[10px] text-slate-400 bg-white/5 px-2.5 py-1 rounded border border-white/10">
+                      Govt. of India & Maharashtra
+                    </span>
                   </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-2">
+                    Government Licensed & Enterprise Certified Firm
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-400 font-mono mb-6 leading-relaxed">
+                    Aparaitech Software operates as a verified Sole Proprietorship commercial IT enterprise under statutory licenses issued by the Government of India and the State of Maharashtra.
+                  </p>
+
+                  <div className="space-y-3.5">
+                    {/* License 1: MSME / Udyam */}
+                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-lg bg-[#00E5C9]/10 border border-[#00E5C9]/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Building2 className="w-4 h-4 text-[#00E5C9]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="text-sm font-semibold text-white truncate">
+                            MSME / Udyam Registration
+                          </h4>
+                          <span className="font-mono text-[10px] text-[#00E5C9] font-bold uppercase tracking-wider shrink-0">
+                            Govt. of India
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 font-mono mt-0.5 leading-relaxed">
+                          Ministry of Micro, Small & Medium Enterprises statutory recognition for IT Architecture & Cloud AI.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* License 2: Gumasta / Shop Act */}
+                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#D4FD53]/40 transition-colors flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-lg bg-[#D4FD53]/10 border border-[#D4FD53]/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <FileText className="w-4 h-4 text-[#D4FD53]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="text-sm font-semibold text-white truncate">
+                            Maharashtra Shop & Establishment (Gumasta)
+                          </h4>
+                          <span className="font-mono text-[10px] text-[#D4FD53] font-bold uppercase tracking-wider shrink-0">
+                            Pune PMC
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 font-mono mt-0.5 leading-relaxed">
+                          Licensed commercial office under Pune Municipal Corporation & Labour Dept, Maharashtra (Hinjawadi Phase 2).
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* License 3: GSTIN Commercial Entity */}
+                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-lg bg-[#00E5C9]/10 border border-[#00E5C9]/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Shield className="w-4 h-4 text-[#00E5C9]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="text-sm font-semibold text-white truncate">
+                            GST Registered Commercial Enterprise
+                          </h4>
+                          <span className="font-mono text-[10px] text-slate-300 font-bold uppercase tracking-wider shrink-0">
+                            CBIC / State 27
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 font-mono mt-0.5 leading-relaxed">
+                          Central Board of Indirect Taxes & Customs compliant with verified B2B enterprise invoicing.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* License 4: ISO 27001 & 9001 + SOC 2 */}
+                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#D4FD53]/40 transition-colors flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-lg bg-[#D4FD53]/10 border border-[#D4FD53]/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Lock className="w-4 h-4 text-[#D4FD53]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="text-sm font-semibold text-white truncate">
+                            ISO 27001 & 9001 Certified Architecture
+                          </h4>
+                          <span className="font-mono text-[10px] text-[#D4FD53] font-bold uppercase tracking-wider shrink-0">
+                            SOC 2 Type II
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 font-mono mt-0.5 leading-relaxed">
+                          Information Security (ISMS) & Quality standard compliance with isolated private VPC deployments.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-slate-400">
+                  <span className="flex items-center gap-1.5 text-white">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5C9]" />
+                    Legal Entity: Sole Proprietorship Firm
+                  </span>
+                  <span className="text-[#D4FD53]">Pune, Maharashtra, India</span>
                 </div>
               </div>
             </div>
@@ -256,7 +337,7 @@ const AboutUs = () => {
             </h3>
 
             <p className="text-slate-300 text-base leading-relaxed">
-              Under the joint executive direction of <span className="text-white font-semibold">Pratik Pawar</span> and <span className="text-white font-semibold">Akansha Atole</span>, Aparaitech Software has evolved from an engineering lab in Pune into an enterprise-grade AI powerhouse operating six live commercial SaaS platforms and serving clients globally.
+              Under the executive direction of Founder & Sole Proprietor <span className="text-white font-semibold">Pratik Pawar</span>, Aparaitech Software has evolved from an engineering lab in Pune into an enterprise-grade AI powerhouse operating six live commercial SaaS platforms, holding full statutory registrations and serving clients globally.
             </p>
 
             <p className="text-slate-400 text-sm leading-relaxed font-mono">
@@ -278,10 +359,10 @@ const AboutUs = () => {
               <div className="p-4 rounded-lg bg-[#0C0D0F] border border-white/5 space-y-1">
                 <div className="flex items-center gap-2 text-white font-semibold text-sm">
                   <CheckCircle2 className="w-4 h-4 text-[#D4FD53]" />
-                  <span>Operational & Delivery Excellence</span>
+                  <span>Statutory Governance & Compliance</span>
                 </div>
                 <p className="text-xs text-slate-400 font-mono">
-                  Standardized SLAs, SOC2 & ISO 27001 compliance, and end-to-end client enablement from Pune CoE.
+                  Govt. of India MSME/Udyam registered, Maharashtra Shop & Establishment licensed, GSTIN compliant, and ISO 27001/9001 quality frameworks.
                 </p>
               </div>
             </div>
@@ -417,24 +498,17 @@ const AboutUs = () => {
             </button>
 
             <div className="mb-6 flex items-center gap-3">
-              <div className="flex -space-x-3">
-                <img
-                  src="/founder.jpg"
-                  alt="Pratik Pawar"
-                  className="w-12 h-12 rounded-full object-cover object-top border-2 border-[#00E5C9] z-10"
-                />
-                <img
-                  src="/co_founder.jpg"
-                  alt="Akansha Atole"
-                  className="w-12 h-12 rounded-full object-cover object-top border-2 border-[#D4FD53] z-20"
-                />
-              </div>
+              <img
+                src="/founder.jpg"
+                alt="Pratik Pawar - Founder & Proprietor"
+                className="w-12 h-12 rounded-full object-cover object-top border-2 border-[#00E5C9] shadow-lg"
+              />
               <div>
                 <span className="font-mono text-xs uppercase tracking-widest text-[#00E5C9]">
                   EXECUTIVE BRIEFING INTAKE
                 </span>
                 <h3 className="text-lg font-bold text-white">
-                  Connect with Founders & Pune Leadership
+                  Connect with Founder Pratik Pawar & Pune Team
                 </h3>
               </div>
             </div>

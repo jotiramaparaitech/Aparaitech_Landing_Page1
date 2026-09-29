@@ -232,7 +232,7 @@ Actionable Recommendation: Scale dedicated GPU allocation for Mumbai and Singapo
     output: `[Document OCR & Entity Extraction Engine // Confidence: 99.8%]
 
 Extracted Schema:
-• Vendor Name: Aparaitech Cloud Infrastructure Services Pvt Ltd
+• Vendor Name: Aparaitech Software (Cloud Infrastructure Services)
 • Invoice Number: INV-2026-8841 | Issue Date: 12-Feb-2026 | Due Date: 14-Mar-2026
 • Tax Identification (GSTIN): 27AABCA9120M1ZX
 • Subtotal: $78,500.00 | GST (18%): $14,130.00 | Total Payable: $92,630.00

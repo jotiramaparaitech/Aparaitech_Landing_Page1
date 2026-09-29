@@ -1,7 +1,7 @@
 // src/components/Footer.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { Shield, Phone, Mail, MapPin, ExternalLink } from "lucide-react";
+import { Shield, Phone, Mail, MapPin, ExternalLink, CheckCircle2 } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -166,16 +166,28 @@ const Footer = () => {
           {/* Governance & Compliance */}
           <div>
             <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-4">
-              Governance & Security
+              Governance & Licences
             </h4>
-            <div className="space-y-3 text-xs font-mono text-slate-300">
-              <p className="flex items-center gap-1.5 text-white">
+            <div className="space-y-2.5 text-xs font-mono text-slate-300">
+              <p className="flex items-center gap-1.5 text-white font-semibold">
                 <Shield className="w-4 h-4 text-[#D4FD53]" />
-                ISO 27001 & 9001 Certified Architecture
+                ISO 27001 & 9001 Certified
               </p>
-              <p>SOC2 Type II Aligned Security Controls</p>
-              <p>On-Premises / Private VPC Isolated Deployments</p>
-              <p className="text-[#D4FD53]">1-Hour Response SLA for Inquiries</p>
+              <p className="flex items-center gap-1.5 text-[#00E5C9]">
+                <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                Govt. of India MSME Registered
+              </p>
+              <p className="flex items-center gap-1.5 text-slate-300">
+                <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-[#D4FD53]" />
+                Maharashtra Shop & Est. (Gumasta)
+              </p>
+              <p className="flex items-center gap-1.5 text-slate-300">
+                <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-[#00E5C9]" />
+                GST Registered Commercial Enterprise
+              </p>
+              <p className="text-slate-400">SOC 2 Type II Aligned Security Controls</p>
+              <p className="text-slate-400">Private VPC Isolated Deployments</p>
+              <p className="text-[#D4FD53] pt-1">1-Hour Response SLA for Inquiries</p>
               <div className="pt-2">
                 <a
                   href="https://www.linkedin.com/company/aparaitech/"
@@ -198,7 +210,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} Aparaitech Software Private Limited. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Aparaitech Software (Proprietorship Firm). All rights reserved.</p>
           <p>Headquarters: Gera Imperium, Hinjawadi Phase 2, Pune, India</p>
         </div>
       </div>
