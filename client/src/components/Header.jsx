@@ -1,11 +1,13 @@
 // src/components/Header.jsx
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ArrowUpRight, Phone, CheckCircle2, ChevronDown } from "lucide-react";
+import { ArrowUpRight, Phone, CheckCircle2, ChevronDown, Sun, Moon } from "lucide-react";
 import toast from "react-hot-toast";
 import { recordAppointmentBooking } from "../utils/sheetService";
+import { useTheme } from "../context/ThemeContext";
 
 const Header = () => {
+  const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -274,7 +276,7 @@ const Header = () => {
             </nav>
 
             {/* Right Action Menu */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
               <a
                 href="tel:+918261840199"
                 className="hidden sm:flex items-center gap-1.5 text-xs font-mono text-slate-300 hover:text-white transition-colors"
@@ -282,6 +284,21 @@ const Header = () => {
                 <Phone className="w-3.5 h-3.5 text-[#00E5C9]" />
                 +91 82618 40199
               </a>
+
+              {/* Theme Toggle Button */}
+              <button
+                onClick={toggleTheme}
+                className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-md bg-[#1C1C1E] border border-white/10 text-slate-300 hover:text-white hover:border-[#00E5C9]/50 transition-all focus:outline-none"
+                title={theme === "dark" ? "Switch to White / Light Theme" : "Switch to Dark Theme"}
+                aria-label="Toggle Theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="w-4 h-4 text-[#D4FD53] transition-transform duration-300 hover:rotate-45" />
+                ) : (
+                  <Moon className="w-4 h-4 text-[#0D9488] transition-transform duration-300 hover:-rotate-12" />
+                )}
+              </button>
+
               <button
                 onClick={() => setModalOpen(true)}
                 className="group relative flex h-10 cursor-pointer items-center gap-1.5 rounded-md bg-[#1C1C1E] border border-white/10 px-4 font-mono text-[13px] text-white transition-all hover:bg-[#2C2C30] hover:border-[#00E5C9]/50"
@@ -312,6 +329,31 @@ const Header = () => {
         {menuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 h-[calc(100vh-120px)] bg-[#0C0D0F] border-t border-[#22242A] p-4 sm:p-6 overflow-y-auto z-50 shadow-2xl">
             <nav className="space-y-2 font-mono text-sm pb-16">
+              {/* Mobile Theme Toggle Card */}
+              <div className="flex items-center justify-between p-3 rounded-lg bg-[#141518] border border-[#22242A] mb-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#1C1C1E] border border-white/10">
+                    {theme === "dark" ? (
+                      <Sun className="w-4 h-4 text-[#D4FD53]" />
+                    ) : (
+                      <Moon className="w-4 h-4 text-[#0D9488]" />
+                    )}
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-mono uppercase text-slate-400">Theme Appearance</div>
+                    <div className="text-xs font-bold text-white uppercase tracking-wider">
+                      {theme === "dark" ? "Dark Theme" : "White Theme"}
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={toggleTheme}
+                  className="px-3 py-1.5 rounded-md bg-[#1C1C1E] border border-white/10 hover:border-[#00E5C9]/50 text-xs font-mono text-slate-200 transition-all cursor-pointer"
+                >
+                  Switch to {theme === "dark" ? "White" : "Dark"}
+                </button>
+              </div>
+
               {/* Primary Pages */}
               <div className="space-y-1 pb-3 border-b border-[#22242A]">
                 <Link
