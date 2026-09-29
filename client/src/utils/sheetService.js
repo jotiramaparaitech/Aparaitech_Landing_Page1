@@ -20,6 +20,55 @@ export const GOOGLE_SHEET_VIEW_URL =
   "https://docs.google.com/spreadsheets/d/1dJhDkmTINcFksdz76C6DWr4-0Qy-NfNxI7A8fF2xdPQ/edit?usp=sharing";
 
 /**
+ * Robust dispatcher to Google Apps Script Webhook.
+ * 1. Sends text/plain JSON payload (safelisted for no-cors, delivered in e.postData.contents).
+ * 2. Also sends URL-encoded form data (delivered in e.parameter).
+ */
+export const dispatchToGoogleSheet = async (record) => {
+  const endpoint = getSheetEndpoint();
+  if (!endpoint) return false;
+
+  // 1. Send JSON with text/plain (CORS safelisted)
+  try {
+    await fetch(endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify(record),
+    });
+  } catch (err) {
+    console.warn("Google Sheet dispatch error (JSON):", err);
+  }
+
+  // 2. Also send as URL-encoded parameters so e.parameter is populated
+  try {
+    const params = new URLSearchParams();
+    Object.keys(record).forEach((key) => {
+      if (record[key] !== undefined && record[key] !== null) {
+        params.append(key, String(record[key]));
+      }
+    });
+
+    await fetch(endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: params.toString(),
+    });
+  } catch (err) {
+    // Non-blocking
+  }
+
+  return true;
+};
+
+/**
  * Records an appointment booking:
  * 1. Dispatches data to the Google Sheet Webhook
  * 2. Caches the appointment in localStorage as an immutable backup
@@ -60,19 +109,7 @@ export const recordAppointmentBooking = async (bookingData) => {
   }
 
   // 2. Dispatch to Google Sheet Webhook via fetch
-  const endpoint = getSheetEndpoint();
-  try {
-    await fetch(endpoint, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(record),
-    });
-  } catch (error) {
-    console.warn("Google Sheet webhook notice (lead safely cached locally):", error);
-  }
+  await dispatchToGoogleSheet(record);
 
   // 3. Forward to backend API for database backup
   try {
@@ -221,19 +258,7 @@ export const recordStudentVisitBooking = async (visitData) => {
   }
 
   // 2. Dispatch to Google Sheet Webhook
-  const endpoint = getSheetEndpoint();
-  try {
-    await fetch(endpoint, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(record),
-    });
-  } catch (error) {
-    console.warn("Google Sheet webhook notice (student visit cached locally):", error);
-  }
+  await dispatchToGoogleSheet(record);
 
   // 3. Optional backend API forward
   try {
