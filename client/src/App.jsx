@@ -11,6 +11,7 @@ import ApplicationForm from "./components/pages/ApplicationForm";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import StudentVisitWidget from "./components/StudentVisitWidget";
 
 /* ================= HOME SECTIONS ================= */
 import Hero from "./components/Hero";
@@ -216,6 +217,7 @@ function App() {
       </Routes>
 
       <Footer />
+      <StudentVisitWidget />
     </div>
   );
 }

@@ -161,3 +161,158 @@ export const exportAppointmentsToCSV = () => {
   document.body.removeChild(link);
   return true;
 };
+
+/**
+ * Records a student / candidate office visit booking for interview / technical assessment:
+ * 1. Dispatches data to Google Sheet Webhook
+ * 2. Caches in localStorage ('aparaitech_student_visits' and 'aparaitech_appointments')
+ * 3. Returns the saved record
+ */
+export const recordStudentVisitBooking = async (visitData) => {
+  const timestamp = new Date().toLocaleString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
+
+  const record = {
+    id: "STU-" + Date.now().toString(36).toUpperCase(),
+    timestamp,
+    name: visitData.name || "",
+    email: visitData.email || "",
+    phone: visitData.phone || "",
+    college: visitData.college || "",
+    degree: visitData.degree || "",
+    passingYear: visitData.passingYear || "",
+    company: `${visitData.college || 'Candidate'} [${visitData.degree || ''} ${visitData.passingYear || ''}]`.trim(),
+    role: visitData.role || "Software Engineer / AI Trainee Interview",
+    service: `Student Office Visit: ${visitData.role || 'In-Person Interview'}`,
+    visitDate: visitData.visitDate || "",
+    slotDay: visitData.slotDay || "",
+    slotTime: visitData.slotTime || "",
+    resumeUrl: visitData.resumeUrl || "",
+    message: `[STUDENT OFFICE VISIT & INTERVIEW] Slot: ${visitData.visitDate} (${visitData.slotDay || 'Weekday'}) at ${visitData.slotTime} | Role: ${visitData.role} | College: ${visitData.college} (${visitData.degree}, ${visitData.passingYear}) | Resume/Link: ${visitData.resumeUrl || 'N/A'} | Notes: ${visitData.notes || 'None'}`,
+    nda: "Candidate Non-Disclosure",
+    source: "Student Visit Popup (Right-Bottom)",
+    status: "Confirmed Office Visit",
+  };
+
+  // 1. Cache to student visits & global appointments
+  try {
+    const studentVisits = JSON.parse(localStorage.getItem("aparaitech_student_visits") || "[]");
+    studentVisits.unshift(record);
+    localStorage.setItem("aparaitech_student_visits", JSON.stringify(studentVisits));
+
+    const globalAppts = JSON.parse(localStorage.getItem("aparaitech_appointments") || "[]");
+    globalAppts.unshift(record);
+    localStorage.setItem("aparaitech_appointments", JSON.stringify(globalAppts));
+  } catch (err) {
+    console.warn("Could not cache student visit locally:", err);
+  }
+
+  // 2. Dispatch to Google Sheet Webhook
+  const endpoint = getSheetEndpoint();
+  try {
+    await fetch(endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(record),
+    });
+  } catch (error) {
+    console.warn("Google Sheet webhook notice (student visit cached locally):", error);
+  }
+
+  // 3. Optional backend API forward
+  try {
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    if (apiBase) {
+      await fetch(`${apiBase}/api/contacts`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: record.name,
+          email: record.email,
+          phone: record.phone,
+          company: record.company,
+          message: record.message,
+        }),
+      });
+    }
+  } catch (e) {
+    // Non-blocking
+  }
+
+  return record;
+};
+
+export const getStudentVisits = () => {
+  try {
+    return JSON.parse(localStorage.getItem("aparaitech_student_visits") || "[]");
+  } catch (e) {
+    return [];
+  }
+};
+
+export const exportStudentVisitsToCSV = () => {
+  const records = getStudentVisits();
+  if (!records.length) {
+    alert("No student visit bookings recorded yet. Once a student books, records will appear here.");
+    return false;
+  }
+
+  const headers = [
+    "Booking ID",
+    "Booking Timestamp",
+    "Student Name",
+    "Email Address",
+    "Phone / WhatsApp",
+    "College / University",
+    "Degree / Branch",
+    "Passing Year",
+    "Interview Role / Purpose",
+    "Visit Date (Mon-Fri)",
+    "Day of Week",
+    "Time Slot",
+    "Resume / Portfolio URL",
+    "Detailed Summary",
+    "Status",
+  ];
+
+  const rows = records.map((r) => [
+    `"${r.id}"`,
+    `"${r.timestamp}"`,
+    `"${(r.name || '').replace(/"/g, '""')}"`,
+    `"${(r.email || '').replace(/"/g, '""')}"`,
+    `"${(r.phone || '').replace(/"/g, '""')}"`,
+    `"${(r.college || '').replace(/"/g, '""')}"`,
+    `"${(r.degree || '').replace(/"/g, '""')}"`,
+    `"${(r.passingYear || '').replace(/"/g, '""')}"`,
+    `"${(r.role || '').replace(/"/g, '""')}"`,
+    `"${r.visitDate || ''}"`,
+    `"${r.slotDay || ''}"`,
+    `"${r.slotTime || ''}"`,
+    `"${(r.resumeUrl || '').replace(/"/g, '""')}"`,
+    `"${(r.message || '').replace(/"/g, '""')}"`,
+    `"${r.status || 'Confirmed'}"`,
+  ]);
+
+  const csvContent =
+    "data:text/csv;charset=utf-8," +
+    [headers.join(","), ...rows.map((row) => row.join(","))].join("\n");
+
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute(
+    "download",
+    `Aparaitech_Student_Office_Visits_${new Date().toISOString().slice(0, 10)}.csv`
+  );
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  return true;
+};
+
