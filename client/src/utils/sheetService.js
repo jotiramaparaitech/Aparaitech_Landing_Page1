@@ -5,7 +5,7 @@
  * Connected to live Google Sheet for real-time lead capture.
  */
 const DEFAULT_SHEET_ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbyusSnV3NCIZtRvNdlGHM6fqwPI3UymNoufnHX2p9_OD9DX3DxTNLiU24j2cZfZbwzUtw/exec";
+  "https://script.google.com/macros/s/AKfycbyrAwjfw8P5zizxmoS5OXyxLdbdtro60KomQlmu9lfHYueZIZHh4f9Omi5T4ThAu2BK/exec";
 
 export const getSheetEndpoint = () => {
   return DEFAULT_SHEET_ENDPOINT;
