@@ -15,9 +15,9 @@ export const setSheetEndpoint = (url) => {
   localStorage.setItem("aparaitech_sheet_webhook", url);
 };
 
-// Google Sheet public view link for Aparaitech Software Website Inquiries
+// Google Sheet public view link for Aparaitech Software (Pune Office Visit & Customer Inquiries)
 export const GOOGLE_SHEET_VIEW_URL =
-  "https://docs.google.com/spreadsheets/d/1tMYCOrRboqy8aXjQ1MT9zqkTlJO2h8DRj17CfGwd-f4/edit?usp=sharing";
+  "https://docs.google.com/spreadsheets/d/1dJhDkmTINcFksdz76C6DWr4-0Qy-NfNxI7A8fF2xdPQ/edit?usp=sharing";
 
 /**
  * Records an appointment booking:
@@ -35,6 +35,10 @@ export const recordAppointmentBooking = async (bookingData) => {
   const record = {
     id: "INQ-" + Date.now().toString(36).toUpperCase(),
     timestamp,
+    spreadsheetId: "1dJhDkmTINcFksdz76C6DWr4-0Qy-NfNxI7A8fF2xdPQ",
+    sheetUrl: "https://docs.google.com/spreadsheets/d/1dJhDkmTINcFksdz76C6DWr4-0Qy-NfNxI7A8fF2xdPQ/edit?usp=sharing",
+    sheetTab: "Consultations",
+    type: "Executive Consultation",
     name: bookingData.name || "",
     email: bookingData.email || "",
     phone: bookingData.phone || "",
@@ -178,20 +182,26 @@ export const recordStudentVisitBooking = async (visitData) => {
   const record = {
     id: "STU-" + Date.now().toString(36).toUpperCase(),
     timestamp,
+    spreadsheetId: "1dJhDkmTINcFksdz76C6DWr4-0Qy-NfNxI7A8fF2xdPQ",
+    sheetUrl: "https://docs.google.com/spreadsheets/d/1dJhDkmTINcFksdz76C6DWr4-0Qy-NfNxI7A8fF2xdPQ/edit?usp=sharing",
+    sheetTab: "Office Visited",
+    type: "Office Visited",
     name: visitData.name || "",
+    candidateName: visitData.name || "",
     email: visitData.email || "",
     phone: visitData.phone || "",
     college: visitData.college || "",
     degree: visitData.degree || "",
     passingYear: visitData.passingYear || "",
-    company: `${visitData.college || 'Candidate'} [${visitData.degree || ''} ${visitData.passingYear || ''}]`.trim(),
     role: visitData.role || "Software Engineer / AI Trainee Interview",
+    company: `${visitData.college || 'Candidate'} [${visitData.degree || ''} ${visitData.passingYear || ''}]`.trim(),
     service: `Student Office Visit: ${visitData.role || 'In-Person Interview'}`,
     visitDate: visitData.visitDate || "",
     slotDay: visitData.slotDay || "",
     slotTime: visitData.slotTime || "",
     resumeUrl: visitData.resumeUrl || "",
-    message: `[STUDENT OFFICE VISIT & INTERVIEW] Slot: ${visitData.visitDate} (${visitData.slotDay || 'Weekday'}) at ${visitData.slotTime} | Role: ${visitData.role} | College: ${visitData.college} (${visitData.degree}, ${visitData.passingYear}) | Resume/Link: ${visitData.resumeUrl || 'N/A'} | Notes: ${visitData.notes || 'None'}`,
+    notes: visitData.notes || "",
+    message: `[OFFICE VISIT & INTERVIEW] Slot: ${visitData.visitDate} (${visitData.slotDay || 'Weekday'}) at ${visitData.slotTime} | Role: ${visitData.role} | College: ${visitData.college} (${visitData.degree}, ${visitData.passingYear}) | Resume/Link: ${visitData.resumeUrl || 'N/A'} | Notes: ${visitData.notes || 'None'}`,
     nda: "Candidate Non-Disclosure",
     source: "Student Visit Popup (Right-Bottom)",
     status: "Confirmed Office Visit",

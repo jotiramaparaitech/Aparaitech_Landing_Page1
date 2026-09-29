@@ -13,18 +13,12 @@ import {
   CheckCircle2,
   AlertCircle,
   X,
-  ExternalLink,
-  Download,
   Sparkles,
   ChevronRight,
   Briefcase
 } from "lucide-react";
 import { toast } from "react-hot-toast";
-import {
-  recordStudentVisitBooking,
-  GOOGLE_SHEET_VIEW_URL,
-  exportStudentVisitsToCSV,
-} from "../utils/sheetService";
+import { recordStudentVisitBooking } from "../utils/sheetService";
 
 export default function StudentVisitWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -352,29 +346,42 @@ export default function StudentVisitWidget() {
                     </div>
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="space-y-2 pt-2">
+                  {/* Candidate Instructions & Directions */}
+                  <div className="rounded-xl bg-[#0C0D0F] border border-white/5 p-3.5 text-left font-mono space-y-2 text-[11px] text-slate-300">
+                    <div className="text-[#D4FD53] font-bold text-xs flex items-center gap-1.5">
+                      <Briefcase className="w-3.5 h-3.5" />
+                      Candidate Visit Checklist:
+                    </div>
+                    <ul className="space-y-1.5 list-disc list-inside text-slate-400 text-[11px]">
+                      <li>Carry 2 printed copies of your updated resume.</li>
+                      <li>Bring your College ID card or valid Govt. Photo ID for entry.</li>
+                      <li>Please arrive 10–15 minutes prior to your scheduled slot.</li>
+                      <li>Report to Reception, Gera Imperium, Hinjawadi Phase 2, Pune.</li>
+                    </ul>
+                  </div>
+
+                  {/* Candidate Action Buttons */}
+                  <div className="space-y-2 pt-1">
                     <a
-                      href={GOOGLE_SHEET_VIEW_URL}
+                      href="https://maps.app.goo.gl/zshFooG4n2aS8Dr3A"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#00E5C9] hover:brightness-110 text-[#0C0D0F] font-bold py-2.5 px-4 text-xs transition-all shadow-md"
                     >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      <span>Open Live Google Sheet</span>
+                      <MapPin className="w-3.5 h-3.5" />
+                      <span>Get Directions to Pune Office ↗</span>
                     </a>
 
                     <button
-                      onClick={exportStudentVisitsToCSV}
-                      className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#22242A] hover:bg-[#2C2E36] text-white font-mono py-2 px-4 text-xs transition-all border border-white/10"
+                      onClick={() => setIsOpen(false)}
+                      className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#22242A] hover:bg-[#2C2E36] text-white font-mono py-2.5 px-4 text-xs transition-all border border-white/10"
                     >
-                      <Download className="w-3.5 h-3.5 text-[#D4FD53]" />
-                      <span>Download Excel / CSV Backup</span>
+                      <span>Done & Close</span>
                     </button>
 
                     <button
                       onClick={handleReset}
-                      className="text-slate-400 hover:text-white text-xs underline font-mono pt-2"
+                      className="text-slate-400 hover:text-white text-xs underline font-mono pt-1"
                     >
                       Book Another Office Visit Slot
                     </button>
@@ -636,26 +643,13 @@ export default function StudentVisitWidget() {
                     )}
                   </button>
 
-                  {/* Direct Sheet Link Footer */}
+                  {/* Form Footer info */}
                   <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-slate-400">
-                    <a
-                      href={GOOGLE_SHEET_VIEW_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#00E5C9] flex items-center gap-1 transition-colors"
-                      title="View all appointments in Google Sheet"
-                    >
-                      <span>📊 Live Excel / Google Sheet</span>
-                      <ExternalLink className="w-2.5 h-2.5" />
-                    </a>
-                    <button
-                      type="button"
-                      onClick={exportStudentVisitsToCSV}
-                      className="hover:text-[#D4FD53] flex items-center gap-1 transition-colors"
-                    >
-                      <Download className="w-2.5 h-2.5" />
-                      <span>Export CSV</span>
-                    </button>
+                    <span className="flex items-center gap-1 text-slate-400">
+                      <MapPin className="w-3 h-3 text-[#00E5C9]" />
+                      <span>Hinjawadi Phase 2, Pune</span>
+                    </span>
+                    <span className="text-[#D4FD53]">Monday – Friday (10 AM – 6 PM)</span>
                   </div>
                 </form>
               )}
