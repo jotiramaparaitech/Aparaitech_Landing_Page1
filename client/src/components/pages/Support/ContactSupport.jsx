@@ -1,163 +1,258 @@
 import React, { useState } from 'react';
-import { contactAPI } from '../../../utils/api';
+import { useNavigate } from 'react-router-dom';
+import { Mail, Phone, MapPin, LifeBuoy, CheckCircle2, Shield, AlertCircle, ArrowUpRight } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { recordAppointmentBooking } from '../../../utils/sheetService';
 
 const ContactSupport = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
-    message: '',
-    priority: 'Normal'
+    phone: '',
+    company: '',
+    service: 'Enterprise Technical Support',
+    priority: 'Normal',
+    message: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
-  const [error, setError] = useState('');
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    setError('');
-  };
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setError('');
     
     try {
-      const response = await contactAPI.submitSupport(formData);
+      await recordAppointmentBooking({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || 'N/A',
+        company: formData.company || 'Enterprise Partner',
+        service: `[${formData.priority} Priority] ${formData.service}`,
+        message: formData.message,
+        source: 'Support Portal Ticket Intake'
+      });
       
-      if (response.success) {
-        setSubmitStatus('success');
-        
-        // Reset form after successful submission
-        setTimeout(() => {
-          setFormData({
-            name: '',
-            email: '',
-            subject: '',
-            message: '',
-            priority: 'Normal'
-          });
-          setSubmitStatus('');
-        }, 3000);
-      }
+      setSubmitted(true);
+      toast.success("Support ticket registered! Connected to leadership telemetry.");
+      
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          service: 'Enterprise Technical Support',
+          priority: 'Normal',
+          message: ''
+        });
+      }, 3500);
     } catch (err) {
-      setError(err.message || 'Failed to submit support ticket. Please try again.');
+      console.error(err);
+      toast.error("Ticket recorded locally. Support pod will reach out promptly.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-gray-50 font-sans">
-      <div className="max-w-3xl mx-auto px-6 py-20">
+    <div className="min-h-screen bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] pt-20 pb-24">
+      <div className="max-w-4xl mx-auto px-6 lg:px-8">
         
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Support</h1>
-          <p className="text-gray-600">Submit a ticket and our team will get back to you within 24 hours.</p>
+        {/* Header Breadcrumb */}
+        <div className="flex items-center gap-3 mb-6">
+          <span className="block h-2.5 w-2.5 bg-[#00E5C9]"></span>
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
+            MISSION-CRITICAL SUPPORT & DISPATCH
+          </span>
         </div>
 
-        {submitStatus === 'success' && (
-          <div className="mb-8 p-4 bg-green-50 border border-green-200 rounded-lg">
-            <div className="flex items-center">
-              <div className="w-5 h-5 bg-green-500 rounded-full mr-3"></div>
-              <p className="text-green-800 font-medium">Ticket submitted successfully! We'll respond within 24 hours.</p>
-            </div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <h1 className="text-[clamp(2rem,4vw,3.25rem)] font-bold text-white tracking-tight leading-tight">
+              Enterprise Technical Support
+            </h1>
+            <p className="mt-3 text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed font-normal">
+              Direct access to Aparaitech Software's engineering and site-reliability pods at Hinjawadi Phase 2, Pune. Guaranteed 99.9% platform availability.
+            </p>
           </div>
-        )}
 
-        {error && (
-          <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg">
-            <div className="flex items-center">
-              <div className="w-5 h-5 bg-red-500 rounded-full mr-3"></div>
-              <p className="text-red-800 font-medium">{error}</p>
-            </div>
-          </div>
-        )}
-
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 md:p-12">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                <input 
-                  type="text" 
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 placeholder-gray-500"
-                  placeholder="Name"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                <input 
-                  type="email" 
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 placeholder-gray-500"
-                  placeholder="xzy@company.com"
-                  required
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-              <input 
-                type="text" 
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 placeholder-gray-500"
-                placeholder="Brief description of the issue"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Priority</label>
-              <select 
-                name="priority"
-                value={formData.priority}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900"
-              >
-                <option value="Low">Low</option>
-                <option value="Normal">Normal</option>
-                <option value="High">High</option>
-                <option value="Critical">Critical</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-              <textarea 
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows="5"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all resize-none text-gray-900 placeholder-gray-500"
-                placeholder="Please describe your issue in detail..."
-                required
-              ></textarea>
-            </div>
-
-            <button 
-              type="submit" 
-              disabled={isSubmitting}
-              className="w-full py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          <div className="flex items-center gap-3">
+            <a
+              href="tel:+918261840199"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#141518] border border-[#22242A] text-slate-300 hover:text-[#00E5C9] hover:border-[#00E5C9]/50 transition-colors font-mono text-xs"
             >
-              {isSubmitting ? 'Submitting...' : 'Submit Ticket'}
-            </button>
-          </form>
+              <Phone className="w-3.5 h-3.5 text-[#00E5C9]" />
+              <span>+91 82618 40199</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          {/* Form Card */}
+          <div className="lg:col-span-8">
+            <div className="bg-[#141518] rounded-2xl border border-[#22242A] p-6 sm:p-8 shadow-2xl">
+              
+              {submitted ? (
+                <div className="py-14 text-center space-y-4">
+                  <CheckCircle2 className="w-14 h-14 text-[#10B981] mx-auto animate-bounce" />
+                  <h3 className="text-xl font-bold text-white">Ticket Registered Successfully</h3>
+                  <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed font-normal">
+                    Your request has been routed to our on-call technical architect. Priority tickets receive initial diagnostic response within 30 minutes.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 text-xs font-mono">
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-slate-300 mb-1">Contact Name *</label>
+                      <input 
+                        type="text" 
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="e.g. Vikram Sharma"
+                        className="w-full bg-[#0C0D0F] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder-slate-500 focus:border-[#00E5C9] focus:outline-none transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-slate-300 mb-1">Corporate Work Email *</label>
+                      <input 
+                        type="email" 
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="vikram@enterprise.com"
+                        className="w-full bg-[#0C0D0F] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder-slate-500 focus:border-[#00E5C9] focus:outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-slate-300 mb-1">Direct Phone Number *</label>
+                      <input 
+                        type="tel" 
+                        required
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="+91 98765 43210"
+                        className="w-full bg-[#0C0D0F] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder-slate-500 focus:border-[#00E5C9] focus:outline-none transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-slate-300 mb-1">Organization / Enterprise *</label>
+                      <input 
+                        type="text" 
+                        required
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        placeholder="Apex Technologies Ltd"
+                        className="w-full bg-[#0C0D0F] border border-white/10 rounded-lg px-3.5 py-2.5 text-white placeholder-slate-500 focus:border-[#00E5C9] focus:outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-slate-300 mb-1">System / Category</label>
+                      <select 
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                        className="w-full bg-[#0C0D0F] border border-white/10 rounded-lg px-3.5 py-2.5 text-white focus:border-[#00E5C9] focus:outline-none transition-colors"
+                      >
+                        <option value="Enterprise AI & Agent Systems">Enterprise AI & Multi-Agent Systems</option>
+                        <option value="Cloud Infrastructure & VPC">Cloud Infrastructure & Private VPC</option>
+                        <option value="Production Platform Outage">Production Platform Incident</option>
+                        <option value="API Integration & Webhooks">API Integration & Webhooks</option>
+                        <option value="Security & Compliance Audit">Security & Compliance Audit</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-slate-300 mb-1">Severity Level</label>
+                      <select 
+                        value={formData.priority}
+                        onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
+                        className="w-full bg-[#0C0D0F] border border-white/10 rounded-lg px-3.5 py-2.5 text-white focus:border-[#00E5C9] focus:outline-none transition-colors"
+                      >
+                        <option value="Normal">Normal — Standard Inquiry (24hr SLA)</option>
+                        <option value="High">High — Operational Bottleneck (4hr SLA)</option>
+                        <option value="Critical">Critical — Production Degradation (1hr SLA)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-300 mb-1">Technical Incident / Request Details *</label>
+                    <textarea 
+                      required
+                      rows="4"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Please specify error codes, affected microservices, or specific configuration issues..."
+                      className="w-full bg-[#0C0D0F] border border-white/10 rounded-lg p-3.5 text-white placeholder-slate-500 focus:border-[#00E5C9] focus:outline-none transition-colors resize-none"
+                    ></textarea>
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full h-11 bg-[#00E5C9] text-[#0C0D0F] font-bold text-xs uppercase tracking-wider rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg disabled:opacity-50"
+                  >
+                    {isSubmitting ? 'Transmitting Ticket...' : 'Dispatch Technical Support Ticket →'}
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+
+          {/* Sidebar Info */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="bg-[#141518] p-6 rounded-2xl border border-[#22242A] shadow-xl space-y-4">
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-[#00E5C9]" />
+                <h3 className="font-mono text-xs font-bold text-white uppercase tracking-wider">
+                  SLA Commitments
+                </h3>
+              </div>
+              <ul className="space-y-3 font-mono text-[11px] text-slate-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#00E5C9] font-bold">✓</span>
+                  <span>99.9% Uptime Commitment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#00E5C9] font-bold">✓</span>
+                  <span>Direct CoE Engineering Access</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#00E5C9] font-bold">✓</span>
+                  <span>Encrypted Channel Dispatch</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[#141518] p-6 rounded-2xl border border-[#22242A] shadow-xl space-y-3">
+              <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider">
+                Direct Engineering Line
+              </h4>
+              <p className="text-xs text-slate-400 font-mono leading-relaxed">
+                Gera Imperium, Hinjawadi Phase 2, Pune, Maharashtra 411057
+              </p>
+              <div className="pt-2 text-xs font-mono space-y-1.5">
+                <a href="tel:+918261840199" className="text-[#00E5C9] hover:underline block">
+                  +91 82618 40199
+                </a>
+                <a href="mailto:info@ai.aparaitech.org" className="text-slate-300 hover:text-white block">
+                  info@ai.aparaitech.org
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

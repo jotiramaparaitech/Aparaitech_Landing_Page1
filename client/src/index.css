@@ -25,8 +25,21 @@
     max-width: 100%;
   }
 
-  h1, h2, h3, h4, h5, h6, p {
+  h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
+    text-wrap: balance;
+    letter-spacing: -0.022em;
+  }
+
+  p, li {
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+    line-height: 1.68;
+    letter-spacing: -0.005em;
+  }
+
+  .font-mono {
+    letter-spacing: 0.02em;
   }
 
   html {
@@ -510,5 +523,78 @@ html.light .text-amber-300 {
 
 html.light .text-amber-400 {
   color: #D97706 !important;
+}
+
+/* ================= LEGACY SUBPAGE DARK & LIGHT THEME NORMALIZER ================= */
+html.dark .min-h-screen.bg-white,
+html.dark .min-h-screen.bg-gray-50,
+html.dark div.min-h-screen.bg-gradient-to-b {
+  background-color: #0C0D0F !important;
+  color: #FFFFFF !important;
+}
+
+html.dark section.bg-white,
+html.dark div.bg-white:not([data-theme-ignore]) {
+  background-color: #141518 !important;
+  border-color: #22242A !important;
+  color: #FFFFFF !important;
+}
+
+html.dark section.bg-gray-50,
+html.dark div.bg-gray-50,
+html.dark div.bg-gray-100 {
+  background-color: #0C0D0F !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark .text-gray-700 {
+  color: #F8FAFC !important;
+}
+
+html.dark .text-gray-600,
+html.dark .text-gray-500 {
+  color: #94A3B8 !important;
+}
+
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-gray-300 {
+  border-color: #22242A !important;
+}
+
+html.dark input.bg-white,
+html.dark select.bg-white,
+html.dark textarea.bg-white {
+  background-color: #0C0D0F !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Light Mode Normalizer */
+html.light .text-gray-900,
+html.light .text-gray-800 {
+  color: #0F172A !important;
+}
+
+html.light .text-gray-700,
+html.light .text-gray-600 {
+  color: #334155 !important;
+}
+
+html.light .text-gray-500 {
+  color: #64748B !important;
+}
+
+html.light .bg-gray-50,
+html.light .bg-gray-100 {
+  background-color: #F1F5F9 !important;
+}
+
+html.light .border-gray-100,
+html.light .border-gray-200,
+html.light .border-gray-300 {
+  border-color: #E2E8F0 !important;
 }
 

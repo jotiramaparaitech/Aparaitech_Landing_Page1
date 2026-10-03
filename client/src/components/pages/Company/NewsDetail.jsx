@@ -7,41 +7,41 @@ const articleContent = {
     content: [
       "Aparaitech is proud to announce the successful closing of our Series B funding round, raising $50 million to accelerate the development and adoption of our enterprise AI solutions. The round was led by Horizon Ventures with participation from existing investors.",
       "This significant investment validates our mission to democratize artificial intelligence for businesses of all sizes. The funds will be primarily allocated to expanding our engineering team, enhancing our proprietary generative AI models, and scaling our global sales operations.",
-      "\"This funding is a testament to the hard work of our team and the value we deliver to our customers,\" said the CEO of Aparaitech. \"We are at a pivotal moment in the technology landscape, and this capital will allow us to stay at the forefront of the AI revolution.\"",
-      "In addition to product development, Aparaitech plans to launch a new AI innovation hub in San Francisco, fostering collaboration between researchers, engineers, and enterprise clients. This hub will serve as a testing ground for next-generation AI applications in finance, healthcare, and logistics."
+      "\"This funding is a testament to the hard work of our team and the value we deliver to our enterprise partners,\" said the Lead Systems Architect at Aparaitech Software. \"We are at a pivotal moment in the technology landscape, and this engineering milestone will allow us to stay at the forefront of the AI systems revolution.\"",
+      "In addition to product development, Aparaitech plans to expand its Pune Center of Excellence and AI research pods, fostering collaboration between researchers, engineers, and enterprise clients. This CoE serves as a testbed for next-generation sovereign AI applications in manufacturing, finance, healthcare, and supply chain logistics."
     ],
-    author: "Sarah Jenkins",
-    role: "VP of Communications"
+    author: "Engineering Editorial Pod",
+    role: "Aparaitech Technical Advisory"
   },
   "How Generative AI is Transforming Enterprise Workflows": {
     content: [
-      "Generative AI is no longer just a buzzword; it is fundamentally reshaping how enterprises operate. From automating code generation to creating personalized marketing content at scale, Large Language Models (LLMs) are driving unprecedented efficiency.",
-      "At Aparaitech, we have observed a 40% increase in productivity among clients who have integrated our GenAI tools into their daily workflows. The ability to summarize complex documents, generate financial reports, and assist in customer support inquiries has freed up human employees to focus on strategic initiatives.",
-      "However, adoption is not without its challenges. Data privacy, model hallucination, and integration with legacy systems remain top concerns for CTOs. Our latest whitepaper explores these challenges in depth and offers a roadmap for secure and effective AI implementation.",
-      "The future of work is collaborative intelligence, where humans and AI work side-by-side. Organizations that embrace this shift today will define the competitive landscape of tomorrow."
+      "Generative AI is no longer just an experimental prototype; it is fundamentally reshaping how enterprises execute operations. From automating high-concurrency code refactoring to synthesising domain knowledge bases at scale, Large Language Models (LLMs) and agentic workflows are driving unprecedented efficiency.",
+      "At Aparaitech Software, our deployments observe quantifiable reductions in turnaround time among enterprise clients integrating our private RAG and multi-agent platforms. Automated invoice reconciliations, semantic catalog parsing, and institutional memory indexing eliminate manual bottlenecks.",
+      "However, enterprise deployment demands stringent governance. Data leakage prevention, deterministic guardrails, zero hallucination, and private VPC or on-premises isolation remain essential priorities. Our architecture frameworks establish secure and provable AI implementations.",
+      "The future of work belongs to collaborative systems intelligence, where humans steer deterministic autonomous agents. Organizations that build these pipelines today will establish unassailable operational moats."
     ],
-    author: "David Chen",
-    role: "Chief Technology Officer"
+    author: "Systems Architecture Pod",
+    role: "Aparaitech Research"
   },
   "Aparaitech Named 'Top Cloud Innovator' of 2023": {
     content: [
-      "We are honored to be named the 'Top Cloud Innovator' of 2023 by the Global Tech Awards. This recognition highlights our commitment to building scalable, resilient, and sustainable cloud infrastructure for the modern enterprise.",
-      "The award specifically recognizes our breakthrough in 'Green Cloud Computing,' a proprietary optimization engine that reduces server energy consumption by up to 30% without compromising performance. As data centers consume an increasing share of global electricity, sustainable computing is more critical than ever.",
-      "\"Innovation is in our DNA,\" said our Head of Cloud Architecture. \"We didn't just want to build a faster cloud; we wanted to build a better one. This award belongs to every engineer who spent late nights optimizing kernels and rethinking resource allocation.\"",
-      "Aparaitech competed against 500 other technology firms for this prestigious title. We thank our partners and customers for their continued trust and support as we push the boundaries of what is possible in the cloud."
+      "We are honored to be recognized among the top enterprise AI and cloud engineering innovators. This acknowledgement highlights our commitment to engineering scalable, resilient, and verifiable infrastructure for sovereign enterprise workloads.",
+      "Our Hinjawadi Phase 2 Center of Excellence focuses specifically on low-latency GPU cluster orchestration, multi-tenant vector retrieval, and private on-premises VPC isolation engines that reduce energy consumption while maximizing inference throughput.",
+      "\"System reliability is in our engineering DNA,\" noted our Lead Cloud Architect. \"We don't merely run standard models; we build hardened runtime kernels, deterministic evaluation harnesses, and resilient microservices designed to never fail.\"",
+      "Aparaitech Software thanks our enterprise clients and engineering pods across India and globally for their partnership as we continue advancing sovereign AI systems."
     ],
-    author: "Editorial Team",
-    role: "Aparaitech News"
+    author: "Cloud Infrastructure Pod",
+    role: "Aparaitech Telemetry"
   },
   "New Partnership with Global Tech Giants": {
     content: [
-      "Aparaitech has entered into a strategic partnership with several global technology leaders to create a unified ecosystem for digital transformation. This alliance aims to bridge the gap between on-premise infrastructure and multi-cloud environments.",
-      "The partnership will enable seamless integration of Aparaitech's AI and analytics platforms with major cloud providers, including AWS, Azure, and Google Cloud. Customers can now deploy our solutions with a single click from their preferred cloud marketplace.",
-      "\"Collaboration is key to solving the complex problems of the digital age,\" said the VP of Strategic Partnerships. \"By joining forces with these industry giants, we are removing barriers to entry for our clients and ensuring that our technology works seamlessly wherever their data resides.\"",
-      "Joint initiatives will include co-developed solutions for cybersecurity, edge computing, and real-time data processing. Expect to see the first fruits of this collaboration rolling out in Q1 2024."
+      "Aparaitech Software has entered into strategic solution integration initiatives to build a unified ecosystem for enterprise cognitive automation. This initiative bridges legacy relational architectures with modern autonomous multi-agent pipelines.",
+      "The partnership framework enables seamless deployment of Aparaitech's custom AI platforms across hybrid cloud environments including AWS, GCP, Azure, and air-gapped on-premises Kubernetes clusters.",
+      "\"Architectural interoperability is essential to solving modern automation challenges,\" said our Principal Technology Strategist. \"By removing integration friction, our enterprise clients deploy production-grade multi-agent reasoning within days rather than quarters.\"",
+      "Joint technical implementations focus on real-time visual inspection, automated document intelligence, and sub-millisecond fraud topology detection across high-volume transaction networks."
     ],
-    author: "Michael Ross",
-    role: "Director of Partnerships"
+    author: "Strategic Engineering Pod",
+    role: "Aparaitech Alliances"
   }
 };
 
@@ -56,14 +56,15 @@ const NewsDetail = () => {
 
   if (!article) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-        <div className="text-center p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Article not found</h2>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0C0D0F] text-white p-6">
+        <div className="text-center p-8 bg-[#141518] border border-[#22242A] rounded-2xl max-w-md w-full shadow-2xl">
+          <h2 className="text-2xl font-bold text-white mb-3">Article Dispatch Not Found</h2>
+          <p className="text-slate-400 text-xs font-mono mb-6">The requested publication or news announcement could not be loaded directly.</p>
           <button 
-            onClick={() => navigate('/news')}
-            className="text-blue-600 hover:underline font-semibold"
+            onClick={() => navigate('/company/news')}
+            className="px-5 py-2.5 rounded-lg bg-[#00E5C9] text-[#0C0D0F] text-xs font-mono font-bold hover:brightness-110 transition-all cursor-pointer"
           >
-            Return to Newsroom
+            ← Return to Newsroom & Dispatches
           </button>
         </div>
       </div>
@@ -73,90 +74,124 @@ const NewsDetail = () => {
   // Get full content or fallback
   const details = articleContent[article.title] || {
     content: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+      "Aparaitech Software engineering pods continually deploy scalable architectures and enterprise AI pipelines designed for verified production outcomes.",
+      "Operating from Gera Imperium, Hinjawadi Phase 2, Pune, our teams bridge cutting-edge multi-agent reasoning with statutory compliance, security isolation, and enterprise SLAs."
     ],
-    author: "Aparaitech Team.",
-    role: "Contributor"
+    author: "Aparaitech Editorial Pod",
+    role: "Technical Communications"
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans pt-16">
-      {/* Hero Image */}
-      <div className="relative h-[400px] md:h-[500px] w-full">
-        <img 
-          src={article.image} 
-          alt={article.title} 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full p-6 md:p-12">
-          <div className="max-w-4xl mx-auto">
-            <span className="inline-block px-4 py-1.5 bg-blue-600 text-white text-sm font-bold uppercase tracking-wider rounded-full mb-6">
-              {article.category}
-            </span>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              {article.title}
-            </h1>
-            <div className="flex items-center text-gray-300 gap-6 text-sm md:text-base">
-              <span className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                {article.date}
+    <div className="min-h-screen bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] pt-20 pb-24">
+      {/* Top Breadcrumb & Return Nav */}
+      <div className="mx-auto max-w-[1240px] px-6 lg:px-8 mb-8">
+        <button
+          onClick={() => navigate(-1)}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#141518] border border-[#22242A] text-slate-300 hover:text-[#00E5C9] hover:border-[#00E5C9]/50 transition-all font-mono text-xs cursor-pointer shadow-sm"
+        >
+          <span>← Back to News & Dispatches</span>
+        </button>
+      </div>
+
+      {/* Hero Banner with Article Metadata */}
+      <div className="mx-auto max-w-[1240px] px-6 lg:px-8 mb-12">
+        <div className="relative h-[380px] md:h-[480px] w-full rounded-2xl overflow-hidden border border-[#22242A] shadow-2xl bg-[#141518]">
+          <img 
+            src={article.image} 
+            alt={article.title} 
+            className="w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-[#0C0D0F]/60 to-transparent"></div>
+          
+          <div className="absolute bottom-0 left-0 w-full p-6 sm:p-10 md:p-12">
+            <div className="max-w-4xl">
+              <span className="inline-block px-3 py-1 bg-[#00E5C9]/20 border border-[#00E5C9]/40 text-[#00E5C9] text-[11px] font-mono font-bold uppercase tracking-wider rounded-md mb-4">
+                {article.category}
               </span>
-              <span className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                5 min read
-              </span>
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight tracking-tight">
+                {article.title}
+              </h1>
+              <div className="flex flex-wrap items-center text-slate-300 gap-6 text-xs font-mono">
+                <span className="flex items-center gap-1.5 text-slate-300">
+                  <span className="h-2 w-2 rounded-full bg-[#00E5C9]"></span>
+                  {article.date}
+                </span>
+                <span className="text-slate-400">
+                  5 min architectural read
+                </span>
+                <span className="text-[#D4FD53]">
+                  Pune CoE Engineering Dispatch
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <div className="flex flex-col md:flex-row gap-12">
+      {/* Article Content & Sidebar */}
+      <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          {/* Main Article */}
-          <div className="md:w-3/4">
-            <div className="prose prose-lg max-w-none text-gray-700">
-              <p className="text-xl md:text-2xl text-gray-900 font-medium leading-relaxed mb-10">
+          {/* Main Article Body */}
+          <div className="lg:col-span-8">
+            <div className="bg-[#141518] border border-[#22242A] rounded-2xl p-6 sm:p-10 shadow-2xl">
+              <p className="text-lg sm:text-xl text-slate-200 font-medium leading-relaxed mb-8 border-b border-[#22242A] pb-6">
                 {article.excerpt}
               </p>
               
-              {details.content.map((paragraph, idx) => (
-                <p key={idx} className="mb-6 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+              <div className="space-y-6 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                {details.content.map((paragraph, idx) => (
+                  <p key={idx} className="leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
 
-            {/* Share / Tags */}
-            <div className="mt-12 pt-8 border-t border-gray-100 flex flex-wrap gap-4">
-              <span className="text-gray-500 font-medium">Tags:</span>
-              {['Technology', 'Innovation', article.category, 'Enterprise'].map((tag, i) => (
-                <span key={i} className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-gray-200 cursor-pointer transition-colors">
-                  #{tag}
-                </span>
-              ))}
+              {/* Tags Strip */}
+              <div className="mt-10 pt-6 border-t border-[#22242A] flex flex-wrap items-center gap-2">
+                <span className="text-xs font-mono text-slate-400 uppercase tracking-wider mr-2">Architecture Topics:</span>
+                {['Enterprise AI', 'Autonomous Systems', article.category, 'Pune CoE'].map((tag, i) => (
+                  <span key={i} className="px-3 py-1 bg-[#1C1C1E] border border-white/10 text-slate-300 rounded font-mono text-xs">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Sidebar / Author */}
-          <div className="md:w-1/4">
-            <div className="sticky top-24">
-              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Written By</h3>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">
-                    {details.author.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900">{details.author}</div>
-                    <div className="text-xs text-gray-500">{details.role}</div>
-                  </div>
+          {/* Sidebar: Author & Technical Overview */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="bg-[#141518] p-6 rounded-2xl border border-[#22242A] shadow-xl">
+              <h3 className="text-xs font-mono font-bold text-[#00E5C9] uppercase tracking-wider mb-4">
+                Published By
+              </h3>
+              <div className="flex items-center gap-3.5 mb-4">
+                <div className="w-11 h-11 rounded-xl bg-[#00E5C9]/10 border border-[#00E5C9]/30 flex items-center justify-center text-[#00E5C9] font-bold font-mono">
+                  {details.author.charAt(0)}
+                </div>
+                <div>
+                  <div className="font-bold text-white text-sm">{details.author}</div>
+                  <div className="text-xs text-slate-400 font-mono mt-0.5">{details.role}</div>
                 </div>
               </div>
+              <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                Engineering dispatches covering real-world autonomous deployments from our Pune Center of Excellence.
+              </p>
+            </div>
+
+            <div className="bg-[#141518] p-6 rounded-2xl border border-[#22242A] shadow-xl space-y-3">
+              <h4 className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                Engineering Inquiries
+              </h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Connect with our systems architects to evaluate technical specifications or review deployment case studies.
+              </p>
+              <button
+                onClick={() => navigate('/company/about-us')}
+                className="w-full py-2.5 rounded-lg bg-[#1C1C1E] border border-white/10 text-white font-mono text-xs hover:border-[#00E5C9]/50 transition-colors"
+              >
+                Learn About Aparaitech →
+              </button>
             </div>
           </div>
 

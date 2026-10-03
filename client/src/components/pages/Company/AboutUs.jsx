@@ -18,7 +18,10 @@ import {
   Calendar,
   X,
   FileText,
-  ShieldCheck
+  ShieldCheck,
+  Terminal,
+  Workflow,
+  Layers
 } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { saveAppointmentToSheet } from "../../../utils/sheetService";
@@ -173,38 +176,123 @@ const AboutUs = () => {
 
           {/* Founder & Government Accreditations Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {/* Founder: Pratik Pawar */}
-            <div className="relative group">
+            {/* Executive Leadership & Systems Architecture Matrix (No Personal Photo) */}
+            <div className="relative group flex flex-col">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#00E5C9]/25 to-[#D4FD53]/25 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-3 shadow-2xl h-full flex flex-col justify-between">
-                <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-[#0C0D0F]">
-                  <img
-                    src="/founder.jpg"
-                    alt="Pratik Pawar - Founder & Sole Proprietor, Aparaitech Software"
-                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0F] via-transparent to-transparent opacity-85"></div>
-                  
-                  {/* Floating Badge */}
-                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#141518]/90 backdrop-blur-md border border-white/10">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#D4FD53] font-bold">
-                        FOUNDER & SOLE PROPRIETOR
-                      </span>
-                      <span className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-300">
-                        <MapPin className="w-3 h-3 text-[#00E5C9]" /> Pune CoE
-                      </span>
+              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-6 sm:p-7 shadow-2xl flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-4 pb-4 border-b border-white/10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4FD53]/10 border border-[#D4FD53]/30 text-[#D4FD53] font-mono text-[11px] font-bold tracking-wider uppercase">
+                      <Terminal className="w-3.5 h-3.5" />
+                      Executive Leadership
                     </div>
-                    <h4 className="text-xl font-bold text-white tracking-tight">
-                      Pratik Pawar
-                    </h4>
-                    <p className="text-xs text-[#00E5C9] font-mono mt-0.5">
-                      Systems Architect & Technology Strategist
-                    </p>
-                    <p className="text-[11px] text-slate-400 font-mono mt-1">
-                      Aparaitech Software • Sole Proprietorship Firm
-                    </p>
+                    <span className="font-mono text-[10px] text-slate-400 bg-white/5 px-2.5 py-1 rounded border border-white/10 flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-[#00E5C9]" /> Pune CoE Command
+                    </span>
                   </div>
+
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#00E5C9]/20 to-[#D4FD53]/10 border border-[#00E5C9]/30 flex items-center justify-center shrink-0 shadow-md">
+                      <Cpu className="w-6 h-6 text-[#00E5C9]" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                          Pratik Pawar
+                        </h3>
+                        <span className="font-mono text-[9px] bg-[#00E5C9]/10 text-[#00E5C9] px-2 py-0.5 rounded border border-[#00E5C9]/20 font-bold uppercase">
+                          Verified
+                        </span>
+                      </div>
+                      <p className="text-xs text-[#00E5C9] font-mono mt-0.5 font-medium">
+                        Founder & Principal Systems Architect • Sole Proprietor
+                      </p>
+                      <p className="text-[11px] text-slate-400 font-mono mt-0.5">
+                        Aparaitech Software • Hinjawadi Phase 2, Pune
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-300 font-normal mb-6 leading-relaxed">
+                    Directing frontier enterprise AI engineering, autonomous multi-agent orchestration, and sovereign cloud deployments. Combining high-concurrency architecture with statutory Government of India compliance.
+                  </p>
+
+                  <div className="space-y-3.5">
+                    {/* Mandate 1: Autonomous Multi-Agent Orchestration */}
+                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-lg bg-[#00E5C9]/10 border border-[#00E5C9]/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Workflow className="w-4 h-4 text-[#00E5C9]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="text-sm font-semibold text-white truncate">
+                            Autonomous Multi-Agent Consensus
+                          </h4>
+                          <span className="font-mono text-[10px] text-[#00E5C9] font-bold uppercase tracking-wider shrink-0">
+                            Pillar 01
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 font-normal mt-0.5 leading-relaxed">
+                          Deterministic agentic workflows, self-correcting RAG memory, and sub-second tool execution pipelines.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Mandate 2: Sovereign Cloud & Private VPC */}
+                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#D4FD53]/40 transition-colors flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-lg bg-[#D4FD53]/10 border border-[#D4FD53]/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Lock className="w-4 h-4 text-[#D4FD53]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="text-sm font-semibold text-white truncate">
+                            Private VPC & On-Premises Isolation
+                          </h4>
+                          <span className="font-mono text-[10px] text-[#D4FD53] font-bold uppercase tracking-wider shrink-0">
+                            Pillar 02
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 font-normal mt-0.5 leading-relaxed">
+                          Air-gapped model inferencing, zero external data leakage, and enterprise HIPAA/PCI-DSS compliance.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Mandate 3: Commercial Production Scale */}
+                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#9B95FE]/40 transition-colors flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-lg bg-[#9B95FE]/10 border border-[#9B95FE]/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Layers className="w-4 h-4 text-[#9B95FE]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="text-sm font-semibold text-white truncate">
+                            Production Platform Ecosystem
+                          </h4>
+                          <span className="font-mono text-[10px] text-[#9B95FE] font-bold uppercase tracking-wider shrink-0">
+                            Pillar 03
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 font-normal mt-0.5 leading-relaxed">
+                          6 live production SaaS systems operating with continuous 99.9% uptime SLA across enterprise clients.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Statutory Verification Strip */}
+                <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono">
+                  <span className="text-slate-400 flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5C9]" />
+                    100% IP & Source Ownership Transferred
+                  </span>
+                  <button
+                    onClick={() => setModalOpen(true)}
+                    className="text-[#00E5C9] hover:underline font-bold flex items-center gap-1 cursor-pointer"
+                  >
+                    <span>Consult Architecture Lead</span>
+                    <ArrowUpRight className="w-3 h-3" />
+                  </button>
                 </div>
               </div>
             </div>
@@ -498,17 +586,20 @@ const AboutUs = () => {
             </button>
 
             <div className="mb-6 flex items-center gap-3">
-              <img
-                src="/founder.jpg"
-                alt="Pratik Pawar - Founder & Proprietor"
-                className="w-12 h-12 rounded-full object-cover object-top border-2 border-[#00E5C9] shadow-lg"
-              />
+              <div className="relative">
+                <img
+                  src="/aparaitech_logo.jpg"
+                  alt="Aparaitech Software"
+                  className="w-12 h-12 rounded-xl object-contain bg-white/5 border border-[#00E5C9]/40 p-1 shadow-lg shadow-[#00E5C9]/10"
+                />
+                <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#00E5C9] text-[9px] font-bold text-[#0C0D0F]">✓</span>
+              </div>
               <div>
                 <span className="font-mono text-xs uppercase tracking-widest text-[#00E5C9]">
                   EXECUTIVE BRIEFING INTAKE
                 </span>
                 <h3 className="text-lg font-bold text-white">
-                  Connect with Founder Pratik Pawar & Pune Team
+                  Executive Briefing & Architectural Advisory
                 </h3>
               </div>
             </div>
