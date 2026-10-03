@@ -598,3 +598,17 @@ html.light .border-gray-300 {
   border-color: #E2E8F0 !important;
 }
 
+/* Times New Roman Custom Utility */
+.font-times {
+  font-family: 'Times New Roman', Times, Baskerville, Georgia, serif !important;
+}
+
+/* Hide Scrollbar helper for smooth touch / horizontal carousel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

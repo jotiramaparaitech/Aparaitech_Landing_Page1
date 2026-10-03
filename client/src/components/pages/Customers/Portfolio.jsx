@@ -81,7 +81,8 @@ const Portfolio = () => {
       badge: "LIVE SAAS",
       desc: "Autonomous multi-brand cloud kitchen management, kitchen display system (KDS), and automated delivery aggregator dispatch operating in commercial kitchens.",
       stack: ["React", "Node.js", "Redis", "WebSockets", "PostgreSQL"],
-      metric: "Sub-15s Kitchen Dispatch"
+      metric: "Sub-15s Kitchen Dispatch",
+      image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80"
     },
     {
       title: "AI Attendance & Workforce Platform",
@@ -90,7 +91,8 @@ const Portfolio = () => {
       badge: "LIVE BIOMETRIC AI",
       desc: "Geofenced facial recognition check-in, automated shift scheduling, anti-spoofing liveness verification, and integrated payroll telemetry.",
       stack: ["Computer Vision", "TensorFlow", "React Native", "PostgreSQL"],
-      metric: "99.8% Biometric Precision"
+      metric: "99.8% Biometric Precision",
+      image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
     },
     {
       title: "ApnaStore B2B & Retail Commerce",
@@ -99,7 +101,8 @@ const Portfolio = () => {
       badge: "LIVE COMMERCE",
       desc: "Next-generation wholesale and retail commerce engine with instantaneous inventory synchronization, WhatsApp ordering, and POS terminal integration.",
       stack: ["Next.js", "Redis", "Kafka", "PostgreSQL", "TailwindCSS"],
-      metric: "100k+ SKU Scalability"
+      metric: "100k+ SKU Scalability",
+      image: "https://images.unsplash.com/photo-1556742049-0a67e5572293?auto=format&fit=crop&w=1200&q=80"
     },
     {
       title: "ServiceHub Field Operations",
@@ -108,7 +111,8 @@ const Portfolio = () => {
       badge: "LIVE FIELD OPS",
       desc: "Intelligent field technician routing, SLA ticket escalation engine, offline signature capture, and customer dispatch portal.",
       stack: ["React", "Express", "MongoDB", "Leaflet Maps", "Docker"],
-      metric: "99.9% Uptime SLA"
+      metric: "99.9% Uptime SLA",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80"
     },
     {
       title: "SVPM Alumni Network Portal",
@@ -117,7 +121,8 @@ const Portfolio = () => {
       badge: "LIVE COMMUNITY",
       desc: "Large-scale institutional alumni knowledge directory, structured mentorship matching, campaign management, and verified graduate networking.",
       stack: ["React", "Node.js", "GraphQL", "PostgreSQL", "AWS S3"],
-      metric: "Thousands of Active Alumni"
+      metric: "Thousands of Active Alumni",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80"
     },
     {
       title: "Aparaitech LMS Tech Academy",
@@ -126,7 +131,8 @@ const Portfolio = () => {
       badge: "LIVE LMS",
       desc: "Interactive technical learning suite with in-browser code sandboxes, automated MCQ evaluations, curriculum milestones, and skill verification.",
       stack: ["React", "TypeScript", "Node.js", "Monaco Editor", "TailwindCSS"],
-      metric: "Instant Code Feedback"
+      metric: "Instant Code Feedback",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
     }
   ];
 
@@ -156,11 +162,11 @@ const Portfolio = () => {
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-times font-serif font-bold tracking-tight text-white leading-tight max-w-4xl">
             Live Production Systems & Enterprise Portfolio
           </h1>
 
-          <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-slate-300 font-times font-serif max-w-2xl leading-relaxed">
             We don't deal in hypothetical slideware. Inspect real commercial operating systems engineered, deployed, and operated live 24/7 by Aparaitech Software.
           </p>
 
@@ -222,22 +228,36 @@ const Portfolio = () => {
             {filteredPlatforms.map((p, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#D4FD53]/50 transition-all flex flex-col justify-between group"
+                className="p-6 sm:p-7 rounded-xl bg-[#141518] border border-[#22242A] hover:border-[#D4FD53]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#D4FD53]/5 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xs text-[#10B981] flex items-center gap-1.5">
-                      <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
-                      {p.badge}
-                    </span>
-                    <span className="font-mono text-xs text-slate-400">{p.metric}</span>
+                  {/* Card Image Banner */}
+                  <div className="relative w-full h-48 sm:h-52 overflow-hidden rounded-lg mb-5 bg-[#1C1C1E] border border-white/10 group-hover:border-[#D4FD53]/40 transition-all">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-[#141518]/30 to-black/40"></div>
+
+                    {/* Top Badges */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                      <span className="font-mono text-[10px] text-[#10B981] flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 font-bold">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+                        {p.badge}
+                      </span>
+                      <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-[#D4FD53]/30 text-[#D4FD53]">
+                        {p.metric}
+                      </span>
+                    </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#D4FD53] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white mb-2 group-hover:text-[#D4FD53] transition-colors leading-snug">
                     {p.title}
                   </h3>
 
-                  <p className="text-sm text-slate-400 leading-relaxed font-mono mb-6">
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans mb-5">
                     {p.desc}
                   </p>
 
@@ -253,15 +273,16 @@ const Portfolio = () => {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#22242A]">
+                <div className="pt-4 border-t border-[#22242A] flex items-center justify-between gap-3 font-mono text-xs">
+                  <span className="text-[11px] text-slate-500">Live Production SaaS</span>
                   <a
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-mono text-xs text-[#D4FD53] hover:underline"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#D4FD53] hover:bg-[#D4FD53]/90 text-[#0C0D0F] font-mono text-xs font-bold transition-all shadow-md"
                   >
-                    <span>Launch Live Platform</span>
-                    <ArrowUpRight className="w-4 h-4" />
+                    <span>Launch Live</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>

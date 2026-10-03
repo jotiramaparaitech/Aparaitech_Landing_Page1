@@ -1,9 +1,11 @@
 // src/components/AltrdHome.jsx
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   CheckCircle2,
   Shield,
   Zap,
@@ -28,10 +30,15 @@ import {
   Clock,
   ShieldCheck,
   Check,
-  ChevronRight,
   Send,
   MapPin,
-  Briefcase
+  Briefcase,
+  SlidersHorizontal,
+  Grid,
+  Maximize2,
+  X,
+  Play,
+  Pause
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { recordAppointmentBooking } from "../utils/sheetService";
@@ -91,61 +98,180 @@ export default function AltrdHome() {
     }
   };
 
-  // 6 Live Production Platforms
+  // Carousel & Production Platforms Showcase State
+  const carouselRef = useRef(null);
+  const [platformViewMode, setPlatformViewMode] = useState("carousel"); // "carousel" or "grid"
+  const [activePlatformIndex, setActivePlatformIndex] = useState(0);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
+  const [selectedPlatformModal, setSelectedPlatformModal] = useState(null);
+
+  // Auto-scrolling carousel effect (pauses on hover)
+  useEffect(() => {
+    if (platformViewMode !== "carousel" || isCarouselPaused) return;
+
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+        const maxScroll = scrollWidth - clientWidth;
+        const cardStep = 390;
+
+        if (scrollLeft >= maxScroll - 25) {
+          carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+          setActivePlatformIndex(0);
+        } else {
+          carouselRef.current.scrollBy({ left: cardStep, behavior: "smooth" });
+        }
+      }
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, [platformViewMode, isCarouselPaused]);
+
+  const handleCarouselScroll = () => {
+    if (!carouselRef.current) return;
+    const { scrollLeft } = carouselRef.current;
+    const cardStep = 390;
+    const newIdx = Math.min(
+      Math.max(0, Math.round(scrollLeft / cardStep)),
+      5
+    );
+    setActivePlatformIndex(newIdx);
+  };
+
+  const scrollCarousel = (direction) => {
+    if (!carouselRef.current) return;
+    const cardStep = 390;
+    carouselRef.current.scrollBy({
+      left: direction === "left" ? -cardStep : cardStep,
+      behavior: "smooth"
+    });
+  };
+
+  const scrollToCard = (index) => {
+    if (!carouselRef.current) return;
+    const cardStep = 390;
+    carouselRef.current.scrollTo({
+      left: index * cardStep,
+      behavior: "smooth"
+    });
+    setActivePlatformIndex(index);
+  };
+
+  // 6 Live Production Platforms with Real Images, Specs & Subpages
   const productionPlatforms = [
     {
+      id: "cloud-kitchen",
       name: "Cloud Kitchen AI",
       tagline: "Automated Culinary Operations & Predictive Inventory",
       metric: "32% Waste Reduction",
       detail: "Demand forecasting, dynamic ingredient costing, multi-channel food aggregator sync, and kitchen display intelligence.",
       badge: "LIVE SAAS PLATFORM",
       link: "https://cloudkitchen.aparaitech.org/",
-      stack: "Python • Fastify • PyTorch • Postgres"
+      subpage: "/customers/portfolio",
+      stack: "Python • Fastify • PyTorch • Postgres",
+      image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80",
+      accentColor: "#00E5C9",
+      specs: {
+        latency: "<15ms Order Routing",
+        throughput: "12,000+ Orders/Day",
+        sla: "99.98% Live Uptime",
+        deployment: "Distributed Private VPC"
+      }
     },
     {
+      id: "enterprise-attendance",
       name: "Enterprise Attendance SaaS",
       tagline: "Biometric Computer Vision & Geofenced Workforce Telemetry",
       metric: "99.8% Facial Match",
       detail: "Edge facial recognition, anti-spoofing liveness verification, multi-shift scheduling, and automated payroll sync.",
       badge: "ENTERPRISE DEPLOYMENT",
       link: "https://attendance.aparaitech.org/",
-      stack: "OpenCV • TensorRT • Node.js • Redis"
+      subpage: "/customers/portfolio",
+      stack: "OpenCV • TensorRT • Node.js • Redis",
+      image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
+      accentColor: "#D4FD53",
+      specs: {
+        latency: "<45ms Edge Match",
+        throughput: "50,000+ Check-Ins/Day",
+        sla: "99.99% Edge Availability",
+        deployment: "On-Premises Edge Hub"
+      }
     },
     {
+      id: "apna-store",
       name: "APNA Store",
       tagline: "Omnichannel Commerce Engine & Semantic Search",
       metric: "4.2x Search Conversion",
       detail: "Vector-driven product discovery, real-time catalog indexing, automated checkout flows, and inventory intelligence.",
       badge: "ECOMMERCE PLATFORM",
       link: "https://apnastore.aparaitech.org/",
-      stack: "React • Qdrant • Microservices • Docker"
+      subpage: "/customers/portfolio",
+      stack: "React • Qdrant • Microservices • Docker",
+      image: "https://images.unsplash.com/photo-1556742049-0a67e5572293?auto=format&fit=crop&w=1200&q=80",
+      accentColor: "#9B95FE",
+      specs: {
+        latency: "<8ms Vector Query",
+        throughput: "100k+ Live SKU Indexing",
+        sla: "100% Zero-Drop Checkout",
+        deployment: "Containerized Kubernetes"
+      }
     },
     {
+      id: "service-hub",
       name: "Service Hub Dispatch",
       tagline: "Intelligent Field Service Dispatch & Route Optimizer",
       metric: "40% Transit Optimization",
       detail: "Automated multi-vendor technician allocation, dynamic travel route planning, SLA tracking, and instant mobile alerts.",
       badge: "OPERATIONAL DISPATCH",
       link: "http://servicehub.aparaitech.org/",
-      stack: "Graph Algorithms • Go • React Native"
+      subpage: "/customers/portfolio",
+      stack: "Graph Algorithms • Go • React Native",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+      accentColor: "#00E5C9",
+      specs: {
+        latency: "<100ms Route Calculation",
+        throughput: "5,000+ Active Dispatches",
+        sla: "99.95% Route Precision",
+        deployment: "Multi-Zone Geo Cluster"
+      }
     },
     {
+      id: "svpm-alumni",
       name: "SVPM Alumni Network",
       tagline: "Cognitive Mentorship Matching & Institutional Portal",
       metric: "12,000+ Active Members",
       detail: "Semantic resume-to-job matching, automated chapter announcements, alumni donation tracking, and verified directories.",
       badge: "ACADEMIC NETWORK",
       link: "http://svpmalumni.aparaitech.org/",
-      stack: "Next.js • Vector Embeddings • AWS"
+      subpage: "/customers/portfolio",
+      stack: "Next.js • Vector Embeddings • AWS",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
+      accentColor: "#D4FD53",
+      specs: {
+        latency: "<50ms Semantic Scoring",
+        throughput: "12,000+ Verified Records",
+        sla: "99.9% Portal Availability",
+        deployment: "AWS Serverless Edge"
+      }
     },
     {
+      id: "assessment-platform",
       name: "Online Assessment Platform",
       tagline: "Proctored Cognitive Testing & Skill Evaluation Engine",
       metric: "50,000+ Tests Evaluated",
       detail: "Automated MCQ generation, live webcam behavioral proctoring, code execution sandbox, and comprehensive candidate scoring.",
       badge: "ASSESSMENT ENGINE",
       link: "https://tests.apraitech.org/",
-      stack: "WebAssembly • Pyodide • WebRTC • GCP"
+      subpage: "/customers/portfolio",
+      stack: "WebAssembly • Pyodide • WebRTC • GCP",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+      accentColor: "#9B95FE",
+      specs: {
+        latency: "<30ms Code Isolation Run",
+        throughput: "50,000+ Completed Sessions",
+        sla: "100% Anti-Cheating Telemetry",
+        deployment: "Isolated Sandbox Pods"
+      }
     }
   ];
 
@@ -546,70 +672,408 @@ export default function AltrdHome() {
       </section>
 
       {/* 3. PROVEN PRODUCTION PLATFORMS SHOWCASE */}
+      {/* 3. PROVEN PRODUCTION PLATFORMS SHOWCASE WITH CAROUSEL & TIMES NEW ROMAN */}
       <section id="platforms" className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="block h-2.5 w-2.5 bg-[#00E5C9]"></span>
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
-                PROVEN PRODUCTION DEPLOYMENTS
+          {/* Header & Controls Strip */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="block h-2.5 w-2.5 bg-[#00E5C9]"></span>
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
+                  PROVEN PRODUCTION DEPLOYMENTS
+                </span>
+              </div>
+              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold tracking-tight text-white leading-tight">
+                Real-World Platforms Engineered & Operated by Aparaitech Software.
+              </h2>
+              <p className="mt-4 text-base sm:text-lg text-slate-300 font-times font-serif leading-relaxed">
+                We do not deal in hypothetical concept decks. We build, scale, and maintain high-volume cognitive software systems deployed in production environments.
+              </p>
+            </div>
+
+            {/* Carousel Navigation & Mode Toggles */}
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              {/* View Mode Toggle */}
+              <div className="inline-flex items-center rounded-lg bg-[#141518] border border-[#22242A] p-1 font-mono text-xs">
+                <button
+                  onClick={() => setPlatformViewMode("carousel")}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md transition-all ${
+                    platformViewMode === "carousel"
+                      ? "bg-[#00E5C9] text-[#0C0D0F] font-bold shadow-md"
+                      : "text-slate-400 hover:text-white"
+                  }`}
+                >
+                  <SlidersHorizontal className="w-3.5 h-3.5" />
+                  <span>Carousel</span>
+                </button>
+                <button
+                  onClick={() => setPlatformViewMode("grid")}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md transition-all ${
+                    platformViewMode === "grid"
+                      ? "bg-[#00E5C9] text-[#0C0D0F] font-bold shadow-md"
+                      : "text-slate-400 hover:text-white"
+                  }`}
+                >
+                  <Grid className="w-3.5 h-3.5" />
+                  <span>All (6)</span>
+                </button>
+              </div>
+
+              {/* Prev / Next Scroll Buttons (Carousel Mode) */}
+              {platformViewMode === "carousel" && (
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => scrollCarousel("left")}
+                    className="h-9 w-9 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#00E5C9]/50 hover:bg-[#1C1C1E] flex items-center justify-center text-white transition-all cursor-pointer"
+                    aria-label="Previous platform"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => scrollCarousel("right")}
+                    className="h-9 w-9 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#00E5C9]/50 hover:bg-[#1C1C1E] flex items-center justify-center text-white transition-all cursor-pointer"
+                    aria-label="Next platform"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
+
+              {/* Subpage Portfolio Link */}
+              <Link
+                to="/customers/portfolio"
+                className="inline-flex h-9 items-center gap-1.5 px-4 rounded-lg bg-[#141518] border border-white/15 hover:border-[#00E5C9] text-xs font-mono text-white transition-all"
+              >
+                <span>Full Portfolio Subpage</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#00E5C9]" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Scrolling Effect Notice Bar */}
+          {platformViewMode === "carousel" && (
+            <div className="flex items-center justify-between mb-4 font-mono text-xs text-slate-400 px-1">
+              <span className="flex items-center gap-2">
+                <span className={`h-2 w-2 rounded-full ${isCarouselPaused ? "bg-amber-400" : "bg-[#10B981] animate-pulse"}`}></span>
+                {isCarouselPaused ? "Auto-Scroll Paused (Hovering)" : "Auto-Scrolling Active (Hover card to pause)"}
+              </span>
+              <span className="text-[11px] text-slate-500 hidden sm:inline">
+                Drag or use arrows to navigate systems
               </span>
             </div>
-            <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-bold tracking-tight text-white leading-tight">
-              Real-world platforms engineered & operated by Aparaitech Software.
-            </h2>
-            <p className="mt-4 text-base text-slate-400 leading-relaxed">
-              We do not deal in hypothetical concept decks. We build, scale, and maintain high-volume cognitive software systems deployed in production environments.
-            </p>
-          </div>
+          )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {productionPlatforms.map((platform, idx) => (
+          {/* Platforms Cards Container: Carousel or Grid */}
+          {platformViewMode === "carousel" ? (
+            <div>
               <div
-                key={idx}
-                className="group relative rounded-xl bg-[#141518] border border-[#22242A] p-7 transition-all duration-300 hover:border-[#00E5C9]/50 hover:shadow-xl hover:shadow-[#00E5C9]/5 flex flex-col justify-between"
+                ref={carouselRef}
+                onScroll={handleCarouselScroll}
+                onMouseEnter={() => setIsCarouselPaused(true)}
+                onMouseLeave={() => setIsCarouselPaused(false)}
+                className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-6 px-1"
+                style={{ scrollbarWidth: "none" }}
               >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="font-mono text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded bg-[#1C1C1E] text-[#00E5C9] border border-white/5">
-                      {platform.badge}
-                    </span>
-                    <span className="font-mono text-xs font-bold text-[#D4FD53]">
-                      {platform.metric}
-                    </span>
+                {productionPlatforms.map((platform, idx) => (
+                  <div
+                    key={platform.id || idx}
+                    className="w-[320px] sm:w-[380px] lg:w-[400px] shrink-0 snap-start group relative rounded-xl bg-[#141518] border border-[#22242A] p-6 sm:p-7 transition-all duration-300 hover:border-[#00E5C9]/50 hover:shadow-2xl hover:shadow-[#00E5C9]/5 flex flex-col justify-between"
+                  >
+                    <div>
+                      {/* 1. High-Resolution Card Preview Image */}
+                      <div className="relative w-full h-48 sm:h-52 overflow-hidden rounded-lg mb-5 bg-[#1C1C1E] border border-white/10 group-hover:border-[#00E5C9]/40 transition-all">
+                        <img
+                          src={platform.image}
+                          alt={platform.name}
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                        {/* Gradient Shadow Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-[#141518]/30 to-black/40"></div>
+
+                        {/* Badges on Top */}
+                        <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#00E5C9]">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+                            {platform.badge}
+                          </span>
+                          <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-[#D4FD53]/30 text-[#D4FD53]">
+                            {platform.metric}
+                          </span>
+                        </div>
+
+                        {/* Quick Specs Action Button */}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedPlatformModal(platform);
+                          }}
+                          className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/85 hover:bg-[#00E5C9] hover:text-[#0C0D0F] text-white border border-white/20 text-[10px] font-mono transition-all backdrop-blur-md cursor-pointer shadow-md"
+                          title="View Architecture Specs"
+                        >
+                          <SlidersHorizontal className="w-3 h-3" />
+                          <span>Quick Specs</span>
+                        </button>
+                      </div>
+
+                      {/* 2. Platform Title (Times New Roman) */}
+                      <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white group-hover:text-[#00E5C9] transition-colors mb-1.5 leading-snug">
+                        {platform.name}
+                      </h3>
+
+                      {/* 3. Platform Tagline (Times New Roman) */}
+                      <p className="text-xs sm:text-sm font-times font-serif italic text-slate-300 mb-3 leading-relaxed">
+                        {platform.tagline}
+                      </p>
+
+                      {/* 4. Platform Detail Text */}
+                      <p className="text-xs text-slate-400 leading-relaxed mb-4 font-normal">
+                        {platform.detail}
+                      </p>
+
+                      {/* 5. Production Telemetry Chips */}
+                      <div className="flex flex-wrap gap-1.5 mb-5 font-mono text-[10px]">
+                        <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">
+                          {platform.specs.latency}
+                        </span>
+                        <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">
+                          {platform.specs.throughput}
+                        </span>
+                        <span className="px-2 py-0.5 rounded bg-[#D4FD53]/10 border border-[#D4FD53]/20 text-[#D4FD53] font-semibold">
+                          {platform.specs.sla}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 6. Card Footer with Subpage Link & Live Launch */}
+                    <div className="pt-4 border-t border-[#22242A] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                      {/* Architecture Subpage Link */}
+                      <Link
+                        to={platform.subpage}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-[#00E5C9]/15 border border-white/10 hover:border-[#00E5C9]/40 text-[#00E5C9] font-mono text-[11px] font-semibold transition-all group-hover:border-[#00E5C9]/30"
+                      >
+                        <span>Architecture Subpage</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+
+                      {/* Live Platform Deployment Link */}
+                      <a
+                        href={platform.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#00E5C9] hover:bg-[#00E5C9]/90 text-[#0C0D0F] font-mono text-[11px] font-bold transition-all shadow-md hover:brightness-110"
+                      >
+                        <span>Launch Live</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Indicator Dots */}
+              <div className="flex items-center justify-center gap-2 mt-4">
+                {productionPlatforms.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => scrollToCard(idx)}
+                    className={`h-2 transition-all rounded-full cursor-pointer ${
+                      activePlatformIndex === idx
+                        ? "w-8 bg-[#00E5C9]"
+                        : "w-2 bg-white/20 hover:bg-white/50"
+                    }`}
+                    aria-label={`Jump to platform ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : (
+            /* Full Grid View */
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {productionPlatforms.map((platform, idx) => (
+                <div
+                  key={platform.id || idx}
+                  className="group relative rounded-xl bg-[#141518] border border-[#22242A] p-6 sm:p-7 transition-all duration-300 hover:border-[#00E5C9]/50 hover:shadow-2xl hover:shadow-[#00E5C9]/5 flex flex-col justify-between"
+                >
+                  <div>
+                    {/* High-Resolution Card Preview Image */}
+                    <div className="relative w-full h-48 sm:h-52 overflow-hidden rounded-lg mb-5 bg-[#1C1C1E] border border-white/10 group-hover:border-[#00E5C9]/40 transition-all">
+                      <img
+                        src={platform.image}
+                        alt={platform.name}
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-[#141518]/30 to-black/40"></div>
+
+                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#00E5C9]">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+                          {platform.badge}
+                        </span>
+                        <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-[#D4FD53]/30 text-[#D4FD53]">
+                          {platform.metric}
+                        </span>
+                      </div>
+
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedPlatformModal(platform);
+                        }}
+                        className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/85 hover:bg-[#00E5C9] hover:text-[#0C0D0F] text-white border border-white/20 text-[10px] font-mono transition-all backdrop-blur-md cursor-pointer shadow-md"
+                        title="View Architecture Specs"
+                      >
+                        <SlidersHorizontal className="w-3 h-3" />
+                        <span>Quick Specs</span>
+                      </button>
+                    </div>
+
+                    <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white group-hover:text-[#00E5C9] transition-colors mb-1.5 leading-snug">
+                      {platform.name}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm font-times font-serif italic text-slate-300 mb-3 leading-relaxed">
+                      {platform.tagline}
+                    </p>
+
+                    <p className="text-xs text-slate-400 leading-relaxed mb-4 font-normal">
+                      {platform.detail}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 mb-5 font-mono text-[10px]">
+                      <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">
+                        {platform.specs.latency}
+                      </span>
+                      <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">
+                        {platform.specs.throughput}
+                      </span>
+                      <span className="px-2 py-0.5 rounded bg-[#D4FD53]/10 border border-[#D4FD53]/20 text-[#D4FD53] font-semibold">
+                        {platform.specs.sla}
+                      </span>
+                    </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white group-hover:text-[#00E5C9] transition-colors mb-2">
-                    {platform.name}
-                  </h3>
+                  <div className="pt-4 border-t border-[#22242A] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                    <Link
+                      to={platform.subpage}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-[#00E5C9]/15 border border-white/10 hover:border-[#00E5C9]/40 text-[#00E5C9] font-mono text-[11px] font-semibold transition-all group-hover:border-[#00E5C9]/30"
+                    >
+                      <span>Architecture Subpage</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
 
-                  <p className="text-xs font-semibold text-slate-300 mb-3">
-                    {platform.tagline}
-                  </p>
-
-                  <p className="text-xs text-slate-400 leading-relaxed mb-6 font-normal">
-                    {platform.detail}
-                  </p>
+                    <a
+                      href={platform.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#00E5C9] hover:bg-[#00E5C9]/90 text-[#0C0D0F] font-mono text-[11px] font-bold transition-all shadow-md hover:brightness-110"
+                    >
+                      <span>Launch Live</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
-
-                <div className="pt-4 border-t border-[#22242A] flex items-center justify-between text-xs font-mono">
-                  <span className="text-[11px] text-slate-500 truncate max-w-[170px]">
-                    {platform.stack}
-                  </span>
-                  <a
-                    href={platform.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[#00E5C9] hover:underline font-semibold"
-                  >
-                    Launch Platform <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
+
+      {/* QUICK ARCHITECTURE SPECS MODAL */}
+      {selectedPlatformModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+          <div className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto rounded-2xl bg-[#141518] border border-[#22242A] p-6 sm:p-8 shadow-2xl">
+            <button
+              onClick={() => setSelectedPlatformModal(null)}
+              className="absolute top-5 right-5 h-9 w-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Modal Image Header */}
+            <div className="relative w-full h-56 sm:h-64 rounded-xl overflow-hidden mb-6 border border-white/10">
+              <img
+                src={selectedPlatformModal.image}
+                alt={selectedPlatformModal.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-transparent to-black/40"></div>
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2">
+                <span className="font-mono text-xs font-bold text-[#00E5C9] px-3 py-1 rounded bg-[#0C0D0F]/90 border border-white/20">
+                  {selectedPlatformModal.badge}
+                </span>
+                <span className="font-times font-serif text-sm font-bold text-[#D4FD53] px-3 py-1 rounded bg-[#0C0D0F]/90 border border-[#D4FD53]/30">
+                  {selectedPlatformModal.metric}
+                </span>
+              </div>
+            </div>
+
+            {/* Modal Title & Tagline in Times New Roman */}
+            <h3 className="text-2xl sm:text-3xl font-times font-serif font-bold text-white mb-2">
+              {selectedPlatformModal.name}
+            </h3>
+            <p className="text-sm font-times font-serif italic text-[#00E5C9] mb-4">
+              {selectedPlatformModal.tagline}
+            </p>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 font-normal">
+              {selectedPlatformModal.detail}
+            </p>
+
+            {/* Technical Specifications Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-xl bg-[#0C0D0F] border border-white/5 mb-6 font-mono text-xs">
+              <div className="space-y-1">
+                <div className="text-slate-400 text-[10px]">INFERENCE LATENCY</div>
+                <div className="text-white font-bold">{selectedPlatformModal.specs.latency}</div>
+              </div>
+              <div className="space-y-1">
+                <div className="text-slate-400 text-[10px]">DAILY SCALE</div>
+                <div className="text-[#00E5C9] font-bold">{selectedPlatformModal.specs.throughput}</div>
+              </div>
+              <div className="space-y-1">
+                <div className="text-slate-400 text-[10px]">AVAILABILITY SLA</div>
+                <div className="text-[#D4FD53] font-bold">{selectedPlatformModal.specs.sla}</div>
+              </div>
+              <div className="space-y-1">
+                <div className="text-slate-400 text-[10px]">DEPLOYMENT</div>
+                <div className="text-slate-200 font-bold truncate">{selectedPlatformModal.specs.deployment}</div>
+              </div>
+            </div>
+
+            {/* Stack */}
+            <div className="mb-8">
+              <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">
+                ENGINEERING STACK
+              </div>
+              <div className="p-3 rounded-lg bg-[#0C0D0F] border border-white/5 font-mono text-xs text-[#00E5C9]">
+                {selectedPlatformModal.stack}
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center justify-end gap-3 pt-4 border-t border-[#22242A]">
+              <Link
+                to={selectedPlatformModal.subpage}
+                onClick={() => setSelectedPlatformModal(null)}
+                className="inline-flex h-11 items-center gap-2 px-5 rounded-lg bg-[#141518] border border-white/20 hover:border-[#00E5C9] text-xs font-mono text-white transition-all"
+              >
+                <span>Open Full System Subpage</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#00E5C9]" />
+              </Link>
+              <a
+                href={selectedPlatformModal.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center gap-2 px-5 rounded-lg bg-[#00E5C9] hover:brightness-110 text-xs font-mono text-[#0C0D0F] font-bold transition-all shadow-lg"
+              >
+                <span>Launch Live System</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* 4. CORE ENTERPRISE AI CAPABILITIES */}
       <section id="capabilities" className="w-full bg-[#0E0F12] py-24 border-b border-[#22242A]">
@@ -621,10 +1085,10 @@ export default function AltrdHome() {
                 ENTERPRISE CAPABILITIES
               </span>
             </div>
-            <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold tracking-tight text-white leading-tight">
               Architected for enterprise security, deterministic precision, and scale.
             </h2>
-            <p className="mt-4 text-base text-slate-400 leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-slate-300 font-times font-serif leading-relaxed">
               Every layer of our cognitive stack is built to eliminate hallucinations, enforce enterprise access controls, and integrate natively into existing enterprise software.
             </p>
           </div>
@@ -633,13 +1097,13 @@ export default function AltrdHome() {
             {coreCapabilities.map((cap, idx) => (
               <div
                 key={idx}
-                className="rounded-xl bg-[#141518] border border-[#22242A] p-8 hover:border-white/20 transition-all flex flex-col justify-between"
+                className="rounded-xl bg-[#141518] border border-[#22242A] p-8 hover:border-white/20 transition-all flex flex-col justify-between group"
               >
                 <div>
                   <div className="h-12 w-12 rounded-lg bg-[#1C1C1E] border border-white/10 flex items-center justify-center mb-6">
                     {cap.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className="text-xl font-times font-serif font-bold text-white group-hover:text-[#D4FD53] transition-colors mb-3">
                     {cap.title}
                   </h3>
                   <p className="text-sm text-slate-400 leading-relaxed mb-6 font-normal">
@@ -947,323 +1411,6 @@ export default function AltrdHome() {
                 <div className="flex items-center gap-2.5 p-3 rounded-lg bg-[#0C0D0F] border border-white/5">
                   <Check className="w-4 h-4 text-[#00E5C9] shrink-0" />
                   <span>Full Model Weight Ownership</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8.5 EXECUTIVE LEADERSHIP & PUNE COE */}
-      <section className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A] relative overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#00E5C9]/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
-        <div className="absolute top-1/2 right-0 w-96 h-96 bg-[#D4FD53]/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
-
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 relative z-10">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="block h-2.5 w-2.5 bg-[#00E5C9]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
-              EXECUTIVE LEADERSHIP & STATUTORY COMPLIANCE
-            </span>
-          </div>
-
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div>
-              <h2 className="text-[clamp(2rem,3.5vw,3rem)] font-bold text-white tracking-tight leading-tight">
-                Architectural Leadership & Statutory Accreditations
-              </h2>
-              <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
-                Directed by Founder Pratik Pawar from Hinjawadi Phase 2, Pune—combining sovereign frontier AI engineering with Government of India statutory registrations, MSME recognition, and enterprise compliance.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-              <button
-                onClick={() => setModalOpen(true)}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded bg-[#00E5C9] px-5 text-xs font-bold text-[#0C0D0F] hover:brightness-110 transition-all shadow-lg w-full sm:w-auto"
-              >
-                <Sparkles className="w-4 h-4" />
-                <span>Schedule Executive Briefing</span>
-              </button>
-
-              <Link
-                to="/company/about-us"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded border border-white/20 bg-[#141518] px-5 text-xs font-mono text-white hover:border-[#D4FD53] hover:text-[#D4FD53] transition-all w-full sm:w-auto"
-              >
-                <span>About Us</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Founder & Government Accreditations Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {/* Executive Leadership & Systems Architecture Matrix (No Personal Photo) */}
-            <div className="relative group flex flex-col">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#00E5C9]/20 to-[#D4FD53]/20 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-6 sm:p-7 shadow-2xl flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4 pb-4 border-b border-white/10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4FD53]/10 border border-[#D4FD53]/30 text-[#D4FD53] font-mono text-[11px] font-bold tracking-wider uppercase">
-                      <Terminal className="w-3.5 h-3.5" />
-                      Executive Leadership
-                    </div>
-                    <span className="font-mono text-[10px] text-slate-400 bg-white/5 px-2.5 py-1 rounded border border-white/10 flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-[#00E5C9]" /> Pune CoE Command
-                    </span>
-                  </div>
-
-                  <div className="flex items-start gap-4 mb-5">
-                    <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#00E5C9]/20 to-[#D4FD53]/10 border border-[#00E5C9]/30 flex items-center justify-center shrink-0 shadow-md">
-                      <Cpu className="w-6 h-6 text-[#00E5C9]" />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                          Pratik Pawar
-                        </h3>
-                        <span className="font-mono text-[9px] bg-[#00E5C9]/10 text-[#00E5C9] px-2 py-0.5 rounded border border-[#00E5C9]/20 font-bold uppercase">
-                          Verified
-                        </span>
-                      </div>
-                      <p className="text-xs text-[#00E5C9] font-mono mt-0.5 font-medium">
-                        Founder & Principal Systems Architect • Sole Proprietor
-                      </p>
-                      <p className="text-[11px] text-slate-400 font-mono mt-0.5">
-                        Aparaitech Software • Hinjawadi Phase 2, Pune
-                      </p>
-                    </div>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-slate-300 font-normal mb-6 leading-relaxed">
-                    Directing frontier enterprise AI engineering, autonomous multi-agent orchestration, and sovereign cloud deployments. Combining high-concurrency architecture with statutory Government of India compliance.
-                  </p>
-
-                  <div className="space-y-3 sm:space-y-3.5">
-                    {/* Mandate 1: Autonomous Multi-Agent Orchestration */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#00E5C9]/10 border border-[#00E5C9]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Workflow className="w-4 h-4 text-[#00E5C9]" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h4 className="text-sm font-semibold text-white truncate">
-                            Autonomous Multi-Agent Consensus
-                          </h4>
-                          <span className="font-mono text-[10px] text-[#00E5C9] font-bold uppercase tracking-wider shrink-0">
-                            Pillar 01
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-slate-400 font-normal mt-0.5 leading-relaxed">
-                          Deterministic agentic workflows, self-correcting RAG memory, and sub-second tool execution pipelines.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Mandate 2: Sovereign Cloud & Private VPC */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#D4FD53]/40 transition-colors flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#D4FD53]/10 border border-[#D4FD53]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Lock className="w-4 h-4 text-[#D4FD53]" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h4 className="text-sm font-semibold text-white truncate">
-                            Private VPC & On-Premises Isolation
-                          </h4>
-                          <span className="font-mono text-[10px] text-[#D4FD53] font-bold uppercase tracking-wider shrink-0">
-                            Pillar 02
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-slate-400 font-normal mt-0.5 leading-relaxed">
-                          Air-gapped model inferencing, zero external data leakage, and enterprise HIPAA/PCI-DSS compliance.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Mandate 3: Commercial Production Scale */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#9B95FE]/40 transition-colors flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#9B95FE]/10 border border-[#9B95FE]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Layers className="w-4 h-4 text-[#9B95FE]" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h4 className="text-sm font-semibold text-white truncate">
-                            Production Platform Ecosystem
-                          </h4>
-                          <span className="font-mono text-[10px] text-[#9B95FE] font-bold uppercase tracking-wider shrink-0">
-                            Pillar 03
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-slate-400 font-normal mt-0.5 leading-relaxed">
-                          6 live production SaaS systems operating with continuous 99.9% uptime SLA across enterprise clients.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Statutory Verification Strip */}
-                <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono">
-                  <span className="text-slate-400 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5C9]" />
-                    100% IP & Source Ownership Transferred
-                  </span>
-                  <button
-                    onClick={() => setModalOpen(true)}
-                    className="text-[#00E5C9] hover:underline font-bold flex items-center gap-1 cursor-pointer"
-                  >
-                    <span>Consult Architecture Lead</span>
-                    <ArrowUpRight className="w-3 h-3" />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Government Statutory Licences & Accreditations Card */}
-            <div className="relative group flex flex-col">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#D4FD53]/20 to-[#00E5C9]/20 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-6 sm:p-7 shadow-2xl flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4 pb-4 border-b border-white/10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00E5C9]/10 border border-[#00E5C9]/30 text-[#00E5C9] font-mono text-[11px] font-bold tracking-wider uppercase">
-                      <ShieldCheck className="w-3.5 h-3.5" />
-                      Statutory Accreditations
-                    </div>
-                    <span className="font-mono text-[10px] text-slate-400 bg-white/5 px-2.5 py-1 rounded border border-white/10">
-                      Govt. of India & Maharashtra
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-2">
-                    Government Licensed & Enterprise Certified Firm
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-400 font-mono mb-6 leading-relaxed">
-                    Aparaitech Software operates as a verified Sole Proprietorship commercial IT enterprise under statutory licenses issued by the Government of India and the State of Maharashtra.
-                  </p>
-
-                  <div className="space-y-3 sm:space-y-3.5">
-                    {/* License 1: MSME / Udyam */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#00E5C9]/10 border border-[#00E5C9]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Building2 className="w-4 h-4 text-[#00E5C9]" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h4 className="text-sm font-semibold text-white truncate">
-                            MSME / Udyam Registration
-                          </h4>
-                          <span className="font-mono text-[10px] text-[#00E5C9] font-bold uppercase tracking-wider shrink-0">
-                            Govt. of India
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-slate-400 font-mono mt-0.5 leading-relaxed">
-                          Ministry of Micro, Small & Medium Enterprises statutory recognition for IT Architecture & Cloud AI.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* License 2: Gumasta / Shop Act */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#D4FD53]/40 transition-colors flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#D4FD53]/10 border border-[#D4FD53]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <FileText className="w-4 h-4 text-[#D4FD53]" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h4 className="text-sm font-semibold text-white truncate">
-                            Maharashtra Shop & Establishment (Gumasta)
-                          </h4>
-                          <span className="font-mono text-[10px] text-[#D4FD53] font-bold uppercase tracking-wider shrink-0">
-                            Pune PMC
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-slate-400 font-mono mt-0.5 leading-relaxed">
-                          Licensed commercial office under Pune Municipal Corporation & Labour Dept, Maharashtra (Hinjawadi Phase 2).
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* License 3: GSTIN Commercial Entity */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#00E5C9]/10 border border-[#00E5C9]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Shield className="w-4 h-4 text-[#00E5C9]" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h4 className="text-sm font-semibold text-white truncate">
-                            GST Registered Commercial Enterprise
-                          </h4>
-                          <span className="font-mono text-[10px] text-slate-300 font-bold uppercase tracking-wider shrink-0">
-                            CBIC / State 27
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-slate-400 font-mono mt-0.5 leading-relaxed">
-                          Central Board of Indirect Taxes & Customs compliant with verified B2B enterprise invoicing.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* License 4: ISO 27001 & 9001 + SOC 2 */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#D4FD53]/40 transition-colors flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#D4FD53]/10 border border-[#D4FD53]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Lock className="w-4 h-4 text-[#D4FD53]" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h4 className="text-sm font-semibold text-white truncate">
-                            ISO 27001 & 9001 Certified Architecture
-                          </h4>
-                          <span className="font-mono text-[10px] text-[#D4FD53] font-bold uppercase tracking-wider shrink-0">
-                            SOC 2 Type II
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-slate-400 font-mono mt-0.5 leading-relaxed">
-                          Information Security (ISMS) & Quality standard compliance with isolated private VPC deployments.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-slate-400">
-                  <span className="flex items-center gap-1.5 text-white">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5C9]" />
-                    Legal Entity: Sole Proprietorship Firm
-                  </span>
-                  <span className="text-[#D4FD53]">Pune, Maharashtra, India</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Operational Manifesto Card */}
-          <div className="rounded-2xl bg-[#141518] border border-[#22242A] p-8 sm:p-10 shadow-xl">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8 space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
-                  <Briefcase className="w-3.5 h-3.5 text-[#00E5C9]" />
-                  Aparaitech Software Leadership Manifesto
-                </div>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                  "Enterprise AI is not an experimental novelty—it is mission-critical infrastructure. At Aparaitech Software, our obsession is engineering deterministic, zero-hallucination agentic systems and private cloud deployments that eliminate operational friction and deliver verifiable ROI for enterprises worldwide."
-                </p>
-              </div>
-
-              <div className="lg:col-span-4 grid grid-cols-2 gap-3 font-mono text-xs">
-                <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 space-y-1">
-                  <div className="text-lg font-bold text-[#00E5C9]">6 Systems</div>
-                  <div className="text-slate-400 text-[11px]">Live Production SaaS</div>
-                </div>
-                <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 space-y-1">
-                  <div className="text-lg font-bold text-[#D4FD53]">Pune CoE</div>
-                  <div className="text-slate-400 text-[11px]">Hinjawadi Phase 2</div>
-                </div>
-                <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 space-y-1">
-                  <div className="text-lg font-bold text-white">ISO 27001</div>
-                  <div className="text-slate-400 text-[11px]">Certified Process</div>
-                </div>
-                <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 space-y-1">
-                  <div className="text-lg font-bold text-[#00E5C9]">Zero-Trust</div>
-                  <div className="text-slate-400 text-[11px]">Private Cloud VPC</div>
                 </div>
               </div>
             </div>

@@ -34,6 +34,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
+        serif: ['"Times New Roman"', 'Times', 'Baskerville', 'Georgia', 'serif'],
+        times: ['"Times New Roman"', 'Times', 'Baskerville', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #7c3aed, #4f46e5)',
