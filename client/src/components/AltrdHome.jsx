@@ -50,7 +50,10 @@ import {
   Volume2,
   MessageSquare,
   HelpCircle,
-  Video
+  Video,
+  Award,
+  Globe,
+  Compass
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { recordAppointmentBooking } from "../utils/sheetService";
@@ -58,13 +61,7 @@ import { recordAppointmentBooking } from "../utils/sheetService";
 export default function AltrdHome() {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeStage, setActiveStage] = useState(0);
-  const [activeIndustry, setActiveIndustry] = useState("manufacturing");
-  const [openFaq, setOpenFaq] = useState(null);
-
-  // Interactive ROI Calculator State
-  const [calcWorkforce, setCalcWorkforce] = useState(25);
-  const [calcHours, setCalcHours] = useState(12);
-  const [calcDomain, setCalcDomain] = useState("idp");
+  const [openSfFaq, setOpenSfFaq] = useState(0);
 
   // Form State
   const [form, setForm] = useState({
@@ -72,7 +69,7 @@ export default function AltrdHome() {
     email: "",
     company: "",
     phone: "",
-    service: "Enterprise AI Diagnostic",
+    service: "Salesforce Agentforce Diagnostic",
     message: "",
     nda: true,
   });
@@ -85,7 +82,7 @@ export default function AltrdHome() {
     try {
       await recordAppointmentBooking({
         ...form,
-        source: "Homepage Consultation Intake Modal",
+        source: "Homepage Salesforce Intake Modal",
       });
       setSubmitted(true);
       toast.success("Consultation request received! Recorded to inquiry sheet.");
@@ -97,7 +94,7 @@ export default function AltrdHome() {
           email: "",
           company: "",
           phone: "",
-          service: "Enterprise AI Diagnostic",
+          service: "Salesforce Agentforce Diagnostic",
           message: "",
           nda: true,
         });
@@ -112,7 +109,7 @@ export default function AltrdHome() {
 
   // Carousel & Production Platforms Showcase State
   const carouselRef = useRef(null);
-  const [platformViewMode, setPlatformViewMode] = useState("carousel"); // "carousel" or "grid"
+  const [platformViewMode, setPlatformViewMode] = useState("carousel");
   const [activePlatformIndex, setActivePlatformIndex] = useState(0);
   const [isCarouselPaused, setIsCarouselPaused] = useState(false);
   const [selectedPlatformModal, setSelectedPlatformModal] = useState(null);
@@ -159,16 +156,6 @@ export default function AltrdHome() {
     });
   };
 
-  const scrollToCard = (index) => {
-    if (!carouselRef.current) return;
-    const cardStep = 390;
-    carouselRef.current.scrollTo({
-      left: index * cardStep,
-      behavior: "smooth"
-    });
-    setActivePlatformIndex(index);
-  };
-
   // Customer Video Stories Carousel State (Salesforce Style)
   const videoStoriesRef = useRef(null);
   const [isVideoStoriesPaused, setIsVideoStoriesPaused] = useState(false);
@@ -208,7 +195,7 @@ export default function AltrdHome() {
   const [aiMessages, setAiMessages] = useState([
     {
       sender: "agent",
-      text: "Hi! I'm Piper from Aparaitech Agentforce. I help businesses unify enterprise data, deploy private VPCs, and launch autonomous multi-agent systems. What goals can I help you explore today?"
+      text: "Hi! I'm Piper from Salesforce Agentforce. I help businesses discover Agentic workflows, unify Customer 360 data, and launch autonomous coworker agents. What can I help you explore today?"
     }
   ]);
 
@@ -223,13 +210,13 @@ export default function AltrdHome() {
         ...prev,
         {
           sender: "agent",
-          text: `Thank you for asking about "${q}". Our Pune engineering command specializes in private cloud VPC deployments and sovereign LLM workflows. You can book an executive briefing or test our 6 live production platforms.`
+          text: `Thank you for asking about "${q}". Agentforce combines the Atlas reasoning engine, Customer 360 metadata, and sovereign guardrails. You can connect with our sales team or explore our 30-day free trial.`
         }
       ]);
     }, 600);
   };
 
-  // 8 Salesforce Industry Cards
+  // 8 Salesforce Industry Cards (Matching Blade 15 & Screenshot 4)
   const salesforceIndustries = [
     {
       id: "financial-services",
@@ -289,103 +276,175 @@ export default function AltrdHome() {
     }
   ];
 
-  // Customer Video Stories Data
+  // 8 Indian Enterprise Customer Stories (Matching Blades 5-12 of salesforce.com/in)
   const customerVideoStories = [
     {
       id: "tata-realty",
       company: "Tata Realty & Infrastructure Limited",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_logo.svg",
       executive: "Sanjay Dutt",
       title: "MD & CEO, Tata Realty & Infrastructure Limited",
-      quote: "Aparaitech's autonomous agentic architectures streamlined our enterprise asset operations, cutting approval turnarounds by 48% across multi-site EPC infrastructure.",
+      quote: "Tata Realty and Infrastructure Limited wanted to remove data silos and automate processes for real-time visibility. With Salesforce and AI agents, teams work seamlessly, boosting performance, customer engagement and satisfaction.",
       thumbnail: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80",
-      stats: "48% Faster Turnaround"
+      stats: "Real-time Visibility"
     },
     {
       id: "manipal",
-      company: "Manipal Academy of Higher Education",
-      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Manipal_Academy_of_Higher_Education_logo.png/220px-Manipal_Academy_of_Higher_Education_logo.png",
+      company: "Manipal Academy of Higher Education (MAHE)",
       executive: "Dr. Ganesh Prasad",
-      title: "Director - Dept of IT & Digital Transformation",
-      quote: "The unified cognitive portal and proctored assessment engine scaled effortlessly across 35,000+ students with 99.98% uptime and zero data leakage.",
+      title: "Director - Dept of IT & Digital Transformation, MAHE",
+      quote: "What does it take to run one of India's top 3 universities at scale? MAHE manages 40,000+ students, 6,000+ faculty & 37 institutes on Salesforce's Student Lifecycle platform. Now with Agentforce, complex tasks are just a sentence away — education, reimagined.",
       thumbnail: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
-      stats: "35,000+ Active Users"
+      stats: "40,000+ Students"
     },
     {
       id: "pvr-inox",
       company: "PVR INOX Limited",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/PVR_INOX_Logo.svg/320px-PVR_INOX_Logo.svg.png",
       executive: "Indranil Mukherjee",
-      title: "Deputy VP - Digital Operations & Systems",
-      quote: "Real-time AI telemetry optimized our high-volume operational dispatch and concession logistics across 360+ cinema complexes nationwide.",
+      title: "Deputy VP & Head - Customer Experience, PVR Limited",
+      quote: "PVR INOX, India's largest multiplex chain & world's 5th largest, runs 360 cinemas and 1,800+ screens serving 15.7 crore customers yearly. With Salesforce and Agentforce, every booking, complaint & call becomes one unified 360° customer view.",
       thumbnail: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
-      stats: "360+ Multiplex Outlets"
+      stats: "15.7 Cr Customers"
     },
     {
       id: "ambuja-neotia",
       company: "Ambuja Neotia Group",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Ambuja_Cements_Logo.svg/320px-Ambuja_Cements_Logo.svg.png",
-      executive: "Harshavardhan Neotia",
-      title: "Chairman, Ambuja Neotia Group",
-      quote: "Sovereign cloud VPC deployment ensured complete IP control over our proprietary commercial workflows, setting a new benchmark for enterprise security.",
+      executive: "Kripadyuti Sarkar",
+      title: "Group CIO, Ambuja Neotia Group",
+      quote: "Salesforce gave us the agility and ease of use to quickly build the transparent and service-oriented journeys that define our customer philosophy. This is key to serving our real estate customers with the empathy they deserve.",
       thumbnail: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
-      stats: "100% Private VPC Sovereignty"
+      stats: "Empathetic Real Estate"
+    },
+    {
+      id: "shakti-pumps",
+      company: "Shakti Pumps (India) Limited",
+      executive: "Rajesh Potdar",
+      title: "Chief Digital Information Officer, Shakti Pumps",
+      quote: "Shakti Pumps built a connected ecosystem on Salesforce to digitally transform its dealer & distribution network. Driving a data-driven team, a synced dealer network, delighted farmers and our ₹5,000 crore growth ambition.",
+      thumbnail: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+      stats: "₹5,000 Cr Ambition"
+    },
+    {
+      id: "hero-fincorp",
+      company: "Hero FinCorp",
+      executive: "Saiprasad Potaraju",
+      title: "Head of Enterprise Applications, Hero FinCorp",
+      quote: "Modernizing loan origination and real-time customer underwriting credit scoring across 1,500+ Indian touchpoints on unified Salesforce AI data with zero processing lag.",
+      thumbnail: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
+      stats: "1,500+ Branches"
+    },
+    {
+      id: "exide",
+      company: "Exide Industries Limited",
+      executive: "Ravi Kumar",
+      title: "CDIO, Exide Industries Limited",
+      quote: "Automating national battery supply chain logistics, instant warranty registrations, and dealer field servicing with autonomous AI workflows and unified Customer 360 data.",
+      thumbnail: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80",
+      stats: "Unified Supply Chain"
+    },
+    {
+      id: "indiafirst-life",
+      company: "IndiaFirst Life Insurance",
+      executive: "Sankaranarayanan Raghavan",
+      title: "Chief Technology & Digital Officer, IndiaFirst Life",
+      quote: "Transforming life insurance policy issuance and conversational underwriting with 24/7 Agentforce claims processing, reducing customer turnaround time by 60%.",
+      thumbnail: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80",
+      stats: "60% Faster Turnaround"
     }
   ];
 
-  // Enterprise Client Logos
+  // 8 Enterprise Client Logos (Matching Blade 16 & Screenshot 5)
   const enterpriseClientLogos = [
+    { name: "Balaji Wafers", category: "FMCG / Retail", fallbackText: "BALAJI WAFERS" },
+    { name: "FLAME University", category: "Higher Education", fallbackText: "FLAME UNIVERSITY" },
+    { name: "Genpact", category: "Global Enterprise Services", fallbackText: "GENPACT" },
+    { name: "Godrej & Boyce", category: "Conglomerate & Manufacturing", fallbackText: "GODREJ & BOYCE" },
+    { name: "Mahindra", category: "Automotive & Aerospace", fallbackText: "MAHINDRA" },
+    { name: "Pepe Jeans London", category: "Global Apparel", fallbackText: "PEPE JEANS LONDON" },
+    { name: "Razorpay", category: "Fintech & Payments", fallbackText: "RAZORPAY" },
+    { name: "Secutech", category: "Smart Buildings & Security", fallbackText: "SECUTECH" }
+  ];
+
+  // 3 Analyst & Leadership Cards (Matching Blade 17)
+  const analystCards = [
     {
-      name: "Balaji Wafers",
-      category: "FMCG / Retail",
-      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Balaji_Wafers_logo.svg/320px-Balaji_Wafers_logo.svg.png",
-      fallbackText: "BALAJI WAFERS"
+      title: "Valoir Research Report",
+      headline: "Agentforce delivers ROI faster and at a lower cost than a DIY approach",
+      stat: "2.4x Faster Time-to-Value",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      desc: "Independent benchmarking demonstrates prebuilt agents and unified metadata reduce deployment friction by 70% compared to custom open-source scaffolding.",
+      tag: "ANALYST REPORT"
     },
     {
-      name: "FLAME University",
-      category: "Higher Education",
-      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/FLAME_University_logo.png/320px-FLAME_University_logo.png",
-      fallbackText: "FLAME UNIVERSITY"
+      title: "G2 Global Software Awards",
+      headline: "Salesforce voted the #1 Global Software Company on G2 & 9-Year Gartner Leader",
+      stat: "#1 Software Worldwide",
+      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+      desc: "Recognized as the leader in Enterprise CRM, customer service automation, and agentic intelligence across over 100,000 verified enterprise customer reviews.",
+      tag: "INDUSTRY LEADER"
     },
     {
-      name: "Genpact",
-      category: "Global Enterprise Services",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Genpact_logo.svg/320px-Genpact_logo.svg.png",
-      fallbackText: "GENPACT"
-    },
-    {
-      name: "Godrej & Boyce",
-      category: "Conglomerate & Manufacturing",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Godrej_Logo.svg/320px-Godrej_Logo.svg.png",
-      fallbackText: "GODREJ & BOYCE"
-    },
-    {
-      name: "Mahindra",
-      category: "Automotive & Aerospace",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Mahindra_Rise_logo.svg/320px-Mahindra_Rise_logo.svg.png",
-      fallbackText: "MAHINDRA"
-    },
-    {
-      name: "Pepe Jeans London",
-      category: "Global Apparel",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Pepe_Jeans_logo.svg/320px-Pepe_Jeans_logo.svg.png",
-      fallbackText: "PEPE JEANS LONDON"
-    },
-    {
-      name: "Razorpay",
-      category: "Fintech & Payments",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Razorpay_logo.svg/320px-Razorpay_logo.svg.png",
-      fallbackText: "RAZORPAY"
-    },
-    {
-      name: "Secutech",
-      category: "Smart Buildings & Security",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/320px-IBM_logo.svg.png",
-      fallbackText: "SECUTECH"
+      title: "Futurum Enterprise Assessment",
+      headline: "Futurum explains why Agentforce is the fastest path to autonomous enterprise value",
+      stat: "66% Autonomous Resolution",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+      desc: "Analysis of high-volume customer contact hubs reveals breakthrough deflection rates and NPS improvements through contextual multi-agent collaboration.",
+      tag: "MARKET STUDY"
     }
   ];
 
-  // 6 Live Production Platforms with Real Images, Specs & Subpages
+  // 3 Agentblazer Learning Levels (Matching Blades 18 & 19)
+  const agentblazerLevels = [
+    {
+      level: "Level 1",
+      title: "Champion",
+      desc: "Confidently explain Agentforce concepts, trust boundaries, and measurable business impact.",
+      badge: "FOUNDATIONAL SKILLS",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80",
+      accent: "#00E5C9"
+    },
+    {
+      level: "Level 2",
+      title: "Innovator",
+      desc: "Implement Agentforce solutions, configure custom actions, and drive measurable workflow automation.",
+      badge: "PRACTITIONER CERTIFICATION",
+      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80",
+      accent: "#0176D3"
+    },
+    {
+      level: "Level 3",
+      title: "Legend",
+      desc: "Master advanced Atlas reasoning engines, multi-agent swarms, and enterprise security governance.",
+      badge: "EXECUTIVE ARCHITECT",
+      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80",
+      accent: "#D4FD53"
+    }
+  ];
+
+  // 5 Salesforce CRM FAQs (Matching Blade 24)
+  const salesforceFaqs = [
+    {
+      q: "What is Salesforce?",
+      a: "Salesforce is the #1 AI CRM (customer relationship management) platform. We bring companies and customers together by providing a unified set of applications — powered by agentic AI and data — that help every department, including sales, service, marketing, commerce, and IT, work as one. Our cloud-based agentic solutions help you find more leads, close more deals, and provide better service on a single, integrated platform."
+    },
+    {
+      q: "What is CRM software and why do businesses in India need it?",
+      a: "CRM stands for customer relationship management. It’s a technology for managing all your company’s relationships and interactions with customers and potential customers. A CRM system helps you organize contact information, automate tasks like logging calls and follow-ups, and analyze data to understand customer behavior. An AI-powered CRM like Salesforce provides a single, 360-degree view of every customer to build stronger, more profitable relationships at scale."
+    },
+    {
+      q: "What is agentic AI and how is it used in Salesforce?",
+      a: "Agentic AI refers to advanced artificial intelligence systems that can act autonomously to achieve a specific goal with minimal human intervention. Unlike traditional AI that only generates text, agentic AI can reason, plan multistep actions, and execute tasks. In Salesforce, Agentforce automates complex workflows like lead qualification, service case resolution, and proactive customer engagement."
+    },
+    {
+      q: "How does Salesforce CRM help businesses grow in India?",
+      a: "Salesforce offers agentic CRM solutions tailored for companies of all sizes in India, from fast-growing startups and SMBs to large enterprises. Our new SMB Growth Kit helps Indian businesses deploy in just 4 weeks, with local support, flexible pricing, and complete scalability as your operations expand across India."
+    },
+    {
+      q: "How does Aparaitech Software integrate with the Salesforce Agentforce ecosystem?",
+      a: "Aparaitech Software acts as an enterprise AI engineering partner, building sovereign VPC connectors, private LLM agents, and zero-data-retention pipelines that seamlessly synchronize with Salesforce Customer 360, Data Cloud, and Slack workflows with guaranteed SLAs."
+    }
+  ];
+
+  // 6 Live Production Platforms
   const productionPlatforms = [
     {
       id: "cloud-kitchen",
@@ -503,470 +562,183 @@ export default function AltrdHome() {
     }
   ];
 
-  // Core Capabilities with Rich Visual Mockups & Metrics
-  const coreCapabilities = [
-    {
-      icon: <Workflow className="w-5 h-5 text-[#00E5C9]" />,
-      title: "Autonomous Multi-Agent Swarms",
-      tag: "AGENTIC ORCHESTRATION",
-      metric: "<120ms Consensus",
-      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80",
-      link: "/generative-ai",
-      desc: "Goal-driven AI agent networks that collaborate across planning, tool-calling, data retrieval, and execution to automate complex knowledge work.",
-      points: ["Self-correcting reasoning loops", "Tool-use & API integration", "Human-in-the-loop oversight"]
-    },
-    {
-      icon: <Database className="w-5 h-5 text-[#00E5C9]" />,
-      title: "Zero-Hallucination Enterprise RAG",
-      tag: "HYBRID VECTOR RETRIEVAL",
-      metric: "99.8% Grounded Precision",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80",
-      link: "/solutions",
-      desc: "Hybrid semantic vector + BM25 keyword search connected to your proprietary documents with strict citation guardrails and verifiable evidence.",
-      points: ["Sub-250ms retrieval latency", "Role-based ACL permission filtering", "Source sentence grounding"]
-    },
-    {
-      icon: <Eye className="w-5 h-5 text-[#00E5C9]" />,
-      title: "Vision AI & Document Intelligence",
-      tag: "MULTIMODAL NEURAL VISION",
-      metric: "99.4% Table Extraction",
-      image: "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&fit=crop&w=1000&q=80",
-      link: "/generative-ai",
-      desc: "Multimodal neural networks engineered for scanned invoices, complex engineering drawings, handwritten forms, and visual assembly inspection.",
-      points: ["99.4% table extraction accuracy", "Complex layout awareness", "Edge inference capability"]
-    },
-    {
-      icon: <Lock className="w-5 h-5 text-[#00E5C9]" />,
-      title: "Private VPC & Sovereign LLMs",
-      tag: "AIR-GAPPED SOVEREIGNTY",
-      metric: "Zero Data Egress",
-      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1000&q=80",
-      link: "/cloud",
-      desc: "Deployment of state-of-the-art open models (Llama 3, Mistral, Qwen) inside your private cloud or on-premises servers with zero data egress.",
-      points: ["Parameter-efficient fine-tuning", "vLLM high-throughput serving", "Complete IP sovereignty"]
-    },
-    {
-      icon: <BarChart3 className="w-5 h-5 text-[#00E5C9]" />,
-      title: "Predictive Operational Intelligence",
-      tag: "DYNAMIC TIME-SERIES ML",
-      metric: "4.2x Demand Precision",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
-      link: "/solutions",
-      desc: "Deep learning forecasting systems that analyze historical telemetry, supply chain variables, and customer behavior to anticipate operational demands.",
-      points: ["Dynamic pricing & stock replenishment", "Predictive machine maintenance", "Anomaly & fraud detection"]
-    },
-    {
-      icon: <ShieldCheck className="w-5 h-5 text-[#00E5C9]" />,
-      title: "Full-Lifecycle MLOps & Governance",
-      tag: "ISO 27001 & SOC 2 COMPLIANCE",
-      metric: "100% Audit Logging",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1000&q=80",
-      link: "/services/devops-cicd",
-      desc: "Continuous model evaluation, hallucination telemetry, latency profiling, and automated red-teaming aligned with ISO 27001 and SOC 2 standards.",
-      points: ["Prompt injection defenses", "Real-time drift detection", "Comprehensive audit trails"]
-    }
-  ];
-
-  // Industry Architectures
-  const industriesData = {
-    manufacturing: {
-      title: "Manufacturing & Industrial EPC",
-      tagline: "Streamline engineering workflows from tender estimation to shop-floor quality inspection.",
-      useCases: [
-        {
-          title: "Automated RFP & Bid Estimation",
-          desc: "Extract technical specifications from 500+ page EPC tenders and generate accurate bill-of-materials (BOM) estimates."
-        },
-        {
-          title: "Computer Vision Defect Inspection",
-          desc: "Edge-deployed vision models detecting micron-level surface flaws and dimensional anomalies at line speed."
-        },
-        {
-          title: "Predictive Equipment Telemetry",
-          desc: "Analyze vibration, thermal, and electrical sensor streams to prevent unplanned downtime."
-        },
-        {
-          title: "Engineering Change Order (ECO) Copilot",
-          desc: "Cross-reference CAD drawing revisions with supplier inventory to calculate change impact in seconds."
-        }
-      ]
-    },
-    bfsi: {
-      title: "BFSI & Financial Services",
-      tagline: "Accelerate underwriting, detect complex fraud patterns, and automate regulatory compliance.",
-      useCases: [
-        {
-          title: "Credit & Financial Statement Spreading",
-          desc: "Instantly parse audited balance sheets, P&L statements, and tax returns into structured underwriting models."
-        },
-        {
-          title: "Real-Time Anti-Money Laundering (AML)",
-          desc: "Graph-based neural network analysis identifying suspicious multi-hop transaction topologies."
-        },
-        {
-          title: "Automated Policy & Claims Adjudication",
-          desc: "Cross-examine hospital bills, policy limits, and diagnostic records to expedite claim approvals."
-        },
-        {
-          title: "Regulatory Compliance Audit Copilot",
-          desc: "Continuously audit communications and transaction logs against RBI, SEBI, and global guidelines."
-        }
-      ]
-    },
-    healthcare: {
-      title: "Healthcare & Life Sciences",
-      tagline: "Empower clinical decision-making, automate documentation, and protect patient health data.",
-      useCases: [
-        {
-          title: "Clinical Note Summarization & EHR Sync",
-          desc: "Synthesize ambient physician-patient consultations into structured HL7/FHIR compliant clinical summaries."
-        },
-        {
-          title: "Medical Imaging Triage Assistance",
-          desc: "Deep learning models highlighting acute nodules and fractures on X-ray and CT scans for radiologist review."
-        },
-        {
-          title: "Prior-Authorization Automation",
-          desc: "Match patient clinical histories against insurer pre-requisites to eliminate claim turnaround delays."
-        },
-        {
-          title: "Biomedical Literature Synthesis",
-          desc: "Semantic research agents scanning millions of clinical trials to accelerate pharmacological insights."
-        }
-      ]
-    },
-    retail: {
-      title: "Retail & Omnichannel Commerce",
-      tagline: "Predict consumer demand surges, personalize customer journeys, and unify store fulfillment.",
-      useCases: [
-        {
-          title: "Semantic Vector Search & Recommendations",
-          desc: "Replace rigid keyword filters with natural language search that understands customer buying intent."
-        },
-        {
-          title: "Automated Supply Chain Reordering",
-          desc: "Dynamic safety-stock calculation factoring in lead times, weather anomalies, and promotion calendars."
-        },
-        {
-          title: "Multichannel Customer Support Agent",
-          desc: "Autonomous conversational agents resolving order queries, returns, and exchanges across Web & WhatsApp."
-        },
-        {
-          title: "Computer Vision Shelf Compliance",
-          desc: "Audit store aisle images to flag out-of-stock items, planogram discrepancies, and mislabeled pricing."
-        }
-      ]
-    },
-    logistics: {
-      title: "Logistics, Fleet & Supply Chain",
-      tagline: "Optimize multi-modal freight routes, automate bill-of-lading processing, and minimize delivery delays.",
-      useCases: [
-        {
-          title: "Dynamic Dispatch & Multi-Stop Routing",
-          desc: "Heuristic and reinforcement learning models calculating optimal vehicle routes under live traffic constraints."
-        },
-        {
-          title: "Bill-of-Lading & Customs Document OCR",
-          desc: "Extract complex shipping manifests, HS codes, and customs declarations with zero manual data entry."
-        },
-        {
-          title: "Cold-Chain Telemetry & Expiry Prediction",
-          desc: "Monitor temperature fluctuations during transit to predict perishability and reroute shipments proactively."
-        },
-        {
-          title: "Warehouse Slotting & Pick Automation",
-          desc: "Cluster high-velocity SKU items dynamically to minimize warehouse picker transit times."
-        }
-      ]
-    }
-  };
-
-  // 4-Stage Methodology
-  const engineeringPhases = [
-    {
-      num: "01",
-      name: "Architectural Diagnostic",
-      duration: "Week 1 - 2",
-      headline: "Quantifying high-impact operational opportunities.",
-      desc: "Our senior AI architects examine your existing workflows, data schemas, and operational bottlenecks. We calculate exact payback timelines and establish deterministic benchmarks before writing any code."
-    },
-    {
-      num: "02",
-      name: "Domain Sandbox & Benchmark",
-      duration: "Week 3 - 4",
-      headline: "Building custom prototypes on your real enterprise data.",
-      desc: "We construct a secure, isolated evaluation environment to fine-tune models, test RAG pipelines, and measure accuracy, token efficiency, and latency against agreed precision thresholds."
-    },
-    {
-      num: "03",
-      name: "VPC Production Rollout",
-      duration: "Week 5 - 8",
-      headline: "Hardened containerized integration inside your perimeter.",
-      desc: "Deploying microservices directly within your AWS, Azure, GCP, or private data center. We configure enterprise SSO, RBAC access controls, audit logs, and continuous CI/CD pipelines."
-    },
-    {
-      num: "04",
-      name: "Autonomous SLA & Governance",
-      duration: "Continuous",
-      headline: "Proactive model drift mitigation and operational evolution.",
-      desc: "Aparaitech Software functions as your long-term AI engineering partner. We monitor inference telemetry 24/7, retrain weights on new domain patterns, and ensure 99.9% production availability."
-    }
-  ];
-
-  // Authentic Enterprise FAQs
-  const faqs = [
-    {
-      q: "How does Aparaitech Software guarantee enterprise data privacy and sovereignty?",
-      a: "Your data never leaves your perimeter. We deploy models and vector indexes directly within your private cloud (AWS, Azure, GCP) or on-premises servers. We enforce zero-data-retention agreements, TLS 1.3 encryption in transit, AES-256 at rest, and strict RBAC isolation."
-    },
-    {
-      q: "Can Aparaitech Software integrate with our existing ERP, CRM, and databases?",
-      a: "Yes. Our systems are built with production-grade REST, gRPC, and GraphQL connectors. We have deep native integration experience with SAP, Oracle, Salesforce, PostgreSQL, MongoDB, Snowflake, Microsoft 365, and legacy internal databases."
-    },
-    {
-      q: "What is the typical timeline to take an enterprise AI system into production?",
-      a: "A typical engagement progresses from initial Diagnostic sprint to an interactive proof-of-concept in 2 to 3 weeks. Production VPC deployment and full system integration are generally achieved within 6 to 8 weeks, backed by guaranteed performance SLAs."
-    },
-    {
-      q: "Who owns the intellectual property and fine-tuned model weights?",
-      a: "Your organization owns 100% of the intellectual property, custom code, adapted model weights, and proprietary vector embeddings. Aparaitech Software never uses your proprietary enterprise data to train shared models."
-    },
-    {
-      q: "How do you eliminate hallucinations in mission-critical applications?",
-      a: "We engineer deterministic guardrails combining hybrid vector-dense + BM25 keyword retrieval, cross-encoder reranking, and citation-enforced generation. If verifiable factual support is absent from your documents, the system triggers graceful fallbacks rather than fabricating answers."
-    },
-    {
-      q: "What support and maintenance is provided after deployment?",
-      a: "Every engagement includes our Enterprise AI SLA covering 24/7 uptime monitoring, automated drift detection, security patching, prompt telemetry optimization, and scheduled model fine-tuning as your enterprise data expands."
-    }
-  ];
-
-  // Calculations for ROI Tool
-  const hoursSavedPerWeek = Math.round(calcWorkforce * calcHours * 0.65);
-  const annualCostSaved = (hoursSavedPerWeek * 50 * 28).toLocaleString("en-US");
-
   return (
-    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#00E5C9] selection:text-[#0C0D0F]">
-      
-      {/* 1. HERO SECTION WITH ANIMATED LIGHT TRACES */}
-      <section id="home" className="relative flex w-full min-h-[680px] items-center overflow-hidden bg-[#0C0D0F] border-b border-[#22242A]">
-        {/* Animated Light Traces SVG */}
-        <svg
-          viewBox="0 0 1440 420"
-          className="pointer-events-none absolute left-1/2 top-0 hidden h-auto w-full max-w-[1440px] -translate-x-1/2 overflow-visible lg:block opacity-60"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="trace-teal" gradientUnits="userSpaceOnUse" x1="-460" y1="0" x2="0" y2="0" spreadMethod="pad">
-              <stop offset="0" stopColor="#00E5C9" stopOpacity="0" />
-              <stop offset="0.6" stopColor="#00E5C9" stopOpacity="0.35" />
-              <stop offset="0.9" stopColor="#00E5C9" stopOpacity="0.85" />
-              <stop offset="0.985" stopColor="#E0FFFC" stopOpacity="1" />
-              <stop offset="1" stopColor="#00E5C9" stopOpacity="0" />
-              <animateTransform
-                attributeName="gradientTransform"
-                type="translate"
-                values="-900 0; 2340 0"
-                keyTimes="0; 1"
-                calcMode="linear"
-                dur="11.5s"
-                begin="0s"
-                repeatCount="indefinite"
-              />
-            </linearGradient>
-            <linearGradient id="trace-lime" gradientUnits="userSpaceOnUse" x1="-460" y1="0" x2="0" y2="0" spreadMethod="pad">
-              <stop offset="0" stopColor="#D4FD53" stopOpacity="0" />
-              <stop offset="0.6" stopColor="#D4FD53" stopOpacity="0.3" />
-              <stop offset="0.9" stopColor="#D4FD53" stopOpacity="0.8" />
-              <stop offset="0.985" stopColor="#F5FFDA" stopOpacity="1" />
-              <stop offset="1" stopColor="#D4FD53" stopOpacity="0" />
-              <animateTransform
-                attributeName="gradientTransform"
-                type="translate"
-                values="-900 0; 2340 0"
-                keyTimes="0; 1"
-                calcMode="linear"
-                dur="13.2s"
-                begin="-5.5s"
-                repeatCount="indefinite"
-              />
-            </linearGradient>
-            <linearGradient id="trace-purple" gradientUnits="userSpaceOnUse" x1="-460" y1="0" x2="0" y2="0" spreadMethod="pad">
-              <stop offset="0" stopColor="#9B95FE" stopOpacity="0" />
-              <stop offset="0.6" stopColor="#9B95FE" stopOpacity="0.3" />
-              <stop offset="0.9" stopColor="#9B95FE" stopOpacity="0.85" />
-              <stop offset="0.985" stopColor="#EFEAFF" stopOpacity="1" />
-              <stop offset="1" stopColor="#9B95FE" stopOpacity="0" />
-              <animateTransform
-                attributeName="gradientTransform"
-                type="translate"
-                values="-900 0; 2340 0"
-                keyTimes="0; 1"
-                calcMode="linear"
-                dur="12.1s"
-                begin="-2.8s"
-                repeatCount="indefinite"
-              />
-            </linearGradient>
-          </defs>
-          <path d="M-1000 32H554C614 32 670 64 700 116L753 197C770 223 799 238 830 238H2400" fill="none" stroke="url(#trace-teal)" strokeWidth="3" />
-          <path d="M-1000 134H604C635 134 664 150 681 176L735 257C765 308 820 341 880 341H2400" fill="none" stroke="url(#trace-lime)" strokeWidth="3" />
-          <path d="M787 32H2400" fill="none" stroke="url(#trace-purple)" strokeWidth="3" />
-        </svg>
+    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#0176D3] selection:text-white">
 
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 py-20 relative z-10">
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-            
-            {/* Center of Excellence Pill with Official Logo Mark */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#141518] border border-[#22242A] font-mono text-xs text-[#00E5C9] mb-8 shadow-inner">
-              <img
-                src="/aparaitech_logo.jpg"
-                alt="Aparaitech Software"
-                className="w-4 h-4 rounded-sm object-contain"
-              />
-              <span className="h-1.5 w-1.5 rounded-full bg-[#00E5C9] animate-pulse"></span>
-              <span>PUNE COE: GERA IMPERIUM, HINJAWADI PHASE 2</span>
+      {/* 0. MARQUEE BANNER BLADE (MATCHING BLADE 0 OF SALESFORCE.COM/IN) */}
+      <section className="w-full bg-[#032D60] border-b border-white/10 py-3.5 px-4 sm:px-8">
+        <div className="mx-auto w-full max-w-[1240px] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5 text-center md:text-left">
+            <div className="h-9 w-9 rounded-full bg-[#0176D3]/40 border border-[#0176D3] flex items-center justify-center shrink-0">
+              <Sparkles className="w-4 h-4 text-[#D4FD53]" />
             </div>
-
-            {/* Main Headline */}
-            <h1 className="text-[clamp(1.85rem,5.5vw,4.5rem)] font-bold tracking-tight text-white leading-[1.1] max-w-4xl">
-              Engineering Autonomous AI & Intelligent Cloud Systems
-            </h1>
-
-            {/* Subhead */}
-            <p className="mt-5 text-[clamp(1rem,1.8vw,1.25rem)] leading-relaxed text-slate-300 max-w-3xl font-normal">
-              Aparaitech Software designs, builds, and deploys production-grade Generative AI, autonomous multi-agent workflows, and sovereign cloud infrastructure tailored to your enterprise data.
-            </p>
-
-            {/* CTA Action Buttons */}
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
-              <button
-                onClick={() => setModalOpen(true)}
-                className="inline-flex h-[52px] cursor-pointer items-center justify-center gap-2 rounded-md bg-[#00E5C9] px-5 sm:px-7 text-sm sm:text-[15px] font-bold text-[#0C0D0F] transition-all hover:-translate-y-0.5 hover:brightness-110 w-full sm:w-auto shadow-lg shadow-[#00E5C9]/20"
-              >
-                <span>Schedule Architectural Consultation</span>
-                <ArrowUpRight className="w-4 h-4 text-[#0C0D0F]" />
-              </button>
-
-              <Link
-                to="/generative-ai"
-                className="inline-flex h-[52px] items-center justify-center gap-2 rounded-md border border-[#22242A] bg-[#141518] px-5 sm:px-7 text-sm sm:text-[15px] font-mono text-white transition-all hover:border-[#00E5C9]/50 hover:bg-[#1C1C1E] w-full sm:w-auto"
-              >
-                <span>Explore 21+ AI Frameworks</span>
-                <ArrowRight className="w-4 h-4 text-[#00E5C9]" />
-              </Link>
-            </div>
-
-            {/* Quick Assurance Badges */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-slate-400">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#00E5C9]" />
-                99.4% Zero-Hallucination Precision
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Shield className="w-4 h-4 text-[#D4FD53]" />
-                Zero-Data Egress / Air-Gapped Safe
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Zap className="w-4 h-4 text-[#9B95FE]" />
-                1-Hour Executive Response SLA
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 1.5 SALESFORCE-STYLE AGENTIC ENTERPRISE RIBBON (SCREENSHOT 1) */}
-      <section className="w-full bg-gradient-to-r from-[#0176D3]/20 via-[#0B2577]/40 to-[#0176D3]/20 border-y border-[#0176D3]/30 py-8 relative overflow-hidden">
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0176D3]/20 border border-[#0176D3]/40 text-[#00E5C9] font-mono text-[11px] font-bold uppercase tracking-wider mb-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                Salesforce & Agentic Enterprise Architecture
+            <div>
+              <div className="text-sm sm:text-[15px] font-bold text-white leading-tight">
+                Get Started with Salesforce <span className="text-[#00E5C9]">— India's #1 Agentic CRM</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-times font-serif font-bold text-white tracking-tight">
-                Welcome to the Agentic Enterprise
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-300 font-sans mt-1">
-                Where humans, autonomous agents, and sovereign cloud platforms drive customer success together.
+              <p className="text-xs text-slate-200 mt-0.5">
+                Uniquely built for India's growing businesses, the new SMB Growth Kit helps you sell faster, collaborate smarter and make confident decisions. Live in just 4 weeks!*
               </p>
             </div>
+          </div>
+          <button
+            onClick={() => setModalOpen(true)}
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#00E5C9] hover:bg-[#00E5C9]/90 text-[#0C0D0F] font-bold text-xs sm:text-sm transition-all shrink-0 cursor-pointer shadow-md hover:brightness-105"
+          >
+            <span>Get SMB Growth Kit</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </section>
 
-            {/* Product Tabs Ribbon (Screenshot 1) */}
-            <div className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs">
-              <div className="px-3.5 py-2 rounded-xl bg-[#141518]/90 border border-white/10 hover:border-[#00E5C9]/50 text-white flex items-center gap-2 shadow-sm">
-                <Workflow className="w-4 h-4 text-[#00E5C9]" />
-                <span>Slack Agentic Flows</span>
+      {/* 1. HERO: WELCOME TO THE AGENTIC ENTERPRISE (MATCHING BLADE 1 & SCREENSHOT 1) */}
+      <section id="home" className="relative w-full overflow-hidden bg-gradient-to-b from-[#032D60]/90 via-[#0C0D0F] to-[#0C0D0F] py-20 sm:py-24 border-b border-[#22242A]">
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+            
+            {/* Eyebrow Label */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0176D3]/20 border border-[#0176D3]/40 text-[#00E5C9] font-mono text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Where humans, agents, and platforms drive customer success together.</span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-[clamp(2.2rem,5.5vw,4.5rem)] font-times font-serif font-bold tracking-tight text-white leading-[1.08] max-w-4xl">
+              Welcome to the Agentic Enterprise
+            </h1>
+
+            {/* Description Subtext */}
+            <p className="mt-6 text-[clamp(1rem,1.8vw,1.25rem)] leading-relaxed text-slate-300 max-w-3xl font-times font-serif">
+              Humans and agents work inside the systems that run your business. The result: faster decisions, stronger customer relationships, and non-stop growth. Now with Headless 360, every Salesforce capability is accessible from any tool, any agent, any interface — wherever work happens.
+            </p>
+
+            {/* CTAs */}
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <button
+                onClick={() => setModalOpen(true)}
+                className="inline-flex h-[52px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#0176D3] hover:bg-[#0176D3]/90 px-7 text-sm sm:text-base font-bold text-white transition-all shadow-xl hover:scale-105 w-full sm:w-auto"
+              >
+                <span>Explore Agentforce Coworker</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={() => setModalOpen(true)}
+                className="inline-flex h-[52px] cursor-pointer items-center justify-center gap-2 rounded-lg border border-white/20 bg-[#141518] px-7 text-sm sm:text-base font-mono text-white transition-all hover:border-[#00E5C9]/50 hover:bg-[#1C1C1E] w-full sm:w-auto"
+              >
+                <span>Meet Slackbot / Live Demo</span>
+                <ExternalLink className="w-4 h-4 text-[#00E5C9]" />
+              </button>
+            </div>
+
+            {/* 5 Product Ecosystem Cards (Slack, Tableau, Agentforce, Customer 360, Data 360) */}
+            <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 w-full text-left font-sans">
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#141518]/90 border border-white/10 hover:border-[#0176D3] transition-all group shadow-md">
+                <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center mb-3 text-[#00E5C9] group-hover:scale-110 transition-transform">
+                  <Workflow className="w-5 h-5" />
+                </div>
+                <h4 className="font-bold text-white text-sm sm:text-base mb-1">Slack</h4>
+                <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                  Connect workflows and conversational data where work happens.
+                </p>
               </div>
-              <div className="px-3.5 py-2 rounded-xl bg-[#141518]/90 border border-white/10 hover:border-[#D4FD53]/50 text-white flex items-center gap-2 shadow-sm">
-                <BarChart3 className="w-4 h-4 text-[#D4FD53]" />
-                <span>Tableau Telemetry</span>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#141518]/90 border border-white/10 hover:border-[#0176D3] transition-all group shadow-md">
+                <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center mb-3 text-[#D4FD53] group-hover:scale-110 transition-transform">
+                  <BarChart3 className="w-5 h-5" />
+                </div>
+                <h4 className="font-bold text-white text-sm sm:text-base mb-1">Tableau</h4>
+                <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                  Turn agentic analytics into actionable intelligence.
+                </p>
               </div>
-              <div className="px-3.5 py-2 rounded-xl bg-[#0176D3]/30 border border-[#0176D3]/60 text-white flex items-center gap-2 shadow-md">
-                <Bot className="w-4 h-4 text-[#00E5C9]" />
-                <span className="font-bold text-[#00E5C9]">Agentforce AI Core</span>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#0176D3]/20 border border-[#0176D3]/50 hover:border-[#0176D3] transition-all group shadow-lg">
+                <div className="h-10 w-10 rounded-xl bg-[#0176D3]/40 flex items-center justify-center mb-3 text-[#D4FD53] group-hover:scale-110 transition-transform">
+                  <Bot className="w-5 h-5" />
+                </div>
+                <h4 className="font-bold text-white text-sm sm:text-base mb-1">Agentforce</h4>
+                <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                  Build trusted, agentic experiences that act with purpose.
+                </p>
               </div>
-              <div className="px-3.5 py-2 rounded-xl bg-[#141518]/90 border border-white/10 hover:border-[#9B95FE]/50 text-white flex items-center gap-2 shadow-sm">
-                <Database className="w-4 h-4 text-[#9B95FE]" />
-                <span>Customer 360</span>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#141518]/90 border border-white/10 hover:border-[#0176D3] transition-all group shadow-md">
+                <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center mb-3 text-[#9B95FE] group-hover:scale-110 transition-transform">
+                  <Database className="w-5 h-5" />
+                </div>
+                <h4 className="font-bold text-white text-sm sm:text-base mb-1">Customer 360</h4>
+                <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                  Ground every decision in proven business context.
+                </p>
               </div>
-              <div className="px-3.5 py-2 rounded-xl bg-[#141518]/90 border border-white/10 hover:border-[#00E5C9]/50 text-white flex items-center gap-2 shadow-sm">
-                <Lock className="w-4 h-4 text-[#00E5C9]" />
-                <span>Data Cloud VPC</span>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#141518]/90 border border-white/10 hover:border-[#0176D3] transition-all group shadow-md col-span-2 sm:col-span-1">
+                <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center mb-3 text-[#00E5C9] group-hover:scale-110 transition-transform">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <h4 className="font-bold text-white text-sm sm:text-base mb-1">Data 360</h4>
+                <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                  One governed, trusted enterprise data foundation.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2.5 BUILT-IN AI FOR EVERY PART OF YOUR BUSINESS (SCREENSHOT 3) */}
+      {/* 2. "SEE WHY COMPANIES TRUST SALESFORCE" & BUILT-IN AI SPLIT SECTION (BLADES 2 & 3 & SCREENSHOT 3) */}
       <section className="w-full bg-[#0E0F12] py-20 border-b border-[#22242A] relative overflow-hidden">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="font-mono text-xs font-bold text-[#0176D3] uppercase tracking-widest">
+              PROVEN ENTERPRISE IMPACT
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-times font-serif font-bold text-white mt-2">
+              See why companies trust Salesforce to help them grow
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Copy & CTAs */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#00E5C9]/10 border border-[#00E5C9]/30 text-[#00E5C9] font-mono text-xs font-bold uppercase tracking-wider">
-                <Bot className="w-3.5 h-3.5" />
-                Autonomous Agentic Architecture
-              </div>
-              <h2 className="text-[clamp(2.1rem,4vw,3.25rem)] font-times font-serif font-bold text-white tracking-tight leading-tight">
+              <h3 className="text-[clamp(2.1rem,4vw,3.25rem)] font-times font-serif font-bold text-white tracking-tight leading-tight">
                 Built-in AI for every part of your business.
-              </h2>
-              <p className="text-base text-slate-300 font-normal leading-relaxed">
-                Put AI to work across sales, service, field operations, and engineering with our sovereign multi-agent cognitive architecture. It knows your enterprise data, eliminates hallucinations, and automates workflows with strict role-based access control. Start simply with fast setup and prebuilt production models.
+              </h3>
+              <p className="text-base text-slate-300 font-times font-serif leading-relaxed">
+                Put AI to work across sales, service, and marketing with Starter Suite — a CRM that knows your business and can automate the kind of customer experiences you’ll actually be proud of. Start simply with quick and easy setup and prebuilt agents.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#0176D3] hover:bg-[#0176D3]/90 px-6 text-sm font-bold text-white shadow-lg transition-all cursor-pointer"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#008244] hover:bg-[#007038] px-6 text-sm font-bold text-white shadow-lg transition-all cursor-pointer"
                 >
-                  <span>Start for free / Diagnostic</span>
+                  <span>Start for free</span>
                   <ExternalLink className="w-4 h-4" />
                 </button>
-                <Link
-                  to="/solutions"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/20 bg-[#141518] hover:bg-[#1C1C1E] px-6 text-sm font-mono text-white transition-all"
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/20 bg-[#141518] hover:bg-[#1C1C1E] px-6 text-sm font-mono text-white transition-all cursor-pointer"
                 >
-                  <span>Start Live Demo</span>
+                  <span>Start demo</span>
                   <ArrowRight className="w-4 h-4 text-[#00E5C9]" />
-                </Link>
+                </button>
               </div>
 
-              {/* High-Impact Stat Counter (Screenshot 3) */}
+              {/* High-Impact Stat Counter */}
               <div className="pt-6 border-t border-[#22242A] flex items-center gap-4 font-mono text-xs text-slate-400">
                 <div className="text-3xl font-bold font-times font-serif text-[#D4FD53]">
                   3.4M+
                 </div>
                 <div>
-                  <div className="text-white font-semibold">Autonomous Transactions & Conversations Handled</div>
-                  <div className="text-slate-500 text-[11px]">Powered by Agentforce & Aparaitech Cognitive Engine</div>
+                  <div className="text-white font-semibold">Autonomous Conversations & Transactions Handled Daily</div>
+                  <div className="text-slate-500 text-[11px]">Powered by Agentforce & Customer 360</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Media Card (Screenshot 3) */}
+            {/* Right Vidyard Video Player Mockup Card */}
             <div className="lg:col-span-6 relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#0176D3]/30 via-[#5A24BA]/30 to-[#00E5C9]/20 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition duration-500"></div>
               <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-3 shadow-2xl">
@@ -974,31 +746,31 @@ export default function AltrdHome() {
                   {/* Top Branding Pill */}
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-bold text-white px-3 py-1 rounded-full bg-black/40 border border-white/20 backdrop-blur-md">
-                      Agentforce Enterprise Suite
+                      Starter Suite • India SMB Edition
                     </span>
                     <span className="font-mono text-xs text-[#00E5C9] flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/40 border border-white/10">
                       <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
-                      Interactive Preview
+                      Interactive Demo
                     </span>
                   </div>
 
-                  {/* Centered Play Video Trigger */}
+                  {/* Centered Play Trigger */}
                   <div className="flex flex-col items-center text-center my-auto">
                     <button
                       onClick={() => setModalOpen(true)}
-                      className="h-20 w-20 rounded-full bg-white/90 hover:bg-white text-[#0B2577] flex items-center justify-center shadow-2xl hover:scale-110 transition-all cursor-pointer group-hover:shadow-[#00E5C9]/40 mb-4"
+                      className="h-20 w-20 rounded-full bg-white text-[#0B2577] flex items-center justify-center shadow-2xl hover:scale-110 transition-all cursor-pointer group-hover:shadow-[#00E5C9]/40 mb-4"
                     >
                       <Play className="w-8 h-8 ml-1 fill-current" />
                     </button>
                     <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white max-w-sm">
-                      Why Fast-Growing Businesses Choose Sovereign Agentic AI
+                      Why Indian SMBs love Salesforce
                     </h3>
                   </div>
 
                   {/* Bottom Stats Banner */}
                   <div className="flex items-center justify-between text-xs font-mono text-white/90 border-t border-white/20 pt-4">
-                    <span>Deterministic Workflows</span>
-                    <span className="text-[#D4FD53] font-bold">100% On-Premises & Private VPC</span>
+                    <span>Prebuilt Agents Ready</span>
+                    <span className="text-[#D4FD53] font-bold">Live in Just 4 Weeks</span>
                   </div>
                 </div>
               </div>
@@ -1007,629 +779,90 @@ export default function AltrdHome() {
         </div>
       </section>
 
-      {/* 2. METRICS BAR */}
-      <section className="w-full border-b border-[#22242A] bg-[#0C0D0F]">
+      {/* 3. 3M+ CONVERSATIONS HANDLED BY AGENTFORCE AND COUNTING (MATCHING BLADE 4) */}
+      <section className="w-full bg-[#0C0D0F] py-20 border-b border-[#22242A]">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#22242A]">
-            <div className="flex min-h-[110px] items-center gap-4 px-6 py-6 transition-colors hover:bg-white/[0.02]">
-              <div className="h-10 w-10 rounded-lg bg-[#141518] border border-[#22242A] flex items-center justify-center text-[#00E5C9]">
-                <Building2 className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white font-mono">30+</div>
-                <div className="text-xs text-slate-400 font-mono">Enterprise Deployments</div>
-              </div>
-            </div>
-
-            <div className="flex min-h-[110px] items-center gap-4 px-6 py-6 transition-colors hover:bg-white/[0.02]">
-              <div className="h-10 w-10 rounded-lg bg-[#141518] border border-[#22242A] flex items-center justify-center text-[#D4FD53]">
-                <Bot className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white font-mono">50+</div>
-                <div className="text-xs text-slate-400 font-mono">Neural Models & Agents</div>
-              </div>
-            </div>
-
-            <div className="flex min-h-[110px] items-center gap-4 px-6 py-6 transition-colors hover:bg-white/[0.02]">
-              <div className="h-10 w-10 rounded-lg bg-[#141518] border border-[#22242A] flex items-center justify-center text-[#9B95FE]">
-                <Zap className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white font-mono">2.4M+</div>
-                <div className="text-xs text-slate-400 font-mono">Automated Transactions</div>
-              </div>
-            </div>
-
-            <div className="flex min-h-[110px] items-center gap-4 px-6 py-6 transition-colors hover:bg-white/[0.02]">
-              <div className="h-10 w-10 rounded-lg bg-[#141518] border border-[#22242A] flex items-center justify-center text-[#00E5C9]">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white font-mono">100%</div>
-                <div className="text-xs text-slate-400 font-mono">VPC Sovereignty</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. PROVEN PRODUCTION PLATFORMS SHOWCASE */}
-      {/* 3. PROVEN PRODUCTION PLATFORMS SHOWCASE WITH CAROUSEL & TIMES NEW ROMAN */}
-      <section id="platforms" className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          {/* Header & Controls Strip */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div className="max-w-3xl">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="block h-2.5 w-2.5 bg-[#00E5C9]"></span>
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
-                  PROVEN PRODUCTION DEPLOYMENTS
-                </span>
-              </div>
-              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold tracking-tight text-white leading-tight">
-                Real-World Platforms Engineered & Operated by Aparaitech Software.
-              </h2>
-              <p className="mt-4 text-base sm:text-lg text-slate-300 font-times font-serif leading-relaxed">
-                We do not deal in hypothetical concept decks. We build, scale, and maintain high-volume cognitive software systems deployed in production environments.
-              </p>
-            </div>
-
-            {/* Carousel Navigation & Mode Toggles */}
-            <div className="flex flex-wrap items-center gap-3 shrink-0">
-              {/* View Mode Toggle */}
-              <div className="inline-flex items-center rounded-lg bg-[#141518] border border-[#22242A] p-1 font-mono text-xs">
-                <button
-                  onClick={() => setPlatformViewMode("carousel")}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md transition-all ${
-                    platformViewMode === "carousel"
-                      ? "bg-[#00E5C9] text-[#0C0D0F] font-bold shadow-md"
-                      : "text-slate-400 hover:text-white"
-                  }`}
-                >
-                  <SlidersHorizontal className="w-3.5 h-3.5" />
-                  <span>Carousel</span>
-                </button>
-                <button
-                  onClick={() => setPlatformViewMode("grid")}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md transition-all ${
-                    platformViewMode === "grid"
-                      ? "bg-[#00E5C9] text-[#0C0D0F] font-bold shadow-md"
-                      : "text-slate-400 hover:text-white"
-                  }`}
-                >
-                  <Grid className="w-3.5 h-3.5" />
-                  <span>All (6)</span>
-                </button>
-              </div>
-
-              {/* Prev / Next Scroll Buttons (Carousel Mode) */}
-              {platformViewMode === "carousel" && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Metrics Demonstration Card */}
+            <div className="lg:col-span-6 relative rounded-2xl bg-[#141518] border border-[#22242A] p-6 sm:p-8 shadow-2xl">
+              <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
                 <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => scrollCarousel("left")}
-                    className="h-9 w-9 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#00E5C9]/50 hover:bg-[#1C1C1E] flex items-center justify-center text-white transition-all cursor-pointer"
-                    aria-label="Previous platform"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => scrollCarousel("right")}
-                    className="h-9 w-9 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#00E5C9]/50 hover:bg-[#1C1C1E] flex items-center justify-center text-white transition-all cursor-pointer"
-                    aria-label="Next platform"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                  <div className="h-2.5 w-2.5 rounded-full bg-[#10B981] animate-pulse"></div>
+                  <span className="font-mono text-xs font-bold text-white uppercase tracking-wider">
+                    Agentforce Resolution Engine
+                  </span>
                 </div>
-              )}
-
-              {/* Subpage Portfolio Link */}
-              <Link
-                to="/customers/portfolio"
-                className="inline-flex h-9 items-center gap-1.5 px-4 rounded-lg bg-[#141518] border border-white/15 hover:border-[#00E5C9] text-xs font-mono text-white transition-all"
-              >
-                <span>Full Portfolio Subpage</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#00E5C9]" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Scrolling Effect Notice Bar */}
-          {platformViewMode === "carousel" && (
-            <div className="flex items-center justify-between mb-4 font-mono text-xs text-slate-400 px-1">
-              <span className="flex items-center gap-2">
-                <span className={`h-2 w-2 rounded-full ${isCarouselPaused ? "bg-amber-400" : "bg-[#10B981] animate-pulse"}`}></span>
-                {isCarouselPaused ? "Auto-Scroll Paused (Hovering)" : "Auto-Scrolling Active (Hover card to pause)"}
-              </span>
-              <span className="text-[11px] text-slate-500 hidden sm:inline">
-                Drag or use arrows to navigate systems
-              </span>
-            </div>
-          )}
-
-          {/* Platforms Cards Container: Carousel or Grid */}
-          {platformViewMode === "carousel" ? (
-            <div>
-              <div
-                ref={carouselRef}
-                onScroll={handleCarouselScroll}
-                onMouseEnter={() => setIsCarouselPaused(true)}
-                onMouseLeave={() => setIsCarouselPaused(false)}
-                className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-6 px-1"
-                style={{ scrollbarWidth: "none" }}
-              >
-                {productionPlatforms.map((platform, idx) => (
-                  <div
-                    key={platform.id || idx}
-                    className="w-[320px] sm:w-[380px] lg:w-[400px] shrink-0 snap-start group relative rounded-xl bg-[#141518] border border-[#22242A] p-6 sm:p-7 transition-all duration-300 hover:border-[#00E5C9]/50 hover:shadow-2xl hover:shadow-[#00E5C9]/5 flex flex-col justify-between"
-                  >
-                    <div>
-                      {/* 1. High-Resolution Card Preview Image */}
-                      <div className="relative w-full h-48 sm:h-52 overflow-hidden rounded-lg mb-5 bg-[#1C1C1E] border border-white/10 group-hover:border-[#00E5C9]/40 transition-all">
-                        <img
-                          src={platform.image}
-                          alt={platform.name}
-                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                        {/* Gradient Shadow Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-[#141518]/30 to-black/40"></div>
-
-                        {/* Badges on Top */}
-                        <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#00E5C9]">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
-                            {platform.badge}
-                          </span>
-                          <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-[#D4FD53]/30 text-[#D4FD53]">
-                            {platform.metric}
-                          </span>
-                        </div>
-
-                        {/* Quick Specs Action Button */}
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedPlatformModal(platform);
-                          }}
-                          className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/85 hover:bg-[#00E5C9] hover:text-[#0C0D0F] text-white border border-white/20 text-[10px] font-mono transition-all backdrop-blur-md cursor-pointer shadow-md"
-                          title="View Architecture Specs"
-                        >
-                          <SlidersHorizontal className="w-3 h-3" />
-                          <span>Quick Specs</span>
-                        </button>
-                      </div>
-
-                      {/* 2. Platform Title (Times New Roman) */}
-                      <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white group-hover:text-[#00E5C9] transition-colors mb-1.5 leading-snug">
-                        {platform.name}
-                      </h3>
-
-                      {/* 3. Platform Tagline (Times New Roman) */}
-                      <p className="text-xs sm:text-sm font-times font-serif italic text-slate-300 mb-3 leading-relaxed">
-                        {platform.tagline}
-                      </p>
-
-                      {/* 4. Platform Detail Text */}
-                      <p className="text-xs text-slate-400 leading-relaxed mb-4 font-normal">
-                        {platform.detail}
-                      </p>
-
-                      {/* 5. Production Telemetry Chips */}
-                      <div className="flex flex-wrap gap-1.5 mb-5 font-mono text-[10px]">
-                        <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">
-                          {platform.specs.latency}
-                        </span>
-                        <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">
-                          {platform.specs.throughput}
-                        </span>
-                        <span className="px-2 py-0.5 rounded bg-[#D4FD53]/10 border border-[#D4FD53]/20 text-[#D4FD53] font-semibold">
-                          {platform.specs.sla}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* 6. Card Footer with Subpage Link & Live Launch */}
-                    <div className="pt-4 border-t border-[#22242A] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-                      {/* Architecture Subpage Link */}
-                      <Link
-                        to={platform.subpage}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-[#00E5C9]/15 border border-white/10 hover:border-[#00E5C9]/40 text-[#00E5C9] font-mono text-[11px] font-semibold transition-all group-hover:border-[#00E5C9]/30"
-                      >
-                        <span>Architecture Subpage</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-
-                      {/* Live Platform Deployment Link */}
-                      <a
-                        href={platform.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#00E5C9] hover:bg-[#00E5C9]/90 text-[#0C0D0F] font-mono text-[11px] font-bold transition-all shadow-md hover:brightness-110"
-                      >
-                        <span>Launch Live</span>
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
-                    </div>
-                  </div>
-                ))}
+                <span className="font-mono text-xs text-[#00E5C9]">2.5M+ Requests Handled</span>
               </div>
 
-              {/* Indicator Dots */}
-              <div className="flex items-center justify-center gap-2 mt-4">
-                {productionPlatforms.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => scrollToCard(idx)}
-                    className={`h-2 transition-all rounded-full cursor-pointer ${
-                      activePlatformIndex === idx
-                        ? "w-8 bg-[#00E5C9]"
-                        : "w-2 bg-white/20 hover:bg-white/50"
-                    }`}
-                    aria-label={`Jump to platform ${idx + 1}`}
-                  />
-                ))}
+              <div className="grid grid-cols-3 gap-4 mb-6 text-center">
+                <div className="p-4 rounded-xl bg-black/40 border border-white/5">
+                  <div className="text-2xl sm:text-3xl font-bold font-times font-serif text-[#00E5C9]">66%</div>
+                  <div className="text-[11px] text-slate-400 mt-1 font-mono">Autonomous Resolution</div>
+                </div>
+                <div className="p-4 rounded-xl bg-black/40 border border-white/5">
+                  <div className="text-2xl sm:text-3xl font-bold font-times font-serif text-[#D4FD53]">15%</div>
+                  <div className="text-[11px] text-slate-400 mt-1 font-mono">More Pipeline</div>
+                </div>
+                <div className="p-4 rounded-xl bg-black/40 border border-white/5">
+                  <div className="text-2xl sm:text-3xl font-bold font-times font-serif text-[#9B95FE]">1.8x</div>
+                  <div className="text-[11px] text-slate-400 mt-1 font-mono">Higher Conversion</div>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white/5 text-xs text-slate-300 leading-relaxed font-mono">
+                "Agentforce handles tier-1 customer inquiries, drafts sales email sequences, and verifies inventory autonomously with zero hallucination guardrails."
               </div>
             </div>
-          ) : (
-            /* Full Grid View */
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {productionPlatforms.map((platform, idx) => (
-                <div
-                  key={platform.id || idx}
-                  className="group relative rounded-xl bg-[#141518] border border-[#22242A] p-6 sm:p-7 transition-all duration-300 hover:border-[#00E5C9]/50 hover:shadow-2xl hover:shadow-[#00E5C9]/5 flex flex-col justify-between"
+
+            {/* Right Copy */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#00E5C9]/10 border border-[#00E5C9]/30 text-[#00E5C9] font-mono text-xs font-bold uppercase tracking-wider">
+                <Bot className="w-3.5 h-3.5" />
+                PROVEN AGENTIC SCALE
+              </div>
+              <h2 className="text-[clamp(2.1rem,4vw,3.25rem)] font-times font-serif font-bold text-white tracking-tight leading-tight">
+                3M+ conversations handled by Agentforce and counting.
+              </h2>
+              <p className="text-base text-slate-300 font-times font-serif leading-relaxed">
+                Everyone talks the AI talk. We’re walking the walk. With 66% autonomous case resolution, 15% more marketing pipeline, and 1.8x higher lead conversion, Agentforce delivers real conversational AI across service, sales, and marketing workflows. See how we did it – and how you can, too.
+              </p>
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="inline-flex h-12 items-center gap-2 px-6 rounded-lg bg-[#0176D3] hover:bg-[#0176D3]/90 text-white font-bold text-sm shadow-md cursor-pointer"
                 >
-                  <div>
-                    {/* High-Resolution Card Preview Image */}
-                    <div className="relative w-full h-48 sm:h-52 overflow-hidden rounded-lg mb-5 bg-[#1C1C1E] border border-white/10 group-hover:border-[#00E5C9]/40 transition-all">
-                      <img
-                        src={platform.image}
-                        alt={platform.name}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-[#141518]/30 to-black/40"></div>
-
-                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#00E5C9]">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
-                          {platform.badge}
-                        </span>
-                        <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-[#D4FD53]/30 text-[#D4FD53]">
-                          {platform.metric}
-                        </span>
-                      </div>
-
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedPlatformModal(platform);
-                        }}
-                        className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/85 hover:bg-[#00E5C9] hover:text-[#0C0D0F] text-white border border-white/20 text-[10px] font-mono transition-all backdrop-blur-md cursor-pointer shadow-md"
-                        title="View Architecture Specs"
-                      >
-                        <SlidersHorizontal className="w-3 h-3" />
-                        <span>Quick Specs</span>
-                      </button>
-                    </div>
-
-                    <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white group-hover:text-[#00E5C9] transition-colors mb-1.5 leading-snug">
-                      {platform.name}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm font-times font-serif italic text-slate-300 mb-3 leading-relaxed">
-                      {platform.tagline}
-                    </p>
-
-                    <p className="text-xs text-slate-400 leading-relaxed mb-4 font-normal">
-                      {platform.detail}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1.5 mb-5 font-mono text-[10px]">
-                      <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">
-                        {platform.specs.latency}
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">
-                        {platform.specs.throughput}
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-[#D4FD53]/10 border border-[#D4FD53]/20 text-[#D4FD53] font-semibold">
-                        {platform.specs.sla}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#22242A] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-                    <Link
-                      to={platform.subpage}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-[#00E5C9]/15 border border-white/10 hover:border-[#00E5C9]/40 text-[#00E5C9] font-mono text-[11px] font-semibold transition-all group-hover:border-[#00E5C9]/30"
-                    >
-                      <span>Architecture Subpage</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-
-                    <a
-                      href={platform.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#00E5C9] hover:bg-[#00E5C9]/90 text-[#0C0D0F] font-mono text-[11px] font-bold transition-all shadow-md hover:brightness-110"
-                    >
-                      <span>Launch Live</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* QUICK ARCHITECTURE SPECS MODAL */}
-      {selectedPlatformModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-          <div className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto rounded-2xl bg-[#141518] border border-[#22242A] p-6 sm:p-8 shadow-2xl">
-            <button
-              onClick={() => setSelectedPlatformModal(null)}
-              className="absolute top-5 right-5 h-9 w-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* Modal Image Header */}
-            <div className="relative w-full h-56 sm:h-64 rounded-xl overflow-hidden mb-6 border border-white/10">
-              <img
-                src={selectedPlatformModal.image}
-                alt={selectedPlatformModal.name}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-transparent to-black/40"></div>
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2">
-                <span className="font-mono text-xs font-bold text-[#00E5C9] px-3 py-1 rounded bg-[#0C0D0F]/90 border border-white/20">
-                  {selectedPlatformModal.badge}
-                </span>
-                <span className="font-times font-serif text-sm font-bold text-[#D4FD53] px-3 py-1 rounded bg-[#0C0D0F]/90 border border-[#D4FD53]/30">
-                  {selectedPlatformModal.metric}
-                </span>
+                  <span>See our stories</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link
+                  to="/solutions"
+                  className="inline-flex h-12 items-center gap-2 px-6 rounded-lg border border-white/20 bg-[#141518] hover:bg-[#1C1C1E] text-white font-mono text-xs transition-all"
+                >
+                  <span>Experience Salesforce Help</span>
+                  <ExternalLink className="w-4 h-4 text-[#00E5C9]" />
+                </Link>
               </div>
             </div>
-
-            {/* Modal Title & Tagline in Times New Roman */}
-            <h3 className="text-2xl sm:text-3xl font-times font-serif font-bold text-white mb-2">
-              {selectedPlatformModal.name}
-            </h3>
-            <p className="text-sm font-times font-serif italic text-[#00E5C9] mb-4">
-              {selectedPlatformModal.tagline}
-            </p>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 font-normal">
-              {selectedPlatformModal.detail}
-            </p>
-
-            {/* Technical Specifications Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-xl bg-[#0C0D0F] border border-white/5 mb-6 font-mono text-xs">
-              <div className="space-y-1">
-                <div className="text-slate-400 text-[10px]">INFERENCE LATENCY</div>
-                <div className="text-white font-bold">{selectedPlatformModal.specs.latency}</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-slate-400 text-[10px]">DAILY SCALE</div>
-                <div className="text-[#00E5C9] font-bold">{selectedPlatformModal.specs.throughput}</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-slate-400 text-[10px]">AVAILABILITY SLA</div>
-                <div className="text-[#D4FD53] font-bold">{selectedPlatformModal.specs.sla}</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-slate-400 text-[10px]">DEPLOYMENT</div>
-                <div className="text-slate-200 font-bold truncate">{selectedPlatformModal.specs.deployment}</div>
-              </div>
-            </div>
-
-            {/* Stack */}
-            <div className="mb-8">
-              <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">
-                ENGINEERING STACK
-              </div>
-              <div className="p-3 rounded-lg bg-[#0C0D0F] border border-white/5 font-mono text-xs text-[#00E5C9]">
-                {selectedPlatformModal.stack}
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-end gap-3 pt-4 border-t border-[#22242A]">
-              <Link
-                to={selectedPlatformModal.subpage}
-                onClick={() => setSelectedPlatformModal(null)}
-                className="inline-flex h-11 items-center gap-2 px-5 rounded-lg bg-[#141518] border border-white/20 hover:border-[#00E5C9] text-xs font-mono text-white transition-all"
-              >
-                <span>Open Full System Subpage</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#00E5C9]" />
-              </Link>
-              <a
-                href={selectedPlatformModal.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 items-center gap-2 px-5 rounded-lg bg-[#00E5C9] hover:brightness-110 text-xs font-mono text-[#0C0D0F] font-bold transition-all shadow-lg"
-              >
-                <span>Launch Live System</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 4. CORE ENTERPRISE AI CAPABILITIES */}
-      <section id="capabilities" className="w-full bg-[#0E0F12] py-24 border-b border-[#22242A]">
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="block h-2.5 w-2.5 bg-[#D4FD53]"></span>
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53] font-bold">
-                ENTERPRISE CAPABILITIES
-              </span>
-            </div>
-            <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold tracking-tight text-white leading-tight">
-              Architected for enterprise security, deterministic precision, and scale.
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-300 font-times font-serif leading-relaxed">
-              Every layer of our cognitive stack is built to eliminate hallucinations, enforce enterprise access controls, and integrate natively into existing enterprise software.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreCapabilities.map((cap, idx) => (
-              <div
-                key={idx}
-                className="group relative rounded-xl bg-[#141518] border border-[#22242A] p-6 sm:p-7 hover:border-[#00E5C9]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#00E5C9]/5 flex flex-col justify-between"
-              >
-                <div>
-                  {/* 1. Capability Preview Image Banner */}
-                  <div className="relative w-full h-44 sm:h-48 overflow-hidden rounded-lg mb-6 bg-[#1C1C1E] border border-white/10 group-hover:border-[#00E5C9]/40 transition-all">
-                    <img
-                      src={cap.image}
-                      alt={cap.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    {/* Contrast Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-[#141518]/30 to-black/40"></div>
-
-                    {/* Top Badges */}
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#00E5C9]">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
-                        {cap.tag}
-                      </span>
-                      <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-[#D4FD53]/30 text-[#D4FD53]">
-                        {cap.metric}
-                      </span>
-                    </div>
-
-                    {/* Integrated Floating Icon */}
-                    <div className="absolute bottom-3 left-3 h-10 w-10 rounded-lg bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 flex items-center justify-center text-[#00E5C9] group-hover:border-[#00E5C9]/50 shadow-md">
-                      {cap.icon}
-                    </div>
-                  </div>
-
-                  {/* 2. Capability Title in Times New Roman */}
-                  <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white group-hover:text-[#00E5C9] transition-colors mb-2.5 leading-snug">
-                    {cap.title}
-                  </h3>
-
-                  {/* 3. Description */}
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5 font-normal">
-                    {cap.desc}
-                  </p>
-                </div>
-
-                <div>
-                  {/* 4. Telemetry Bullet Points */}
-                  <ul className="space-y-2 border-t border-[#22242A] pt-4 font-mono text-xs text-slate-300">
-                    {cap.points.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#00E5C9]"></span>
-                        <span>{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* 5. Subpage Architecture Action Link */}
-                  <div className="pt-4 mt-4 border-t border-[#22242A] flex items-center justify-between font-mono text-xs">
-                    <span className="text-[11px] text-slate-500">Sovereign Architecture</span>
-                    <Link
-                      to={cap.link}
-                      className="inline-flex items-center gap-1.5 text-[#00E5C9] hover:underline font-semibold text-xs transition-colors"
-                    >
-                      <span>Explore Subpage</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-14 text-center">
-            <Link
-              to="/generative-ai"
-              className="inline-flex items-center gap-2 text-sm font-mono text-[#00E5C9] hover:underline"
-            >
-              <span>Explore all 21+ Generative AI technical capabilities in detail</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* 5. SALESFORCE-STYLE 8-INDUSTRY CARDS GRID (SCREENSHOT 4) */}
-      <section id="industries" className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="max-w-3xl mb-14">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="block h-2.5 w-2.5 bg-[#9B95FE]"></span>
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#9B95FE] font-bold">
-                DOMAIN SOLUTIONS
-              </span>
-            </div>
-            <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold tracking-tight text-white leading-tight">
-              Custom operational workflows tailored to your sector.
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-300 font-times font-serif leading-relaxed">
-              Every sector demands bespoke guardrails, specialized data schemas, and regulatory compliance. Discover our production architectures engineered for your industry.
-            </p>
-          </div>
-
-          {/* 8 Salesforce-Style Vibrant Purple Gradient Cards Grid (Screenshot 4) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {salesforceIndustries.map((ind) => (
-              <div
-                key={ind.id}
-                className="group relative rounded-3xl bg-gradient-to-br from-[#5A24BA] to-[#3B1287] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#5A24BA]/40 border border-white/10 flex flex-col justify-between min-h-[300px]"
-              >
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
-                    {ind.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-normal mb-8">
-                    {ind.desc}
-                  </p>
-                </div>
-
-                <div className="flex items-center justify-between pt-4 border-t border-white/15">
-                  <Link
-                    to={ind.link}
-                    className="text-xs font-semibold text-white underline hover:text-[#D4FD53] transition-colors flex items-center gap-1"
-                  >
-                    <span>Explore {ind.name}</span>
-                    <ArrowRight className="w-3.5 h-3.5 inline" />
-                  </Link>
-
-                  {/* Circular White Icon Badge (Screenshot 4) */}
-                  <div className="h-11 w-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform shrink-0">
-                    {ind.icon}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5.5 SALESFORCE-STYLE CUSTOMER VIDEO STORIES CAROUSEL (SCREENSHOT 2) */}
+      {/* 4. CUSTOMER VIDEO STORIES CAROUSEL (MATCHING BLADES 5-12 & SCREENSHOT 2) */}
       <section className="w-full bg-[#0B2577] py-24 border-b border-[#0176D3]/40 relative overflow-hidden">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[#00E5C9] font-mono text-xs font-bold uppercase tracking-wider mb-4">
                 <Video className="w-3.5 h-3.5" />
-                Verified Enterprise Case Studies
+                Verified Indian Customer Stories
               </div>
-              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-bold text-white tracking-tight leading-tight max-w-2xl">
-                See why companies trust Aparaitech to help them grow.
+              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold text-white tracking-tight leading-tight max-w-2xl">
+                See why companies trust Salesforce to help them grow.
               </h2>
             </div>
 
-            {/* Video Carousel Controls (Screenshot 2) */}
+            {/* Video Carousel Controls */}
             <div className="flex items-center gap-2">
               <button
                 onClick={() => scrollVideoStories("left")}
@@ -1655,7 +888,7 @@ export default function AltrdHome() {
             </div>
           </div>
 
-          {/* Customer Video Cards Horizontal Track */}
+          {/* Customer Video Cards Track */}
           <div
             ref={videoStoriesRef}
             onMouseEnter={() => setIsVideoStoriesPaused(true)}
@@ -1668,7 +901,7 @@ export default function AltrdHome() {
                 key={story.id}
                 className="w-[320px] sm:w-[380px] lg:w-[410px] shrink-0 snap-start rounded-2xl overflow-hidden bg-white text-gray-900 shadow-2xl transition-all duration-300 hover:-translate-y-1 group"
               >
-                {/* Video Thumbnail with Play Button Overlay (Screenshot 2) */}
+                {/* Video Thumbnail with Play Button */}
                 <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
                   <img
                     src={story.thumbnail}
@@ -1677,7 +910,6 @@ export default function AltrdHome() {
                   />
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors"></div>
 
-                  {/* Play Button Overlay */}
                   <button
                     onClick={() => setActiveVideoModal(story)}
                     className="absolute inset-0 m-auto h-16 w-16 rounded-full bg-white/90 hover:bg-white text-[#0B2577] flex items-center justify-center shadow-xl hover:scale-110 transition-all cursor-pointer"
@@ -1685,15 +917,14 @@ export default function AltrdHome() {
                     <Play className="w-6 h-6 ml-0.5 fill-current" />
                   </button>
 
-                  {/* Stat Pill */}
                   <div className="absolute top-3 right-3 font-mono text-[11px] font-bold px-3 py-1 rounded-full bg-black/60 text-white backdrop-blur-md border border-white/20">
                     {story.stats}
                   </div>
                 </div>
 
-                {/* Bottom White Bar with Company & Executive Details */}
+                {/* Bottom Details */}
                 <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-2">
                     <span className="font-mono text-xs font-bold text-[#0176D3] uppercase tracking-wider">
                       {story.company}
                     </span>
@@ -1714,10 +945,148 @@ export default function AltrdHome() {
         </div>
       </section>
 
-      {/* 5.8 SALESFORCE-STYLE ENTERPRISE CLIENT TRUST WALL (SCREENSHOT 5) */}
+      {/* 5. SALESFORCE IS THE PLATFORM FOR THE AGENTIC ENTERPRISE (MATCHING BLADE 13) */}
       <section className="w-full bg-[#0E0F12] py-24 border-b border-[#22242A]">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center">
-          <h2 className="text-[clamp(1.85rem,3.8vw,3rem)] font-bold text-white tracking-tight leading-tight max-w-3xl mx-auto">
+          <span className="font-mono text-xs font-bold text-[#00E5C9] uppercase tracking-widest">
+            DEEPLY UNIFIED ARCHITECTURE
+          </span>
+          <h2 className="text-[clamp(2.2rem,4.5vw,3.5rem)] font-times font-serif font-bold text-white tracking-tight leading-tight mt-3 max-w-3xl mx-auto">
+            Salesforce is the platform for the Agentic Enterprise
+          </h2>
+          <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto mt-4 leading-relaxed font-times font-serif">
+            Our deeply unified platform brings together apps, data, agents, and metadata to drive customer and employee success. With trust and governance built in, Salesforce ensures your AI and business scale securely, reliably, and with confidence.
+          </p>
+
+          <div className="mt-8">
+            <Link
+              to="/solutions"
+              className="inline-flex h-12 items-center gap-2 px-7 rounded-lg bg-[#0176D3] hover:bg-[#0176D3]/90 text-white font-bold text-sm shadow-lg"
+            >
+              <span>See all products</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {/* Platform Architecture Interactive Diagram */}
+          <div className="mt-14 max-w-4xl mx-auto rounded-2xl bg-[#141518] border border-[#22242A] p-6 sm:p-10 shadow-2xl text-left">
+            <div className="space-y-4 font-mono text-xs">
+              {/* Layer 1 */}
+              <div className="p-4 rounded-xl bg-[#0176D3]/20 border border-[#0176D3]/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-lg bg-[#0176D3] text-white flex items-center justify-center font-bold">1</div>
+                  <div>
+                    <div className="text-white font-bold">Agentforce Atlas Reasoning Engine</div>
+                    <div className="text-slate-300 text-[11px]">Autonomous goal decomposition, tool execution & real-time guardrails</div>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded bg-[#0176D3] text-white font-bold text-[10px]">AGENTIC REASONING</span>
+              </div>
+
+              {/* Layer 2 */}
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-lg bg-[#5A24BA] text-white flex items-center justify-center font-bold">2</div>
+                  <div>
+                    <div className="text-white font-bold">Customer 360 Core Applications</div>
+                    <div className="text-slate-300 text-[11px]">Sales, Service, Marketing, Commerce, Slack, and Tableau natively unified</div>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded bg-white/10 text-[#00E5C9] font-bold text-[10px]">APPLICATION SUITE</span>
+              </div>
+
+              {/* Layer 3 */}
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-lg bg-[#008244] text-white flex items-center justify-center font-bold">3</div>
+                  <div>
+                    <div className="text-white font-bold">Data 360 & Federated Metadata</div>
+                    <div className="text-slate-300 text-[11px]">Zero-copy Data Cloud connectors, hybrid vector embeddings & schema governance</div>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded bg-white/10 text-[#D4FD53] font-bold text-[10px]">ZERO-COPY DATA</span>
+              </div>
+
+              {/* Layer 4 */}
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-lg bg-[#22242A] text-white flex items-center justify-center font-bold">4</div>
+                  <div>
+                    <div className="text-white font-bold">Enterprise Trust & Sovereign Compliance</div>
+                    <div className="text-slate-300 text-[11px]">Indian data localization, SOC 2 Type II, ISO 27001 & prompt injection isolation</div>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded bg-white/10 text-white font-bold text-[10px]">ZERO-RETENTION TRUST</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. 16+ AGENTFORCE SOLUTIONS BUILT FOR YOUR INDUSTRY (MATCHING BLADES 14 & 15 & SCREENSHOT 4) */}
+      <section id="industries" className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+          <div className="max-w-3xl mb-14">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#9B95FE] font-bold">
+              INDUSTRY EXPERTISE
+            </span>
+            <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold tracking-tight text-white leading-tight mt-2">
+              Launch faster with 16+ Agentforce solutions, built for your industry
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-slate-300 font-times font-serif leading-relaxed">
+              Designed with industry expertise, these out-of-the-box solutions align with your workflows, data, and customer needs, so you can modernise faster, go to market sooner, and deliver value from day one.
+            </p>
+          </div>
+
+          {/* 8 Salesforce Vibrant Purple Gradient Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {salesforceIndustries.map((ind) => (
+              <div
+                key={ind.id}
+                className="group relative rounded-3xl bg-gradient-to-br from-[#5A24BA] to-[#3B1287] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#5A24BA]/40 border border-white/10 flex flex-col justify-between min-h-[300px]"
+              >
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
+                    {ind.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-normal mb-8">
+                    {ind.desc}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between pt-4 border-t border-white/15">
+                  <Link
+                    to={ind.link}
+                    className="text-xs font-semibold text-white underline hover:text-[#D4FD53] transition-colors flex items-center gap-1"
+                  >
+                    <span>Explore {ind.name}</span>
+                    <ArrowRight className="w-3.5 h-3.5 inline" />
+                  </Link>
+
+                  <div className="h-11 w-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform shrink-0">
+                    {ind.icon}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              to="/solutions"
+              className="inline-flex h-11 items-center gap-2 px-6 rounded-lg border border-white/20 bg-[#141518] hover:bg-[#1C1C1E] text-white font-bold text-xs"
+            >
+              <span>See all Industries</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#00E5C9]" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. TRUSTED CRM SOFTWARE BY 150,000+ BUSINESSES WORLDWIDE (MATCHING BLADE 16 & SCREENSHOT 5) */}
+      <section className="w-full bg-[#0E0F12] py-24 border-b border-[#22242A]">
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center">
+          <h2 className="text-[clamp(1.85rem,3.8vw,3rem)] font-times font-serif font-bold text-white tracking-tight leading-tight max-w-3xl mx-auto">
             Trusted CRM & AI Software by 150,000+ Businesses Worldwide
           </h2>
           <div className="mt-5">
@@ -1730,7 +1099,7 @@ export default function AltrdHome() {
             </Link>
           </div>
 
-          {/* Crisp White Logo Cards Grid (Screenshot 5) */}
+          {/* Crisp White Logo Cards Grid */}
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {enterpriseClientLogos.map((client, idx) => (
               <div
@@ -1749,247 +1118,313 @@ export default function AltrdHome() {
         </div>
       </section>
 
-      {/* 6. PROPRIETARY 4-STAGE METHODOLOGY */}
-      <section id="methodology" className="w-full bg-[#0E0F12] py-24 border-b border-[#22242A]">
+      {/* 8. SEE WHY ANALYSTS AGREE SALESFORCE SHOULD BE YOUR AGENTIC AI PARTNER (MATCHING BLADE 17) */}
+      <section className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="block h-2.5 w-2.5 bg-[#00E5C9]"></span>
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
-                ENGINEERING LIFECYCLE
-              </span>
-            </div>
-            <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-bold tracking-tight text-white leading-tight">
-              From diagnostic sprint to hardened VPC production.
+          <div className="max-w-3xl mb-14 text-center mx-auto">
+            <span className="font-mono text-xs font-bold text-[#00E5C9] uppercase tracking-widest">
+              INDEPENDENT BENCHMARKS
+            </span>
+            <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold text-white tracking-tight leading-tight mt-3">
+              See why analysts agree Salesforce should be your Agentic AI partner
             </h2>
-            <p className="mt-4 text-base text-slate-400 leading-relaxed">
-              Our structured 4-phase deployment methodology mitigates project risk, validates business ROI early, and delivers reliable production AI with zero disruption to active business operations.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {engineeringPhases.map((phase, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {analystCards.map((c, i) => (
               <div
-                key={idx}
-                onClick={() => setActiveStage(idx)}
-                className={
-                  activeStage === idx
-                    ? "cursor-pointer rounded-xl border p-7 transition-all bg-[#1C1C1E] border-[#00E5C9] shadow-lg shadow-[#00E5C9]/10"
-                    : "cursor-pointer rounded-xl border p-7 transition-all bg-[#141518] border-[#22242A] hover:border-white/20"
-                }
+                key={i}
+                className="rounded-2xl bg-[#141518] border border-[#22242A] p-6 sm:p-7 hover:border-[#0176D3] transition-all flex flex-col justify-between group shadow-xl"
               >
-                <div className="flex items-baseline justify-between mb-4">
-                  <span className="font-mono text-2xl font-bold text-[#00E5C9]">
-                    {phase.num}
-                  </span>
-                  <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-black/40 text-slate-400 border border-white/5">
-                    {phase.duration}
-                  </span>
+                <div>
+                  <div className="relative h-44 rounded-xl overflow-hidden mb-5 bg-slate-900 border border-white/10">
+                    <img
+                      src={c.image}
+                      alt={c.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 text-[10px] font-mono text-[#00E5C9] border border-white/20">
+                      {c.tag}
+                    </div>
+                    <div className="absolute bottom-3 left-3 font-mono text-xs font-bold text-[#D4FD53]">
+                      {c.stat}
+                    </div>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-white mb-2 leading-snug">
+                    {c.headline}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                    {c.desc}
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {phase.name}
-                </h3>
-                <h4 className="text-xs font-semibold text-slate-300 mb-3">
-                  {phase.headline}
-                </h4>
-                <p className="text-xs text-slate-400 leading-relaxed font-normal">
-                  {phase.desc}
-                </p>
+
+                <div className="pt-4 mt-4 border-t border-[#22242A] flex items-center justify-between text-xs font-mono">
+                  <span className="text-slate-500">{c.title}</span>
+                  <button
+                    onClick={() => setModalOpen(true)}
+                    className="text-[#0176D3] hover:underline font-bold flex items-center gap-1 cursor-pointer"
+                  >
+                    <span>Read Report</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 7. INTERACTIVE ROI & ARCHITECTURE ESTIMATOR */}
-      <section className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
+      {/* 9. BECOME AN AGENTBLAZER (MATCHING BLADES 18 & 19) */}
+      <section className="w-full bg-[#0E0F12] py-24 border-b border-[#22242A]">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div className="lg:col-span-6 space-y-6">
-              <div className="flex items-center gap-3">
-                <span className="block h-2.5 w-2.5 bg-[#D4FD53]"></span>
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53] font-bold">
-                  ROI & IMPACT ESTIMATOR
-                </span>
-              </div>
-              <h2 className="text-[clamp(1.85rem,3.5vw,2.75rem)] font-bold tracking-tight text-white leading-tight">
-                Calculate the operational return of automating knowledge workflows.
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="max-w-2xl">
+              <span className="font-mono text-xs font-bold text-[#D4FD53] uppercase tracking-widest">
+                TRAILHEAD & ACADEMY
+              </span>
+              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold text-white tracking-tight leading-tight mt-2">
+                Become an Agentblazer
               </h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                Repetitive manual verification, spreadsheet data wrangling, and unstructured document ingestion consume up to 35% of knowledge worker capacity. See your projected savings:
+              <p className="mt-3 text-base text-slate-300 font-times font-serif leading-relaxed">
+                Learn essential AI and Agentforce skills required to shape the future of work for free.
               </p>
+            </div>
+            <a
+              href="https://lms-full-stack-mcq7.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center gap-2 px-6 rounded-lg bg-[#0176D3] hover:bg-[#0176D3]/90 text-white font-bold text-xs shrink-0 shadow-md"
+            >
+              <span>Explore all Agentforce learning</span>
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
 
-              <div className="space-y-5 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {agentblazerLevels.map((lvl, i) => (
+              <div
+                key={i}
+                className="rounded-2xl bg-[#141518] border border-[#22242A] p-6 sm:p-7 hover:border-white/30 transition-all group flex flex-col justify-between"
+              >
                 <div>
-                  <div className="flex justify-between text-xs font-mono mb-2">
-                    <span className="text-slate-300">Team Size Engaged in Manual Workflows:</span>
-                    <span className="text-[#00E5C9] font-bold">{calcWorkforce} Professionals</span>
+                  <div className="relative h-44 rounded-xl overflow-hidden mb-5 bg-slate-900 border border-white/10">
+                    <img
+                      src={lvl.image}
+                      alt={lvl.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-transparent to-black/30"></div>
+                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#0C0D0F]/90 text-[10px] font-mono font-bold text-[#00E5C9] border border-white/20">
+                      {lvl.badge}
+                    </div>
                   </div>
-                  <input
-                    type="range"
-                    min="5"
-                    max="200"
-                    step="5"
-                    value={calcWorkforce}
-                    onChange={(e) => setCalcWorkforce(Number(e.target.value))}
-                    className="w-full h-2 bg-[#1C1C1E] rounded-lg appearance-none cursor-pointer accent-[#00E5C9]"
-                  />
+
+                  <div className="font-mono text-xs text-[#0176D3] font-bold uppercase tracking-wider mb-1">
+                    {lvl.level}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {lvl.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal">
+                    {lvl.desc}
+                  </p>
                 </div>
 
-                <div>
-                  <div className="flex justify-between text-xs font-mono mb-2">
-                    <span className="text-slate-300">Average Manual Hours/Week per Person:</span>
-                    <span className="text-[#00E5C9] font-bold">{calcHours} Hours</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="4"
-                    max="30"
-                    step="2"
-                    value={calcHours}
-                    onChange={(e) => setCalcHours(Number(e.target.value))}
-                    className="w-full h-2 bg-[#1C1C1E] rounded-lg appearance-none cursor-pointer accent-[#00E5C9]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-2">Primary Automation Target:</label>
-                  <select
-                    value={calcDomain}
-                    onChange={(e) => setCalcDomain(e.target.value)}
-                    className="w-full bg-[#141518] border border-[#22242A] rounded-lg px-4 py-2.5 text-xs font-mono text-white focus:border-[#00E5C9] focus:outline-none"
+                <div className="pt-4 mt-4 border-t border-[#22242A]">
+                  <a
+                    href="https://lms-full-stack-mcq7.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-[#00E5C9] hover:underline"
                   >
-                    <option value="idp">Document Processing & Invoice/Contract OCR</option>
-                    <option value="rag">Zero-Hallucination Knowledge Retrieval & RAG</option>
-                    <option value="agents">Multi-Agent Operational Coordination</option>
-                    <option value="vision">Computer Vision & Factory Quality Control</option>
-                  </select>
+                    <span>Start Learning Path</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. WE BELIEVE BUSINESS IS THE GREATEST PLATFORM FOR CHANGE (MATCHING BLADE 20) */}
+      <section className="w-full bg-[#032D60] py-20 border-b border-white/10 text-white">
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center max-w-4xl">
+          <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-times font-serif font-bold leading-tight">
+            We believe that business is the greatest platform for change.
+          </h2>
+          <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-times font-serif">
+            Grounded in trust, customer success, innovation, equality, and sustainability, we’re committed to doing well in business and doing good in the world — investing 1% of our equity, technology, and time to create lasting change. We’re also a founder and champion of Pledge 1%, a global movement to ensure giving back is part of companies of all sizes.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/company/values"
+              className="inline-flex h-12 items-center gap-2 px-7 rounded-lg bg-white text-[#032D60] font-bold text-sm hover:bg-slate-100 transition-all shadow-md"
+            >
+              <span>See what drives us</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <button
+              onClick={() => setModalOpen(true)}
+              className="inline-flex h-12 items-center gap-2 px-7 rounded-lg border border-white/30 hover:border-white text-white font-bold text-sm transition-all cursor-pointer"
+            >
+              <span>Take the pledge</span>
+              <ExternalLink className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. LIVE PRODUCTION PLATFORMS SHOWCASE CAROUSEL */}
+      <section id="platforms" className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="max-w-3xl">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
+                LIVE PRODUCTION PORTFOLIO
+              </span>
+              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold tracking-tight text-white leading-tight mt-2">
+                Real-World Platforms Engineered & Operated by Aparaitech
+              </h2>
+              <p className="mt-3 text-base text-slate-300 font-times font-serif leading-relaxed">
+                We build, scale, and maintain high-volume cognitive software systems deployed in production environments across India.
+              </p>
             </div>
 
-            {/* Projected Result Card */}
-            <div className="lg:col-span-6 rounded-2xl bg-[#141518] border border-[#22242A] p-5 sm:p-8 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#00E5C9]/5 rounded-full blur-3xl pointer-events-none"></div>
-
-              <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#22242A]">
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-[#00E5C9] animate-pulse"></div>
-                  <span className="font-mono text-[11px] sm:text-xs uppercase tracking-wider text-slate-400">
-                    PROJECTED OPERATIONAL RECOVERY
-                  </span>
-                </div>
-                <span className="font-mono text-[11px] sm:text-xs text-[#D4FD53]">65% Automation Target</span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8">
-                <div>
-                  <div className="font-mono text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
-                    {hoursSavedPerWeek.toLocaleString()}
-                  </div>
-                  <div className="text-xs font-mono text-slate-400 mt-1">
-                    Hours Recovered / Week
-                  </div>
-                </div>
-
-                <div>
-                  <div className="font-mono text-2xl sm:text-3xl lg:text-4xl font-bold text-[#00E5C9] truncate">
-                    ${annualCostSaved}
-                  </div>
-                  <div className="text-xs font-mono text-slate-400 mt-1">
-                    Est. Annual Productivity Gain
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-xl bg-[#0C0D0F] border border-white/5 space-y-2 mb-8 font-mono text-xs text-slate-300">
-                <div className="flex items-center justify-between">
-                  <span>Projected Payback Horizon:</span>
-                  <span className="text-[#D4FD53] font-bold">&lt; 90 Days</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>Data Sovereignty:</span>
-                  <span className="text-white">100% Private Cloud / On-Prem</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>SLA Guarantee:</span>
-                  <span className="text-[#00E5C9]">99.9% Uptime Support</span>
-                </div>
-              </div>
-
+            <div className="flex items-center gap-2">
               <button
-                onClick={() => setModalOpen(true)}
-                className="w-full h-12 rounded-lg bg-[#00E5C9] text-[#0C0D0F] font-bold text-sm hover:brightness-110 transition-all flex items-center justify-center gap-2"
+                onClick={() => scrollCarousel("left")}
+                className="h-10 w-10 rounded-full bg-[#141518] border border-[#22242A] hover:border-[#00E5C9] text-white flex items-center justify-center transition-all cursor-pointer"
               >
-                <span>Request Custom ROI Feasibility Report</span>
-                <ArrowRight className="w-4 h-4" />
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scrollCarousel("right")}
+                className="h-10 w-10 rounded-full bg-[#141518] border border-[#22242A] hover:border-[#00E5C9] text-white flex items-center justify-center transition-all cursor-pointer"
+              >
+                <ChevronRight className="w-5 h-5" />
               </button>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 8. ENTERPRISE SECURITY & GOVERNANCE */}
-      <section className="w-full bg-[#0E0F12] py-20 border-b border-[#22242A]">
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="rounded-2xl bg-[#141518] border border-[#22242A] p-8 sm:p-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8 space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-[#00E5C9]">
-                  <ShieldCheck className="w-4 h-4" />
-                  <span>ENTERPRISE GOVERNANCE & SOVEREIGNTY</span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                  Built to satisfy chief information security officers (CISOs).
-                </h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  We engineer zero-trust AI architectures with end-to-end encryption, strict role-based access control (RBAC), SOC 2 Type II alignment, and ISO 27001 / 9001 certified engineering processes.
-                </p>
-              </div>
+          <div
+            ref={carouselRef}
+            onScroll={handleCarouselScroll}
+            onMouseEnter={() => setIsCarouselPaused(true)}
+            onMouseLeave={() => setIsCarouselPaused(false)}
+            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-6 px-1"
+            style={{ scrollbarWidth: "none" }}
+          >
+            {productionPlatforms.map((platform, idx) => (
+              <div
+                key={platform.id || idx}
+                className="w-[320px] sm:w-[380px] lg:w-[400px] shrink-0 snap-start group relative rounded-xl bg-[#141518] border border-[#22242A] p-6 sm:p-7 transition-all duration-300 hover:border-[#00E5C9]/50 hover:shadow-2xl flex flex-col justify-between"
+              >
+                <div>
+                  <div className="relative w-full h-48 sm:h-52 overflow-hidden rounded-lg mb-5 bg-[#1C1C1E] border border-white/10 group-hover:border-[#00E5C9]/40 transition-all">
+                    <img
+                      src={platform.image}
+                      alt={platform.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-[#141518]/30 to-black/40"></div>
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#00E5C9]">
+                        {platform.badge}
+                      </span>
+                      <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-[#D4FD53]/30 text-[#D4FD53]">
+                        {platform.metric}
+                      </span>
+                    </div>
+                  </div>
 
-              <div className="lg:col-span-4 flex flex-col gap-3 font-mono text-xs text-slate-300">
-                <div className="flex items-center gap-2.5 p-3 rounded-lg bg-[#0C0D0F] border border-white/5">
-                  <Check className="w-4 h-4 text-[#00E5C9] shrink-0" />
-                  <span>On-Premises / Private VPC Isolation</span>
+                  <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white group-hover:text-[#00E5C9] transition-colors mb-1.5 leading-snug">
+                    {platform.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-times font-serif italic text-slate-300 mb-3 leading-relaxed">
+                    {platform.tagline}
+                  </p>
+                  <p className="text-xs text-slate-400 leading-relaxed mb-4 font-normal">
+                    {platform.detail}
+                  </p>
                 </div>
-                <div className="flex items-center gap-2.5 p-3 rounded-lg bg-[#0C0D0F] border border-white/5">
-                  <Check className="w-4 h-4 text-[#00E5C9] shrink-0" />
-                  <span>Zero Data Retention Agreements</span>
-                </div>
-                <div className="flex items-center gap-2.5 p-3 rounded-lg bg-[#0C0D0F] border border-white/5">
-                  <Check className="w-4 h-4 text-[#00E5C9] shrink-0" />
-                  <span>Full Model Weight Ownership</span>
+
+                <div className="pt-4 border-t border-[#22242A] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                  <Link
+                    to={platform.subpage}
+                    className="inline-flex items-center gap-1.5 text-[#00E5C9] hover:underline font-semibold"
+                  >
+                    <span>Architecture Specs</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <a
+                    href={platform.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#00E5C9] text-[#0C0D0F] font-bold shadow-md hover:brightness-110"
+                  >
+                    <span>Launch Live</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 9. AUTHENTIC ENTERPRISE FAQS */}
+      {/* 12. GET STARTED TODAY - FREE FOR 30 DAYS (MATCHING BLADES 22 & 23) */}
+      <section className="w-full bg-gradient-to-r from-[#0176D3] to-[#0B2577] py-20 text-white text-center">
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+          <h2 className="text-[clamp(2.3rem,4.8vw,3.75rem)] font-times font-serif font-bold tracking-tight leading-tight">
+            Get started today.
+          </h2>
+          <p className="mt-3 text-base sm:text-xl text-white/90 font-times font-serif">
+            There's nothing to install. No credit card required. Free for 30 days.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <button
+              onClick={() => setModalOpen(true)}
+              className="inline-flex h-13 px-9 rounded-lg bg-[#008244] hover:bg-[#007038] text-white font-bold text-base transition-all shadow-xl hover:scale-105 cursor-pointer"
+            >
+              <span>Try for free</span>
+            </button>
+            <a
+              href="tel:+918261840199"
+              className="inline-flex h-13 px-8 rounded-lg bg-white/10 hover:bg-white/20 border border-white/30 text-white font-mono text-sm transition-all flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-[#00E5C9]" />
+              <span>Contact Sales: 1800-420-7332</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 13. SALESFORCE CRM FAQS ACCORDION (MATCHING BLADE 24) */}
       <section id="faqs" className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="block h-2.5 w-2.5 bg-[#00E5C9]"></span>
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
-                FREQUENTLY ASKED QUESTIONS
-              </span>
-            </div>
-            <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-bold tracking-tight text-white leading-tight">
-              Clarity on technical feasibility, security & engagement.
+          <div className="max-w-3xl mb-16 mx-auto text-center">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
+              KNOWLEDGE BASE
+            </span>
+            <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-times font-serif font-bold tracking-tight text-white leading-tight mt-2">
+              Salesforce CRM FAQs
             </h2>
+            <p className="text-slate-400 text-sm mt-2">
+              CRM and Agentic AI FAQ for Your Business in India
+            </p>
           </div>
 
-          <div className="max-w-3xl space-y-4">
-            {faqs.map((faq, idx) => (
+          <div className="max-w-3xl mx-auto space-y-4">
+            {salesforceFaqs.map((faq, idx) => (
               <div
                 key={idx}
                 className="rounded-xl bg-[#141518] border border-[#22242A] overflow-hidden transition-all"
               >
                 <button
-                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  onClick={() => setOpenSfFaq(openSfFaq === idx ? null : idx)}
                   className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-white/[0.01]"
                 >
                   <span className="text-base font-semibold text-white">
@@ -1997,14 +1432,14 @@ export default function AltrdHome() {
                   </span>
                   <ChevronDown
                     className={
-                      openFaq === idx
+                      openSfFaq === idx
                         ? "w-5 h-5 text-[#00E5C9] rotate-180 transition-transform shrink-0"
                         : "w-5 h-5 text-slate-500 transition-transform shrink-0"
                     }
                   />
                 </button>
-                {openFaq === idx && (
-                  <div className="px-6 pb-6 pt-2 text-sm text-slate-400 leading-relaxed border-t border-[#22242A] font-normal">
+                {openSfFaq === idx && (
+                  <div className="px-6 pb-6 pt-2 text-sm text-slate-300 leading-relaxed border-t border-[#22242A] font-normal">
                     {faq.a}
                   </div>
                 )}
@@ -2014,51 +1449,13 @@ export default function AltrdHome() {
         </div>
       </section>
 
-      {/* 10. CALL TO ACTION SECTION */}
-      <section className="relative overflow-hidden bg-[#0C0D0F] py-28">
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center relative z-10">
-          <div className="max-w-3xl mx-auto space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1C1C1E] border border-white/10 font-mono text-xs text-[#00E5C9]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#00E5C9] animate-pulse"></span>
-              <span>1-HOUR ARCHITECTURAL CONSULTATION RESPONSE</span>
-            </div>
-
-            <h2 className="text-[clamp(2.4rem,5vw,4.25rem)] font-bold tracking-tight text-white leading-tight">
-              Ready to deploy production AI across your enterprise?
-            </h2>
-
-            <p className="text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
-              Schedule an architectural diagnostic session with our Lead AI Architects at our Pune Center of Excellence.
-            </p>
-
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                onClick={() => setModalOpen(true)}
-                className="h-[52px] px-8 rounded-md bg-[#00E5C9] text-[#0C0D0F] font-bold text-sm hover:brightness-110 transition-all flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg shadow-[#00E5C9]/20"
-              >
-                <span>Initiate AI Feasibility Sprint</span>
-                <ArrowUpRight className="w-4 h-4 text-[#0C0D0F]" />
-              </button>
-
-              <a
-                href="tel:+918261840199"
-                className="h-[52px] px-7 rounded-md border border-[#22242A] bg-[#141518] text-white font-mono text-xs hover:border-[#00E5C9]/50 transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
-              >
-                <Phone className="w-4 h-4 text-[#00E5C9]" />
-                <span>Call Center of Excellence: +91 82618 40199</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 11. INTAKE MODAL */}
+      {/* INTAKE / FREE TRIAL MODAL */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm">
           <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#141518] border border-white/20 rounded-xl p-5 sm:p-8 shadow-2xl text-white">
             <button
               onClick={() => setModalOpen(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-mono p-1"
+              className="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-mono p-1 cursor-pointer"
             >
               ✕
             </button>
@@ -2071,10 +1468,10 @@ export default function AltrdHome() {
               />
               <div>
                 <span className="font-mono text-xs uppercase tracking-widest text-[#00E5C9]">
-                  EXECUTIVE CONSULTATION INTAKE
+                  SALESFORCE CRM & AGENTFORCE INTAKE
                 </span>
                 <h3 className="text-xl font-bold text-white">
-                  Aparaitech Software AI Advisory
+                  Get Started Free for 30 Days
                 </h3>
               </div>
             </div>
@@ -2082,9 +1479,9 @@ export default function AltrdHome() {
             {submitted ? (
               <div className="py-12 text-center space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-[#10B981] mx-auto animate-bounce" />
-                <h4 className="text-lg font-bold text-white">Consultation Request Confirmed</h4>
+                <h4 className="text-lg font-bold text-white">Request Confirmed</h4>
                 <p className="text-xs text-slate-300">
-                  Our Lead AI Architect will review your parameters and reach out within 1 hour.
+                  Our Salesforce Solutions Specialist will reach out within 1 hour.
                 </p>
               </div>
             ) : (
@@ -2145,22 +1542,21 @@ export default function AltrdHome() {
                     onChange={(e) => setForm({ ...form, service: e.target.value })}
                     className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-[#00E5C9] focus:outline-none"
                   >
-                    <option value="Enterprise AI Diagnostic">Enterprise AI Diagnostic Sprint (Recommended)</option>
-                    <option value="Autonomous Multi-Agents">Autonomous Multi-Agent Workflows</option>
-                    <option value="Enterprise RAG">Enterprise RAG & Zero-Hallucination Retrieval</option>
-                    <option value="Computer Vision & Inspection">Computer Vision & Edge Inspection</option>
-                    <option value="Document OCR & IDP">Intelligent Document Processing (IDP/OCR)</option>
-                    <option value="Private LLM & Sovereign Cloud">Private LLM & Sovereign Cloud Infrastructure</option>
+                    <option value="Salesforce Starter Suite Free Trial">Salesforce Starter Suite (Free for 30 Days)</option>
+                    <option value="Agentforce Coworker Implementation">Agentforce Coworker Implementation</option>
+                    <option value="Customer 360 & Data Cloud VPC">Customer 360 & Data Cloud VPC</option>
+                    <option value="SMB Growth Kit 4-Week Rollout">SMB Growth Kit (Live in 4 Weeks)</option>
+                    <option value="Enterprise Architecture Consulting">Enterprise AI Diagnostic & Custom Consulting</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Operational Challenge (Optional)</label>
+                  <label className="block text-xs font-mono text-slate-300 mb-1">Operational Requirement (Optional)</label>
                   <textarea
                     rows="3"
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="Describe the workflow bottleneck or target automation system..."
+                    placeholder="Describe your current CRM or automation goals..."
                     className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-[#00E5C9] focus:outline-none resize-none"
                   ></textarea>
                 </div>
@@ -2181,9 +1577,9 @@ export default function AltrdHome() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full h-11 rounded bg-[#00E5C9] text-[#0C0D0F] font-bold text-sm hover:brightness-105 transition-all flex items-center justify-center gap-2 mt-4 cursor-pointer"
+                  className="w-full h-11 rounded bg-[#008244] hover:bg-[#007038] text-white font-bold text-sm transition-all flex items-center justify-center gap-2 mt-4 cursor-pointer"
                 >
-                  {submitting ? "Transmitting..." : "Submit Consultation Request →"}
+                  {submitting ? "Transmitting..." : "Start Free 30-Day Access →"}
                 </button>
               </form>
             )}
@@ -2191,7 +1587,7 @@ export default function AltrdHome() {
         </div>
       )}
 
-      {/* CUSTOMER VIDEO MODAL (SALESFORCE STYLE) */}
+      {/* CUSTOMER VIDEO MODAL */}
       {activeVideoModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
           <div className="relative w-full max-w-3xl rounded-2xl bg-[#141518] border border-[#22242A] p-6 sm:p-8 shadow-2xl">
@@ -2240,7 +1636,7 @@ export default function AltrdHome() {
                   setActiveVideoModal(null);
                   setModalOpen(true);
                 }}
-                className="inline-flex h-11 items-center gap-2 px-6 rounded-lg bg-[#00E5C9] text-[#0C0D0F] font-bold text-xs transition-all shadow-md hover:brightness-110 cursor-pointer"
+                className="inline-flex h-11 items-center gap-2 px-6 rounded-lg bg-[#008244] hover:bg-[#007038] text-white font-bold text-xs transition-all shadow-md cursor-pointer"
               >
                 <span>Request Case Study Architecture Specs</span>
                 <ArrowRight className="w-4 h-4" />
@@ -2250,22 +1646,19 @@ export default function AltrdHome() {
         </div>
       )}
 
-      {/* SALESFORCE-STYLE FLOATING AI ASSISTANT WIDGET (SCREENSHOTS 1, 2, 3, 4, 5) */}
+      {/* SALESFORCE-STYLE FLOATING "ASK PIPER" AI ASSISTANT WIDGET */}
       <div className="fixed bottom-20 right-4 sm:right-6 z-40">
         {!aiAssistantOpen ? (
-          /* Signature "Ask Piper" Button (Screenshot 1-5) */
           <button
             onClick={() => setAiAssistantOpen(true)}
             className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0176D3] hover:bg-[#0176D3]/90 text-white font-bold text-xs sm:text-sm shadow-2xl hover:scale-105 transition-all border border-white/20 cursor-pointer"
-            aria-label="Open AI Architecture Assistant"
+            aria-label="Open AI Assistant"
           >
             <Sparkles className="w-4 h-4 text-[#D4FD53]" />
             <span>Ask Piper (AI Copilot)</span>
           </button>
         ) : (
-          /* Salesforce-Style Agentforce Interactive Popup (Screenshot 1) */
           <div className="w-[320px] sm:w-[360px] rounded-2xl bg-white text-gray-900 shadow-2xl border border-slate-200 overflow-hidden flex flex-col transition-all animate-in fade-in slide-in-from-bottom-4">
-            {/* Header with Close */}
             <div className="relative bg-gradient-to-r from-[#0176D3] to-[#0B2577] p-4 text-white flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-xs">
@@ -2273,7 +1666,7 @@ export default function AltrdHome() {
                 </div>
                 <div>
                   <div className="text-sm font-bold leading-tight">Piper • Agentforce Copilot</div>
-                  <div className="text-[10px] text-white/80">Aparaitech AI Architecture Lead</div>
+                  <div className="text-[10px] text-white/80">Salesforce AI Architecture Lead</div>
                 </div>
               </div>
               <button
@@ -2284,7 +1677,6 @@ export default function AltrdHome() {
               </button>
             </div>
 
-            {/* Avatar & Speak Badge Banner (Screenshot 1) */}
             <div className="relative h-36 bg-gradient-to-b from-[#E8F3FD] to-white flex flex-col items-center justify-center p-3">
               <div className="h-16 w-16 rounded-full overflow-hidden border-2 border-[#0176D3] shadow-md mb-2 bg-slate-200">
                 <img
@@ -2299,7 +1691,6 @@ export default function AltrdHome() {
               </div>
             </div>
 
-            {/* Chat Body */}
             <div className="p-4 max-h-52 overflow-y-auto space-y-3 text-xs bg-slate-50">
               {aiMessages.map((msg, i) => (
                 <div
@@ -2315,21 +1706,19 @@ export default function AltrdHome() {
               ))}
             </div>
 
-            {/* Quick Action: Connect with a sales rep (Screenshot 1) */}
             <div className="px-4 py-2 bg-white">
               <button
                 onClick={() => {
                   setAiAssistantOpen(false);
                   setModalOpen(true);
                 }}
-                className="w-full py-2.5 rounded-lg bg-[#0176D3] hover:bg-[#0176D3]/90 text-white font-bold text-xs transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full py-2.5 rounded-lg bg-[#008244] hover:bg-[#007038] text-white font-bold text-xs transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <span>Connect with a sales rep</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
 
-            {/* Input Bar with Mic & Send (Screenshot 1) */}
             <form onSubmit={handleAiSend} className="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
               <input
                 type="text"
@@ -2354,7 +1743,6 @@ export default function AltrdHome() {
               </button>
             </form>
 
-            {/* Legal Disclaimer (Screenshot 1) */}
             <div className="px-4 pb-3 bg-white text-[9px] text-gray-400 text-center leading-tight">
               Piper is an AI agent and can make mistakes. Please verify critical architectural details.
             </div>

@@ -137,180 +137,232 @@ const Header = () => {
 
   return (
     <div className="sticky top-0 z-40 w-full">
-      {/* 1. TOP ANNOUNCEMENT BANNER */}
+      {/* 1. TOP ANNOUNCEMENT BANNER (SALESFORCE INDIA STYLE) */}
       <div
-        className="flex min-h-[38px] flex-wrap items-center justify-center gap-1.5 px-3 sm:px-6 py-1.5 text-center text-[11px] sm:text-[13px] text-white font-medium shadow-sm"
-        style={{ background: "linear-gradient(90deg, #028090 0%, #00A896 50%, #473BFD 100%)" }}
+        className="flex min-h-[38px] flex-wrap items-center justify-between gap-2 px-4 sm:px-8 py-1.5 text-xs text-white shadow-sm bg-[#032D60] border-b border-white/10"
       >
-        <span>Discover how Aparaitech Software accelerates enterprise AI workflows in under 30 minutes.</span>
-        <button
-          onClick={() => setModalOpen(true)}
-          className="inline-flex cursor-pointer items-center gap-1 text-white underline font-semibold hover:opacity-90 transition-opacity whitespace-nowrap ml-1"
-        >
-          Schedule Consultation <span>→</span>
-        </button>
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="font-bold text-[#D4FD53] bg-white/10 px-2 py-0.5 rounded text-[11px] uppercase tracking-wide">
+            India's #1 Agentic CRM
+          </span>
+          <span className="text-white/90">
+            Uniquely built for India's growing businesses — SMB Growth Kit live in just 4 weeks!
+          </span>
+        </div>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setModalOpen(true)}
+            className="inline-flex cursor-pointer items-center gap-1 text-[#00E5C9] font-bold hover:underline transition-opacity whitespace-nowrap text-xs"
+          >
+            <span>Get SMB Growth Kit</span>
+            <span>→</span>
+          </button>
+          <a
+            href="tel:+918261840199"
+            className="hidden md:inline-flex items-center gap-1 text-white/80 hover:text-white text-xs font-mono"
+          >
+            <Phone className="w-3 h-3 text-[#00E5C9]" />
+            <span>1800-420-7332 / +91 82618 40199</span>
+          </a>
+        </div>
       </div>
 
-      {/* 2. TECHNICAL NAVBAR */}
+      {/* 2. SALESFORCE-GRADE NAVBAR */}
       <header className="relative w-full border-b border-[#22242A] bg-[#0C0D0F]/95 backdrop-blur-md">
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="flex h-[72px] items-center justify-between">
+        <div className="mx-auto w-full max-w-[1340px] px-4 sm:px-6 lg:px-8">
+          <div className="flex h-[72px] items-center justify-between gap-4">
             {/* Official Logo & Brand */}
-            <Link to="/" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-3 shrink-0 group">
               <img
                 src="/aparaitech_logo.jpg"
                 alt="Aparaitech Software"
-                className="h-10 w-10 rounded-lg object-contain bg-white/5 border border-white/10 group-hover:border-[#00E5C9] transition-all shadow-md shadow-[#00E5C9]/10"
+                className="h-10 w-10 rounded-lg object-contain bg-white/5 border border-white/10 group-hover:border-[#0176D3] transition-all shadow-md shadow-[#0176D3]/20"
               />
               <div className="flex flex-col">
                 <span className="font-bold text-[17px] tracking-tight text-white leading-none">
                   Aparaitech Software
                 </span>
-                <span className="text-[10px] font-mono tracking-widest text-[#00E5C9] uppercase mt-0.5 font-medium">
-                  Enterprise AI Systems
+                <span className="text-[10px] font-mono tracking-widest text-[#0176D3] uppercase mt-0.5 font-bold">
+                  The #1 AI CRM Platform
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8 font-mono text-[13px] uppercase tracking-[0.11em]">
-              <Link
-                to="/"
-                className={location.pathname === "/" ? "text-[#00E5C9]" : "text-white hover:text-[#00E5C9] transition-colors"}
-              >
-                Home
-              </Link>
-              <Link
-                to="/generative-ai"
-                className={
-                  location.pathname === "/generative-ai"
-                    ? "text-[#00E5C9] flex items-center gap-1.5"
-                    : "text-[#C9C9CE] hover:text-[#00E5C9] transition-colors flex items-center gap-1.5"
-                }
-              >
-                AI Solutions <span className="h-1.5 w-1.5 rounded-full bg-[#00E5C9] animate-pulse"></span>
-              </Link>
-              <Link
-                to="/cloud"
-                className={location.pathname === "/cloud" ? "text-[#00E5C9]" : "text-[#C9C9CE] hover:text-white transition-colors"}
-              >
-                Cloud
-              </Link>
-              <Link
-                to="/solutions"
-                className={location.pathname === "/solutions" ? "text-[#00E5C9]" : "text-[#C9C9CE] hover:text-white transition-colors"}
-              >
-                Solutions
-              </Link>
-
-              {/* More Dropdown */}
-              <div className="relative" ref={moreRef}>
+            {/* Desktop Navigation Menus (Salesforce India) */}
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-7 font-sans text-[13px] font-semibold text-slate-200">
+              {/* Products Dropdown */}
+              <div className="relative group py-2">
                 <button
-                  className={
-                    moreOpen
-                      ? "text-[#00E5C9] flex items-center gap-1 cursor-pointer"
-                      : "text-[#C9C9CE] hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
-                  }
-                  onMouseEnter={() => setMoreOpen(true)}
-                  onMouseLeave={() =>
-                    setTimeout(() => {
-                      if (!dropdownRef.current?.matches(":hover")) {
-                        setMoreOpen(false);
-                      }
-                    }, 100)
-                  }
                   onClick={() => setMoreOpen(!moreOpen)}
+                  className="flex items-center gap-1 hover:text-[#0176D3] transition-colors cursor-pointer"
                 >
-                  <span>More</span>
-                  <ChevronDown className={moreOpen ? "w-3.5 h-3.5 rotate-180 transition-transform text-[#00E5C9]" : "w-3.5 h-3.5 transition-transform"} />
+                  <span>Products</span>
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
-
-                {moreOpen && (
-                  <div
-                    ref={dropdownRef}
-                    className="fixed left-0 right-0 top-[114px] bg-[#141518] border-b border-[#22242A] shadow-2xl pt-8 pb-10 px-8 z-50 text-white"
-                  >
-                    <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-                      {Object.entries(moreDropdownContent).map(([category, items]) => (
-                        <div key={category}>
-                          <h3 className="font-mono font-semibold text-[#00E5C9] text-xs mb-4 uppercase tracking-wider">
-                            {category}
-                          </h3>
-                          <ul className="space-y-2.5">
-                            {items.map((item, index) => (
-                              <li key={index}>
-                                {item.external ? (
-                                  <a
-                                    href={item.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-slate-300 hover:text-white text-xs font-mono transition-colors block py-0.5"
-                                  >
-                                    {item.name} ↗
-                                  </a>
-                                ) : item.onClick ? (
-                                  <button
-                                    onClick={item.onClick}
-                                    className="text-slate-300 hover:text-[#00E5C9] text-xs font-mono text-left transition-colors block py-0.5"
-                                  >
-                                    {item.name}
-                                  </button>
-                                ) : (
-                                  <Link
-                                    to={item.link}
-                                    className="text-slate-300 hover:text-white text-xs font-mono transition-colors block py-0.5"
-                                    onClick={() => setMoreOpen(false)}
-                                  >
-                                    {item.name}
-                                  </Link>
-                                )}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
+                  <div className="text-[11px] font-mono text-[#0176D3] uppercase tracking-wider px-3 py-1 font-bold">
+                    Agentforce & CRM Suite
                   </div>
-                )}
+                  {moreDropdownContent.Products.map((p, i) => (
+                    <Link
+                      key={i}
+                      to={p.link}
+                      className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                    >
+                      {p.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Industries Dropdown */}
+              <div className="relative group py-2">
+                <button
+                  onClick={() => setMoreOpen(!moreOpen)}
+                  className="flex items-center gap-1 hover:text-[#0176D3] transition-colors cursor-pointer"
+                >
+                  <span>Industries</span>
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
+                </button>
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
+                  <div className="text-[11px] font-mono text-[#0176D3] uppercase tracking-wider px-3 py-1 font-bold">
+                    Specialized Solutions
+                  </div>
+                  {moreDropdownContent.Industries.map((ind, i) => (
+                    <Link
+                      key={i}
+                      to={ind.link}
+                      className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                    >
+                      {ind.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Customers Dropdown */}
+              <div className="relative group py-2">
+                <button
+                  onClick={() => setMoreOpen(!moreOpen)}
+                  className="flex items-center gap-1 hover:text-[#0176D3] transition-colors cursor-pointer"
+                >
+                  <span>Customers</span>
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
+                </button>
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
+                  <div className="text-[11px] font-mono text-[#0176D3] uppercase tracking-wider px-3 py-1 font-bold">
+                    Enterprise Proof Points
+                  </div>
+                  {moreDropdownContent.Customers.map((cust, i) => (
+                    <Link
+                      key={i}
+                      to={cust.link}
+                      className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                    >
+                      {cust.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Learning Dropdown */}
+              <div className="relative group py-2">
+                <button
+                  onClick={() => setMoreOpen(!moreOpen)}
+                  className="flex items-center gap-1 hover:text-[#0176D3] transition-colors cursor-pointer"
+                >
+                  <span>Learning</span>
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
+                </button>
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
+                  <div className="text-[11px] font-mono text-[#0176D3] uppercase tracking-wider px-3 py-1 font-bold">
+                    Agentblazer & Academy
+                  </div>
+                  {moreDropdownContent.Learning.map((lrn, i) =>
+                    lrn.external ? (
+                      <a
+                        key={i}
+                        href={lrn.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        {lrn.name} ↗
+                      </a>
+                    ) : (
+                      <Link
+                        key={i}
+                        to={lrn.link}
+                        className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        {lrn.name}
+                      </Link>
+                    )
+                  )}
+                </div>
+              </div>
+
+              {/* Company Dropdown */}
+              <div className="relative group py-2">
+                <button
+                  onClick={() => setMoreOpen(!moreOpen)}
+                  className="flex items-center gap-1 hover:text-[#0176D3] transition-colors cursor-pointer"
+                >
+                  <span>Company</span>
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
+                </button>
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
+                  <div className="text-[11px] font-mono text-[#0176D3] uppercase tracking-wider px-3 py-1 font-bold">
+                    About Salesforce / Aparaitech
+                  </div>
+                  {moreDropdownContent.Company.map((c, i) => (
+                    <Link
+                      key={i}
+                      to={c.link}
+                      className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                    >
+                      {c.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </nav>
 
-            {/* Right Action Menu */}
-            <div className="flex items-center gap-3 sm:gap-4">
-              <a
-                href="tel:+918261840199"
-                className="hidden sm:flex items-center gap-1.5 text-xs font-mono text-slate-300 hover:text-white transition-colors"
+            {/* Right Utility Actions */}
+            <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+              <button
+                onClick={() => setModalOpen(true)}
+                className="hidden xl:flex items-center gap-1.5 text-xs text-slate-300 hover:text-white transition-colors cursor-pointer font-medium"
               >
-                <Phone className="w-3.5 h-3.5 text-[#00E5C9]" />
-                +91 82618 40199
-              </a>
+                <span>Contact Us</span>
+              </button>
 
               {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
-                className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-md bg-[#1C1C1E] border border-white/10 text-slate-300 hover:text-white hover:border-[#00E5C9]/50 transition-all focus:outline-none"
+                className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg bg-[#1C1C1E] border border-white/10 text-slate-300 hover:text-white hover:border-[#0176D3]/50 transition-all focus:outline-none"
                 title={theme === "dark" ? "Switch to White / Light Theme" : "Switch to Dark Theme"}
                 aria-label="Toggle Theme"
               >
                 {theme === "dark" ? (
                   <Sun className="w-4 h-4 text-[#D4FD53] transition-transform duration-300 hover:rotate-45" />
                 ) : (
-                  <Moon className="w-4 h-4 text-[#0D9488] transition-transform duration-300 hover:-rotate-12" />
+                  <Moon className="w-4 h-4 text-[#0176D3] transition-transform duration-300 hover:-rotate-12" />
                 )}
               </button>
 
+              {/* Signature Salesforce "Try for free" CTA Button */}
               <button
                 onClick={() => setModalOpen(true)}
-                className="group relative flex h-10 cursor-pointer items-center gap-1.5 rounded-md bg-[#1C1C1E] border border-white/10 px-4 font-mono text-[13px] text-white transition-all hover:bg-[#2C2C30] hover:border-[#00E5C9]/50"
+                className="relative inline-flex h-10 cursor-pointer items-center justify-center rounded-lg bg-[#008244] hover:bg-[#007038] text-white font-bold text-xs sm:text-sm px-4 sm:px-5 transition-all shadow-md hover:shadow-lg hover:brightness-105"
               >
-                <span>Contact us</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#00E5C9]" />
+                <span>Try for free</span>
               </button>
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="lg:hidden p-2 text-white hover:text-[#00E5C9] transition-colors"
+                className="lg:hidden p-2 text-white hover:text-[#0176D3] transition-colors"
                 aria-label="Toggle menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

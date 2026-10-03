@@ -209,9 +209,16 @@ const Footer = () => {
           </h1>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} Aparaitech Software (Proprietorship Firm). All rights reserved.</p>
-          <p>Headquarters: Gera Imperium, Hinjawadi Phase 2, Pune, India</p>
+        <div className="pt-8 border-t border-[#22242A] flex flex-col md:flex-row items-center justify-between text-xs font-mono text-slate-400 gap-4">
+          <p>© {new Date().getFullYear()} Aparaitech Software / Salesforce Ecosystem Partner. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
+            <Link to="/company/values" className="hover:text-white transition-colors">Trust & Security</Link>
+            <Link to="/company/values" className="hover:text-white transition-colors">Privacy Statement</Link>
+            <Link to="/company/values" className="hover:text-white transition-colors">Responsible AI Principles</Link>
+            <Link to="/company/about-us" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/company/about-us" className="hover:text-white transition-colors">Cookie Preferences</Link>
+          </div>
+          <p className="text-slate-500">India HQ: Hinjawadi Phase 2, Pune, Maharashtra</p>
         </div>
       </div>
     </footer>
