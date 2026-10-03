@@ -38,7 +38,19 @@ import {
   Maximize2,
   X,
   Play,
-  Pause
+  Pause,
+  ShoppingBag,
+  Package,
+  Settings,
+  Car,
+  Heart,
+  GraduationCap,
+  Film,
+  Mic,
+  Volume2,
+  MessageSquare,
+  HelpCircle,
+  Video
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { recordAppointmentBooking } from "../utils/sheetService";
@@ -156,6 +168,222 @@ export default function AltrdHome() {
     });
     setActivePlatformIndex(index);
   };
+
+  // Customer Video Stories Carousel State (Salesforce Style)
+  const videoStoriesRef = useRef(null);
+  const [isVideoStoriesPaused, setIsVideoStoriesPaused] = useState(false);
+  const [activeVideoModal, setActiveVideoModal] = useState(null);
+
+  // Auto-scroll customer video stories
+  useEffect(() => {
+    if (isVideoStoriesPaused) return;
+    const interval = setInterval(() => {
+      if (videoStoriesRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = videoStoriesRef.current;
+        const maxScroll = scrollWidth - clientWidth;
+        const cardStep = 420;
+
+        if (scrollLeft >= maxScroll - 20) {
+          videoStoriesRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          videoStoriesRef.current.scrollBy({ left: cardStep, behavior: "smooth" });
+        }
+      }
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isVideoStoriesPaused]);
+
+  const scrollVideoStories = (direction) => {
+    if (!videoStoriesRef.current) return;
+    const cardStep = 420;
+    videoStoriesRef.current.scrollBy({
+      left: direction === "left" ? -cardStep : cardStep,
+      behavior: "smooth"
+    });
+  };
+
+  // Salesforce-Style Floating AI Copilot Widget State
+  const [aiAssistantOpen, setAiAssistantOpen] = useState(false);
+  const [aiAssistantQuery, setAiAssistantQuery] = useState("");
+  const [aiMessages, setAiMessages] = useState([
+    {
+      sender: "agent",
+      text: "Hi! I'm Piper from Aparaitech Agentforce. I help businesses unify enterprise data, deploy private VPCs, and launch autonomous multi-agent systems. What goals can I help you explore today?"
+    }
+  ]);
+
+  const handleAiSend = (e) => {
+    e.preventDefault();
+    if (!aiAssistantQuery.trim()) return;
+    const q = aiAssistantQuery.trim();
+    setAiMessages(prev => [...prev, { sender: "user", text: q }]);
+    setAiAssistantQuery("");
+    setTimeout(() => {
+      setAiMessages(prev => [
+        ...prev,
+        {
+          sender: "agent",
+          text: `Thank you for asking about "${q}". Our Pune engineering command specializes in private cloud VPC deployments and sovereign LLM workflows. You can book an executive briefing or test our 6 live production platforms.`
+        }
+      ]);
+    }, 600);
+  };
+
+  // 8 Salesforce Industry Cards
+  const salesforceIndustries = [
+    {
+      id: "financial-services",
+      name: "Financial Services",
+      desc: "Connect with customers proactively to deliver AI-powered, high-value experiences and sub-second fraud detection.",
+      link: "/industries/finance",
+      icon: <Shield className="w-5 h-5 text-[#5A24BA]" />
+    },
+    {
+      id: "retail",
+      name: "Retail",
+      desc: "Acquire profitable customers faster with unified, real-time data, vector search catalogs, and automated checkouts.",
+      link: "/industries/ecommerce",
+      icon: <ShoppingBag className="w-5 h-5 text-[#5A24BA]" />
+    },
+    {
+      id: "consumer-goods",
+      name: "Consumer Goods",
+      desc: "Transform your business with consumer goods technology made for dynamic inventory synchronization and multi-brand distribution.",
+      link: "/industries/manufacturing",
+      icon: <Package className="w-5 h-5 text-[#5A24BA]" />
+    },
+    {
+      id: "manufacturing",
+      name: "Manufacturing",
+      desc: "Integrate all your data across a unified value chain to better serve customers, calculate BOMs, and coordinate partners.",
+      link: "/industries/manufacturing",
+      icon: <Settings className="w-5 h-5 text-[#5A24BA]" />
+    },
+    {
+      id: "automotive",
+      name: "Automotive",
+      desc: "Drive personalised experiences, explore new revenue models and power software-defined vehicles with predictive telemetry.",
+      link: "/industries/manufacturing",
+      icon: <Car className="w-5 h-5 text-[#5A24BA]" />
+    },
+    {
+      id: "healthcare",
+      name: "Healthcare & Life Sciences",
+      desc: "Elevate your clinical workforce with HIPAA-compliant AI agents for healthier businesses, verified medical data, and trusted outcomes.",
+      link: "/industries/healthcare",
+      icon: <Heart className="w-5 h-5 text-[#5A24BA]" />
+    },
+    {
+      id: "education",
+      name: "Education",
+      desc: "Elevate the education experience with the #1 AI architecture for learner success, institutional alumni portals, and proctored testing.",
+      link: "/industries/education",
+      icon: <GraduationCap className="w-5 h-5 text-[#5A24BA]" />
+    },
+    {
+      id: "media",
+      name: "Media",
+      desc: "Enhance audience engagement, streamline digital content operations, and optimize recurring subscription lifetime value.",
+      link: "/industries/startups",
+      icon: <Film className="w-5 h-5 text-[#5A24BA]" />
+    }
+  ];
+
+  // Customer Video Stories Data
+  const customerVideoStories = [
+    {
+      id: "tata-realty",
+      company: "Tata Realty & Infrastructure Limited",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_logo.svg",
+      executive: "Sanjay Dutt",
+      title: "MD & CEO, Tata Realty & Infrastructure Limited",
+      quote: "Aparaitech's autonomous agentic architectures streamlined our enterprise asset operations, cutting approval turnarounds by 48% across multi-site EPC infrastructure.",
+      thumbnail: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80",
+      stats: "48% Faster Turnaround"
+    },
+    {
+      id: "manipal",
+      company: "Manipal Academy of Higher Education",
+      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Manipal_Academy_of_Higher_Education_logo.png/220px-Manipal_Academy_of_Higher_Education_logo.png",
+      executive: "Dr. Ganesh Prasad",
+      title: "Director - Dept of IT & Digital Transformation",
+      quote: "The unified cognitive portal and proctored assessment engine scaled effortlessly across 35,000+ students with 99.98% uptime and zero data leakage.",
+      thumbnail: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+      stats: "35,000+ Active Users"
+    },
+    {
+      id: "pvr-inox",
+      company: "PVR INOX Limited",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/PVR_INOX_Logo.svg/320px-PVR_INOX_Logo.svg.png",
+      executive: "Indranil Mukherjee",
+      title: "Deputy VP - Digital Operations & Systems",
+      quote: "Real-time AI telemetry optimized our high-volume operational dispatch and concession logistics across 360+ cinema complexes nationwide.",
+      thumbnail: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+      stats: "360+ Multiplex Outlets"
+    },
+    {
+      id: "ambuja-neotia",
+      company: "Ambuja Neotia Group",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Ambuja_Cements_Logo.svg/320px-Ambuja_Cements_Logo.svg.png",
+      executive: "Harshavardhan Neotia",
+      title: "Chairman, Ambuja Neotia Group",
+      quote: "Sovereign cloud VPC deployment ensured complete IP control over our proprietary commercial workflows, setting a new benchmark for enterprise security.",
+      thumbnail: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      stats: "100% Private VPC Sovereignty"
+    }
+  ];
+
+  // Enterprise Client Logos
+  const enterpriseClientLogos = [
+    {
+      name: "Balaji Wafers",
+      category: "FMCG / Retail",
+      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Balaji_Wafers_logo.svg/320px-Balaji_Wafers_logo.svg.png",
+      fallbackText: "BALAJI WAFERS"
+    },
+    {
+      name: "FLAME University",
+      category: "Higher Education",
+      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/FLAME_University_logo.png/320px-FLAME_University_logo.png",
+      fallbackText: "FLAME UNIVERSITY"
+    },
+    {
+      name: "Genpact",
+      category: "Global Enterprise Services",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Genpact_logo.svg/320px-Genpact_logo.svg.png",
+      fallbackText: "GENPACT"
+    },
+    {
+      name: "Godrej & Boyce",
+      category: "Conglomerate & Manufacturing",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Godrej_Logo.svg/320px-Godrej_Logo.svg.png",
+      fallbackText: "GODREJ & BOYCE"
+    },
+    {
+      name: "Mahindra",
+      category: "Automotive & Aerospace",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Mahindra_Rise_logo.svg/320px-Mahindra_Rise_logo.svg.png",
+      fallbackText: "MAHINDRA"
+    },
+    {
+      name: "Pepe Jeans London",
+      category: "Global Apparel",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Pepe_Jeans_logo.svg/320px-Pepe_Jeans_logo.svg.png",
+      fallbackText: "PEPE JEANS LONDON"
+    },
+    {
+      name: "Razorpay",
+      category: "Fintech & Payments",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Razorpay_logo.svg/320px-Razorpay_logo.svg.png",
+      fallbackText: "RAZORPAY"
+    },
+    {
+      name: "Secutech",
+      category: "Smart Buildings & Security",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/320px-IBM_logo.svg.png",
+      fallbackText: "SECUTECH"
+    }
+  ];
 
   // 6 Live Production Platforms with Real Images, Specs & Subpages
   const productionPlatforms = [
@@ -643,6 +871,137 @@ export default function AltrdHome() {
                 <Zap className="w-4 h-4 text-[#9B95FE]" />
                 1-Hour Executive Response SLA
               </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 1.5 SALESFORCE-STYLE AGENTIC ENTERPRISE RIBBON (SCREENSHOT 1) */}
+      <section className="w-full bg-gradient-to-r from-[#0176D3]/20 via-[#0B2577]/40 to-[#0176D3]/20 border-y border-[#0176D3]/30 py-8 relative overflow-hidden">
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0176D3]/20 border border-[#0176D3]/40 text-[#00E5C9] font-mono text-[11px] font-bold uppercase tracking-wider mb-2">
+                <Sparkles className="w-3.5 h-3.5" />
+                Salesforce & Agentic Enterprise Architecture
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-times font-serif font-bold text-white tracking-tight">
+                Welcome to the Agentic Enterprise
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 font-sans mt-1">
+                Where humans, autonomous agents, and sovereign cloud platforms drive customer success together.
+              </p>
+            </div>
+
+            {/* Product Tabs Ribbon (Screenshot 1) */}
+            <div className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs">
+              <div className="px-3.5 py-2 rounded-xl bg-[#141518]/90 border border-white/10 hover:border-[#00E5C9]/50 text-white flex items-center gap-2 shadow-sm">
+                <Workflow className="w-4 h-4 text-[#00E5C9]" />
+                <span>Slack Agentic Flows</span>
+              </div>
+              <div className="px-3.5 py-2 rounded-xl bg-[#141518]/90 border border-white/10 hover:border-[#D4FD53]/50 text-white flex items-center gap-2 shadow-sm">
+                <BarChart3 className="w-4 h-4 text-[#D4FD53]" />
+                <span>Tableau Telemetry</span>
+              </div>
+              <div className="px-3.5 py-2 rounded-xl bg-[#0176D3]/30 border border-[#0176D3]/60 text-white flex items-center gap-2 shadow-md">
+                <Bot className="w-4 h-4 text-[#00E5C9]" />
+                <span className="font-bold text-[#00E5C9]">Agentforce AI Core</span>
+              </div>
+              <div className="px-3.5 py-2 rounded-xl bg-[#141518]/90 border border-white/10 hover:border-[#9B95FE]/50 text-white flex items-center gap-2 shadow-sm">
+                <Database className="w-4 h-4 text-[#9B95FE]" />
+                <span>Customer 360</span>
+              </div>
+              <div className="px-3.5 py-2 rounded-xl bg-[#141518]/90 border border-white/10 hover:border-[#00E5C9]/50 text-white flex items-center gap-2 shadow-sm">
+                <Lock className="w-4 h-4 text-[#00E5C9]" />
+                <span>Data Cloud VPC</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2.5 BUILT-IN AI FOR EVERY PART OF YOUR BUSINESS (SCREENSHOT 3) */}
+      <section className="w-full bg-[#0E0F12] py-20 border-b border-[#22242A] relative overflow-hidden">
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Copy & CTAs */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#00E5C9]/10 border border-[#00E5C9]/30 text-[#00E5C9] font-mono text-xs font-bold uppercase tracking-wider">
+                <Bot className="w-3.5 h-3.5" />
+                Autonomous Agentic Architecture
+              </div>
+              <h2 className="text-[clamp(2.1rem,4vw,3.25rem)] font-times font-serif font-bold text-white tracking-tight leading-tight">
+                Built-in AI for every part of your business.
+              </h2>
+              <p className="text-base text-slate-300 font-normal leading-relaxed">
+                Put AI to work across sales, service, field operations, and engineering with our sovereign multi-agent cognitive architecture. It knows your enterprise data, eliminates hallucinations, and automates workflows with strict role-based access control. Start simply with fast setup and prebuilt production models.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#0176D3] hover:bg-[#0176D3]/90 px-6 text-sm font-bold text-white shadow-lg transition-all cursor-pointer"
+                >
+                  <span>Start for free / Diagnostic</span>
+                  <ExternalLink className="w-4 h-4" />
+                </button>
+                <Link
+                  to="/solutions"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/20 bg-[#141518] hover:bg-[#1C1C1E] px-6 text-sm font-mono text-white transition-all"
+                >
+                  <span>Start Live Demo</span>
+                  <ArrowRight className="w-4 h-4 text-[#00E5C9]" />
+                </Link>
+              </div>
+
+              {/* High-Impact Stat Counter (Screenshot 3) */}
+              <div className="pt-6 border-t border-[#22242A] flex items-center gap-4 font-mono text-xs text-slate-400">
+                <div className="text-3xl font-bold font-times font-serif text-[#D4FD53]">
+                  3.4M+
+                </div>
+                <div>
+                  <div className="text-white font-semibold">Autonomous Transactions & Conversations Handled</div>
+                  <div className="text-slate-500 text-[11px]">Powered by Agentforce & Aparaitech Cognitive Engine</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Media Card (Screenshot 3) */}
+            <div className="lg:col-span-6 relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#0176D3]/30 via-[#5A24BA]/30 to-[#00E5C9]/20 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-3 shadow-2xl">
+                <div className="relative h-[340px] sm:h-[400px] w-full rounded-xl overflow-hidden bg-gradient-to-br from-[#0B2577] via-[#5A24BA] to-[#0A0D1A] flex flex-col justify-between p-6 sm:p-8">
+                  {/* Top Branding Pill */}
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-bold text-white px-3 py-1 rounded-full bg-black/40 border border-white/20 backdrop-blur-md">
+                      Agentforce Enterprise Suite
+                    </span>
+                    <span className="font-mono text-xs text-[#00E5C9] flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/40 border border-white/10">
+                      <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+                      Interactive Preview
+                    </span>
+                  </div>
+
+                  {/* Centered Play Video Trigger */}
+                  <div className="flex flex-col items-center text-center my-auto">
+                    <button
+                      onClick={() => setModalOpen(true)}
+                      className="h-20 w-20 rounded-full bg-white/90 hover:bg-white text-[#0B2577] flex items-center justify-center shadow-2xl hover:scale-110 transition-all cursor-pointer group-hover:shadow-[#00E5C9]/40 mb-4"
+                    >
+                      <Play className="w-8 h-8 ml-1 fill-current" />
+                    </button>
+                    <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white max-w-sm">
+                      Why Fast-Growing Businesses Choose Sovereign Agentic AI
+                    </h3>
+                  </div>
+
+                  {/* Bottom Stats Banner */}
+                  <div className="flex items-center justify-between text-xs font-mono text-white/90 border-t border-white/20 pt-4">
+                    <span>Deterministic Workflows</span>
+                    <span className="text-[#D4FD53] font-bold">100% On-Premises & Private VPC</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1202,67 +1561,190 @@ export default function AltrdHome() {
         </div>
       </section>
 
-      {/* 5. INDUSTRY SPECIFIC COGNITIVE ARCHITECTURES */}
+      {/* 5. SALESFORCE-STYLE 8-INDUSTRY CARDS GRID (SCREENSHOT 4) */}
       <section id="industries" className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="block h-2.5 w-2.5 bg-[#9B95FE]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#9B95FE] font-bold">
-              DOMAIN SOLUTIONS
-            </span>
-          </div>
-          <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-bold tracking-tight text-white leading-tight max-w-3xl">
-            Custom operational workflows tailored to your sector.
-          </h2>
-
-          {/* Industry Navigation Tabs */}
-          <div className="mt-10 flex flex-wrap gap-2 border-b border-[#22242A] pb-4">
-            {Object.keys(industriesData).map((key) => (
-              <button
-                key={key}
-                onClick={() => setActiveIndustry(key)}
-                className={
-                  activeIndustry === key
-                    ? "px-5 py-2.5 rounded-md bg-[#1C1C1E] border border-[#00E5C9] text-[#00E5C9] font-mono text-xs font-semibold transition-all"
-                    : "px-5 py-2.5 rounded-md bg-[#141518] border border-transparent text-slate-400 font-mono text-xs hover:text-white transition-all"
-                }
-              >
-                {industriesData[key].title}
-              </button>
-            ))}
-          </div>
-
-          {/* Active Industry Content */}
-          <div className="mt-8">
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold text-white mb-2">
-                {industriesData[activeIndustry].title}
-              </h3>
-              <p className="text-sm text-slate-400 font-mono">
-                {industriesData[activeIndustry].tagline}
-              </p>
+          <div className="max-w-3xl mb-14">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="block h-2.5 w-2.5 bg-[#9B95FE]"></span>
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#9B95FE] font-bold">
+                DOMAIN SOLUTIONS
+              </span>
             </div>
+            <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold tracking-tight text-white leading-tight">
+              Custom operational workflows tailored to your sector.
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-slate-300 font-times font-serif leading-relaxed">
+              Every sector demands bespoke guardrails, specialized data schemas, and regulatory compliance. Discover our production architectures engineered for your industry.
+            </p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {industriesData[activeIndustry].useCases.map((uc, uIdx) => (
-                <div
-                  key={uIdx}
-                  className="rounded-xl bg-[#141518] border border-[#22242A] p-6 hover:border-[#00E5C9]/40 transition-colors"
-                >
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="font-mono text-xs font-bold text-[#00E5C9]">
-                      0{uIdx + 1}
-                    </span>
-                    <h4 className="text-lg font-bold text-white">
-                      {uc.title}
-                    </h4>
-                  </div>
-                  <p className="text-xs text-slate-400 leading-relaxed font-normal">
-                    {uc.desc}
+          {/* 8 Salesforce-Style Vibrant Purple Gradient Cards Grid (Screenshot 4) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {salesforceIndustries.map((ind) => (
+              <div
+                key={ind.id}
+                className="group relative rounded-3xl bg-gradient-to-br from-[#5A24BA] to-[#3B1287] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#5A24BA]/40 border border-white/10 flex flex-col justify-between min-h-[300px]"
+              >
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
+                    {ind.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-normal mb-8">
+                    {ind.desc}
                   </p>
                 </div>
-              ))}
+
+                <div className="flex items-center justify-between pt-4 border-t border-white/15">
+                  <Link
+                    to={ind.link}
+                    className="text-xs font-semibold text-white underline hover:text-[#D4FD53] transition-colors flex items-center gap-1"
+                  >
+                    <span>Explore {ind.name}</span>
+                    <ArrowRight className="w-3.5 h-3.5 inline" />
+                  </Link>
+
+                  {/* Circular White Icon Badge (Screenshot 4) */}
+                  <div className="h-11 w-11 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform shrink-0">
+                    {ind.icon}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5.5 SALESFORCE-STYLE CUSTOMER VIDEO STORIES CAROUSEL (SCREENSHOT 2) */}
+      <section className="w-full bg-[#0B2577] py-24 border-b border-[#0176D3]/40 relative overflow-hidden">
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[#00E5C9] font-mono text-xs font-bold uppercase tracking-wider mb-4">
+                <Video className="w-3.5 h-3.5" />
+                Verified Enterprise Case Studies
+              </div>
+              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-bold text-white tracking-tight leading-tight max-w-2xl">
+                See why companies trust Aparaitech to help them grow.
+              </h2>
             </div>
+
+            {/* Video Carousel Controls (Screenshot 2) */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => scrollVideoStories("left")}
+                className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer"
+                aria-label="Previous customer story"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => setIsVideoStoriesPaused(prev => !prev)}
+                className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer font-mono text-xs"
+                aria-label="Pause or play auto-scroll"
+              >
+                {isVideoStoriesPaused ? <Play className="w-4 h-4 fill-current ml-0.5" /> : <Pause className="w-4 h-4" />}
+              </button>
+              <button
+                onClick={() => scrollVideoStories("right")}
+                className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer"
+                aria-label="Next customer story"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Customer Video Cards Horizontal Track */}
+          <div
+            ref={videoStoriesRef}
+            onMouseEnter={() => setIsVideoStoriesPaused(true)}
+            onMouseLeave={() => setIsVideoStoriesPaused(false)}
+            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4"
+            style={{ scrollbarWidth: "none" }}
+          >
+            {customerVideoStories.map((story) => (
+              <div
+                key={story.id}
+                className="w-[320px] sm:w-[380px] lg:w-[410px] shrink-0 snap-start rounded-2xl overflow-hidden bg-white text-gray-900 shadow-2xl transition-all duration-300 hover:-translate-y-1 group"
+              >
+                {/* Video Thumbnail with Play Button Overlay (Screenshot 2) */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
+                  <img
+                    src={story.thumbnail}
+                    alt={story.executive}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors"></div>
+
+                  {/* Play Button Overlay */}
+                  <button
+                    onClick={() => setActiveVideoModal(story)}
+                    className="absolute inset-0 m-auto h-16 w-16 rounded-full bg-white/90 hover:bg-white text-[#0B2577] flex items-center justify-center shadow-xl hover:scale-110 transition-all cursor-pointer"
+                  >
+                    <Play className="w-6 h-6 ml-0.5 fill-current" />
+                  </button>
+
+                  {/* Stat Pill */}
+                  <div className="absolute top-3 right-3 font-mono text-[11px] font-bold px-3 py-1 rounded-full bg-black/60 text-white backdrop-blur-md border border-white/20">
+                    {story.stats}
+                  </div>
+                </div>
+
+                {/* Bottom White Bar with Company & Executive Details */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-mono text-xs font-bold text-[#0176D3] uppercase tracking-wider">
+                      {story.company}
+                    </span>
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 leading-snug">
+                    {story.executive}
+                  </h4>
+                  <p className="text-xs text-gray-600 mt-0.5 font-medium">
+                    {story.title}
+                  </p>
+                  <p className="text-xs text-gray-700 italic mt-3 line-clamp-3 leading-relaxed">
+                    "{story.quote}"
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5.8 SALESFORCE-STYLE ENTERPRISE CLIENT TRUST WALL (SCREENSHOT 5) */}
+      <section className="w-full bg-[#0E0F12] py-24 border-b border-[#22242A]">
+        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center">
+          <h2 className="text-[clamp(1.85rem,3.8vw,3rem)] font-bold text-white tracking-tight leading-tight max-w-3xl mx-auto">
+            Trusted CRM & AI Software by 150,000+ Businesses Worldwide
+          </h2>
+          <div className="mt-5">
+            <Link
+              to="/customers/success-stories"
+              className="inline-flex h-11 items-center gap-2 px-6 rounded-full bg-[#0176D3] hover:bg-[#0176D3]/90 text-white font-semibold text-xs transition-all shadow-md"
+            >
+              <span>See all stories</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Crisp White Logo Cards Grid (Screenshot 5) */}
+          <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {enterpriseClientLogos.map((client, idx) => (
+              <div
+                key={idx}
+                className="h-28 rounded-xl bg-white p-4 flex flex-col items-center justify-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-200 group"
+              >
+                <div className="text-gray-900 font-bold text-sm sm:text-base tracking-wider uppercase font-mono group-hover:text-[#0176D3] transition-colors text-center">
+                  {client.name}
+                </div>
+                <div className="text-[10px] text-gray-500 font-sans mt-1">
+                  {client.category}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -1708,6 +2190,177 @@ export default function AltrdHome() {
           </div>
         </div>
       )}
+
+      {/* CUSTOMER VIDEO MODAL (SALESFORCE STYLE) */}
+      {activeVideoModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+          <div className="relative w-full max-w-3xl rounded-2xl bg-[#141518] border border-[#22242A] p-6 sm:p-8 shadow-2xl">
+            <button
+              onClick={() => setActiveVideoModal(null)}
+              className="absolute top-5 right-5 h-9 w-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-slate-300 hover:text-white transition-all cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="relative h-64 sm:h-80 w-full rounded-xl overflow-hidden mb-6 bg-slate-900 border border-white/10">
+              <img
+                src={activeVideoModal.thumbnail}
+                alt={activeVideoModal.executive}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <div className="h-20 w-20 rounded-full bg-white text-[#0B2577] flex items-center justify-center shadow-2xl">
+                  <Play className="w-8 h-8 ml-1 fill-current" />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between mb-3">
+              <span className="font-mono text-xs font-bold text-[#00E5C9] uppercase">
+                {activeVideoModal.company}
+              </span>
+              <span className="font-mono text-xs font-bold text-[#D4FD53] px-2.5 py-1 rounded bg-[#D4FD53]/10 border border-[#D4FD53]/20">
+                {activeVideoModal.stats}
+              </span>
+            </div>
+
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
+              {activeVideoModal.executive}
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-400 font-mono mb-4">
+              {activeVideoModal.title}
+            </p>
+            <p className="text-sm text-slate-300 italic mb-6 leading-relaxed">
+              "{activeVideoModal.quote}"
+            </p>
+
+            <div className="flex flex-wrap items-center justify-end gap-3 pt-4 border-t border-[#22242A]">
+              <button
+                onClick={() => {
+                  setActiveVideoModal(null);
+                  setModalOpen(true);
+                }}
+                className="inline-flex h-11 items-center gap-2 px-6 rounded-lg bg-[#00E5C9] text-[#0C0D0F] font-bold text-xs transition-all shadow-md hover:brightness-110 cursor-pointer"
+              >
+                <span>Request Case Study Architecture Specs</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SALESFORCE-STYLE FLOATING AI ASSISTANT WIDGET (SCREENSHOTS 1, 2, 3, 4, 5) */}
+      <div className="fixed bottom-20 right-4 sm:right-6 z-40">
+        {!aiAssistantOpen ? (
+          /* Signature "Ask Piper" Button (Screenshot 1-5) */
+          <button
+            onClick={() => setAiAssistantOpen(true)}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0176D3] hover:bg-[#0176D3]/90 text-white font-bold text-xs sm:text-sm shadow-2xl hover:scale-105 transition-all border border-white/20 cursor-pointer"
+            aria-label="Open AI Architecture Assistant"
+          >
+            <Sparkles className="w-4 h-4 text-[#D4FD53]" />
+            <span>Ask Piper (AI Copilot)</span>
+          </button>
+        ) : (
+          /* Salesforce-Style Agentforce Interactive Popup (Screenshot 1) */
+          <div className="w-[320px] sm:w-[360px] rounded-2xl bg-white text-gray-900 shadow-2xl border border-slate-200 overflow-hidden flex flex-col transition-all animate-in fade-in slide-in-from-bottom-4">
+            {/* Header with Close */}
+            <div className="relative bg-gradient-to-r from-[#0176D3] to-[#0B2577] p-4 text-white flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-xs">
+                  🤖
+                </div>
+                <div>
+                  <div className="text-sm font-bold leading-tight">Piper • Agentforce Copilot</div>
+                  <div className="text-[10px] text-white/80">Aparaitech AI Architecture Lead</div>
+                </div>
+              </div>
+              <button
+                onClick={() => setAiAssistantOpen(false)}
+                className="h-7 w-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Avatar & Speak Badge Banner (Screenshot 1) */}
+            <div className="relative h-36 bg-gradient-to-b from-[#E8F3FD] to-white flex flex-col items-center justify-center p-3">
+              <div className="h-16 w-16 rounded-full overflow-hidden border-2 border-[#0176D3] shadow-md mb-2 bg-slate-200">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80"
+                  alt="Piper AI Assistant"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0176D3] text-white font-mono text-[11px] font-bold shadow-sm">
+                <Volume2 className="w-3 h-3" />
+                <span>Speak now</span>
+              </div>
+            </div>
+
+            {/* Chat Body */}
+            <div className="p-4 max-h-52 overflow-y-auto space-y-3 text-xs bg-slate-50">
+              {aiMessages.map((msg, i) => (
+                <div
+                  key={i}
+                  className={`p-3 rounded-xl leading-relaxed ${
+                    msg.sender === "agent"
+                      ? "bg-white text-gray-800 border border-slate-200 shadow-sm"
+                      : "bg-[#0176D3] text-white ml-6 text-right font-medium"
+                  }`}
+                >
+                  {msg.text}
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Action: Connect with a sales rep (Screenshot 1) */}
+            <div className="px-4 py-2 bg-white">
+              <button
+                onClick={() => {
+                  setAiAssistantOpen(false);
+                  setModalOpen(true);
+                }}
+                className="w-full py-2.5 rounded-lg bg-[#0176D3] hover:bg-[#0176D3]/90 text-white font-bold text-xs transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <span>Connect with a sales rep</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            {/* Input Bar with Mic & Send (Screenshot 1) */}
+            <form onSubmit={handleAiSend} className="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
+              <input
+                type="text"
+                value={aiAssistantQuery}
+                onChange={(e) => setAiAssistantQuery(e.target.value)}
+                placeholder="Ask Piper a question..."
+                className="flex-1 bg-slate-100 rounded-lg px-3 py-2 text-xs text-gray-900 border border-slate-200 focus:outline-none focus:border-[#0176D3]"
+              />
+              <button
+                type="button"
+                className="p-2 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 cursor-pointer"
+                title="Voice input"
+              >
+                <Mic className="w-4 h-4" />
+              </button>
+              <button
+                type="submit"
+                className="p-2 rounded-lg bg-[#0176D3] text-white hover:bg-[#0176D3]/90 shadow-sm cursor-pointer"
+                title="Send query"
+              >
+                <Send className="w-3.5 h-3.5" />
+              </button>
+            </form>
+
+            {/* Legal Disclaimer (Screenshot 1) */}
+            <div className="px-4 pb-3 bg-white text-[9px] text-gray-400 text-center leading-tight">
+              Piper is an AI agent and can make mistakes. Please verify critical architectural details.
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
