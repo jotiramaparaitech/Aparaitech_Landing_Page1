@@ -275,41 +275,65 @@ export default function AltrdHome() {
     }
   ];
 
-  // Core Capabilities
+  // Core Capabilities with Rich Visual Mockups & Metrics
   const coreCapabilities = [
     {
-      icon: <Workflow className="w-6 h-6 text-[#00E5C9]" />,
+      icon: <Workflow className="w-5 h-5 text-[#00E5C9]" />,
       title: "Autonomous Multi-Agent Swarms",
+      tag: "AGENTIC ORCHESTRATION",
+      metric: "<120ms Consensus",
+      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80",
+      link: "/generative-ai",
       desc: "Goal-driven AI agent networks that collaborate across planning, tool-calling, data retrieval, and execution to automate complex knowledge work.",
       points: ["Self-correcting reasoning loops", "Tool-use & API integration", "Human-in-the-loop oversight"]
     },
     {
-      icon: <Database className="w-6 h-6 text-[#00E5C9]" />,
+      icon: <Database className="w-5 h-5 text-[#00E5C9]" />,
       title: "Zero-Hallucination Enterprise RAG",
+      tag: "HYBRID VECTOR RETRIEVAL",
+      metric: "99.8% Grounded Precision",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80",
+      link: "/solutions",
       desc: "Hybrid semantic vector + BM25 keyword search connected to your proprietary documents with strict citation guardrails and verifiable evidence.",
       points: ["Sub-250ms retrieval latency", "Role-based ACL permission filtering", "Source sentence grounding"]
     },
     {
-      icon: <Eye className="w-6 h-6 text-[#00E5C9]" />,
+      icon: <Eye className="w-5 h-5 text-[#00E5C9]" />,
       title: "Vision AI & Document Intelligence",
+      tag: "MULTIMODAL NEURAL VISION",
+      metric: "99.4% Table Extraction",
+      image: "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&fit=crop&w=1000&q=80",
+      link: "/generative-ai",
       desc: "Multimodal neural networks engineered for scanned invoices, complex engineering drawings, handwritten forms, and visual assembly inspection.",
       points: ["99.4% table extraction accuracy", "Complex layout awareness", "Edge inference capability"]
     },
     {
-      icon: <Lock className="w-6 h-6 text-[#00E5C9]" />,
+      icon: <Lock className="w-5 h-5 text-[#00E5C9]" />,
       title: "Private VPC & Sovereign LLMs",
+      tag: "AIR-GAPPED SOVEREIGNTY",
+      metric: "Zero Data Egress",
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1000&q=80",
+      link: "/cloud",
       desc: "Deployment of state-of-the-art open models (Llama 3, Mistral, Qwen) inside your private cloud or on-premises servers with zero data egress.",
       points: ["Parameter-efficient fine-tuning", "vLLM high-throughput serving", "Complete IP sovereignty"]
     },
     {
-      icon: <BarChart3 className="w-6 h-6 text-[#00E5C9]" />,
+      icon: <BarChart3 className="w-5 h-5 text-[#00E5C9]" />,
       title: "Predictive Operational Intelligence",
+      tag: "DYNAMIC TIME-SERIES ML",
+      metric: "4.2x Demand Precision",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+      link: "/solutions",
       desc: "Deep learning forecasting systems that analyze historical telemetry, supply chain variables, and customer behavior to anticipate operational demands.",
       points: ["Dynamic pricing & stock replenishment", "Predictive machine maintenance", "Anomaly & fraud detection"]
     },
     {
-      icon: <ShieldCheck className="w-6 h-6 text-[#00E5C9]" />,
+      icon: <ShieldCheck className="w-5 h-5 text-[#00E5C9]" />,
       title: "Full-Lifecycle MLOps & Governance",
+      tag: "ISO 27001 & SOC 2 COMPLIANCE",
+      metric: "100% Audit Logging",
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1000&q=80",
+      link: "/services/devops-cicd",
       desc: "Continuous model evaluation, hallucination telemetry, latency profiling, and automated red-teaming aligned with ISO 27001 and SOC 2 standards.",
       points: ["Prompt injection defenses", "Real-time drift detection", "Comprehensive audit trails"]
     }
@@ -1097,28 +1121,71 @@ export default function AltrdHome() {
             {coreCapabilities.map((cap, idx) => (
               <div
                 key={idx}
-                className="rounded-xl bg-[#141518] border border-[#22242A] p-8 hover:border-white/20 transition-all flex flex-col justify-between group"
+                className="group relative rounded-xl bg-[#141518] border border-[#22242A] p-6 sm:p-7 hover:border-[#00E5C9]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#00E5C9]/5 flex flex-col justify-between"
               >
                 <div>
-                  <div className="h-12 w-12 rounded-lg bg-[#1C1C1E] border border-white/10 flex items-center justify-center mb-6">
-                    {cap.icon}
+                  {/* 1. Capability Preview Image Banner */}
+                  <div className="relative w-full h-44 sm:h-48 overflow-hidden rounded-lg mb-6 bg-[#1C1C1E] border border-white/10 group-hover:border-[#00E5C9]/40 transition-all">
+                    <img
+                      src={cap.image}
+                      alt={cap.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    {/* Contrast Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141518] via-[#141518]/30 to-black/40"></div>
+
+                    {/* Top Badges */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#00E5C9]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+                        {cap.tag}
+                      </span>
+                      <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-[#D4FD53]/30 text-[#D4FD53]">
+                        {cap.metric}
+                      </span>
+                    </div>
+
+                    {/* Integrated Floating Icon */}
+                    <div className="absolute bottom-3 left-3 h-10 w-10 rounded-lg bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 flex items-center justify-center text-[#00E5C9] group-hover:border-[#00E5C9]/50 shadow-md">
+                      {cap.icon}
+                    </div>
                   </div>
-                  <h3 className="text-xl font-times font-serif font-bold text-white group-hover:text-[#D4FD53] transition-colors mb-3">
+
+                  {/* 2. Capability Title in Times New Roman */}
+                  <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white group-hover:text-[#00E5C9] transition-colors mb-2.5 leading-snug">
                     {cap.title}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed mb-6 font-normal">
+
+                  {/* 3. Description */}
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5 font-normal">
                     {cap.desc}
                   </p>
                 </div>
 
-                <ul className="space-y-2 border-t border-[#22242A] pt-4 font-mono text-xs text-slate-300">
-                  {cap.points.map((pt, pIdx) => (
-                    <li key={pIdx} className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#00E5C9]"></span>
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  {/* 4. Telemetry Bullet Points */}
+                  <ul className="space-y-2 border-t border-[#22242A] pt-4 font-mono text-xs text-slate-300">
+                    {cap.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#00E5C9]"></span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* 5. Subpage Architecture Action Link */}
+                  <div className="pt-4 mt-4 border-t border-[#22242A] flex items-center justify-between font-mono text-xs">
+                    <span className="text-[11px] text-slate-500">Sovereign Architecture</span>
+                    <Link
+                      to={cap.link}
+                      className="inline-flex items-center gap-1.5 text-[#00E5C9] hover:underline font-semibold text-xs transition-colors"
+                    >
+                      <span>Explore Subpage</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
