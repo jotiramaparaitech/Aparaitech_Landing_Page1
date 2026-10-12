@@ -315,19 +315,19 @@ console.log('Telemetry payload:', response);`,
   };
 
   return (
-    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SEARCH SECTION */}
-      <section className="relative overflow-hidden border-b border-[#22242A] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(#766DFE 1.2px, transparent 1.2px)",
+            backgroundImage: "radial-gradient(rgba(37, 99, 235, 0.4) 1.2px, transparent 1.2px)",
             backgroundSize: "28px 28px",
           }}
         ></div>
 
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-[#D4FD53] mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#34D399] mb-6">
             <BookOpen className="w-3.5 h-3.5" />
             <span>DEVELOPER DOCUMENTATION & API SCHEMAS</span>
           </div>
@@ -348,7 +348,7 @@ console.log('Telemetry payload:', response);`,
               placeholder="Search endpoints, SDKs, WebSocket topics, or authentication guides..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full h-[52px] rounded-xl bg-[#141518] border border-[#22242A] pl-12 pr-10 text-sm text-white placeholder-slate-500 focus:border-[#D4FD53] focus:outline-none transition-all shadow-xl"
+              className="w-full h-[52px] rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] pl-12 pr-10 text-sm text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none transition-all shadow-xl"
             />
             {searchTerm && (
               <button
@@ -369,7 +369,7 @@ console.log('Telemetry payload:', response);`,
       </section>
 
       {/* 2. CATEGORY FILTER BAR */}
-      <section className="border-b border-[#22242A] bg-[#141518]/70 py-4">
+      <section className="border-b border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/70 py-4">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3">
             <span className="font-mono text-xs uppercase tracking-wider text-slate-400 mr-2">
@@ -386,8 +386,8 @@ console.log('Telemetry payload:', response);`,
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-3.5 py-1.5 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
                   selectedCategory === cat.id
-                    ? "bg-[#D4FD53] text-[#0C0D0F] font-bold"
-                    : "bg-[#1C1C1E] text-slate-300 border border-white/5 hover:border-slate-500"
+                    ? "bg-[#10B981] text-white font-bold"
+                    : "bg-slate-100 dark:bg-[#161F32] text-slate-300 border border-white/5 hover:border-slate-500"
                 }`}
               >
                 {cat.label}
@@ -400,7 +400,7 @@ console.log('Telemetry payload:', response);`,
       {/* 3. MAIN DOCUMENTATION CATEGORIES */}
       <section className="py-20 max-w-[1240px] mx-auto px-6 lg:px-8">
         {filteredCategories.length === 0 ? (
-          <div className="text-center py-16 rounded-xl border border-[#22242A] bg-[#141518]">
+          <div className="text-center py-16 rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]">
             <Terminal className="w-12 h-12 text-slate-500 mx-auto mb-3" />
             <h3 className="text-lg font-bold text-white mb-1">No documentation matches found</h3>
             <p className="text-sm text-slate-400">Try refining your search keyword or clearing the category filter.</p>
@@ -412,27 +412,27 @@ console.log('Telemetry payload:', response);`,
               return (
                 <div
                   key={cat.id}
-                  className="rounded-xl border border-[#22242A] bg-[#141518] p-8 hover:border-[#D4FD53]/50 transition-all flex flex-col justify-between"
+                  className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-8 hover:border-blue-500/50 transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-lg bg-[#0C0D0F] border border-[#22242A] flex items-center justify-center text-[#D4FD53] mb-5">
+                    <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] flex items-center justify-center text-[#34D399] mb-5">
                       <IconComp className="w-5 h-5" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-2">{cat.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{cat.title}</h3>
                     <p className="text-slate-400 text-xs leading-relaxed mb-6">{cat.desc}</p>
 
-                    <div className="space-y-2 border-t border-[#22242A] pt-4">
+                    <div className="space-y-2 border-t border-slate-200 dark:border-[#1E293B] pt-4">
                       {cat.links.map((link, idx) => (
                         <button
                           key={idx}
                           onClick={() => handleContentClick(link.content, link.title)}
-                          className="w-full flex items-center justify-between text-left p-2.5 rounded hover:bg-[#1C1C1E] group transition-colors"
+                          className="w-full flex items-center justify-between text-left p-2.5 rounded hover:bg-slate-100 dark:bg-[#161F32] group transition-colors"
                         >
-                          <span className="text-xs font-mono text-slate-300 group-hover:text-[#D4FD53] transition-colors">
+                          <span className="text-xs font-mono text-slate-300 group-hover:text-[#34D399] transition-colors">
                             {link.title}
                           </span>
-                          <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-[#D4FD53] transition-colors shrink-0" />
+                          <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-[#34D399] transition-colors shrink-0" />
                         </button>
                       ))}
                     </div>
@@ -445,7 +445,7 @@ console.log('Telemetry payload:', response);`,
       </section>
 
       {/* 4. POPULAR TOPICS */}
-      <section className="py-16 border-t border-[#22242A] bg-[#141518]/50">
+      <section className="py-16 border-t border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/50">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
           <div className="flex items-center gap-2 mb-6">
             <span className="font-mono text-xs uppercase tracking-wider text-[#00E5C9]">
@@ -459,17 +459,17 @@ console.log('Telemetry payload:', response);`,
               <button
                 key={idx}
                 onClick={() => handleContentClick(topic.content, topic.title)}
-                className="flex items-center justify-between p-4 rounded-xl border border-[#22242A] bg-[#0C0D0F] hover:border-[#D4FD53]/50 transition-all text-left group"
+                className="flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] hover:border-blue-500/50 transition-all text-left group"
               >
                 <div className="pr-2">
-                  <div className="text-xs font-semibold text-white group-hover:text-[#D4FD53] transition-colors">
+                  <div className="text-xs font-semibold text-white group-hover:text-[#34D399] transition-colors">
                     {topic.title}
                   </div>
                   <div className="font-mono text-[10px] text-slate-500 uppercase mt-1">
                     {topic.category}
                   </div>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-[#D4FD53] shrink-0 transition-colors" />
+                <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-[#34D399] shrink-0 transition-colors" />
               </button>
             ))}
           </div>
@@ -477,13 +477,13 @@ console.log('Telemetry payload:', response);`,
       </section>
 
       {/* 5. REDIRECT FOOTER BANNER (Replaces obsolete Help Center) */}
-      <section className="py-12 border-t border-[#22242A] text-center bg-[#0C0D0F]">
+      <section className="py-12 border-t border-slate-200 dark:border-[#1E293B] text-center bg-slate-50 dark:bg-[#0B0F19]">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
           <p className="text-slate-400 text-sm">
             Need live engineering support or community answers?{" "}
             <Link
               to="/support/community"
-              className="text-[#D4FD53] font-mono font-bold hover:underline inline-flex items-center gap-1 ml-1"
+              className="text-[#34D399] font-mono font-bold hover:underline inline-flex items-center gap-1 ml-1"
             >
               <span>Visit our Developer Community</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -499,17 +499,17 @@ console.log('Telemetry payload:', response);`,
           onClick={() => setShowModal(false)}
         >
           <div
-            className="bg-[#141518] border border-[#22242A] rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-8 shadow-2xl relative"
+            className="bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-8 shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-white"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="font-mono text-xs text-[#D4FD53] uppercase mb-2">
+            <div className="font-mono text-xs text-[#34D399] uppercase mb-2">
               DOCUMENTATION OVERVIEW
             </div>
             <h2 className="text-2xl font-bold text-white mb-4">{selectedContent.title}</h2>
@@ -518,7 +518,7 @@ console.log('Telemetry payload:', response);`,
               {selectedContent.content}
             </p>
 
-            <div className="p-4 rounded-xl bg-[#0C0D0F] border border-[#22242A] mb-6">
+            <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] mb-6">
               <div className="text-xs font-bold text-white mb-1">Looking for exact code samples?</div>
               <p className="text-slate-400 text-xs">
                 Inspect step-by-step instructions, production code blocks, and security guidelines in the full walkthrough.
@@ -528,7 +528,7 @@ console.log('Telemetry payload:', response);`,
             <div className="flex items-center justify-between gap-4">
               <button
                 onClick={handleFullGuide}
-                className="inline-flex items-center gap-2 rounded bg-[#D4FD53] px-6 py-2.5 text-xs font-mono font-bold uppercase text-[#0C0D0F] hover:brightness-105"
+                className="inline-flex items-center gap-2 rounded bg-[#10B981] px-6 py-2.5 text-xs font-mono font-bold uppercase text-white hover:brightness-105"
               >
                 <span>Open Full Guide & Code</span>
                 <ChevronRight className="w-4 h-4" />
@@ -551,12 +551,12 @@ console.log('Telemetry payload:', response);`,
           onClick={() => setShowFullGuide(false)}
         >
           <div
-            className="bg-[#141518] border border-[#22242A] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative"
+            className="bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setShowFullGuide(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-white"
             >
               <X className="w-5 h-5" />
             </button>
@@ -573,15 +573,15 @@ console.log('Telemetry payload:', response);`,
               return (
                 <div className="space-y-6">
                   {/* Steps */}
-                  <div className="rounded-xl border border-[#22242A] bg-[#0C0D0F] p-5">
-                    <h3 className="font-mono text-xs uppercase text-[#D4FD53] tracking-wider mb-4 flex items-center gap-2">
+                  <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-5">
+                    <h3 className="font-mono text-xs uppercase text-[#34D399] tracking-wider mb-4 flex items-center gap-2">
                       <Check className="w-4 h-4" />
                       <span>Execution Sequence</span>
                     </h3>
                     <div className="space-y-2.5">
                       {guide.steps.map((step, idx) => (
                         <div key={idx} className="flex items-start gap-3 text-xs text-slate-300">
-                          <span className="w-5 h-5 rounded bg-[#1C1C1E] border border-white/10 font-mono text-[10px] text-[#D4FD53] flex items-center justify-center shrink-0 mt-0.5">
+                          <span className="w-5 h-5 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-[10px] text-[#34D399] flex items-center justify-center shrink-0 mt-0.5">
                             {idx + 1}
                           </span>
                           <span>{step}</span>
@@ -591,12 +591,12 @@ console.log('Telemetry payload:', response);`,
                   </div>
 
                   {/* Code Block with Copy */}
-                  <div className="rounded-xl border border-[#22242A] bg-[#0C0D0F] overflow-hidden">
-                    <div className="flex items-center justify-between px-4 py-3 border-b border-[#22242A] bg-[#141518] font-mono text-xs text-slate-400">
+                  <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] overflow-hidden">
+                    <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] font-mono text-xs text-slate-400">
                       <span>Production Implementation</span>
                       <button
                         onClick={() => handleCopyCode(guide.code)}
-                        className="inline-flex items-center gap-1.5 text-xs text-[#D4FD53] hover:underline"
+                        className="inline-flex items-center gap-1.5 text-xs text-[#34D399] hover:underline"
                       >
                         {copiedCode ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                         <span>{copiedCode ? "Copied" : "Copy Code"}</span>
@@ -608,7 +608,7 @@ console.log('Telemetry payload:', response);`,
                   </div>
 
                   {/* Pro Tips */}
-                  <div className="rounded-xl border border-[#22242A] bg-[#0C0D0F] p-5">
+                  <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-5">
                     <h3 className="font-mono text-xs uppercase text-amber-400 tracking-wider mb-3 flex items-center gap-2">
                       <Sparkles className="w-4 h-4" />
                       <span>Architecture Notes & Best Practices</span>
@@ -626,10 +626,10 @@ console.log('Telemetry payload:', response);`,
               );
             })()}
 
-            <div className="mt-8 pt-6 border-t border-[#22242A] flex justify-end">
+            <div className="mt-8 pt-6 border-t border-slate-200 dark:border-[#1E293B] flex justify-end">
               <button
                 onClick={() => setShowFullGuide(false)}
-                className="rounded bg-[#1C1C1E] border border-white/20 px-6 py-2.5 text-xs font-mono text-white hover:bg-[#2C2C30]"
+                className="rounded bg-slate-100 dark:bg-[#161F32] border border-white/20 px-6 py-2.5 text-xs font-mono text-white hover:bg-[#1E293B]"
               >
                 Close Guide
               </button>

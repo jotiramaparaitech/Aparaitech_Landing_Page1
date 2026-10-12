@@ -129,7 +129,7 @@ const DevOpsCICD = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-16 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-16 overflow-x-hidden">
       {/* Back Button */}
       <button
         onClick={() => navigate("/#services")}
@@ -143,7 +143,7 @@ const DevOpsCICD = () => {
         <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 bg-clip-text text-transparent">
           DevOps & CI/CD Solutions
         </h1>
-        <p className="mt-6 text-xl text-gray-700 max-w-4xl mx-auto">
+        <p className="mt-6 text-xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto">
           Automate, deploy, and scale your applications with enterprise-grade
           DevOps pipelines.
         </p>
@@ -161,7 +161,7 @@ const DevOpsCICD = () => {
             <div key={i} className="bg-orange-50 p-6 rounded-xl text-center">
               <item.icon className="mx-auto w-6 h-6 text-orange-600 mb-3" />
               <div className="text-3xl font-bold text-orange-600">{item.value}</div>
-              <p className="text-gray-600">{item.label}</p>
+              <p className="text-slate-600 dark:text-slate-400">{item.label}</p>
             </div>
           ))}
         </div>
@@ -182,7 +182,7 @@ const DevOpsCICD = () => {
               </div>
               <h3 className="text-xl font-bold mb-3">{cap.title}</h3>
               <p className="text-gray-600 mb-4">{cap.description}</p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
                 {cap.features.map((f, j) => (
                   <li key={j}>✓ {f}</li>
                 ))}

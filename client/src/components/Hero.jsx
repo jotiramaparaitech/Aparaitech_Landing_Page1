@@ -88,9 +88,12 @@ const HeroSection = () => {
     min-h-screen
     pt-[25px]
     bg-gradient-to-br
-    from-gray-900
-    via-gray-800
+    from-slate-900
+    via-slate-800
     to-blue-900
+    dark:from-gray-900
+    dark:via-gray-800
+    dark:to-blue-900
     text-white
     overflow-hidden
   "

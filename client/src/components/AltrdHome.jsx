@@ -416,7 +416,7 @@ export default function AltrdHome() {
       desc: "Master advanced Atlas reasoning engines, multi-agent swarms, and enterprise security governance.",
       badge: "EXECUTIVE ARCHITECT",
       image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80",
-      accent: "#D4FD53"
+      accent: "#10B981"
     }
   ];
 
@@ -476,7 +476,7 @@ export default function AltrdHome() {
       subpage: "/customers/portfolio",
       stack: "OpenCV • TensorRT • Node.js • Redis",
       image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
-      accentColor: "#D4FD53",
+      accentColor: "#10B981",
       specs: {
         latency: "<45ms Edge Match",
         throughput: "50,000+ Check-Ins/Day",
@@ -533,7 +533,7 @@ export default function AltrdHome() {
       subpage: "/customers/portfolio",
       stack: "Next.js • Vector Embeddings • AWS",
       image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
-      accentColor: "#D4FD53",
+      accentColor: "#2563EB",
       specs: {
         latency: "<50ms Semantic Scoring",
         throughput: "12,000+ Verified Records",
@@ -565,25 +565,25 @@ export default function AltrdHome() {
   return (
     <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#0176D3] selection:text-white">
 
-      {/* 0. MARQUEE BANNER BLADE (MATCHING BLADE 0 OF SALESFORCE.COM/IN) */}
-      <section className="w-full bg-[#032D60] border-b border-white/10 py-3.5 px-4 sm:px-8">
+      {/* 0. MARQUEE BANNER BLADE */}
+      <section className="w-full bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-3.5 px-4 sm:px-8 transition-colors">
         <div className="mx-auto w-full max-w-[1240px] flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3.5 text-center md:text-left">
-            <div className="h-9 w-9 rounded-full bg-[#0176D3]/40 border border-[#0176D3] flex items-center justify-center shrink-0">
-              <Sparkles className="w-4 h-4 text-[#D4FD53]" />
+            <div className="h-9 w-9 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+              <Sparkles className="w-4 h-4 text-blue-400" />
             </div>
             <div>
-              <div className="text-sm sm:text-[15px] font-bold text-white leading-tight">
-                Get Started with Salesforce <span className="text-[#00E5C9]">— India's #1 Agentic CRM</span>
+              <div className="text-sm sm:text-[15px] font-semibold text-white leading-tight">
+                Get Started with Salesforce <span className="text-blue-400">— India's #1 Agentic CRM</span>
               </div>
-              <p className="text-xs text-slate-200 mt-0.5">
+              <p className="text-xs text-slate-300 mt-0.5">
                 Uniquely built for India's growing businesses, the new SMB Growth Kit helps you sell faster, collaborate smarter and make confident decisions. Live in just 4 weeks!*
               </p>
             </div>
           </div>
           <button
             onClick={() => setModalOpen(true)}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[#00E5C9] hover:bg-[#00E5C9]/90 text-[#0C0D0F] font-bold text-xs sm:text-sm transition-all shrink-0 cursor-pointer shadow-md hover:brightness-105"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm transition-all shrink-0 cursor-pointer shadow-sm hover:shadow-md"
           >
             <span>Get SMB Growth Kit</span>
             <ArrowRight className="w-4 h-4" />
@@ -591,24 +591,24 @@ export default function AltrdHome() {
         </div>
       </section>
 
-      {/* 1. HERO: WELCOME TO THE AGENTIC ENTERPRISE (MATCHING BLADE 1 & SCREENSHOT 1) */}
-      <section id="home" className="relative w-full overflow-hidden bg-gradient-to-b from-[#032D60]/90 via-[#0C0D0F] to-[#0C0D0F] py-20 sm:py-24 border-b border-[#22242A]">
+      {/* 1. HERO: WELCOME TO THE AGENTIC ENTERPRISE */}
+      <section id="home" className="relative w-full overflow-hidden bg-gradient-to-b from-blue-50/50 via-slate-50 to-white dark:from-slate-900/60 dark:via-[#0B0F19] dark:to-[#0B0F19] py-20 sm:py-24 border-b border-slate-200 dark:border-slate-800/80 transition-colors">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 relative z-10">
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             
             {/* Eyebrow Label */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0176D3]/20 border border-[#0176D3]/40 text-[#00E5C9] font-mono text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
               <span>Where humans, agents, and platforms drive customer success together.</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-[clamp(2.2rem,5.5vw,4.5rem)] font-times font-serif font-bold tracking-tight text-white leading-[1.08] max-w-4xl">
+            <h1 className="text-[clamp(2.2rem,5.5vw,4.5rem)] font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.08] max-w-4xl">
               Welcome to the Agentic Enterprise
             </h1>
 
             {/* Description Subtext */}
-            <p className="mt-6 text-[clamp(1rem,1.8vw,1.25rem)] leading-relaxed text-slate-300 max-w-3xl font-times font-serif">
+            <p className="mt-6 text-[clamp(1rem,1.8vw,1.2rem)] leading-relaxed text-slate-600 dark:text-slate-300 max-w-3xl font-normal">
               Humans and agents work inside the systems that run your business. The result: faster decisions, stronger customer relationships, and non-stop growth. Now with Headless 360, every Salesforce capability is accessible from any tool, any agent, any interface — wherever work happens.
             </p>
 
@@ -616,7 +616,7 @@ export default function AltrdHome() {
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
               <button
                 onClick={() => setModalOpen(true)}
-                className="inline-flex h-[52px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#0176D3] hover:bg-[#0176D3]/90 px-7 text-sm sm:text-base font-bold text-white transition-all shadow-xl hover:scale-105 w-full sm:w-auto"
+                className="inline-flex h-[48px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 px-7 text-sm sm:text-base font-semibold text-white transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
               >
                 <span>Explore Agentforce Coworker</span>
                 <ArrowRight className="w-4 h-4" />
@@ -624,17 +624,18 @@ export default function AltrdHome() {
 
               <button
                 onClick={() => setModalOpen(true)}
-                className="inline-flex h-[52px] cursor-pointer items-center justify-center gap-2 rounded-lg border border-white/20 bg-[#141518] px-7 text-sm sm:text-base font-mono text-white transition-all hover:border-[#00E5C9]/50 hover:bg-[#1C1C1E] w-full sm:w-auto"
+                className="inline-flex h-[48px] cursor-pointer items-center justify-center gap-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900/80 px-7 text-sm sm:text-base font-medium text-slate-800 dark:text-slate-200 transition-all hover:border-blue-500 hover:text-blue-600 dark:hover:text-white w-full sm:w-auto"
               >
                 <span>Meet Slackbot / Live Demo</span>
-                <ExternalLink className="w-4 h-4 text-[#00E5C9]" />
+                <ExternalLink className="w-4 h-4 text-blue-400" />
               </button>
             </div>
 
             {/* 5 Product Ecosystem Cards (Slack, Tableau, Agentforce, Customer 360, Data 360) */}
-            <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 w-full text-left font-sans">
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#141518]/90 border border-white/10 hover:border-[#0176D3] transition-all group shadow-md">
-                <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center mb-3 text-[#00E5C9] group-hover:scale-110 transition-transform">
+            {/* 5 Product Ecosystem Cards (Slack, Tableau, Agentforce, Customer 360, Data 360) */}
+            <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 w-full text-left">
+              <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800/80 hover:border-blue-500 transition-all group shadow-sm hover:shadow-md">
+                <div className="h-10 w-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3 text-blue-400 group-hover:scale-105 transition-transform">
                   <Workflow className="w-5 h-5" />
                 </div>
                 <h4 className="font-bold text-white text-sm sm:text-base mb-1">Slack</h4>
@@ -643,8 +644,8 @@ export default function AltrdHome() {
                 </p>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#141518]/90 border border-white/10 hover:border-[#0176D3] transition-all group shadow-md">
-                <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center mb-3 text-[#D4FD53] group-hover:scale-110 transition-transform">
+              <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800/80 hover:border-blue-500 transition-all group shadow-sm hover:shadow-md">
+                <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-3 text-emerald-400 group-hover:scale-105 transition-transform">
                   <BarChart3 className="w-5 h-5" />
                 </div>
                 <h4 className="font-bold text-white text-sm sm:text-base mb-1">Tableau</h4>
@@ -653,8 +654,8 @@ export default function AltrdHome() {
                 </p>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#0176D3]/20 border border-[#0176D3]/50 hover:border-[#0176D3] transition-all group shadow-lg">
-                <div className="h-10 w-10 rounded-xl bg-[#0176D3]/40 flex items-center justify-center mb-3 text-[#D4FD53] group-hover:scale-110 transition-transform">
+              <div className="p-4 sm:p-5 rounded-2xl bg-blue-600/15 border border-blue-500/40 hover:border-blue-500 transition-all group shadow-md">
+                <div className="h-10 w-10 rounded-xl bg-blue-500/20 flex items-center justify-center mb-3 text-blue-300 group-hover:scale-105 transition-transform">
                   <Bot className="w-5 h-5" />
                 </div>
                 <h4 className="font-bold text-white text-sm sm:text-base mb-1">Agentforce</h4>
@@ -663,8 +664,8 @@ export default function AltrdHome() {
                 </p>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#141518]/90 border border-white/10 hover:border-[#0176D3] transition-all group shadow-md">
-                <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center mb-3 text-[#9B95FE] group-hover:scale-110 transition-transform">
+              <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800/80 hover:border-blue-500 transition-all group shadow-sm hover:shadow-md">
+                <div className="h-10 w-10 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-3 text-indigo-400 group-hover:scale-105 transition-transform">
                   <Database className="w-5 h-5" />
                 </div>
                 <h4 className="font-bold text-white text-sm sm:text-base mb-1">Customer 360</h4>
@@ -673,8 +674,8 @@ export default function AltrdHome() {
                 </p>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#141518]/90 border border-white/10 hover:border-[#0176D3] transition-all group shadow-md col-span-2 sm:col-span-1">
-                <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center mb-3 text-[#00E5C9] group-hover:scale-110 transition-transform">
+              <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-800/80 hover:border-blue-500/50 transition-all group shadow-sm hover:shadow-md col-span-2 sm:col-span-1">
+                <div className="h-10 w-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3 text-blue-400 group-hover:scale-105 transition-transform">
                   <Lock className="w-5 h-5" />
                 </div>
                 <h4 className="font-bold text-white text-sm sm:text-base mb-1">Data 360</h4>
@@ -687,14 +688,14 @@ export default function AltrdHome() {
         </div>
       </section>
 
-      {/* 2. "SEE WHY COMPANIES TRUST SALESFORCE" & BUILT-IN AI SPLIT SECTION (BLADES 2 & 3 & SCREENSHOT 3) */}
-      <section className="w-full bg-[#0E0F12] py-20 border-b border-[#22242A] relative overflow-hidden">
+      {/* 2. "SEE WHY COMPANIES TRUST SALESFORCE" & BUILT-IN AI SPLIT SECTION */}
+      <section className="w-full bg-white dark:bg-[#0B0F19] py-20 border-b border-slate-200 dark:border-slate-800/80 relative overflow-hidden transition-colors">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="font-mono text-xs font-bold text-[#0176D3] uppercase tracking-widest">
+            <span className="text-xs font-semibold text-blue-400 uppercase tracking-wider">
               PROVEN ENTERPRISE IMPACT
             </span>
-            <h2 className="text-2xl sm:text-3xl font-times font-serif font-bold text-white mt-2">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-2">
               See why companies trust Salesforce to help them grow
             </h2>
           </div>
@@ -702,33 +703,33 @@ export default function AltrdHome() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Copy & CTAs */}
             <div className="lg:col-span-6 space-y-6">
-              <h3 className="text-[clamp(2.1rem,4vw,3.25rem)] font-times font-serif font-bold text-white tracking-tight leading-tight">
+              <h3 className="text-[clamp(2.1rem,4vw,3.25rem)] font-bold text-white tracking-tight leading-tight">
                 Built-in AI for every part of your business.
               </h3>
-              <p className="text-base text-slate-300 font-times font-serif leading-relaxed">
+              <p className="text-base text-slate-300 leading-relaxed">
                 Put AI to work across sales, service, and marketing with Starter Suite — a CRM that knows your business and can automate the kind of customer experiences you’ll actually be proud of. Start simply with quick and easy setup and prebuilt agents.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#008244] hover:bg-[#007038] px-6 text-sm font-bold text-white shadow-lg transition-all cursor-pointer"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 px-6 text-sm font-semibold text-white shadow-sm hover:shadow-md transition-all cursor-pointer"
                 >
                   <span>Start for free</span>
                   <ExternalLink className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/20 bg-[#141518] hover:bg-[#1C1C1E] px-6 text-sm font-mono text-white transition-all cursor-pointer"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-slate-700 bg-slate-900/80 hover:bg-slate-800 px-6 text-sm font-medium text-slate-200 transition-all cursor-pointer"
                 >
                   <span>Start demo</span>
-                  <ArrowRight className="w-4 h-4 text-[#00E5C9]" />
+                  <ArrowRight className="w-4 h-4 text-blue-400" />
                 </button>
               </div>
 
               {/* High-Impact Stat Counter */}
-              <div className="pt-6 border-t border-[#22242A] flex items-center gap-4 font-mono text-xs text-slate-400">
-                <div className="text-3xl font-bold font-times font-serif text-[#D4FD53]">
+              <div className="pt-6 border-t border-slate-800 flex items-center gap-4 text-xs text-slate-400">
+                <div className="text-3xl font-extrabold text-emerald-400 tracking-tight">
                   3.4M+
                 </div>
                 <div>
@@ -762,7 +763,7 @@ export default function AltrdHome() {
                     >
                       <Play className="w-8 h-8 ml-1 fill-current" />
                     </button>
-                    <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white max-w-sm">
+                    <h3 className="text-xl sm:text-2xl font-sans font-bold text-white max-w-sm">
                       Why Indian SMBs love Salesforce
                     </h3>
                   </div>
@@ -770,7 +771,7 @@ export default function AltrdHome() {
                   {/* Bottom Stats Banner */}
                   <div className="flex items-center justify-between text-xs font-mono text-white/90 border-t border-white/20 pt-4">
                     <span>Prebuilt Agents Ready</span>
-                    <span className="text-[#D4FD53] font-bold">Live in Just 4 Weeks</span>
+                    <span className="text-emerald-400 font-bold">Live in Just 4 Weeks</span>
                   </div>
                 </div>
               </div>
@@ -779,68 +780,68 @@ export default function AltrdHome() {
         </div>
       </section>
 
-      {/* 3. 3M+ CONVERSATIONS HANDLED BY AGENTFORCE AND COUNTING (MATCHING BLADE 4) */}
-      <section className="w-full bg-[#0C0D0F] py-20 border-b border-[#22242A]">
+      {/* 3. 3M+ CONVERSATIONS HANDLED BY AGENTFORCE AND COUNTING */}
+      <section className="w-full bg-slate-50 dark:bg-[#0B0F19] py-20 border-b border-slate-200 dark:border-slate-800/80 transition-colors">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Metrics Demonstration Card */}
-            <div className="lg:col-span-6 relative rounded-2xl bg-[#141518] border border-[#22242A] p-6 sm:p-8 shadow-2xl">
-              <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+            <div className="lg:col-span-6 relative rounded-2xl bg-white dark:bg-[#111827] border border-slate-800 p-6 sm:p-8 shadow-xl">
+              <div className="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
                 <div className="flex items-center gap-2">
-                  <div className="h-2.5 w-2.5 rounded-full bg-[#10B981] animate-pulse"></div>
-                  <span className="font-mono text-xs font-bold text-white uppercase tracking-wider">
+                  <div className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                  <span className="text-xs font-semibold text-white uppercase tracking-wider">
                     Agentforce Resolution Engine
                   </span>
                 </div>
-                <span className="font-mono text-xs text-[#00E5C9]">2.5M+ Requests Handled</span>
+                <span className="text-xs text-blue-400 font-medium">2.5M+ Requests Handled</span>
               </div>
 
               <div className="grid grid-cols-3 gap-4 mb-6 text-center">
-                <div className="p-4 rounded-xl bg-black/40 border border-white/5">
-                  <div className="text-2xl sm:text-3xl font-bold font-times font-serif text-[#00E5C9]">66%</div>
-                  <div className="text-[11px] text-slate-400 mt-1 font-mono">Autonomous Resolution</div>
+                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <div className="text-2xl sm:text-3xl font-bold text-blue-400">66%</div>
+                  <div className="text-[11px] text-slate-400 mt-1">Autonomous Resolution</div>
                 </div>
-                <div className="p-4 rounded-xl bg-black/40 border border-white/5">
-                  <div className="text-2xl sm:text-3xl font-bold font-times font-serif text-[#D4FD53]">15%</div>
-                  <div className="text-[11px] text-slate-400 mt-1 font-mono">More Pipeline</div>
+                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <div className="text-2xl sm:text-3xl font-bold text-emerald-400">15%</div>
+                  <div className="text-[11px] text-slate-400 mt-1">More Pipeline</div>
                 </div>
-                <div className="p-4 rounded-xl bg-black/40 border border-white/5">
-                  <div className="text-2xl sm:text-3xl font-bold font-times font-serif text-[#9B95FE]">1.8x</div>
-                  <div className="text-[11px] text-slate-400 mt-1 font-mono">Higher Conversion</div>
+                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <div className="text-2xl sm:text-3xl font-bold text-indigo-400">1.8x</div>
+                  <div className="text-[11px] text-slate-400 mt-1">Higher Conversion</div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-white/5 text-xs text-slate-300 leading-relaxed font-mono">
+              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/60 text-xs text-slate-300 leading-relaxed">
                 "Agentforce handles tier-1 customer inquiries, drafts sales email sequences, and verifies inventory autonomously with zero hallucination guardrails."
               </div>
             </div>
 
             {/* Right Copy */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#00E5C9]/10 border border-[#00E5C9]/30 text-[#00E5C9] font-mono text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
                 <Bot className="w-3.5 h-3.5" />
                 PROVEN AGENTIC SCALE
               </div>
-              <h2 className="text-[clamp(2.1rem,4vw,3.25rem)] font-times font-serif font-bold text-white tracking-tight leading-tight">
+              <h2 className="text-[clamp(2.1rem,4vw,3.25rem)] font-bold text-white tracking-tight leading-tight">
                 3M+ conversations handled by Agentforce and counting.
               </h2>
-              <p className="text-base text-slate-300 font-times font-serif leading-relaxed">
+              <p className="text-base text-slate-300 leading-relaxed">
                 Everyone talks the AI talk. We’re walking the walk. With 66% autonomous case resolution, 15% more marketing pipeline, and 1.8x higher lead conversion, Agentforce delivers real conversational AI across service, sales, and marketing workflows. See how we did it – and how you can, too.
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="inline-flex h-12 items-center gap-2 px-6 rounded-lg bg-[#0176D3] hover:bg-[#0176D3]/90 text-white font-bold text-sm shadow-md cursor-pointer"
+                  className="inline-flex h-11 items-center gap-2 px-6 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm hover:shadow-md cursor-pointer transition-all"
                 >
                   <span>See our stories</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <Link
                   to="/solutions"
-                  className="inline-flex h-12 items-center gap-2 px-6 rounded-lg border border-white/20 bg-[#141518] hover:bg-[#1C1C1E] text-white font-mono text-xs transition-all"
+                  className="inline-flex h-11 items-center gap-2 px-6 rounded-lg border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 text-xs font-medium transition-all"
                 >
                   <span>Experience Salesforce Help</span>
-                  <ExternalLink className="w-4 h-4 text-[#00E5C9]" />
+                  <ExternalLink className="w-4 h-4 text-blue-400" />
                 </Link>
               </div>
             </div>
@@ -848,16 +849,16 @@ export default function AltrdHome() {
         </div>
       </section>
 
-      {/* 4. CUSTOMER VIDEO STORIES CAROUSEL (MATCHING BLADES 5-12 & SCREENSHOT 2) */}
-      <section className="w-full bg-[#0B2577] py-24 border-b border-[#0176D3]/40 relative overflow-hidden">
+      {/* 4. CUSTOMER VIDEO STORIES CAROUSEL */}
+      <section className="w-full bg-white dark:bg-[#0F172A] py-24 border-b border-slate-200 dark:border-slate-800 relative overflow-hidden transition-colors">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[#00E5C9] font-mono text-xs font-bold uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">
                 <Video className="w-3.5 h-3.5" />
                 Verified Indian Customer Stories
               </div>
-              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold text-white tracking-tight leading-tight max-w-2xl">
+              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-bold text-white tracking-tight leading-tight max-w-2xl">
                 See why companies trust Salesforce to help them grow.
               </h2>
             </div>
@@ -899,7 +900,7 @@ export default function AltrdHome() {
             {customerVideoStories.map((story) => (
               <div
                 key={story.id}
-                className="w-[320px] sm:w-[380px] lg:w-[410px] shrink-0 snap-start rounded-2xl overflow-hidden bg-white text-gray-900 shadow-2xl transition-all duration-300 hover:-translate-y-1 group"
+                className="w-[320px] sm:w-[380px] lg:w-[410px] shrink-0 snap-start rounded-2xl overflow-hidden bg-white text-slate-900 dark:text-white shadow-2xl transition-all duration-300 hover:-translate-y-1 group"
               >
                 {/* Video Thumbnail with Play Button */}
                 <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
@@ -929,13 +930,13 @@ export default function AltrdHome() {
                       {story.company}
                     </span>
                   </div>
-                  <h4 className="text-lg font-bold text-gray-900 leading-snug">
+                  <h4 className="text-lg font-bold text-slate-900 dark:text-white leading-snug">
                     {story.executive}
                   </h4>
-                  <p className="text-xs text-gray-600 mt-0.5 font-medium">
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 font-medium">
                     {story.title}
                   </p>
-                  <p className="text-xs text-gray-700 italic mt-3 line-clamp-3 leading-relaxed">
+                  <p className="text-xs text-slate-700 dark:text-slate-300 italic mt-3 line-clamp-3 leading-relaxed">
                     "{story.quote}"
                   </p>
                 </div>
@@ -946,15 +947,15 @@ export default function AltrdHome() {
       </section>
 
       {/* 5. SALESFORCE IS THE PLATFORM FOR THE AGENTIC ENTERPRISE (MATCHING BLADE 13) */}
-      <section className="w-full bg-[#0E0F12] py-24 border-b border-[#22242A]">
+      <section className="w-full bg-slate-50 dark:bg-[#0E0F12] py-24 border-b border-slate-200 dark:border-[#22242A] transition-colors">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center">
           <span className="font-mono text-xs font-bold text-[#00E5C9] uppercase tracking-widest">
             DEEPLY UNIFIED ARCHITECTURE
           </span>
-          <h2 className="text-[clamp(2.2rem,4.5vw,3.5rem)] font-times font-serif font-bold text-white tracking-tight leading-tight mt-3 max-w-3xl mx-auto">
+          <h2 className="text-[clamp(2.2rem,4.5vw,3.5rem)] font-sans font-bold text-white tracking-tight leading-tight mt-3 max-w-3xl mx-auto">
             Salesforce is the platform for the Agentic Enterprise
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto mt-4 leading-relaxed font-times font-serif">
+          <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto mt-4 leading-relaxed font-sans">
             Our deeply unified platform brings together apps, data, agents, and metadata to drive customer and employee success. With trust and governance built in, Salesforce ensures your AI and business scale securely, reliably, and with confidence.
           </p>
 
@@ -1004,7 +1005,7 @@ export default function AltrdHome() {
                     <div className="text-slate-300 text-[11px]">Zero-copy Data Cloud connectors, hybrid vector embeddings & schema governance</div>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded bg-white/10 text-[#D4FD53] font-bold text-[10px]">ZERO-COPY DATA</span>
+                <span className="px-3 py-1 rounded bg-white/10 text-emerald-400 font-bold text-[10px]">ZERO-COPY DATA</span>
               </div>
 
               {/* Layer 4 */}
@@ -1024,16 +1025,16 @@ export default function AltrdHome() {
       </section>
 
       {/* 6. 16+ AGENTFORCE SOLUTIONS BUILT FOR YOUR INDUSTRY (MATCHING BLADES 14 & 15 & SCREENSHOT 4) */}
-      <section id="industries" className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
+      <section id="industries" className="w-full bg-white dark:bg-[#0C0D0F] py-24 border-b border-slate-200 dark:border-[#22242A] transition-colors">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#9B95FE] font-bold">
               INDUSTRY EXPERTISE
             </span>
-            <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold tracking-tight text-white leading-tight mt-2">
+            <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-sans font-bold tracking-tight text-white leading-tight mt-2">
               Launch faster with 16+ Agentforce solutions, built for your industry
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-300 font-times font-serif leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-slate-300 font-sans leading-relaxed">
               Designed with industry expertise, these out-of-the-box solutions align with your workflows, data, and customer needs, so you can modernise faster, go to market sooner, and deliver value from day one.
             </p>
           </div>
@@ -1057,7 +1058,7 @@ export default function AltrdHome() {
                 <div className="flex items-center justify-between pt-4 border-t border-white/15">
                   <Link
                     to={ind.link}
-                    className="text-xs font-semibold text-white underline hover:text-[#D4FD53] transition-colors flex items-center gap-1"
+                    className="text-xs font-semibold text-white underline hover:text-emerald-300 transition-colors flex items-center gap-1"
                   >
                     <span>Explore {ind.name}</span>
                     <ArrowRight className="w-3.5 h-3.5 inline" />
@@ -1086,7 +1087,7 @@ export default function AltrdHome() {
       {/* 7. TRUSTED CRM SOFTWARE BY 150,000+ BUSINESSES WORLDWIDE (MATCHING BLADE 16 & SCREENSHOT 5) */}
       <section className="w-full bg-[#0E0F12] py-24 border-b border-[#22242A]">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center">
-          <h2 className="text-[clamp(1.85rem,3.8vw,3rem)] font-times font-serif font-bold text-white tracking-tight leading-tight max-w-3xl mx-auto">
+          <h2 className="text-[clamp(1.85rem,3.8vw,3rem)] font-sans font-bold text-white tracking-tight leading-tight max-w-3xl mx-auto">
             Trusted CRM & AI Software by 150,000+ Businesses Worldwide
           </h2>
           <div className="mt-5">
@@ -1109,7 +1110,7 @@ export default function AltrdHome() {
                 <div className="text-gray-900 font-bold text-sm sm:text-base tracking-wider uppercase font-mono group-hover:text-[#0176D3] transition-colors text-center">
                   {client.name}
                 </div>
-                <div className="text-[10px] text-gray-500 font-sans mt-1">
+                <div className="text-[10px] text-slate-500 dark:text-slate-500 font-sans mt-1">
                   {client.category}
                 </div>
               </div>
@@ -1125,7 +1126,7 @@ export default function AltrdHome() {
             <span className="font-mono text-xs font-bold text-[#00E5C9] uppercase tracking-widest">
               INDEPENDENT BENCHMARKS
             </span>
-            <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold text-white tracking-tight leading-tight mt-3">
+            <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-sans font-bold text-white tracking-tight leading-tight mt-3">
               See why analysts agree Salesforce should be your Agentic AI partner
             </h2>
           </div>
@@ -1147,7 +1148,7 @@ export default function AltrdHome() {
                     <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 text-[10px] font-mono text-[#00E5C9] border border-white/20">
                       {c.tag}
                     </div>
-                    <div className="absolute bottom-3 left-3 font-mono text-xs font-bold text-[#D4FD53]">
+                    <div className="absolute bottom-3 left-3 font-mono text-xs font-bold text-emerald-400">
                       {c.stat}
                     </div>
                   </div>
@@ -1181,13 +1182,13 @@ export default function AltrdHome() {
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div className="max-w-2xl">
-              <span className="font-mono text-xs font-bold text-[#D4FD53] uppercase tracking-widest">
+              <span className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-widest">
                 TRAILHEAD & ACADEMY
               </span>
-              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold text-white tracking-tight leading-tight mt-2">
+              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-sans font-bold text-white tracking-tight leading-tight mt-2">
                 Become an Agentblazer
               </h2>
-              <p className="mt-3 text-base text-slate-300 font-times font-serif leading-relaxed">
+              <p className="mt-3 text-base text-slate-300 font-sans leading-relaxed">
                 Learn essential AI and Agentforce skills required to shape the future of work for free.
               </p>
             </div>
@@ -1224,7 +1225,7 @@ export default function AltrdHome() {
                   <div className="font-mono text-xs text-[#0176D3] font-bold uppercase tracking-wider mb-1">
                     {lvl.level}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                     {lvl.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal">
@@ -1252,10 +1253,10 @@ export default function AltrdHome() {
       {/* 10. WE BELIEVE BUSINESS IS THE GREATEST PLATFORM FOR CHANGE (MATCHING BLADE 20) */}
       <section className="w-full bg-[#032D60] py-20 border-b border-white/10 text-white">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8 text-center max-w-4xl">
-          <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-times font-serif font-bold leading-tight">
+          <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-sans font-bold leading-tight">
             We believe that business is the greatest platform for change.
           </h2>
-          <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-times font-serif">
+          <p className="mt-6 text-base sm:text-lg text-slate-200 leading-relaxed font-sans">
             Grounded in trust, customer success, innovation, equality, and sustainability, we’re committed to doing well in business and doing good in the world — investing 1% of our equity, technology, and time to create lasting change. We’re also a founder and champion of Pledge 1%, a global movement to ensure giving back is part of companies of all sizes.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -1278,17 +1279,17 @@ export default function AltrdHome() {
       </section>
 
       {/* 11. LIVE PRODUCTION PLATFORMS SHOWCASE CAROUSEL */}
-      <section id="platforms" className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
+      <section id="platforms" className="w-full bg-white dark:bg-[#0C0D0F] py-24 border-b border-slate-200 dark:border-[#22242A] transition-colors">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div className="max-w-3xl">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
                 LIVE PRODUCTION PORTFOLIO
               </span>
-              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-times font-serif font-bold tracking-tight text-white leading-tight mt-2">
+              <h2 className="text-[clamp(2.1rem,4.2vw,3.35rem)] font-sans font-bold tracking-tight text-white leading-tight mt-2">
                 Real-World Platforms Engineered & Operated by Aparaitech
               </h2>
-              <p className="mt-3 text-base text-slate-300 font-times font-serif leading-relaxed">
+              <p className="mt-3 text-base text-slate-300 font-sans leading-relaxed">
                 We build, scale, and maintain high-volume cognitive software systems deployed in production environments across India.
               </p>
             </div>
@@ -1334,16 +1335,16 @@ export default function AltrdHome() {
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#00E5C9]">
                         {platform.badge}
                       </span>
-                      <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-[#0C0D0F]/90 backdrop-blur-md border border-[#D4FD53]/30 text-[#D4FD53]">
+                      <span className="font-sans text-xs font-bold px-2.5 py-1 rounded bg-slate-50 dark:bg-[#0B0F19]/90 backdrop-blur-md border border-emerald-500/30 text-emerald-400">
                         {platform.metric}
                       </span>
                     </div>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white group-hover:text-[#00E5C9] transition-colors mb-1.5 leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-sans font-bold text-white group-hover:text-[#00E5C9] transition-colors mb-1.5 leading-snug">
                     {platform.name}
                   </h3>
-                  <p className="text-xs sm:text-sm font-times font-serif italic text-slate-300 mb-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm font-sans italic text-slate-300 mb-3 leading-relaxed">
                     {platform.tagline}
                   </p>
                   <p className="text-xs text-slate-400 leading-relaxed mb-4 font-normal">
@@ -1378,10 +1379,10 @@ export default function AltrdHome() {
       {/* 12. GET STARTED TODAY - FREE FOR 30 DAYS (MATCHING BLADES 22 & 23) */}
       <section className="w-full bg-gradient-to-r from-[#0176D3] to-[#0B2577] py-20 text-white text-center">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
-          <h2 className="text-[clamp(2.3rem,4.8vw,3.75rem)] font-times font-serif font-bold tracking-tight leading-tight">
+          <h2 className="text-[clamp(2.3rem,4.8vw,3.75rem)] font-sans font-bold tracking-tight leading-tight">
             Get started today.
           </h2>
-          <p className="mt-3 text-base sm:text-xl text-white/90 font-times font-serif">
+          <p className="mt-3 text-base sm:text-xl text-white/90 font-sans">
             There's nothing to install. No credit card required. Free for 30 days.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -1403,13 +1404,13 @@ export default function AltrdHome() {
       </section>
 
       {/* 13. SALESFORCE CRM FAQS ACCORDION (MATCHING BLADE 24) */}
-      <section id="faqs" className="w-full bg-[#0C0D0F] py-24 border-b border-[#22242A]">
+      <section id="faqs" className="w-full bg-slate-50 dark:bg-[#0C0D0F] py-24 border-b border-slate-200 dark:border-[#22242A] transition-colors">
         <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-8">
           <div className="max-w-3xl mb-16 mx-auto text-center">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] font-bold">
               KNOWLEDGE BASE
             </span>
-            <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-times font-serif font-bold tracking-tight text-white leading-tight mt-2">
+            <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-sans font-bold tracking-tight text-white leading-tight mt-2">
               Salesforce CRM FAQs
             </h2>
             <p className="text-slate-400 text-sm mt-2">
@@ -1487,7 +1488,7 @@ export default function AltrdHome() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Your Name *</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Your Name *</label>
                   <input
                     type="text"
                     required
@@ -1500,7 +1501,7 @@ export default function AltrdHome() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-mono text-slate-300 mb-1">Work Email *</label>
+                    <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Work Email *</label>
                     <input
                       type="email"
                       required
@@ -1511,7 +1512,7 @@ export default function AltrdHome() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+                    <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
                     <input
                       type="tel"
                       required
@@ -1524,7 +1525,7 @@ export default function AltrdHome() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Company / Organization *</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Company / Organization *</label>
                   <input
                     type="text"
                     required
@@ -1536,11 +1537,11 @@ export default function AltrdHome() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Primary Area of Interest</label>
+                  <label className="block text-xs font-medium text-slate-300 mb-1">Primary Area of Interest</label>
                   <select
                     value={form.service}
                     onChange={(e) => setForm({ ...form, service: e.target.value })}
-                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-[#00E5C9] focus:outline-none"
+                    className="w-full bg-[#0F172A] border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:border-blue-500 focus:outline-none"
                   >
                     <option value="Salesforce Starter Suite Free Trial">Salesforce Starter Suite (Free for 30 Days)</option>
                     <option value="Agentforce Coworker Implementation">Agentforce Coworker Implementation</option>
@@ -1551,13 +1552,13 @@ export default function AltrdHome() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Operational Requirement (Optional)</label>
+                  <label className="block text-xs font-medium text-slate-300 mb-1">Operational Requirement (Optional)</label>
                   <textarea
                     rows="3"
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Describe your current CRM or automation goals..."
-                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-[#00E5C9] focus:outline-none resize-none"
+                    className="w-full bg-[#0F172A] border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none resize-none"
                   ></textarea>
                 </div>
 
@@ -1567,9 +1568,9 @@ export default function AltrdHome() {
                     id="nda-check-modal"
                     checked={form.nda}
                     onChange={(e) => setForm({ ...form, nda: e.target.checked })}
-                    className="rounded border-white/20 bg-[#1C1C1E] text-[#00E5C9] focus:ring-0"
+                    className="rounded border-slate-700 bg-[#0F172A] text-blue-600 focus:ring-0"
                   />
-                  <label htmlFor="nda-check-modal" className="text-xs text-slate-400">
+                  <label htmlFor="nda-check-modal" className="text-xs text-slate-400 cursor-pointer">
                     Require mutual non-disclosure agreement (NDA) before consultation.
                   </label>
                 </div>
@@ -1577,7 +1578,7 @@ export default function AltrdHome() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full h-11 rounded bg-[#008244] hover:bg-[#007038] text-white font-bold text-sm transition-all flex items-center justify-center gap-2 mt-4 cursor-pointer"
+                  className="w-full h-11 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-all flex items-center justify-center gap-2 mt-4 cursor-pointer shadow-sm hover:shadow-md"
                 >
                   {submitting ? "Transmitting..." : "Start Free 30-Day Access →"}
                 </button>
@@ -1589,33 +1590,33 @@ export default function AltrdHome() {
 
       {/* CUSTOMER VIDEO MODAL */}
       {activeVideoModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-          <div className="relative w-full max-w-3xl rounded-2xl bg-[#141518] border border-[#22242A] p-6 sm:p-8 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+          <div className="relative w-full max-w-3xl rounded-2xl bg-white dark:bg-[#111827] border border-slate-700/80 p-6 sm:p-8 shadow-2xl">
             <button
               onClick={() => setActiveVideoModal(null)}
-              className="absolute top-5 right-5 h-9 w-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-slate-300 hover:text-white transition-all cursor-pointer"
+              className="absolute top-5 right-5 h-9 w-9 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 hover:text-white transition-all cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="relative h-64 sm:h-80 w-full rounded-xl overflow-hidden mb-6 bg-slate-900 border border-white/10">
+            <div className="relative h-64 sm:h-80 w-full rounded-xl overflow-hidden mb-6 bg-slate-900 border border-slate-800">
               <img
                 src={activeVideoModal.thumbnail}
                 alt={activeVideoModal.executive}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <div className="h-20 w-20 rounded-full bg-white text-[#0B2577] flex items-center justify-center shadow-2xl">
-                  <Play className="w-8 h-8 ml-1 fill-current" />
+                <div className="h-20 w-20 rounded-full bg-white text-slate-900 flex items-center justify-center shadow-2xl">
+                  <Play className="w-8 h-8 ml-1 fill-current text-blue-600" />
                 </div>
               </div>
             </div>
 
             <div className="flex items-center justify-between mb-3">
-              <span className="font-mono text-xs font-bold text-[#00E5C9] uppercase">
+              <span className="text-xs font-semibold text-blue-400 uppercase">
                 {activeVideoModal.company}
               </span>
-              <span className="font-mono text-xs font-bold text-[#D4FD53] px-2.5 py-1 rounded bg-[#D4FD53]/10 border border-[#D4FD53]/20">
+              <span className="text-xs font-semibold text-emerald-400 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
                 {activeVideoModal.stats}
               </span>
             </div>
@@ -1623,20 +1624,20 @@ export default function AltrdHome() {
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
               {activeVideoModal.executive}
             </h3>
-            <p className="text-xs sm:text-sm text-slate-400 font-mono mb-4">
+            <p className="text-xs sm:text-sm text-slate-400 mb-4">
               {activeVideoModal.title}
             </p>
             <p className="text-sm text-slate-300 italic mb-6 leading-relaxed">
               "{activeVideoModal.quote}"
             </p>
 
-            <div className="flex flex-wrap items-center justify-end gap-3 pt-4 border-t border-[#22242A]">
+            <div className="flex flex-wrap items-center justify-end gap-3 pt-4 border-t border-slate-800">
               <button
                 onClick={() => {
                   setActiveVideoModal(null);
                   setModalOpen(true);
                 }}
-                className="inline-flex h-11 items-center gap-2 px-6 rounded-lg bg-[#008244] hover:bg-[#007038] text-white font-bold text-xs transition-all shadow-md cursor-pointer"
+                className="inline-flex h-11 items-center gap-2 px-6 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs transition-all shadow-sm cursor-pointer"
               >
                 <span>Request Case Study Architecture Specs</span>
                 <ArrowRight className="w-4 h-4" />
@@ -1646,19 +1647,19 @@ export default function AltrdHome() {
         </div>
       )}
 
-      {/* SALESFORCE-STYLE FLOATING "ASK PIPER" AI ASSISTANT WIDGET */}
+      {/* FLOATING "ASK PIPER" AI ASSISTANT WIDGET */}
       <div className="fixed bottom-20 right-4 sm:right-6 z-40">
         {!aiAssistantOpen ? (
           <button
             onClick={() => setAiAssistantOpen(true)}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0176D3] hover:bg-[#0176D3]/90 text-white font-bold text-xs sm:text-sm shadow-2xl hover:scale-105 transition-all border border-white/20 cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm shadow-xl hover:scale-102 transition-all border border-blue-400/30 cursor-pointer"
             aria-label="Open AI Assistant"
           >
-            <Sparkles className="w-4 h-4 text-[#D4FD53]" />
+            <Sparkles className="w-4 h-4 text-emerald-300" />
             <span>Ask Piper (AI Copilot)</span>
           </button>
         ) : (
-          <div className="w-[320px] sm:w-[360px] rounded-2xl bg-white text-gray-900 shadow-2xl border border-slate-200 overflow-hidden flex flex-col transition-all animate-in fade-in slide-in-from-bottom-4">
+          <div className="w-[320px] sm:w-[360px] rounded-2xl bg-white text-slate-900 dark:text-white shadow-2xl border border-slate-200 overflow-hidden flex flex-col transition-all animate-in fade-in slide-in-from-bottom-4">
             <div className="relative bg-gradient-to-r from-[#0176D3] to-[#0B2577] p-4 text-white flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-xs">
@@ -1697,7 +1698,7 @@ export default function AltrdHome() {
                   key={i}
                   className={`p-3 rounded-xl leading-relaxed ${
                     msg.sender === "agent"
-                      ? "bg-white text-gray-800 border border-slate-200 shadow-sm"
+                      ? "bg-white text-slate-800 dark:text-slate-100 border border-slate-200 shadow-sm"
                       : "bg-[#0176D3] text-white ml-6 text-right font-medium"
                   }`}
                 >
@@ -1725,7 +1726,7 @@ export default function AltrdHome() {
                 value={aiAssistantQuery}
                 onChange={(e) => setAiAssistantQuery(e.target.value)}
                 placeholder="Ask Piper a question..."
-                className="flex-1 bg-slate-100 rounded-lg px-3 py-2 text-xs text-gray-900 border border-slate-200 focus:outline-none focus:border-[#0176D3]"
+                className="flex-1 bg-slate-100 rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-white border border-slate-200 focus:outline-none focus:border-[#0176D3]"
               />
               <button
                 type="button"

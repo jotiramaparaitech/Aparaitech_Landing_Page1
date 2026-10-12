@@ -119,7 +119,7 @@ const Cybersecurity = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-16 md:pt-0 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-16 md:pt-0 overflow-x-hidden">
       {/* Back Button */}
       <button
         onClick={() => navigate('/#services')}
@@ -139,7 +139,7 @@ const Cybersecurity = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-red-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
               Cybersecurity Solutions
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed">
               Protect your business with comprehensive security audits, penetration testing, and compliance solutions. 
               Stay ahead of threats with industry-leading security practices.
             </p>
@@ -163,7 +163,7 @@ const Cybersecurity = () => {
                 <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">
                   {stat.value}{stat.suffix}
                 </div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-sm text-slate-600 dark:text-slate-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -174,8 +174,8 @@ const Cybersecurity = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Our Security Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Our Security Services</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               Comprehensive cybersecurity solutions to protect your business
             </p>
           </div>
@@ -189,23 +189,23 @@ const Cybersecurity = () => {
                 <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${cap.color} text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   {cap.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-red-600 transition-colors">
+                <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-red-600 transition-colors">
                   {cap.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{cap.description}</p>
                 <div className="mb-4">
-                  <p className="text-sm font-semibold text-gray-700 mb-2">Key Features:</p>
+                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Key Features:</p>
                   <ul className="space-y-2">
                     {cap.features.map((feature, i) => (
-                      <li key={i} className="flex items-start text-sm text-gray-700">
+                      <li key={i} className="flex items-start text-sm text-slate-700 dark:text-slate-300">
                         <span className="text-red-500 mr-2 mt-1">✓</span>
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="pt-4 border-t border-gray-200">
-                  <p className="text-xs font-semibold text-gray-500 mb-2">Deliverables:</p>
+                <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                  <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Deliverables:</p>
                   <div className="flex flex-wrap gap-2">
                     {cap.deliverables.map((item, i) => (
                       <span key={i} className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">
@@ -224,8 +224,8 @@ const Cybersecurity = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Compliance Standards</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Compliance Standards</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               We help you achieve and maintain industry compliance certifications
             </p>
           </div>
@@ -238,7 +238,7 @@ const Cybersecurity = () => {
               >
                 <div className="flex items-center gap-3 mb-3">
                   <Lock className="w-6 h-6 text-red-600" />
-                  <h3 className="text-xl font-bold text-gray-900">{standard.name}</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">{standard.name}</h3>
                 </div>
                 <p className="text-gray-600 text-sm">{standard.description}</p>
               </div>
@@ -251,8 +251,8 @@ const Cybersecurity = () => {
       <section className="py-20 bg-gradient-to-br from-red-50 to-pink-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Threat Protection</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Threat Protection</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               Comprehensive protection against modern cyber threats
             </p>
           </div>
@@ -265,7 +265,7 @@ const Cybersecurity = () => {
               >
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{threat.type}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{threat.type}</h3>
                     <p className="text-gray-600 text-sm">{threat.description}</p>
                   </div>
                   <div className="text-2xl font-bold text-red-600">{threat.protection}</div>

@@ -126,21 +126,21 @@ const AIMachineLearning = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-16 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-16 overflow-x-hidden">
       {/* BACK BUTTON */}
       <button
         onClick={() => navigate("/#services")}
-        className="fixed top-24 right-6 z-40 bg-white px-4 py-2 rounded-lg border hover:border-pink-500 transition"
+        className="fixed top-24 right-6 z-40 bg-white dark:bg-[#161F32] text-slate-900 dark:text-white px-4 py-2 rounded-lg border border-slate-200 dark:border-[#1E293B] hover:border-blue-500 transition"
       >
         ← Back
       </button>
 
       {/* HERO */}
-      <section className="bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 py-28 text-center">
+      <section className="bg-gradient-to-br from-slate-50 dark:from-[#0B0F19] via-slate-50 dark:via-[#0B0F19] to-slate-100 dark:to-[#111827] py-28 text-center">
         <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
           AI & Machine Learning
         </h1>
-        <p className="mt-6 text-xl text-gray-700 max-w-4xl mx-auto">
+        <p className="mt-6 text-xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto">
           Transform your business with predictive analytics, computer vision,
           NLP, and production-ready AI systems.
         </p>
@@ -155,10 +155,10 @@ const AIMachineLearning = () => {
             { label: "Projects", value: stats.projects, icon: Cpu },
             { label: "Clients", value: stats.clients, icon: TrendingUp },
           ].map((s, i) => (
-            <div key={i} className="bg-purple-50 p-6 rounded-xl text-center">
-              <s.icon className="mx-auto w-6 h-6 text-purple-600 mb-3" />
-              <div className="text-3xl font-bold text-purple-600">{s.value}</div>
-              <p className="text-gray-600">{s.label}</p>
+            <div key={i} className="bg-slate-100 dark:bg-[#161F32] p-6 rounded-xl text-center">
+              <s.icon className="mx-auto w-6 h-6 text-blue-600 dark:text-blue-400 mb-3" />
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{s.value}</div>
+              <p className="text-slate-600 dark:text-slate-400">{s.label}</p>
             </div>
           ))}
         </div>
@@ -174,7 +174,7 @@ const AIMachineLearning = () => {
               </div>
               <h3 className="text-xl font-bold mb-3">{cap.title}</h3>
               <p className="text-gray-600 mb-4">{cap.description}</p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
                 {cap.features.map((f, j) => (
                   <li key={j}>✓ {f}</li>
                 ))}

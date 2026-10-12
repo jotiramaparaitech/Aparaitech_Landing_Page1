@@ -105,22 +105,22 @@ const Webinars = () => {
   ];
 
   return (
-    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       <Toaster position="top-center" toastOptions={{ duration: 4000 }} />
 
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-[#22242A] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(#766DFE 1.2px, transparent 1.2px)",
+            backgroundImage: "radial-gradient(rgba(37, 99, 235, 0.4) 1.2px, transparent 1.2px)",
             backgroundSize: "28px 28px",
           }}
         ></div>
 
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-[#D4FD53] mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#34D399] mb-6">
               <Radio className="w-3.5 h-3.5 text-red-500 animate-pulse" />
               <span>LIVE ENGINEERING BROADCASTS // PUNE COE</span>
             </div>
@@ -135,7 +135,7 @@ const Webinars = () => {
           </div>
 
           {/* FEATURED WEBINAR CARD */}
-          <div className="mt-14 rounded-2xl border border-[#22242A] bg-[#141518] overflow-hidden shadow-2xl relative">
+          <div className="mt-14 rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] overflow-hidden shadow-2xl relative">
             <div className="grid md:grid-cols-12 gap-0">
               {/* Left / Info Side */}
               <div className="md:col-span-8 p-8 md:p-12 flex flex-col justify-between">
@@ -166,17 +166,17 @@ const Webinars = () => {
                       "Interactive Q&A Session"
                     ].map((item, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs text-slate-300 font-mono">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#D4FD53] shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#34D399] shrink-0" />
                         <span>{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-[#22242A] flex flex-wrap items-center justify-between gap-4">
+                <div className="pt-6 border-t border-slate-200 dark:border-[#1E293B] flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-4 text-xs font-mono text-slate-400">
                     <span className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-[#D4FD53]" />
+                      <Clock className="w-3.5 h-3.5 text-[#34D399]" />
                       60 Minutes Deep Dive
                     </span>
                     <span>•</span>
@@ -187,7 +187,7 @@ const Webinars = () => {
                     {!registered ? (
                       <button
                         onClick={() => setIsRegisterModalOpen(true)}
-                        className="inline-flex h-[46px] items-center gap-2 rounded bg-[#D4FD53] px-6 text-xs font-mono font-bold uppercase text-[#0C0D0F] hover:brightness-105 transition-all shadow-md shadow-[#D4FD53]/20"
+                        className="inline-flex h-[46px] items-center gap-2 rounded bg-[#10B981] px-6 text-xs font-mono font-bold uppercase text-white hover:brightness-105 transition-all shadow-md shadow-blue-500/20"
                       >
                         <Calendar className="w-4 h-4" />
                         <span>Reserve Your Spot</span>
@@ -197,7 +197,7 @@ const Webinars = () => {
                         href={webinar.meetingLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex h-[46px] items-center gap-2 rounded bg-emerald-500 px-6 text-xs font-mono font-bold uppercase text-[#0C0D0F] hover:brightness-105 transition-all"
+                        className="inline-flex h-[46px] items-center gap-2 rounded bg-emerald-500 px-6 text-xs font-mono font-bold uppercase text-white hover:brightness-105 transition-all"
                       >
                         <Video className="w-4 h-4" />
                         <span>Join Meeting Room Now</span>
@@ -208,12 +208,12 @@ const Webinars = () => {
               </div>
 
               {/* Right / Host Details */}
-              <div className="md:col-span-4 bg-[#0C0D0F] p-8 md:p-12 border-t md:border-t-0 md:border-l border-[#22242A] flex flex-col justify-between">
+              <div className="md:col-span-4 bg-slate-50 dark:bg-[#0B0F19] p-8 md:p-12 border-t md:border-t-0 md:border-l border-slate-200 dark:border-[#1E293B] flex flex-col justify-between">
                 <div>
                   <div className="font-mono text-xs text-slate-400 uppercase tracking-wider mb-4">
                     SESSION HOST & LEAD
                   </div>
-                  <div className="w-16 h-16 rounded-xl bg-[#1C1C1E] border border-white/10 flex items-center justify-center font-mono font-bold text-2xl text-[#D4FD53] mb-4">
+                  <div className="w-16 h-16 rounded-xl bg-slate-100 dark:bg-[#161F32] border border-white/10 flex items-center justify-center font-mono font-bold text-2xl text-[#34D399] mb-4">
                     {webinar.speaker ? webinar.speaker.charAt(0) : "A"}
                   </div>
                   <h3 className="text-lg font-bold text-white mb-1">{webinar.speaker}</h3>
@@ -223,9 +223,9 @@ const Webinars = () => {
                   </p>
                 </div>
 
-                <div className="mt-8 rounded-lg bg-[#141518] border border-[#22242A] p-4 text-center">
+                <div className="mt-8 rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] p-4 text-center">
                   <div className="font-mono text-[11px] text-slate-400 uppercase">Interactive Cohort</div>
-                  <div className="font-mono text-sm font-bold text-[#D4FD53] mt-1">Limited to 100 Engineers</div>
+                  <div className="font-mono text-sm font-bold text-[#34D399] mt-1">Limited to 100 Engineers</div>
                 </div>
               </div>
             </div>
@@ -237,7 +237,7 @@ const Webinars = () => {
       <section className="py-20 max-w-[1240px] mx-auto px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <div className="font-mono text-xs uppercase tracking-wider text-[#D4FD53] mb-1">
+            <div className="font-mono text-xs uppercase tracking-wider text-[#34D399] mb-1">
               RECORDED TECHNICAL ARCHIVES
             </div>
             <h2 className="text-3xl font-bold text-white">On-Demand Engineering Library</h2>
@@ -255,7 +255,7 @@ const Webinars = () => {
           {aparaitechPastWebinars.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col justify-between rounded-xl border border-[#22242A] bg-[#141518] p-7 hover:border-[#D4FD53]/50 transition-all group"
+              className="flex flex-col justify-between rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-7 hover:border-blue-500/50 transition-all group"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
@@ -265,7 +265,7 @@ const Webinars = () => {
                   <span className="font-mono text-xs text-slate-500">{item.duration}</span>
                 </div>
 
-                <h3 className="text-lg font-bold text-white group-hover:text-[#D4FD53] transition-colors leading-snug mb-3">
+                <h3 className="text-lg font-bold text-white group-hover:text-[#34D399] transition-colors leading-snug mb-3">
                   {item.title}
                 </h3>
 
@@ -274,7 +274,7 @@ const Webinars = () => {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#22242A] flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B] flex items-center justify-between">
                 <div>
                   <div className="text-xs font-semibold text-slate-200">{item.speaker}</div>
                   <div className="text-[10px] font-mono text-slate-500">{item.date} • {item.views}</div>
@@ -282,7 +282,7 @@ const Webinars = () => {
 
                 <a
                   href={`mailto:info@ai.aparaitech.org?subject=Access%20Recording:%20${encodeURIComponent(item.title)}`}
-                  className="w-8 h-8 rounded-lg bg-[#0C0D0F] border border-[#22242A] flex items-center justify-center text-slate-400 group-hover:text-[#D4FD53] group-hover:border-[#D4FD53]/40 transition-colors"
+                  className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] flex items-center justify-center text-slate-400 group-hover:text-[#34D399] group-hover:border-emerald-500/40 transition-colors"
                 >
                   <Play className="w-3.5 h-3.5 ml-0.5" />
                 </a>
@@ -295,7 +295,7 @@ const Webinars = () => {
       {/* 3. REGISTRATION MODAL */}
       {isRegisterModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-[#22242A] bg-[#141518] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsRegisterModalOpen(false)}
               className="absolute right-5 top-5 text-slate-400 hover:text-white"
@@ -303,7 +303,7 @@ const Webinars = () => {
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#D4FD53] font-mono text-xs uppercase mb-2">
+            <div className="flex items-center gap-2 text-[#34D399] font-mono text-xs uppercase mb-2">
               <Calendar className="w-4 h-4" />
               <span>Webinar Seat Reservation</span>
             </div>
@@ -316,7 +316,7 @@ const Webinars = () => {
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Full Name *</label>
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -324,13 +324,13 @@ const Webinars = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g., Amit Kulkarni"
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Corporate Email *</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Corporate Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -338,11 +338,11 @@ const Webinars = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="amit@company.com"
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -350,32 +350,32 @@ const Webinars = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Company / College / Organization</label>
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Company / College / Organization</label>
                 <input
                   type="text"
                   name="company"
                   value={formData.company}
                   onChange={handleInputChange}
                   placeholder="e.g., Tech Enterprise"
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Questions for the Speaker / Specific Focus</label>
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Questions for the Speaker / Specific Focus</label>
                 <textarea
                   name="notes"
                   rows="3"
                   value={formData.notes}
                   onChange={handleInputChange}
                   placeholder="What architecture or deployment challenge would you like addressed during live Q&A?"
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 ></textarea>
               </div>
 
@@ -383,7 +383,7 @@ const Webinars = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#D4FD53] py-3 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all disabled:opacity-50"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#10B981] py-3 text-sm font-semibold text-white hover:brightness-105 transition-all disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isSubmitting ? "Syncing Registration..." : "Confirm Masterclass Registration"}</span>

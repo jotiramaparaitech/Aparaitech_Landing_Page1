@@ -159,10 +159,10 @@ const Services = () => {
   }, [isHovered, isMobile, hovered]);
 
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="bg-slate-50 dark:bg-[#0F172A] py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">Our Services</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Enterprise-grade solutions crafted to support your business growth.
           </p>

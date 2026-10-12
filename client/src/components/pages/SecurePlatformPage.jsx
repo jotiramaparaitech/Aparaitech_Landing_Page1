@@ -47,14 +47,14 @@ const SecurePlatformPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white text-gray-900 pt-8 md:pt-0"> {/* ADDED: pt-16 for mobile */}
+        <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-8 md:pt-0"> {/* ADDED: pt-16 for mobile */}
             {/* Hero Section - FIXED: Added more top padding */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 pt-24 pb-16 md:pt-32 md:pb-24"> {/* CHANGED: Increased padding */}
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8"> {/* CHANGED: Smaller text on mobile */}
                         Build Trust and Transparency with Protection Built into All Our Products
                     </h1>
-                    <p className="text-lg md:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 md:mb-12"> {/* CHANGED: Smaller text on mobile */}
+                    <p className="text-lg md:text-xl lg:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 md:mb-12"> {/* CHANGED: Smaller text on mobile */}
                         Across sales, service, marketing, and more, we're dedicated to keeping your customers' data safe and secure, building a trusted digital environment.
                     </p>
                 </div>
@@ -87,15 +87,15 @@ const SecurePlatformPage = () => {
                 <section id="overview" className="mb-16 md:mb-20 scroll-mt-24 md:scroll-mt-32"> {/* CHANGED: Adjusted scroll margin */}
                     <div className="prose prose-lg max-w-none">
                         <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Create Transparent, Secure Customer Experiences with Platform</h2>
-                        <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8">
+                        <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-6 md:mb-8">
                             As data intelligence becomes more prevalent as a way for companies to understand and better serve customers, companies must remain accountable for safeguarding the privacy and security of individuals' data. As the leading CRM platform, we provide companies like yours with tools to build trust while enhancing customer experiences.
                         </p>
                         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 md:p-8 rounded-2xl mb-8 md:mb-12"> {/* CHANGED: Adjusted padding */}
-                            <p className="text-xl md:text-2xl font-semibold text-gray-900">
+                            <p className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-white">
                                 Gain increased transparency and control of your customers' data, while harnessing the power of that data to connect with customers in new ways.
                             </p>
                         </div>
-                        <p className="text-base md:text-lg text-gray-700"> {/* CHANGED: Adjusted text size */}
+                        <p className="text-base md:text-lg text-slate-700 dark:text-slate-300"> {/* CHANGED: Adjusted text size */}
                             We offer customers a robust data processing addendum containing strong privacy commitments. This addendum contains data transfer mechanisms to enable our customers to lawfully transfer personal data to us from any geography by relying (depending on the service) on our Processor Binding Corporate Rules or the European Commission's standard contractual clauses. This addendum also contains specific provisions to assist customers in their compliance with applicable data protection laws.
                         </p>
                     </div>
@@ -108,7 +108,7 @@ const SecurePlatformPage = () => {
                         {platformFeatures.map((feature, index) => (
                             <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 hover:shadow-xl transition-shadow">
                                 <div className="text-4xl md:text-5xl mb-4 md:mb-6">{feature.icon}</div> {/* CHANGED: Adjusted icon size */}
-                                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-900">{feature.title}</h3>
+                                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-slate-900 dark:text-white">{feature.title}</h3>
                                 <p className="text-gray-700 mb-4 md:mb-6 text-sm md:text-base">{feature.description}</p> {/* CHANGED: Adjusted text size */}
                                 <ul className="space-y-2 md:space-y-3"> {/* CHANGED: Adjusted spacing */}
                                     {feature.features.map((item, idx) => (
@@ -123,14 +123,14 @@ const SecurePlatformPage = () => {
                     </div>
 
                     {/* Compliance Frameworks Display */}
-                    <div className="bg-gray-50 rounded-2xl p-6 md:p-10"> {/* CHANGED: Adjusted padding */}
+                    <div className="bg-slate-50 dark:bg-[#0F172A] rounded-2xl p-6 md:p-10"> {/* CHANGED: Adjusted padding */}
                         <h3 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">Global Compliance & Certifications</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6"> {/* CHANGED: Adjusted gaps */}
                             {complianceFrameworks.map((framework, index) => (
                                 <div key={index} className="bg-white rounded-xl p-4 md:p-6 text-center shadow-sm hover:shadow-md transition"> {/* CHANGED: Adjusted padding */}
                                     <div className="text-2xl md:text-3xl mb-2 md:mb-3">{framework.icon}</div> {/* CHANGED: Adjusted icon size */}
                                     <div className="font-bold text-sm md:text-lg mb-1">{framework.name}</div> {/* CHANGED: Adjusted text size */}
-                                    <div className="text-xs md:text-sm text-gray-600">{framework.region}</div> {/* CHANGED: Adjusted text size */}
+                                    <div className="text-xs md:text-sm text-slate-600 dark:text-slate-400">{framework.region}</div> {/* CHANGED: Adjusted text size */}
                                 </div>
                             ))}
                         </div>
@@ -142,7 +142,7 @@ const SecurePlatformPage = () => {
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Data Governance & Compliance Obligations</h2>
                     <div className="grid lg:grid-cols-2 gap-8 md:gap-12"> {/* CHANGED: Adjusted gap */}
                         <div>
-                            <p className="text-base md:text-lg text-gray-700 mb-6 md:mb-8"> {/* CHANGED: Adjusted text size */}
+                            <p className="text-base md:text-lg text-slate-700 dark:text-slate-300 mb-6 md:mb-8"> {/* CHANGED: Adjusted text size */}
                                 You may need to access, export, delete, or update customer data to comply with data protection regulations. Our platform offers customers a rich set of features to help you meet your legal obligations.
                             </p>
                             <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-8"> {/* CHANGED: Adjusted padding */}
@@ -231,7 +231,7 @@ const SecurePlatformPage = () => {
                 <section id="privacy-center" className="mb-16 md:mb-20 scroll-mt-24 md:scroll-mt-32"> {/* CHANGED: Adjusted scroll margin */}
                     <div className="text-center mb-8 md:mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Privacy Management Center</h2>
-                        <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto"> {/* CHANGED: Adjusted text size */}
+                        <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-3xl mx-auto"> {/* CHANGED: Adjusted text size */}
                             Your complete privacy and data management solution that simplifies data privacy, compliance, and archiving.
                         </p>
                     </div>

@@ -123,7 +123,7 @@ const ELearning = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-16 md:pt-0 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-16 md:pt-0 overflow-x-hidden">
       {/* Back Button */}
       <button
         onClick={() => navigate('/#services')}
@@ -143,7 +143,7 @@ const ELearning = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-yellow-600 to-orange-600 bg-clip-text text-transparent">
               E-Learning & College Portals
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed">
               Comprehensive educational technology solutions. CET portals, LMS, and student management systems 
               designed for modern educational institutions.
             </p>
@@ -180,7 +180,7 @@ const ELearning = () => {
                 <div className="text-3xl md:text-4xl font-bold text-amber-600 mb-2">
                   {stat.value}{stat.suffix}
                 </div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-sm text-slate-600 dark:text-slate-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -191,8 +191,8 @@ const ELearning = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Our E-Learning Solutions</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Our E-Learning Solutions</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               Comprehensive educational technology platforms for modern learning
             </p>
           </div>
@@ -206,15 +206,15 @@ const ELearning = () => {
                 <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${cap.color} text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   {cap.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-amber-600 transition-colors">
+                <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-amber-600 transition-colors">
                   {cap.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{cap.description}</p>
                 <div className="mb-4">
-                  <p className="text-sm font-semibold text-gray-700 mb-2">Key Features:</p>
+                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Key Features:</p>
                   <ul className="space-y-2">
                     {cap.features.map((feature, i) => (
-                      <li key={i} className="flex items-start text-sm text-gray-700">
+                      <li key={i} className="flex items-start text-sm text-slate-700 dark:text-slate-300">
                         <span className="text-amber-500 mr-2 mt-1">✓</span>
                         <span>{feature}</span>
                       </li>
@@ -222,8 +222,8 @@ const ELearning = () => {
                   </ul>
                 </div>
                 {cap.featuresList && (
-                  <div className="pt-4 border-t border-gray-200">
-                    <p className="text-xs font-semibold text-gray-500 mb-2">Additional Features:</p>
+                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Additional Features:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.featuresList.map((item, i) => (
                         <span key={i} className="text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded">
@@ -243,8 +243,8 @@ const ELearning = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Features by Role</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Features by Role</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               Tailored features for students, educators, and administrators
             </p>
           </div>
@@ -255,10 +255,10 @@ const ELearning = () => {
                 key={idx}
                 className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 border-2 border-amber-100 hover:border-amber-300 hover:shadow-xl transition-all duration-300"
               >
-                <h3 className="text-2xl font-bold mb-6 text-gray-900">{feature.category}</h3>
+                <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">{feature.category}</h3>
                 <ul className="space-y-3">
                   {feature.items.map((item, i) => (
-                    <li key={i} className="flex items-center text-sm text-gray-700">
+                    <li key={i} className="flex items-center text-sm text-slate-700 dark:text-slate-300">
                       <div className="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
                       {item}
                     </li>

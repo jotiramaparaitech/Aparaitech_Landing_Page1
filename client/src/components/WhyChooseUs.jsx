@@ -209,7 +209,7 @@ const Features = () => {
             </span>
           </div>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 sm:mb-3 px-2">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-2 sm:mb-3 px-2">
             Everything you need to{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
               build and scale
@@ -269,14 +269,14 @@ const Features = () => {
                   <h3 className="
                     text-base
                     font-bold 
-                    text-gray-900 
+                    text-slate-900 dark:text-white 
                     mb-2
                     line-clamp-1
                   ">
                     {feature.title}
                   </h3>
                   <p className="
-                    text-gray-600 
+                    text-slate-600 dark:text-slate-400 
                     text-sm
                     leading-relaxed
                     line-clamp-3
@@ -389,7 +389,7 @@ const Features = () => {
                     sm:text-base
                     md:text-lg
                     font-bold 
-                    text-gray-900 
+                    text-slate-900 dark:text-white 
                     mb-1.5
                     sm:mb-2
                     group-hover:text-gray-800 
@@ -400,7 +400,7 @@ const Features = () => {
                     {feature.title}
                   </h3>
                   <p className="
-                    text-gray-600 
+                    text-slate-600 dark:text-slate-400 
                     text-xs
                     sm:text-sm
                     leading-relaxed
@@ -496,7 +496,7 @@ const Features = () => {
             <div className="text-left">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-pulse"></div>
-                <h3 className="text-sm sm:text-base font-bold text-gray-800">Ready to get started?</h3>
+                <h3 className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-100">Ready to get started?</h3>
               </div>
               <p className="text-gray-500 text-xs">We’d love to hear from you — connect with our experts today.
 </p>

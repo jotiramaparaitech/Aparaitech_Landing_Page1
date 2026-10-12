@@ -283,7 +283,7 @@ const Solutions = () => {
                             {' '}That Drive Results
                         </h1>
 
-                        <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                        <p className="text-xl text-slate-300 dark:text-slate-400 mb-8 max-w-3xl mx-auto">
                             End-to-end software solutions designed to solve complex business challenges,
                             drive innovation, and deliver measurable value.
                         </p>
@@ -334,7 +334,7 @@ const Solutions = () => {
 
                                 <div className="space-y-2">
                                     {solution.features.map((feature, index) => (
-                                        <div key={index} className="flex items-center text-sm text-gray-300">
+                                        <div key={index} className="flex items-center text-sm text-slate-300 dark:text-slate-400">
                                             <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
                                             {feature}
                                         </div>
@@ -358,15 +358,15 @@ const Solutions = () => {
 
                                 <div className="space-y-4">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-gray-400">Development Time</span>
+                                        <span className="text-slate-400 dark:text-slate-500">Development Time</span>
                                         <span className="font-semibold text-white">8-16 Weeks</span>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-gray-400">Team Size</span>
+                                        <span className="text-slate-400 dark:text-slate-500">Team Size</span>
                                         <span className="font-semibold text-white">5-10 Experts</span>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-gray-400">Success Rate</span>
+                                        <span className="text-slate-400 dark:text-slate-500">Success Rate</span>
                                         <span className="font-semibold text-green-400">98%</span>
                                     </div>
                                 </div>
@@ -376,19 +376,19 @@ const Solutions = () => {
                                 <h4 className="font-semibold text-white mb-4">Ideal For</h4>
                                 <div className="space-y-3">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-gray-300">Startups</span>
+                                        <span className="text-slate-300 dark:text-slate-400">Startups</span>
                                         <div className="w-24 h-2 bg-gray-700 rounded-full overflow-hidden">
                                             <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style={{ width: '80%' }}></div>
                                         </div>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-gray-300">SMEs</span>
+                                        <span className="text-slate-300 dark:text-slate-400">SMEs</span>
                                         <div className="w-24 h-2 bg-gray-700 rounded-full overflow-hidden">
                                             <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style={{ width: '95%' }}></div>
                                         </div>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-gray-300">Enterprise</span>
+                                        <span className="text-slate-300 dark:text-slate-400">Enterprise</span>
                                         <div className="w-24 h-2 bg-gray-700 rounded-full overflow-hidden">
                                             <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style={{ width: '70%' }}></div>
                                         </div>
@@ -420,7 +420,7 @@ const Solutions = () => {
                                 onClick={() => setSelectedTech(tech.id)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedTech === tech.id
                                         ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white'
-                                        : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                                        : 'bg-gray-800 text-slate-300 dark:text-slate-400 hover:bg-gray-700'
                                     }`}
                             >
                                 {tech.name}
@@ -446,7 +446,7 @@ const Solutions = () => {
                                         <div className="text-sm font-medium text-white text-center">
                                             {tech.name}
                                         </div>
-                                        <div className="text-xs text-gray-400 capitalize mt-1">
+                                        <div className="text-xs text-slate-400 dark:text-slate-500 capitalize mt-1">
                                             {tech.category}
                                         </div>
                                     </div>
@@ -457,7 +457,7 @@ const Solutions = () => {
             </section>
 
             {/* Case Studies */}
-            <section className="py-16 bg-gray-900">
+            <section className="py-16 bg-slate-900 dark:bg-gray-900">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -476,17 +476,17 @@ const Solutions = () => {
                                         {study.client}
                                     </h3>
                                     <p className="text-gray-400 text-sm mb-4">
-                                        <span className="font-medium text-gray-300">Challenge:</span> {study.challenge}
+                                        <span className="font-medium text-slate-300 dark:text-slate-400">Challenge:</span> {study.challenge}
                                     </p>
                                     <p className="text-gray-400 text-sm">
-                                        <span className="font-medium text-gray-300">Solution:</span> {study.solution}
+                                        <span className="font-medium text-slate-300 dark:text-slate-400">Solution:</span> {study.solution}
                                     </p>
                                 </div>
 
                                 <div className="space-y-3">
                                     <h4 className="font-medium text-white">Results:</h4>
                                     {study.results.map((result, index) => (
-                                        <div key={index} className="flex items-center text-sm text-gray-300">
+                                        <div key={index} className="flex items-center text-sm text-slate-300 dark:text-slate-400">
                                             <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                                             {result}
                                         </div>
@@ -495,7 +495,7 @@ const Solutions = () => {
 
                                 <div className="mt-6 pt-6 border-t border-gray-700">
                                     <div className="flex justify-between items-center">
-                                        <span className="text-sm text-gray-400">Project Duration</span>
+                                        <span className="text-sm text-slate-400 dark:text-slate-500">Project Duration</span>
                                         <span className="font-medium text-white">{study.duration}</span>
                                     </div>
                                 </div>
@@ -524,7 +524,7 @@ const Solutions = () => {
                                     {stat.value}
                                 </div>
                                 <div className="text-lg font-semibold text-white">{stat.label}</div>
-                                <div className="text-sm text-gray-300">{stat.sub}</div>
+                                <div className="text-sm text-slate-300 dark:text-slate-400">{stat.sub}</div>
                             </div>
                         ))}
                     </div>

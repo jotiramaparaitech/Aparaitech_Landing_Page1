@@ -47,7 +47,7 @@ const About = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="max-w-3xl text-gray-600 leading-relaxed text-lg"
+          className="max-w-3xl text-slate-600 dark:text-slate-400 leading-relaxed text-lg"
         >
           Aparaitech is a technology-driven software company focused on building
 scalable and reliable digital solutions. Our mission is to deliver

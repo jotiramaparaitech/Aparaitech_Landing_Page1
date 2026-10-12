@@ -56,7 +56,7 @@ const DevOpsServices = () => {
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                  <span className="text-xs text-gray-500 font-mono">
+                  <span className="text-xs text-slate-500 dark:text-slate-500 font-mono">
                     pipeline.yml
                   </span>
                 </div>
@@ -84,7 +84,7 @@ const DevOpsServices = () => {
       {/* Services Grid */}
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
             DevOps Solutions
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -133,7 +133,7 @@ const DevOpsServices = () => {
               <div className="mb-6 p-3 bg-gray-50 rounded-xl w-fit group-hover:bg-white transition-colors">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                 {service.title}
               </h3>
               <p className="text-gray-600 leading-relaxed">
@@ -145,9 +145,9 @@ const DevOpsServices = () => {
       </div>
 
       {/* Tech Stack */}
-      <div className="bg-gray-50 py-16 border-y border-gray-100">
+      <div className="bg-slate-50 dark:bg-[#0F172A] py-16 border-y border-slate-100 dark:border-[#1E293B]">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-8">
+          <p className="text-sm font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wider mb-8">
             Tools We Master
           </p>
           <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
@@ -155,7 +155,7 @@ const DevOpsServices = () => {
               (tech) => (
                 <span
                   key={tech}
-                  className="text-xl md:text-2xl font-bold text-gray-800"
+                  className="text-xl md:text-2xl font-bold text-slate-800 dark:text-slate-100"
                 >
                   {tech}
                 </span>
@@ -167,7 +167,7 @@ const DevOpsServices = () => {
 
       {/* CTA */}
       <div id="contact" className="max-w-4xl mx-auto px-6 py-24 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
           Ready to Automate?
         </h2>
         <p className="text-gray-600 mb-8 text-lg">

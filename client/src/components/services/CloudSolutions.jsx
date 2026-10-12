@@ -5,7 +5,7 @@ const CloudSolutions = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <div className="min-h-screen bg-white pt-20 md:pt-24 text-gray-900 overflow-x-hidden"> {/* CHANGED: mt-10 to pt-20 md:pt-24 */}
+    <div className="min-h-screen bg-white pt-20 md:pt-24 text-slate-900 dark:text-white overflow-x-hidden"> {/* CHANGED: mt-10 to pt-20 md:pt-24 */}
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,7 +13,7 @@ const CloudSolutions = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Cloud Computing Solutions
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-10">
               Harness the power of cloud technology to transform your business operations, 
               enhance scalability, and drive innovation with our comprehensive cloud computing solutions.
             </p>
@@ -34,7 +34,7 @@ const CloudSolutions = () => {
                 className={`py-4 px-1 text-lg font-medium border-b-2 transition-colors whitespace-nowrap flex-shrink-0 ${
                   activeTab === tab
                     ? 'border-blue-600 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    : 'border-transparent text-slate-500 dark:text-slate-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -50,7 +50,7 @@ const CloudSolutions = () => {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl font-bold mb-4">What is Cloud Computing?</h2>
-                <p className="text-lg text-gray-600 mb-6">
+                <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
                   Cloud computing delivers computing resources—servers, storage, databases, networking, 
                   and software—over the internet on a pay-as-you-go basis. This eliminates the need for 
                   businesses to purchase, manage, or maintain physical hardware, providing instant access 
@@ -69,7 +69,7 @@ const CloudSolutions = () => {
                           {step.number}
                         </div>
                         <h4 className="font-bold text-lg mb-2">{step.title}</h4>
-                        <p className="text-gray-600">{step.desc}</p>
+                        <p className="text-slate-600 dark:text-slate-400">{step.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -166,7 +166,7 @@ const CloudSolutions = () => {
                       <div className="flex-1">
                         <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
                         <p className="text-gray-600 mb-6">{service.desc}</p>
-                        <div className="bg-gray-50 rounded-xl p-6">
+                        <div className="bg-slate-50 dark:bg-[#0F172A] rounded-xl p-6">
                           <h4 className="font-bold text-lg mb-4">Common Use Cases:</h4>
                           <div className="flex flex-wrap gap-3">
                             {service.useCases.map((useCase, uIdx) => (
@@ -200,7 +200,7 @@ const CloudSolutions = () => {
                   <div key={idx} className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
                     <div className="text-3xl mb-4">{benefit.icon}</div>
                     <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
-                    <p className="text-gray-600">{benefit.desc}</p>
+                    <p className="text-slate-600 dark:text-slate-400">{benefit.desc}</p>
                   </div>
                 ))}
               </div>
@@ -234,7 +234,7 @@ const CloudSolutions = () => {
                     <h3 className="text-2xl font-bold mb-6">{section.category}</h3>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                       {section.applications.map((app, aIdx) => (
-                        <div key={aIdx} className="bg-gray-50 rounded-lg p-4 text-center">
+                        <div key={aIdx} className="bg-slate-50 dark:bg-[#0F172A] rounded-lg p-4 text-center">
                           <span className="font-medium">{app}</span>
                         </div>
                       ))}

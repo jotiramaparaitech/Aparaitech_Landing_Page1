@@ -15,18 +15,18 @@ const CloudComputingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white mt-5 text-gray-900">
+    <div className="min-h-screen bg-white mt-5 text-slate-900 dark:text-white">
       {/* ================= HERO ================= */}
       <div className="bg-gradient-to-br from-blue-50 to-teal-50 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Guide to Cloud Computing
           </h1>
-          <p className="text-xl text-gray-600 mb-10">
+          <p className="text-xl text-slate-600 dark:text-slate-400 mb-10">
             Unlock the power of the cloud and discover how cloud computing drives
             innovation, scalability, and efficiency.
           </p>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-slate-700 dark:text-slate-300 max-w-3xl mx-auto">
             From startups to global enterprises, cloud computing enables faster
             innovation without the burden of managing physical infrastructure.
           </p>
@@ -73,7 +73,7 @@ const CloudComputingPage = () => {
               <h2 className="text-4xl font-bold mb-6">
                 What is cloud computing?
               </h2>
-              <p className="text-xl text-gray-700">
+              <p className="text-xl text-slate-700 dark:text-slate-300">
                 Cloud computing delivers servers, storage, databases, networking,
                 and software over the internet on a pay-as-you-go basis — removing
                 the need for physical infrastructure.
@@ -84,7 +84,7 @@ const CloudComputingPage = () => {
               <h2 className="text-4xl font-bold mb-8">
                 Types of cloud computing
               </h2>
-              <p className="text-lg text-gray-700 max-w-3xl">
+              <p className="text-lg text-slate-700 dark:text-slate-300 max-w-3xl">
                 Businesses can choose from public, private, hybrid, or multicloud
                 strategies depending on security, scalability, and cost needs.
               </p>
@@ -115,7 +115,7 @@ const CloudComputingPage = () => {
               <h2 className="text-4xl font-bold mb-6">
                 How does cloud computing work?
               </h2>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-slate-700 dark:text-slate-300">
                 Cloud providers host data centers worldwide. Businesses rent
                 computing power and storage while providers manage hardware,
                 security, and maintenance.
@@ -126,7 +126,7 @@ const CloudComputingPage = () => {
               <h2 className="text-4xl font-bold mb-8">
                 Applications of cloud computing
               </h2>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-slate-700 dark:text-slate-300">
                 Cloud supports SaaS platforms, streaming services, AI workloads,
                 data analytics, IoT systems, and enterprise applications.
               </p>
@@ -134,7 +134,7 @@ const CloudComputingPage = () => {
 
             <section id="examples" className="mb-16 scroll-mt-28">
               <h2 className="text-4xl font-bold mb-8">Examples</h2>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-slate-700 dark:text-slate-300">
                 Platforms like Netflix, Amazon, Salesforce, and Google Workspace
                 rely on cloud infrastructure to operate at global scale.
               </p>
@@ -142,7 +142,7 @@ const CloudComputingPage = () => {
 
             <section id="future" className="mb-16 scroll-mt-28">
               <h2 className="text-4xl font-bold mb-8">Future trends</h2>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-slate-700 dark:text-slate-300">
                 Edge computing, AI integration, sustainability initiatives, and
                 hybrid cloud adoption will shape the next decade of cloud
                 innovation.
@@ -153,7 +153,7 @@ const CloudComputingPage = () => {
               <h2 className="text-4xl font-bold mb-8">
                 How to choose the right solution
               </h2>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-slate-700 dark:text-slate-300">
                 Evaluate scalability needs, compliance requirements, pricing
                 models, and long-term business goals before selecting a cloud
                 provider.

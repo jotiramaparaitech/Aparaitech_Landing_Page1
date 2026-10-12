@@ -592,7 +592,7 @@ const JobDetail = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
         <div className="text-center p-8 bg-white rounded-lg shadow-lg">
-          <h2 className="text-3xl font-bold mb-4 text-gray-800">No job selected</h2>
+          <h2 className="text-3xl font-bold mb-4 text-slate-800 dark:text-slate-100">No job selected</h2>
           <p className="text-gray-600 mb-8">Please select a job from the careers page to view details.</p>
           <button 
             onClick={() => navigate("/careers")}
@@ -609,7 +609,7 @@ const JobDetail = () => {
   const jobDetails = jobDescriptions[job.title] || jobDescriptions.default;
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-800 overflow-x-hidden">
+    <div className="min-h-screen bg-white font-sans text-slate-800 dark:text-slate-100 overflow-x-hidden">
       
       {/* HERO SECTION */}
       <section className="relative pt-28 md:pt-20 pb-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
@@ -625,7 +625,7 @@ const JobDetail = () => {
                 </span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-gray-900">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-slate-900 dark:text-white">
                 {job.title}
               </h1>
 
@@ -633,7 +633,7 @@ const JobDetail = () => {
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-blue-600" />
                   <div>
-                    <span className="text-lg font-semibold text-gray-900">{job.location}</span>
+                    <span className="text-lg font-semibold text-slate-900 dark:text-white">{job.location}</span>
                     <p className="text-gray-600 text-sm">Location</p>
                   </div>
                 </div>
@@ -641,7 +641,7 @@ const JobDetail = () => {
                 <div className="flex items-center gap-3">
                   <Briefcase className="w-5 h-5 text-blue-600" />
                   <div>
-                    <span className="text-lg font-semibold text-gray-900">{job.type}</span>
+                    <span className="text-lg font-semibold text-slate-900 dark:text-white">{job.type}</span>
                     <p className="text-gray-600 text-sm">Employment Type</p>
                   </div>
                 </div>
@@ -649,7 +649,7 @@ const JobDetail = () => {
                 <div className="flex items-center gap-3">
                   <Clock className="w-5 h-5 text-blue-600" />
                   <div>
-                    <span className="text-lg font-semibold text-gray-900">Full-time</span>
+                    <span className="text-lg font-semibold text-slate-900 dark:text-white">Full-time</span>
                     <p className="text-gray-600 text-sm">Schedule</p>
                   </div>
                 </div>
@@ -684,26 +684,26 @@ const JobDetail = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Job ID & Posted Info */}
-          <div className="mb-12 p-6 bg-gray-50 rounded-xl border border-gray-200">
+          <div className="mb-12 p-6 bg-gray-50 rounded-xl border border-slate-200 dark:border-[#1E293B]">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <span className="text-gray-600">Job ID:</span>
-                <span className="ml-2 font-semibold text-gray-900">{job.id || "JR" + Math.floor(Math.random() * 1000000)}</span>
+                <span className="text-slate-600 dark:text-slate-400">Job ID:</span>
+                <span className="ml-2 font-semibold text-slate-900 dark:text-white">{job.id || "JR" + Math.floor(Math.random() * 1000000)}</span>
               </div>
               <div>
-                <span className="text-gray-600">Posted:</span>
-                <span className="ml-2 font-semibold text-gray-900">{job.postedDate || "Recently"}</span>
+                <span className="text-slate-600 dark:text-slate-400">Posted:</span>
+                <span className="ml-2 font-semibold text-slate-900 dark:text-white">{job.postedDate || "Recently"}</span>
               </div>
               <div>
-                <span className="text-gray-600">Category:</span>
-                <span className="ml-2 font-semibold text-gray-900">{job.category || jobDetails.department}</span>
+                <span className="text-slate-600 dark:text-slate-400">Category:</span>
+                <span className="ml-2 font-semibold text-slate-900 dark:text-white">{job.category || jobDetails.department}</span>
               </div>
             </div>
           </div>
 
           {/* Job Description */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 flex items-center gap-3">
+            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-3">
               <Briefcase className="w-8 h-8 text-blue-600" />
               Job Description
             </h2>
@@ -716,7 +716,7 @@ const JobDetail = () => {
 
           {/* Responsibilities */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 flex items-center gap-3">
+            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-3">
               <Layers className="w-8 h-8 text-green-600" />
               Key Responsibilities
             </h2>
@@ -732,28 +732,28 @@ const JobDetail = () => {
 
           {/* Requirements & Qualifications */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 flex items-center gap-3">
-              <GraduationCap className="w-8 h-8 text-purple-600" />
+            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-3">
+              <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               Required Qualifications
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-800">Requirements</h3>
+                <h3 className="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-100">Requirements</h3>
                 <ul className="space-y-3">
                   {jobDetails.requirements.map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-700">{item}</span>
+                      <span className="text-slate-700 dark:text-slate-300">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-800">Preferred Qualifications</h3>
+                <h3 className="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-100">Preferred Qualifications</h3>
                 <p className="text-gray-700 mb-4">{jobDetails.qualifications}</p>
                 
-                <h4 className="text-lg font-semibold mb-3 text-gray-800">Technical Skills</h4>
+                <h4 className="text-lg font-semibold mb-3 text-slate-800 dark:text-slate-100">Technical Skills</h4>
                 <div className="flex flex-wrap gap-2">
                   {jobDetails.skills.map((skill, index) => (
                     <span 
@@ -773,7 +773,7 @@ const JobDetail = () => {
             <div className="mb-12">
               {jobDetails.extraSections.map((section, index) => (
                 <div key={index} className="mb-8 last:mb-0">
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">{section.title}</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{section.title}</h3>
                   <p className="text-gray-700 leading-relaxed">{section.content}</p>
                 </div>
               ))}
@@ -782,7 +782,7 @@ const JobDetail = () => {
 
           {/* Benefits */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 flex items-center gap-3">
+            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-3">
               <DollarSign className="w-8 h-8 text-yellow-600" />
               What We Offer
             </h2>
@@ -801,7 +801,7 @@ const JobDetail = () => {
                       {index % 6 === 4 && <Code className="w-5 h-5 text-blue-600" />}
                       {index % 6 === 5 && <Database className="w-5 h-5 text-blue-600" />}
                     </div>
-                    <span className="font-semibold text-gray-900">{benefit}</span>
+                    <span className="font-semibold text-slate-900 dark:text-white">{benefit}</span>
                   </div>
                 </div>
               ))}
@@ -823,8 +823,8 @@ const JobDetail = () => {
           </div>
 
           {/* Equal Opportunity */}
-          <div className="p-8 bg-gray-50 rounded-xl border border-gray-200">
-            <h4 className="text-xl font-bold mb-3 text-gray-900">Equal Opportunity Employer</h4>
+          <div className="p-8 bg-gray-50 rounded-xl border border-slate-200 dark:border-[#1E293B]">
+            <h4 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">Equal Opportunity Employer</h4>
             <p className="text-gray-700 italic">
               "Aparaitech is an Equal Opportunity and Affirmative Action Employer. We celebrate diversity and are committed to creating an inclusive environment for all employees. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or veteran status."
             </p>
@@ -836,10 +836,10 @@ const JobDetail = () => {
       <section className="py-20 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
               Join Our Talent Community
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-700 dark:text-slate-300 max-w-3xl mx-auto">
               Not ready to apply? Join our Talent Community to stay connected and receive updates on new opportunities, company news, and career insights.
             </p>
           </div>
@@ -850,7 +850,7 @@ const JobDetail = () => {
                 <Bell className="w-6 h-6 text-blue-600" />
               </div>
               <h4 className="text-lg font-semibold mb-2">Job Alerts</h4>
-              <p className="text-gray-600">Get notified when roles matching your profile become available</p>
+              <p className="text-slate-600 dark:text-slate-400">Get notified when roles matching your profile become available</p>
             </div>
             
             <div className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
@@ -858,7 +858,7 @@ const JobDetail = () => {
                 <Users className="w-6 h-6 text-blue-600" />
               </div>
               <h4 className="text-lg font-semibold mb-2">Networking</h4>
-              <p className="text-gray-600">Connect with our recruiters and hiring managers</p>
+              <p className="text-slate-600 dark:text-slate-400">Connect with our recruiters and hiring managers</p>
             </div>
           </div>
 

@@ -201,7 +201,7 @@ const fileToBase64 = (file) =>
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-10 h-10 text-green-600" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
             Application Submitted!
           </h2>
           <p className="text-gray-600 mb-6">
@@ -210,7 +210,7 @@ const fileToBase64 = (file) =>
             review your application and get back to you soon.
           </p>
           <div className="animate-pulse">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-slate-500 dark:text-slate-500">
               Redirecting to careers page...
             </p>
           </div>
@@ -238,10 +238,10 @@ const fileToBase64 = (file) =>
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
             Apply for {job.title}
           </h1>
-          <div className="flex flex-wrap justify-center gap-4 text-gray-600">
+          <div className="flex flex-wrap justify-center gap-4 text-slate-600 dark:text-slate-400">
             <span className="flex items-center gap-2">
               <Briefcase className="w-4 h-4" />
               {job.type}
@@ -259,7 +259,7 @@ const fileToBase64 = (file) =>
           <form onSubmit={handleSubmit} className="p-6 md:p-8">
             {/* Personal Information */}
             <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
                 <User className="w-6 h-6 text-blue-600" />
                 Personal Information
               </h2>
@@ -267,7 +267,7 @@ const fileToBase64 = (file) =>
               <div className="grid md:grid-cols-2 gap-6">
                 {/* First Name */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     First Name *
                   </label>
                   <input
@@ -275,10 +275,10 @@ const fileToBase64 = (file) =>
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+                    className={`w-full px-4 py-3 bg-white text-slate-900 dark:text-white placeholder-gray-400
           border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500
           transition-all outline-none ${
-            errors.firstName ? "border-red-500" : "border-gray-300"
+            errors.firstName ? "border-red-500" : "border-slate-300 dark:border-[#263247]"
           }`}
                     placeholder="Enter your first name"
                   />
@@ -291,7 +291,7 @@ const fileToBase64 = (file) =>
 
                 {/* Last Name */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Last Name *
                   </label>
                   <input
@@ -299,10 +299,10 @@ const fileToBase64 = (file) =>
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+                    className={`w-full px-4 py-3 bg-white text-slate-900 dark:text-white placeholder-gray-400
           border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500
           transition-all outline-none ${
-            errors.lastName ? "border-red-500" : "border-gray-300"
+            errors.lastName ? "border-red-500" : "border-slate-300 dark:border-[#263247]"
           }`}
                     placeholder="Enter your last name"
                   />
@@ -317,7 +317,7 @@ const fileToBase64 = (file) =>
 
             {/* Contact Information */}
             <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
                 <Mail className="w-6 h-6 text-blue-600" />
                 Contact Information
               </h2>
@@ -325,7 +325,7 @@ const fileToBase64 = (file) =>
               <div className="space-y-6">
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -333,10 +333,10 @@ const fileToBase64 = (file) =>
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+                    className={`w-full px-4 py-3 bg-white text-slate-900 dark:text-white placeholder-gray-400
           border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500
           transition-all outline-none ${
-            errors.email ? "border-red-500" : "border-gray-300"
+            errors.email ? "border-red-500" : "border-slate-300 dark:border-[#263247]"
           }`}
                     placeholder="your.email@example.com"
                   />
@@ -347,7 +347,7 @@ const fileToBase64 = (file) =>
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Phone Number *
                   </label>
                   <input
@@ -355,10 +355,10 @@ const fileToBase64 = (file) =>
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+                    className={`w-full px-4 py-3 bg-white text-slate-900 dark:text-white placeholder-gray-400
           border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500
           transition-all outline-none ${
-            errors.phone ? "border-red-500" : "border-gray-300"
+            errors.phone ? "border-red-500" : "border-slate-300 dark:border-[#263247]"
           }`}
                     placeholder="(123) 456-7890"
                   />
@@ -371,14 +371,14 @@ const fileToBase64 = (file) =>
 
             {/* Professional Links */}
             <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
                 Professional Links (Optional)
               </h2>
 
               <div className="space-y-6">
                 {/* LinkedIn */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     LinkedIn Profile
                   </label>
                   <input
@@ -386,7 +386,7 @@ const fileToBase64 = (file) =>
                     name="linkedin"
                     value={formData.linkedin}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+                    className="w-full px-4 py-3 bg-white text-slate-900 dark:text-white placeholder-gray-400
                    border border-gray-300 rounded-lg
                    focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                    transition-all outline-none"
@@ -396,7 +396,7 @@ const fileToBase64 = (file) =>
 
                 {/* GitHub */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     GitHub Profile
                   </label>
                   <input
@@ -404,7 +404,7 @@ const fileToBase64 = (file) =>
                     name="github"
                     value={formData.github}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+                    className="w-full px-4 py-3 bg-white text-slate-900 dark:text-white placeholder-gray-400
                    border border-gray-300 rounded-lg
                    focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                    transition-all outline-none"
@@ -414,7 +414,7 @@ const fileToBase64 = (file) =>
 
                 {/* Portfolio */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Portfolio Website
                   </label>
                   <input
@@ -422,7 +422,7 @@ const fileToBase64 = (file) =>
                     name="portfolio"
                     value={formData.portfolio}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white text-gray-900 placeholder-gray-400
+                    className="w-full px-4 py-3 bg-white text-slate-900 dark:text-white placeholder-gray-400
                    border border-gray-300 rounded-lg
                    focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                    transition-all outline-none"
@@ -434,14 +434,14 @@ const fileToBase64 = (file) =>
 
             {/* Resume Upload */}
             <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
                 <Upload className="w-6 h-6 text-blue-600" />
                 Resume Upload
               </h2>
 
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Resume/CV *
                     <span className="text-gray-500 text-sm ml-2">
                       (PDF, DOC, DOCX, max 5MB)
@@ -481,7 +481,7 @@ const fileToBase64 = (file) =>
                             or drag and drop your file here
                           </div>
                         </div>
-                        <p className="text-xs text-gray-500 mt-3">
+                        <p className="text-xs text-slate-500 dark:text-slate-500 mt-3">
                           Supported formats: PDF, DOC, DOCX (Max 5MB)
                         </p>
                       </>
@@ -499,7 +499,7 @@ const fileToBase64 = (file) =>
                             <p className="text-gray-700 text-sm mb-1">
                               {formData.resume.name}
                             </p>
-                            <p className="text-xs text-gray-500">
+                            <p className="text-xs text-slate-500 dark:text-slate-500">
                               {(formData.resume.size / 1024 / 1024).toFixed(2)}{" "}
                               MB •{" "}
                               {formData.resume.type === "application/pdf"
@@ -538,7 +538,7 @@ const fileToBase64 = (file) =>
 
                 {/* Additional Information */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Cover Letter / Additional Information
                     <span className="text-gray-500 text-sm ml-2">
                       (Optional)
@@ -549,7 +549,7 @@ const fileToBase64 = (file) =>
                     value={formData.coverLetter}
                     onChange={handleChange}
                     rows="5"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none resize-none text-gray-900 placeholder:text-gray-500 focus:text-gray-900"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none resize-none text-slate-900 dark:text-white placeholder:text-gray-500 focus:text-slate-900 dark:text-white"
                     placeholder="Tell us why you're interested in this position, what makes you a great fit, and any additional information you'd like to share..."
                   ></textarea>
                 </div>
@@ -558,7 +558,7 @@ const fileToBase64 = (file) =>
 
             {/* Equal Opportunity */}
             <div className="mb-10 p-6 bg-blue-50 rounded-xl">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
                 Equal Opportunity
               </h3>
               <p className="text-gray-600 mb-4">
@@ -570,7 +570,7 @@ const fileToBase64 = (file) =>
 
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
                     Are you legally authorized to work in the country where this
                     job is located? *
                   </label>
@@ -593,7 +593,7 @@ const fileToBase64 = (file) =>
                             className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                               formData.workAuthorization === option
                                 ? "border-blue-600"
-                                : "border-gray-300"
+                                : "border-slate-300 dark:border-[#263247]"
                             }`}
                           >
                             {formData.workAuthorization === option && (
@@ -615,7 +615,7 @@ const fileToBase64 = (file) =>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
                     Have you any experience ? *
                   </label>
                   <div className="flex flex-wrap gap-4">
@@ -637,7 +637,7 @@ const fileToBase64 = (file) =>
                             className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                               formData.veteranStatus === option
                                 ? "border-blue-600"
-                                : "border-gray-300"
+                                : "border-slate-300 dark:border-[#263247]"
                             }`}
                           >
                             {formData.veteranStatus === option && (
@@ -662,12 +662,12 @@ const fileToBase64 = (file) =>
 
             {/* Submit Button */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t">
-              <p className="text-sm text-gray-600">* Required fields</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">* Required fields</p>
               <div className="flex gap-4">
                 <button
                   type="button"
                   onClick={() => navigate(-1)}
-                  className="px-8 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-all"
+                  className="px-8 py-3 border-2 border-gray-300 text-slate-700 dark:text-slate-300 font-semibold rounded-lg hover:bg-gray-50 transition-all"
                 >
                   Cancel
                 </button>
@@ -692,7 +692,7 @@ const fileToBase64 = (file) =>
 
         {/* Footer Note */}
         <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-slate-500 dark:text-slate-500">
             Your application will be reviewed by our hiring team within 5-7
             business days. We respect your privacy and will not share your
             information with third parties.

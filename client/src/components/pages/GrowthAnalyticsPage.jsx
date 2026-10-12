@@ -65,15 +65,15 @@ const GrowthAnalytics = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-8 md:pt-0"> {/* ADDED: pt-16 for mobile top padding */}
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-8 md:pt-0"> {/* ADDED: pt-16 for mobile top padding */}
       {/* Hero Section - FIXED: Added more top padding for mobile */}
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50 pt-24 pb-16 md:pt-32 md:pb-24"> {/* CHANGED: Increased top padding */}
+      <div className="bg-gradient-to-br from-slate-50 dark:from-[#0B0F19] to-slate-100 dark:to-[#111827] pt-24 pb-16 md:pt-32 md:pb-24"> {/* CHANGED: Increased top padding */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
             Transform Your Business With
             <span className="block text-blue-600 mt-4">Intelligent Growth Analytics</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
+          <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-12">
             Get data-driven insights that help you make smarter decisions, optimize operations, 
             and accelerate business growth.
           </p>
@@ -107,11 +107,11 @@ const GrowthAnalytics = () => {
         <section id="overview" className="mb-16 md:mb-20 scroll-mt-24 md:scroll-mt-32"> {/* CHANGED: Adjusted scroll margin */}
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Drive Business Growth with Data Intelligence</h2>
-            <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8">
+            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-6 md:mb-8">
               In today's competitive landscape, data is your most valuable asset. Our Growth Analytics platform transforms raw data into actionable insights that drive measurable business outcomes.
             </p>
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 md:p-8 rounded-2xl mb-8 md:mb-12">
-              <p className="text-xl md:text-2xl font-semibold text-gray-900">
+            <div className="bg-gradient-to-r from-slate-50 dark:from-[#0B0F19] to-slate-100 dark:to-[#111827] p-6 md:p-8 rounded-2xl mb-8 md:mb-12">
+              <p className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-white">
                 From predictive modeling to real-time dashboards, we provide the tools and expertise to turn data into your competitive advantage.
               </p>
             </div>
@@ -125,9 +125,9 @@ const GrowthAnalytics = () => {
               { number: '99%', label: 'Customer Satisfaction' },
               { number: '500+', label: 'Companies Trust Us' }
             ].map((stat, index) => (
-              <div key={index} className="text-center bg-white rounded-xl p-4 md:p-6 shadow-sm border border-gray-100">
+              <div key={index} className="text-center bg-white rounded-xl p-4 md:p-6 shadow-sm border border-slate-100 dark:border-[#1E293B]">
                 <div className="text-2xl md:text-4xl font-bold text-blue-500 mb-1 md:mb-2">{stat.number}</div>
-                <div className="text-sm md:text-base text-gray-700">{stat.label}</div>
+                <div className="text-sm md:text-base text-slate-700 dark:text-slate-300">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -141,7 +141,7 @@ const GrowthAnalytics = () => {
             {analyticsCapabilities.map((capability, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 hover:shadow-xl transition-shadow">
                 <div className="text-4xl md:text-5xl mb-4 md:mb-6">{capability.icon}</div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-900">{capability.title}</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-slate-900 dark:text-white">{capability.title}</h3>
                 <p className="text-gray-700 mb-4 md:mb-6">{capability.description}</p>
                 <ul className="space-y-2 md:space-y-3">
                   {capability.features.map((feature, idx) => (
@@ -156,7 +156,7 @@ const GrowthAnalytics = () => {
           </div>
 
           {/* Additional Features */}
-          <div className="bg-gray-50 rounded-2xl p-6 md:p-10">
+          <div className="bg-slate-50 dark:bg-[#0F172A] rounded-2xl p-6 md:p-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">Platform Features</h3>
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {[
@@ -205,10 +205,10 @@ const GrowthAnalytics = () => {
                 desc: 'Bank-level security protocols ensure your sensitive business data remains protected at all times.'
               }
             ].map((feature, idx) => (
-              <div key={idx} className="flex items-start space-x-4 md:space-x-6 p-6 md:p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+              <div key={idx} className="flex items-start space-x-4 md:space-x-6 p-6 md:p-8 bg-white rounded-2xl shadow-sm border border-slate-100 dark:border-[#1E293B] hover:shadow-md transition dark:bg-[#111827]">
                 <div className="text-3xl md:text-4xl flex-shrink-0">{feature.icon}</div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-gray-900">{feature.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-slate-900 dark:text-white">{feature.title}</h3>
                   <p className="text-gray-700 text-sm md:text-base">{feature.desc}</p>
                 </div>
               </div>
@@ -247,22 +247,22 @@ const GrowthAnalytics = () => {
         <section id="use-cases" className="mb-16 md:mb-20 scroll-mt-24 md:scroll-mt-32">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Industry Success Stories</h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-3xl mx-auto">
               See how businesses across various industries are leveraging our analytics platform to drive growth.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16">
             {useCases.map((useCase, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 hover:shadow-xl transition">
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-slate-200 dark:border-[#1E293B] p-6 md:p-8 hover:shadow-xl transition dark:bg-[#111827]">
                 <div className="text-3xl md:text-4xl mb-4 md:mb-6">{useCase.icon}</div>
-                <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-gray-900">{useCase.industry}</h3>
+                <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-slate-900 dark:text-white">{useCase.industry}</h3>
                 <div className="mb-3 md:mb-4">
-                  <div className="font-semibold text-gray-700 mb-1 text-sm md:text-base">Challenge:</div>
+                  <div className="font-semibold text-slate-700 dark:text-slate-300 mb-1 text-sm md:text-base">Challenge:</div>
                   <p className="text-gray-600 text-sm md:text-base">{useCase.challenge}</p>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-700 mb-1 text-sm md:text-base">Solution:</div>
+                  <div className="font-semibold text-slate-700 dark:text-slate-300 mb-1 text-sm md:text-base">Solution:</div>
                   <p className="text-gray-600 text-sm md:text-base">{useCase.solution}</p>
                 </div>
               </div>
@@ -270,7 +270,7 @@ const GrowthAnalytics = () => {
           </div>
 
           {/* Industry Adoption */}
-          <div className="bg-gray-50 rounded-2xl p-6 md:p-10">
+          <div className="bg-slate-50 dark:bg-[#0F172A] rounded-2xl p-6 md:p-10">
             <h3 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-center">Trusted Across Industries</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {[
@@ -283,7 +283,7 @@ const GrowthAnalytics = () => {
                 { name: 'Transportation', clients: 40 },
                 { name: 'Energy', clients: 35 }
               ].map((industry, index) => (
-                <div key={index} className="bg-white rounded-xl p-4 md:p-6 text-center">
+                <div key={index} className="bg-white dark:bg-[#111827] rounded-xl p-4 md:p-6 text-center">
                   <div className="text-lg md:text-2xl font-bold text-blue-600 mb-1 md:mb-2">{industry.clients}+</div>
                   <div className="font-medium text-sm md:text-base">{industry.name}</div>
                 </div>
@@ -309,13 +309,13 @@ const GrowthAnalytics = () => {
                   {step.step}
                 </div>
                 <div className="font-bold text-sm md:text-lg mb-1">{step.title}</div>
-                <div className="text-xs md:text-sm text-gray-600">{step.desc}</div>
+                <div className="text-xs md:text-sm text-slate-600 dark:text-slate-400">{step.desc}</div>
               </div>
             ))}
           </div>
 
           {/* Process Details */}
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 md:p-10">
+          <div className="bg-gradient-to-r from-slate-50 dark:from-[#0B0F19] to-slate-100 dark:to-[#111827] rounded-2xl p-6 md:p-10">
             <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
               <div>
                 <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Expert Implementation</h3>
@@ -341,13 +341,13 @@ const GrowthAnalytics = () => {
                   We provide continuous support and optimization to ensure your analytics platform evolves with your business needs.
                 </p>
                 <div className="grid grid-cols-2 gap-4 md:gap-6">
-                  <div className="bg-white rounded-xl p-3 md:p-4">
+                  <div className="bg-white dark:bg-[#111827] rounded-xl p-3 md:p-4">
                     <div className="text-lg md:text-xl font-bold text-blue-600 mb-1">99.9%</div>
-                    <div className="text-xs md:text-sm text-gray-600">Platform Uptime</div>
+                    <div className="text-xs md:text-sm text-slate-600 dark:text-slate-400">Platform Uptime</div>
                   </div>
-                  <div className="bg-white rounded-xl p-3 md:p-4">
+                  <div className="bg-white dark:bg-[#111827] rounded-xl p-3 md:p-4">
                     <div className="text-lg md:text-xl font-bold text-blue-600 mb-1">15min</div>
-                    <div className="text-xs md:text-sm text-gray-600">Avg. Support Response</div>
+                    <div className="text-xs md:text-sm text-slate-600 dark:text-slate-400">Avg. Support Response</div>
                   </div>
                 </div>
               </div>
@@ -387,7 +387,7 @@ const GrowthAnalytics = () => {
                 <input
                   type="email"
                   placeholder="Enter your work email"
-                  className="w-full px-4 md:px-6 py-3 md:py-4 rounded-lg text-gray-900 text-sm md:text-base"
+                  className="w-full px-4 md:px-6 py-3 md:py-4 rounded-lg text-slate-900 dark:text-white text-sm md:text-base"
                 />
               </div>
               <button className="w-full px-6 md:px-8 py-3 md:py-4 bg-white text-blue-600 font-bold text-base md:text-lg rounded-lg hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300">
@@ -422,7 +422,7 @@ const GrowthAnalytics = () => {
               avatar: "PS"
             }
           ].map((testimonial, idx) => (
-            <div key={idx} className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100">
+            <div key={idx} className="bg-white dark:bg-[#111827] p-6 md:p-8 rounded-2xl shadow-lg border border-slate-100 dark:border-[#1E293B]">
               <div className="text-yellow-400 text-xl md:text-2xl mb-3 md:mb-4">★★★★★</div>
               <p className="text-gray-700 italic mb-4 md:mb-6 text-sm md:text-base">"{testimonial.quote}"</p>
               <div className="flex items-center">
@@ -451,7 +451,7 @@ const GrowthAnalytics = () => {
               <a href="#" className="hover:text-white">Support</a>
               <a href="#" className="hover:text-white">Privacy Policy</a>
             </div>
-            <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-gray-800 text-gray-500 text-sm">
+            <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-gray-800 text-slate-500 dark:text-slate-500 text-sm">
               <p>© 2024 Growth Analytics. All rights reserved.</p>
             </div>
           </div>

@@ -18,7 +18,7 @@ import {
 
 const cloudData = {
   Storage: {
-    icon: <HardDrive className="w-5 h-5 text-[#D4FD53]" />,
+    icon: <HardDrive className="w-5 h-5 text-[#34D399]" />,
     desc: "Diverse data storage offerings with greater reliability, sub-millisecond access, and automated replication.",
     items: [
       { name: "Archive Cold Storage", spec: "99.999999999% Durability, automated lifecycle tiering" },
@@ -30,7 +30,7 @@ const cloudData = {
     ],
   },
   Compute: {
-    icon: <Cpu className="w-5 h-5 text-[#D4FD53]" />,
+    icon: <Cpu className="w-5 h-5 text-[#34D399]" />,
     desc: "High-performance compute instances and GPU clusters engineered for enterprise AI and scalable microservices.",
     items: [
       { name: "High-Density GPU Clusters", spec: "NVIDIA H100 / A100 SXM5 with NVLink interconnect" },
@@ -40,7 +40,7 @@ const cloudData = {
     ],
   },
   Database: {
-    icon: <Database className="w-5 h-5 text-[#D4FD53]" />,
+    icon: <Database className="w-5 h-5 text-[#34D399]" />,
     desc: "Globally distributed, high-concurrency relational and vector database infrastructure.",
     items: [
       { name: "Enterprise PostgreSQL & MySQL", spec: "Multi-AZ active replication with automated failover" },
@@ -50,7 +50,7 @@ const cloudData = {
     ],
   },
   Container: {
-    icon: <Boxes className="w-5 h-5 text-[#D4FD53]" />,
+    icon: <Boxes className="w-5 h-5 text-[#34D399]" />,
     desc: "Run containerized workloads with enterprise Kubernetes orchestration and zero-downtime rolling upgrades.",
     items: [
       { name: "Managed Kubernetes (EKS / GKE)", spec: "Multi-tenant clusters with strict pod security policies" },
@@ -60,7 +60,7 @@ const cloudData = {
     ],
   },
   Networking: {
-    icon: <Network className="w-5 h-5 text-[#D4FD53]" />,
+    icon: <Network className="w-5 h-5 text-[#34D399]" />,
     desc: "Ultra-low-latency global interconnect, DDoS mitigation, and software-defined private cloud networks.",
     items: [
       { name: "Virtual Private Cloud (VPC)", spec: "Isolated network topology with custom subnet CIDRs" },
@@ -70,7 +70,7 @@ const cloudData = {
     ],
   },
   Security: {
-    icon: <Shield className="w-5 h-5 text-[#D4FD53]" />,
+    icon: <Shield className="w-5 h-5 text-[#34D399]" />,
     desc: "Bank-grade cloud defense perimeter, identity governance, and strict compliance automation.",
     items: [
       { name: "Granular Identity & Access (IAM)", spec: "Role-based access control with temporal elevation" },
@@ -80,7 +80,7 @@ const cloudData = {
     ],
   },
   "AI / ML": {
-    icon: <Sparkles className="w-5 h-5 text-[#D4FD53]" />,
+    icon: <Sparkles className="w-5 h-5 text-[#34D399]" />,
     desc: "Optimized model training, vector indexing, and low-latency inference endpoints.",
     items: [
       { name: "Multi-Model Fallback Routing", spec: "Automated switching between GPT-4o, Claude 3.5, Gemini 1.5" },
@@ -95,45 +95,45 @@ const Cloud = () => {
   const [active, setActive] = useState("Storage");
 
   return (
-    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-[#22242A] pt-20 pb-20">
+      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-20 pb-20">
         {/* Radial Background Dots */}
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(#766DFE 1.2px, transparent 1.2px)",
+            backgroundImage: "radial-gradient(rgba(37, 99, 235, 0.4) 1.2px, transparent 1.2px)",
             backgroundSize: "28px 28px",
           }}
         ></div>
 
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
-            <span className="block h-3 w-3 bg-[#D4FD53]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53]">
+            <span className="block h-3 w-3 bg-[#34D399]"></span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
               CLOUD PLATFORMS & INFRASTRUCTURE
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
             Enterprise cloud architecture built for AI & massive scale.
           </h1>
 
-          <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
             From high-throughput NVMe block storage to distributed Kubernetes clusters and private GPU inference clouds, we engineer fault-tolerant foundations designed for 99.99% uptime.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
               99.99% Enterprise SLA
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
-              <Lock className="w-3.5 h-3.5 text-[#D4FD53]" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+              <Lock className="w-3.5 h-3.5 text-[#34D399]" />
               ISO 27001 & SOC2 Aligned
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
-              <CloudLightning className="w-3.5 h-3.5 text-[#766DFE]" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+              <CloudLightning className="w-3.5 h-3.5 text-blue-400" />
               Zero Data Egress Risk
             </div>
           </div>
@@ -141,18 +141,18 @@ const Cloud = () => {
       </section>
 
       {/* 2. INTERACTIVE CLOUD ARCHITECTURE SUITE */}
-      <section className="py-20 border-b border-[#22242A]">
+      <section className="py-20 border-b border-slate-200 dark:border-[#1E293B]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           {/* Category Tabs */}
-          <div className="flex flex-wrap gap-2 pb-10 border-b border-[#22242A]">
+          <div className="flex flex-wrap gap-2 pb-10 border-b border-slate-200 dark:border-[#1E293B]">
             {Object.keys(cloudData).map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
                 className={
                   active === cat
-                    ? "px-5 py-2.5 rounded font-mono text-xs uppercase tracking-wider bg-[#D4FD53] text-[#0C0D0F] font-bold shadow-md shadow-[#D4FD53]/10"
-                    : "px-5 py-2.5 rounded font-mono text-xs uppercase tracking-wider bg-[#141518] text-slate-300 border border-[#22242A] hover:border-white/20 hover:text-white transition-all"
+                    ? "px-5 py-2.5 rounded font-mono text-xs uppercase tracking-wider bg-[#2563EB] text-white font-bold shadow-md shadow-blue-500/20"
+                    : "px-5 py-2.5 rounded font-mono text-xs uppercase tracking-wider bg-white dark:bg-[#111827] text-slate-300 border border-slate-200 dark:border-[#1E293B] hover:border-white/20 hover:text-white transition-all"
                 }
               >
                 {cat}
@@ -177,13 +177,13 @@ const Cloud = () => {
               {cloudData[active].items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#D4FD53]/50 transition-all group"
+                  className="p-6 rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] hover:border-blue-500/40 transition-all group"
                 >
                   <div className="flex items-start justify-between">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-[#D4FD53] transition-colors">
+                    <h3 className="text-lg font-semibold text-white group-hover:text-[#34D399] transition-colors">
                       {item.name}
                     </h3>
-                    <span className="font-mono text-xs text-[#766DFE] bg-[#1C1C1E] px-2 py-0.5 rounded">
+                    <span className="font-mono text-xs text-blue-400 bg-slate-100 dark:bg-[#161F32] px-2 py-0.5 rounded">
                       VERIFIED
                     </span>
                   </div>
@@ -201,8 +201,8 @@ const Cloud = () => {
       <section className="py-20 bg-[#F6F4EE] text-[#0C0D0F] border-b border-[#DDD7CF]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
-            <span className="block h-3 w-3 bg-[#473BFD]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#473BFD] font-bold">
+            <span className="block h-3 w-3 bg-[#2563EB]"></span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#2563EB] font-bold">
               PRODUCTION DEPLOYMENT PROOF
             </span>
           </div>
@@ -224,7 +224,7 @@ const Cloud = () => {
                 href="https://cloudkitchen.aparaitech.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#473BFD] hover:underline"
+                className="mt-4 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#2563EB] hover:underline"
               >
                 Inspect Live System ↗
               </a>
@@ -242,7 +242,7 @@ const Cloud = () => {
                 href="https://attendance.aparaitech.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#473BFD] hover:underline"
+                className="mt-4 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#2563EB] hover:underline"
               >
                 Inspect Live System ↗
               </a>
@@ -260,7 +260,7 @@ const Cloud = () => {
                 href="https://apnastore.aparaitech.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#473BFD] hover:underline"
+                className="mt-4 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#2563EB] hover:underline"
               >
                 Inspect Live System ↗
               </a>
@@ -270,19 +270,19 @@ const Cloud = () => {
       </section>
 
       {/* 4. CLOSING CONSULTATION CTA */}
-      <section className="py-24 border-b border-[#22242A] text-center relative overflow-hidden">
+      <section className="py-24 border-b border-slate-200 dark:border-[#1E293B] text-center relative overflow-hidden">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
-          <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-white tracking-tight leading-tight max-w-2xl mx-auto">
+          <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-slate-900 dark:text-white tracking-tight leading-tight max-w-2xl mx-auto">
             Design your enterprise cloud architecture.
           </h2>
-          <p className="mt-4 text-slate-400 text-base max-w-lg mx-auto">
+          <p className="mt-4 text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">
             Schedule an architectural review sprint with our Pune cloud engineering pod.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
             <Link
               to="/generative-ai"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#2563EB] px-8 text-sm font-semibold text-white hover:bg-[#1D4ED8] transition-all"
             >
               <span>Explore AI Solutions</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -290,7 +290,7 @@ const Cloud = () => {
 
             <a
               href="tel:+918261840199"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-white/20 bg-[#1C1C1E] px-8 text-sm font-mono text-white hover:bg-[#2C2C30] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>Call Specialist: +91 82618 40199</span>
             </a>

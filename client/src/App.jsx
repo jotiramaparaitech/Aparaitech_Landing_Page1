@@ -106,7 +106,7 @@ function App() {
   const isHomePage = location.pathname === "/" || location.pathname === "/altrd";
 
   return (
-    <div className="min-h-screen bg-[#0C0D0F] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-slate-100 transition-colors duration-200 overflow-x-hidden">
       {/* 🔔 Toast Container (Required Once) */}
       <Toaster
         position="top-right"

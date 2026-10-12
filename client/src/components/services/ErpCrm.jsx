@@ -96,7 +96,7 @@ const ErpCrm = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-16 md:pt-0 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-16 md:pt-0 overflow-x-hidden">
       {/* Back Button */}
       <button
         onClick={() => navigate('/#services')}
@@ -116,7 +116,7 @@ const ErpCrm = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               ERP / CRM Solutions
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed">
               Custom ERP and CRM integrations to streamline operations, enhance customer relationships, 
               and drive business growth with unified systems.
             </p>
@@ -153,7 +153,7 @@ const ErpCrm = () => {
                 <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
                   {stat.value}{stat.suffix}
                 </div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-sm text-slate-600 dark:text-slate-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -164,8 +164,8 @@ const ErpCrm = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Our ERP/CRM Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Our ERP/CRM Services</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               Comprehensive enterprise solutions for business operations and customer management
             </p>
           </div>
@@ -179,15 +179,15 @@ const ErpCrm = () => {
                 <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${cap.color} text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   {cap.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
                   {cap.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{cap.description}</p>
                 <div className="mb-4">
-                  <p className="text-sm font-semibold text-gray-700 mb-2">Key Features:</p>
+                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Key Features:</p>
                   <ul className="space-y-2">
                     {cap.features.map((feature, i) => (
-                      <li key={i} className="flex items-start text-sm text-gray-700">
+                      <li key={i} className="flex items-start text-sm text-slate-700 dark:text-slate-300">
                         <span className="text-blue-500 mr-2 mt-1">✓</span>
                         <span>{feature}</span>
                       </li>
@@ -195,8 +195,8 @@ const ErpCrm = () => {
                   </ul>
                 </div>
                 {cap.modules && (
-                  <div className="pt-4 border-t border-gray-200">
-                    <p className="text-xs font-semibold text-gray-500 mb-2">Modules:</p>
+                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Modules:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.modules.map((item, i) => (
                         <span key={i} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
@@ -207,8 +207,8 @@ const ErpCrm = () => {
                   </div>
                 )}
                 {cap.platforms && (
-                  <div className="pt-4 border-t border-gray-200">
-                    <p className="text-xs font-semibold text-gray-500 mb-2">Platforms:</p>
+                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Platforms:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.platforms.map((item, i) => (
                         <span key={i} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
@@ -219,8 +219,8 @@ const ErpCrm = () => {
                   </div>
                 )}
                 {cap.integrations && (
-                  <div className="pt-4 border-t border-gray-200">
-                    <p className="text-xs font-semibold text-gray-500 mb-2">Integrations:</p>
+                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Integrations:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.integrations.map((item, i) => (
                         <span key={i} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
@@ -231,8 +231,8 @@ const ErpCrm = () => {
                   </div>
                 )}
                 {cap.benefits && (
-                  <div className="pt-4 border-t border-gray-200">
-                    <p className="text-xs font-semibold text-gray-500 mb-2">Benefits:</p>
+                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Benefits:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.benefits.map((item, i) => (
                         <span key={i} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
@@ -243,8 +243,8 @@ const ErpCrm = () => {
                   </div>
                 )}
                 {cap.reports && (
-                  <div className="pt-4 border-t border-gray-200">
-                    <p className="text-xs font-semibold text-gray-500 mb-2">Reports:</p>
+                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Reports:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.reports.map((item, i) => (
                         <span key={i} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
@@ -255,8 +255,8 @@ const ErpCrm = () => {
                   </div>
                 )}
                 {cap.standards && (
-                  <div className="pt-4 border-t border-gray-200">
-                    <p className="text-xs font-semibold text-gray-500 mb-2">Standards:</p>
+                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Standards:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.standards.map((item, i) => (
                         <span key={i} className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
@@ -276,8 +276,8 @@ const ErpCrm = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">ERP Modules</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">ERP Modules</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               Comprehensive modules to manage all aspects of your business
             </p>
           </div>
@@ -288,7 +288,7 @@ const ErpCrm = () => {
                 key={idx}
                 className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-xl font-bold mb-2 text-gray-900">{item.module}</h3>
+                <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">{item.module}</h3>
                 <p className="text-gray-600 text-sm">{item.description}</p>
               </div>
             ))}

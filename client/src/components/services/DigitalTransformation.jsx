@@ -114,7 +114,7 @@ const DigitalTransformation = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-16 md:pt-0 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-16 md:pt-0 overflow-x-hidden">
       {/* Back Button */}
       <button
         onClick={() => navigate('/#services')}
@@ -134,7 +134,7 @@ const DigitalTransformation = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Digital Transformation
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed">
               Modernize your business with legacy system transformation, process automation, and digital strategy. 
               Accelerate growth and stay competitive in the digital age.
             </p>
@@ -171,7 +171,7 @@ const DigitalTransformation = () => {
                 <div className="text-3xl md:text-4xl font-bold text-cyan-600 mb-2">
                   {stat.value}{stat.suffix}
                 </div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-sm text-slate-600 dark:text-slate-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -182,8 +182,8 @@ const DigitalTransformation = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Transformation Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Transformation Services</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               Comprehensive digital transformation solutions for modern businesses
             </p>
           </div>
@@ -197,22 +197,22 @@ const DigitalTransformation = () => {
                 <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${cap.color} text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   {cap.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-cyan-600 transition-colors">
+                <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-cyan-600 transition-colors">
                   {cap.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{cap.description}</p>
                 <div className="mb-4">
-                  <p className="text-sm font-semibold text-gray-700 mb-2">Key Features:</p>
+                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Key Features:</p>
                   <ul className="space-y-2 mb-4">
                     {cap.features.map((feature, i) => (
-                      <li key={i} className="flex items-start text-sm text-gray-700">
+                      <li key={i} className="flex items-start text-sm text-slate-700 dark:text-slate-300">
                         <span className="text-cyan-500 mr-2 mt-1">✓</span>
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="pt-3 border-t border-gray-200">
-                    <p className="text-xs font-semibold text-gray-500 mb-2">Benefits:</p>
+                  <div className="pt-3 border-t border-slate-200 dark:border-[#1E293B]">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Benefits:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.benefits.map((benefit, i) => (
                         <span key={i} className="text-xs bg-cyan-100 text-cyan-700 px-2 py-1 rounded">
@@ -232,8 +232,8 @@ const DigitalTransformation = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Transformation Benefits</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Transformation Benefits</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               Measurable results from digital transformation initiatives
             </p>
           </div>
@@ -250,7 +250,7 @@ const DigitalTransformation = () => {
                   </div>
                   <div className="text-3xl font-bold text-cyan-600">{benefit.improvement}</div>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900">{benefit.title}</h3>
+                <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">{benefit.title}</h3>
                 <p className="text-gray-600 text-sm">{benefit.description}</p>
               </div>
             ))}

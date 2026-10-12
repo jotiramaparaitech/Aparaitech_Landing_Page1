@@ -59,14 +59,14 @@ const SalesforceSolutionsPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white text-gray-900">
+        <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white">
             {/* Hero Section */}
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 py-16 md:py-24">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
                         Unlock the Full Potential of Salesforce for Your Business
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
+                    <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-12">
                         Helping businesses implement, customize, and integrate Salesforce for smarter processes, stronger customer relationships, and accelerated growth.
                     </p>
                 </div>
@@ -99,11 +99,11 @@ const SalesforceSolutionsPage = () => {
                 <section id="overview" className="mb-20 scroll-mt-32">
                     <div className="prose prose-lg max-w-none">
                         <h2 className="text-4xl font-bold mb-8">Transform Your Business with Salesforce</h2>
-                        <p className="text-xl text-gray-700 mb-8">
+                        <p className="text-xl text-slate-700 dark:text-slate-300 mb-8">
                             As the world's #1 CRM platform, Salesforce empowers businesses to connect with customers in entirely new ways. Our expertise helps you harness this power through strategic implementation, intelligent customization, and seamless integration.
                         </p>
                         <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-2xl mb-12">
-                            <p className="text-2xl font-semibold text-gray-900">
+                            <p className="text-2xl font-semibold text-slate-900 dark:text-white">
                                 From initial strategy to ongoing optimization, we ensure your Salesforce investment delivers maximum ROI and drives sustainable business growth.
                             </p>
                         </div>
@@ -119,7 +119,7 @@ const SalesforceSolutionsPage = () => {
                         ].map((stat, index) => (
                             <div key={index} className="text-center">
                                 <div className="text-4xl font-bold text-blue-500 mb-2">{stat.number}</div>
-                                <div className="text-gray-700">{stat.label}</div>
+                                <div className="text-slate-700 dark:text-slate-300">{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -128,7 +128,7 @@ const SalesforceSolutionsPage = () => {
                 {/* Implementation Section */}
                 <section id="implementation" className="mb-20 scroll-mt-32">
                     <h2 className="text-4xl font-bold mb-12">Complete Salesforce Implementation</h2>
-                    <p className="text-xl text-gray-700 mb-8">
+                    <p className="text-xl text-slate-700 dark:text-slate-300 mb-8">
                         From strategy to execution, we ensure seamless integration with your existing systems and business processes.
                     </p>
 
@@ -136,7 +136,7 @@ const SalesforceSolutionsPage = () => {
                         {implementationServices.map((service, index) => (
                             <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-shadow">
                                 <div className="text-5xl mb-6">{service.icon}</div>
-                                <h3 className="text-2xl font-bold mb-4 text-gray-900">{service.title}</h3>
+                                <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{service.title}</h3>
                                 <p className="text-gray-700 mb-6">{service.description}</p>
                                 <ul className="space-y-3">
                                     {service.features.map((item, idx) => (
@@ -151,7 +151,7 @@ const SalesforceSolutionsPage = () => {
                     </div>
 
                     {/* Implementation Process */}
-                    <div className="bg-gray-50 rounded-2xl p-10">
+                    <div className="bg-slate-50 dark:bg-[#0F172A] rounded-2xl p-10">
                         <h3 className="text-3xl font-bold mb-8 text-center">Our Implementation Process</h3>
                         <div className="grid md:grid-cols-5 gap-6">
                             {[
@@ -166,7 +166,7 @@ const SalesforceSolutionsPage = () => {
                                         {process.step}
                                     </div>
                                     <div className="font-bold text-lg mb-1">{process.title}</div>
-                                    <div className="text-sm text-gray-600">{process.desc}</div>
+                                    <div className="text-sm text-slate-600 dark:text-slate-400">{process.desc}</div>
                                 </div>
                             ))}
                         </div>
@@ -176,7 +176,7 @@ const SalesforceSolutionsPage = () => {
                 {/* Customization Section */}
                 <section id="customization" className="mb-20 scroll-mt-32">
                     <h2 className="text-4xl font-bold mb-8">Tailored Salesforce Customization</h2>
-                    <p className="text-xl text-gray-700 mb-12">
+                    <p className="text-xl text-slate-700 dark:text-slate-300 mb-12">
                         We create Salesforce solutions that match your unique business processes and requirements, extending platform capabilities to meet your specific needs.
                     </p>
 
@@ -184,7 +184,7 @@ const SalesforceSolutionsPage = () => {
                         {customizationServices.map((service, index) => (
                             <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-shadow">
                                 <div className="text-5xl mb-6">{service.icon}</div>
-                                <h3 className="text-2xl font-bold mb-4 text-gray-900">{service.title}</h3>
+                                <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{service.title}</h3>
                                 <p className="text-gray-700 mb-6">{service.description}</p>
                                 <ul className="space-y-3">
                                     {service.features.map((item, idx) => (
@@ -205,7 +205,7 @@ const SalesforceSolutionsPage = () => {
                             <div className="bg-white rounded-xl p-6">
                                 <h4 className="font-bold text-lg mb-3">Manufacturing Company</h4>
                                 <p className="text-gray-700 mb-4">Customized Salesforce for complex supply chain tracking, reducing order processing time by 60%.</p>
-                                <div className="flex items-center text-sm text-gray-600">
+                                <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
                                     <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
                                     <span>Custom objects for inventory management</span>
                                 </div>
@@ -213,7 +213,7 @@ const SalesforceSolutionsPage = () => {
                             <div className="bg-white rounded-xl p-6">
                                 <h4 className="font-bold text-lg mb-3">Financial Services</h4>
                                 <p className="text-gray-700 mb-4">Built custom compliance workflows, automating 80% of regulatory reporting requirements.</p>
-                                <div className="flex items-center text-sm text-gray-600">
+                                <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
                                     <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
                                     <span>Automated compliance tracking</span>
                                 </div>
@@ -263,7 +263,7 @@ const SalesforceSolutionsPage = () => {
                 <section id="services" className="mb-20 scroll-mt-32">
                     <div className="text-center mb-12">
                         <h2 className="text-4xl font-bold mb-6">Comprehensive Salesforce Services</h2>
-                        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                        <p className="text-xl text-slate-700 dark:text-slate-300 max-w-3xl mx-auto">
                             Beyond implementation and customization, we offer a full spectrum of Salesforce services to support your journey.
                         </p>
                     </div>
@@ -310,7 +310,7 @@ const SalesforceSolutionsPage = () => {
                                         <div className="w-3 h-3 bg-blue-500 rounded-full mt-2"></div>
                                         <div>
                                             <h4 className="font-bold text-lg mb-1">{item.title}</h4>
-                                            <p className="text-gray-700">{item.desc}</p>
+                                            <p className="text-slate-700 dark:text-slate-300">{item.desc}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -372,7 +372,7 @@ const SalesforceSolutionsPage = () => {
                             <a href="#" className="hover:text-white">Blog</a>
                             <a href="#" className="hover:text-white">Support</a>
                         </div>
-                        <div className="mt-8 pt-8 border-t border-gray-800 text-gray-500">
+                        <div className="mt-8 pt-8 border-t border-gray-800 text-slate-500 dark:text-slate-500">
                             <p>© 2024 Salesforce Solutions. All rights reserved.</p>
                         </div>
                     </div>

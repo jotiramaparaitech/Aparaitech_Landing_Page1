@@ -209,14 +209,14 @@ const Partners = () => {
                 TRUSTED BY INDUSTRY LEADERS
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4">
               Powering{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
                 Innovation
               </span>{" "}
               Worldwide
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-700 px-2 sm:px-0">
+            <p className="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 px-2 sm:px-0">
               We collaborate with industry-leading companies to deliver cutting-edge software solutions
               that transform businesses and drive growth.
             </p>
@@ -427,7 +427,7 @@ const Partners = () => {
               <div className="text-left">
                 <div className="flex items-center gap-2 mb-0.5 sm:mb-1">
                   <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse"></div>
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Become Our Partner</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white">Become Our Partner</h3>
                 </div>
                 <p className="text-gray-700 text-xs sm:text-sm md:text-base">Integrate with our cutting-edge APIs.</p>
               </div>

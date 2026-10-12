@@ -13,7 +13,7 @@ const HelpCenter = () => {
             <input 
               type="text" 
               placeholder="Search for answers, articles, or topics..." 
-              className="w-full py-4 px-6 pl-12 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
+              className="w-full py-4 px-6 pl-12 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
             />
             <svg className="w-6 h-6 text-gray-400 absolute left-4 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
           </div>
@@ -34,8 +34,8 @@ const HelpCenter = () => {
             ].map((cat, idx) => (
               <div key={idx} className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all cursor-pointer hover:-translate-y-1">
                 <div className="text-4xl mb-4">{cat.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{cat.title}</h3>
-                <p className="text-gray-600">{cat.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{cat.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400">{cat.desc}</p>
               </div>
             ))}
           </div>
@@ -45,7 +45,7 @@ const HelpCenter = () => {
       {/* FAQ SECTION */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {[
               { q: "How do I reset my password?", a: "You can reset your password by clicking 'Forgot Password' on the login page." },
@@ -54,8 +54,8 @@ const HelpCenter = () => {
               { q: "Can I upgrade my plan later?", a: "Absolutely! You can upgrade or downgrade your plan at any time from the billing settings." },
             ].map((faq, idx) => (
               <div key={idx} className="border-b border-gray-100 pb-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{faq.q}</h3>
-                <p className="text-gray-600">{faq.a}</p>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{faq.q}</h3>
+                <p className="text-slate-600 dark:text-slate-400">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -65,7 +65,7 @@ const HelpCenter = () => {
       {/* CONTACT CTA */}
       <section className="py-16 bg-blue-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Still need help?</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Still need help?</h2>
           <p className="text-gray-600 mb-8">Our support team is just a click away.</p>
           <div className="flex justify-center gap-4">
             <Link to="/support/contact" className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors">

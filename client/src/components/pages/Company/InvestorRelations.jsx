@@ -110,26 +110,26 @@ const InvestorRelations = () => {
   ];
 
   return (
-    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-[#22242A] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(#766DFE 1.2px, transparent 1.2px)",
+            backgroundImage: "radial-gradient(rgba(37, 99, 235, 0.4) 1.2px, transparent 1.2px)",
             backgroundSize: "28px 28px",
           }}
         ></div>
 
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
-            <span className="block h-3 w-3 bg-[#D4FD53]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53]">
+            <span className="block h-3 w-3 bg-[#10B981]"></span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
               INSTITUTIONAL RELATIONS // CORPORATE GOVERNANCE
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
             Aparaitech Software Investor Relations
           </h1>
 
@@ -140,14 +140,14 @@ const InvestorRelations = () => {
           <div className="mt-8 flex flex-wrap gap-4">
             <button
               onClick={() => setIsBriefingModalOpen(true)}
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all shadow-lg shadow-[#D4FD53]/10"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#2563EB] px-8 text-sm font-semibold text-white hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20"
             >
               <Calendar className="w-4 h-4" />
               <span>Schedule Executive Briefing</span>
             </button>
             <a
               href="mailto:info@ai.aparaitech.org?subject=Investor%20Information%20Pack"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-white/20 bg-[#1C1C1E] px-8 text-sm font-mono text-white hover:bg-[#2C2C30] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>Request Information Memorandum</span>
             </a>
@@ -156,12 +156,12 @@ const InvestorRelations = () => {
       </section>
 
       {/* 2. OPERATIONAL METRICS */}
-      <section className="border-b border-[#22242A] bg-[#141518]/70 py-14">
+      <section className="border-b border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/70 py-14">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {metrics.map((m, idx) => (
-              <div key={idx} className="p-6 rounded-xl border border-[#22242A] bg-[#0C0D0F]">
-                <div className="font-mono text-2xl lg:text-3xl font-bold text-[#D4FD53]">{m.value}</div>
+              <div key={idx} className="p-6 rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19]">
+                <div className="font-mono text-2xl lg:text-3xl font-bold text-[#34D399]">{m.value}</div>
                 <div className="text-xs font-mono uppercase tracking-wider text-slate-300 mt-1">{m.label}</div>
                 <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">{m.sub}</p>
               </div>
@@ -191,40 +191,40 @@ const InvestorRelations = () => {
 
             <div className="mt-8 space-y-3 font-mono text-xs text-slate-300">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#D4FD53]" />
+                <CheckCircle2 className="w-4 h-4 text-[#34D399]" />
                 <span>Zero debt capitalization structure</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#D4FD53]" />
+                <CheckCircle2 className="w-4 h-4 text-[#34D399]" />
                 <span>Proprietary IP across 6 live production systems</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#D4FD53]" />
+                <CheckCircle2 className="w-4 h-4 text-[#34D399]" />
                 <span>Strategic expansion in Hinjawadi IT corridor, Pune</span>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[#22242A] bg-[#141518] p-8 space-y-6">
+          <div className="rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-8 space-y-6">
             <h3 className="text-xl font-bold text-white flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-[#D4FD53]" />
+              <ShieldCheck className="w-5 h-5 text-[#34D399]" />
               <span>Corporate Governance & Compliance</span>
             </h3>
 
             <div className="space-y-4 text-xs font-mono text-slate-400">
-              <div className="p-4 rounded-lg bg-[#0C0D0F] border border-[#22242A]">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B]">
                 <div className="text-white font-bold mb-1">Corporate Registration</div>
                 <div>Aparaitech Software • Registered under Indian Companies Act</div>
                 <div className="text-slate-500 mt-1">CIN & Tax GST Compliance Up to Date</div>
               </div>
 
-              <div className="p-4 rounded-lg bg-[#0C0D0F] border border-[#22242A]">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B]">
                 <div className="text-white font-bold mb-1">Center of Excellence Operations</div>
                 <div>Hinjawadi Phase 2, Pune, Maharashtra 411057</div>
                 <div className="text-slate-500 mt-1">Direct Engineering Pod Operations</div>
               </div>
 
-              <div className="p-4 rounded-lg bg-[#0C0D0F] border border-[#22242A]">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B]">
                 <div className="text-white font-bold mb-1">Audit & Accounting Standard</div>
                 <div>Statutory quarterly compliance, audited balance sheets</div>
               </div>
@@ -234,11 +234,11 @@ const InvestorRelations = () => {
       </section>
 
       {/* 4. DISCLOSURES & FILINGS */}
-      <section className="py-20 border-t border-[#22242A] bg-[#141518]/50">
+      <section className="py-20 border-t border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/50">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
-              <span className="font-mono text-xs text-[#D4FD53] uppercase tracking-wider">
+              <span className="font-mono text-xs text-[#34D399] uppercase tracking-wider">
                 TRANSPARENCY & REPORTS
               </span>
               <h2 className="text-3xl font-bold text-white mt-1">Executive Briefings & Filings</h2>
@@ -252,14 +252,14 @@ const InvestorRelations = () => {
             </a>
           </div>
 
-          <div className="rounded-xl border border-[#22242A] bg-[#0C0D0F] divide-y divide-[#22242A] overflow-hidden">
+          <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] divide-y divide-[#22242A] overflow-hidden">
             {filings.map((doc, idx) => (
               <div
                 key={idx}
-                className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-[#141518] transition-colors"
+                className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-white dark:bg-[#111827] transition-colors"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#1C1C1E] border border-white/10 flex items-center justify-center text-[#D4FD53] shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-[#161F32] border border-white/10 flex items-center justify-center text-[#34D399] shrink-0">
                     <FileText className="w-5 h-5" />
                   </div>
                   <div>
@@ -269,12 +269,12 @@ const InvestorRelations = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <span className="px-2.5 py-0.5 rounded bg-[#1C1C1E] border border-white/5 font-mono text-[11px] text-slate-400 uppercase">
+                  <span className="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-[#161F32] border border-white/5 font-mono text-[11px] text-slate-400 uppercase">
                     {doc.type}
                   </span>
                   <a
                     href="mailto:info@ai.aparaitech.org?subject=Request%20Filing:%20"
-                    className="inline-flex items-center gap-1.5 font-mono text-xs text-[#D4FD53] hover:underline"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs text-[#34D399] hover:underline"
                   >
                     <span>Request Copy</span>
                     <Download className="w-3.5 h-3.5" />
@@ -287,9 +287,9 @@ const InvestorRelations = () => {
       </section>
 
       {/* 5. INVESTOR CONTACT DESK */}
-      <section className="py-16 border-t border-[#22242A] bg-[#0C0D0F]">
+      <section className="py-16 border-t border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19]">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-[#D4FD53] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#34D399] mb-4">
             <Building2 className="w-3.5 h-3.5" />
             <span>INVESTOR RELATIONS DESK</span>
           </div>
@@ -303,16 +303,16 @@ const InvestorRelations = () => {
           <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-xs">
             <a
               href="mailto:info@ai.aparaitech.org?subject=IR%20Inquiry"
-              className="inline-flex items-center gap-2 text-slate-300 hover:text-[#D4FD53]"
+              className="inline-flex items-center gap-2 text-slate-300 hover:text-[#34D399]"
             >
-              <Mail className="w-4 h-4 text-[#D4FD53]" />
+              <Mail className="w-4 h-4 text-[#34D399]" />
               <span>info@ai.aparaitech.org</span>
             </a>
             <a
               href="tel:+918261840199"
-              className="inline-flex items-center gap-2 text-slate-300 hover:text-[#D4FD53]"
+              className="inline-flex items-center gap-2 text-slate-300 hover:text-[#34D399]"
             >
-              <Phone className="w-4 h-4 text-[#D4FD53]" />
+              <Phone className="w-4 h-4 text-[#34D399]" />
               <span>+91 82618 40199</span>
             </a>
             <span className="text-slate-500">Hinjawadi Phase 2, Pune, Maharashtra 411057</span>
@@ -323,7 +323,7 @@ const InvestorRelations = () => {
       {/* 6. MODAL: INVESTOR BRIEFING REQUEST */}
       {isBriefingModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-[#22242A] bg-[#141518] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsBriefingModalOpen(false)}
               className="absolute right-5 top-5 text-slate-400 hover:text-white"
@@ -331,7 +331,7 @@ const InvestorRelations = () => {
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#D4FD53] font-mono text-xs uppercase mb-2">
+            <div className="flex items-center gap-2 text-[#34D399] font-mono text-xs uppercase mb-2">
               <Calendar className="w-4 h-4" />
               <span>Executive Briefing Request</span>
             </div>
@@ -344,7 +344,7 @@ const InvestorRelations = () => {
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Full Name *</label>
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -352,13 +352,13 @@ const InvestorRelations = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g., Sanjeev Bajaj"
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Corporate Email *</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Corporate Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -366,11 +366,11 @@ const InvestorRelations = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="sanjeev@fund.com"
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -378,14 +378,14 @@ const InvestorRelations = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Institution / Fund Name *</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Institution / Fund Name *</label>
                   <input
                     type="text"
                     name="company"
@@ -393,16 +393,16 @@ const InvestorRelations = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     placeholder="e.g., Apex Capital"
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Investor Category</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Investor Category</label>
                   <select
                     name="investorType"
                     value={formData.investorType}
                     onChange={handleInputChange}
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white focus:border-[#D4FD53] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white focus:border-blue-500 focus:outline-none"
                   >
                     <option value="Venture Capital / Growth Equity">Venture Capital / Growth Equity</option>
                     <option value="Family Office / High Net Worth">Family Office / High Net Worth</option>
@@ -413,14 +413,14 @@ const InvestorRelations = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Inquiry Context / Discussion Topics</label>
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Inquiry Context / Discussion Topics</label>
                 <textarea
                   name="notes"
                   rows="3"
                   value={formData.notes}
                   onChange={handleInputChange}
                   placeholder="Outline areas of interest, allocation thesis, or questions for leadership..."
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 ></textarea>
               </div>
 
@@ -428,7 +428,7 @@ const InvestorRelations = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#D4FD53] py-3 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all disabled:opacity-50"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#10B981] py-3 text-sm font-semibold text-white hover:brightness-105 transition-all disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isSubmitting ? "Syncing Request..." : "Request Executive Briefing"}</span>

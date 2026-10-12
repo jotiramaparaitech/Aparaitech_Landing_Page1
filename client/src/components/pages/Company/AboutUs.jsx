@@ -75,32 +75,32 @@ const AboutUs = () => {
       title: "Senior Engineering Pods On-Site",
       detail: "Based at our Hinjawadi Phase 2, Pune Center of Excellence, our pods consist of senior AI researchers and distributed systems architects who work directly on your systems.",
       metric: "Hinjawadi CoE",
-      icon: <Building2 className="w-5 h-5 text-[#D4FD53]" />,
+      icon: <Building2 className="w-5 h-5 text-[#34D399]" />,
     },
     {
       title: "6 Production Platforms Live",
       detail: "We don't deal in hypothetical slideware. We build and operate high-scale production systems across retail, biometric attendance, cloud kitchens, and alumni networks.",
       metric: "6 Live Systems",
-      icon: <Cpu className="w-5 h-5 text-[#D4FD53]" />,
+      icon: <Cpu className="w-5 h-5 text-[#34D399]" />,
     },
     {
       title: "Zero Hallucination Guardrails",
       detail: "Our enterprise architectures utilize deterministic retrieval, structured verification pipelines, and hybrid semantic search so business outcomes remain reliable.",
       metric: "Deterministic",
-      icon: <Shield className="w-5 h-5 text-[#D4FD53]" />,
+      icon: <Shield className="w-5 h-5 text-[#34D399]" />,
     },
     {
       title: "Direct AI Lab Collaboration",
       detail: "We test frontier models from OpenAI, Anthropic, and Google Cloud AI before public release, ensuring your organization stays ahead of market shifts.",
       metric: "Frontier Access",
-      icon: <Zap className="w-5 h-5 text-[#D4FD53]" />,
+      icon: <Zap className="w-5 h-5 text-[#34D399]" />,
     },
   ];
 
   return (
-    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO */}
-      <section className="relative overflow-hidden border-b border-[#22242A] pt-20 pb-20">
+      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-20 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
@@ -111,30 +111,30 @@ const AboutUs = () => {
 
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
-            <span className="block h-3 w-3 bg-[#D4FD53]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53]">
+            <span className="block h-3 w-3 bg-[#10B981]"></span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
               WHO WE ARE
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
             Architecting the AI-run enterprise from Pune to the world.
           </h1>
 
-          <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
             Aparaitech Software is an enterprise AI software engineering firm headquartered in Pune, India. We map operational bottlenecks, deploy autonomous multi-agent systems, and build intelligent platforms directly into how your teams work.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
-              <MapPin className="w-3.5 h-3.5 text-[#D4FD53]" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+              <MapPin className="w-3.5 h-3.5 text-[#34D399]" />
               Gera Imperium, Hinjawadi Phase 2, Pune
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
               <Award className="w-3.5 h-3.5 text-[#00E5C9]" />
               ISO 27001 & 9001 Certified
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
               <Users className="w-3.5 h-3.5 text-[#10B981]" />
               Dedicated Pune Engineering Pods
             </div>
@@ -143,9 +143,9 @@ const AboutUs = () => {
       </section>
 
       {/* 2. EXECUTIVE LEADERSHIP & FOUNDERS SPOTLIGHT */}
-      <section className="py-24 border-b border-[#22242A] relative overflow-hidden bg-[#0e0f13]">
+      <section className="py-24 border-b border-slate-200 dark:border-[#1E293B] relative overflow-hidden bg-[#0e0f13]">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#00E5C9]/5 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#D4FD53]/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#10B981]/5 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8 relative z-10">
           <div className="flex items-center gap-2 mb-4">
@@ -167,7 +167,7 @@ const AboutUs = () => {
 
             <button
               onClick={() => setModalOpen(true)}
-              className="inline-flex h-12 items-center justify-center gap-2 rounded bg-[#00E5C9] px-6 text-sm font-bold text-[#0C0D0F] hover:brightness-110 transition-all shadow-lg shrink-0"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded bg-[#00E5C9] px-6 text-sm font-bold text-white hover:brightness-110 transition-all shadow-lg shrink-0"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Executive Briefing</span>
@@ -178,11 +178,11 @@ const AboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Executive Leadership & Systems Architecture Matrix (No Personal Photo) */}
             <div className="relative group flex flex-col">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#00E5C9]/25 to-[#D4FD53]/25 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-6 sm:p-7 shadow-2xl flex-1 flex flex-col justify-between">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#00E5C9]/25 to-emerald-500/25 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] overflow-hidden p-6 sm:p-7 shadow-2xl flex-1 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-4 pb-4 border-b border-white/10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4FD53]/10 border border-[#D4FD53]/30 text-[#D4FD53] font-mono text-[11px] font-bold tracking-wider uppercase">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10B981]/10 border border-emerald-500/30 text-[#34D399] font-mono text-[11px] font-bold tracking-wider uppercase">
                       <Terminal className="w-3.5 h-3.5" />
                       Executive Leadership
                     </div>
@@ -192,7 +192,7 @@ const AboutUs = () => {
                   </div>
 
                   <div className="flex items-start gap-4 mb-5">
-                    <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#00E5C9]/20 to-[#D4FD53]/10 border border-[#00E5C9]/30 flex items-center justify-center shrink-0 shadow-md">
+                    <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#00E5C9]/20 to-emerald-500/10 border border-[#00E5C9]/30 flex items-center justify-center shrink-0 shadow-md">
                       <Cpu className="w-6 h-6 text-[#00E5C9]" />
                     </div>
                     <div>
@@ -219,7 +219,7 @@ const AboutUs = () => {
 
                   <div className="space-y-3.5">
                     {/* Mandate 1: Autonomous Multi-Agent Orchestration */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#0B0F19] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
                       <div className="w-9 h-9 rounded-lg bg-[#00E5C9]/10 border border-[#00E5C9]/20 flex items-center justify-center shrink-0 mt-0.5">
                         <Workflow className="w-4 h-4 text-[#00E5C9]" />
                       </div>
@@ -239,16 +239,16 @@ const AboutUs = () => {
                     </div>
 
                     {/* Mandate 2: Sovereign Cloud & Private VPC */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#D4FD53]/40 transition-colors flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#D4FD53]/10 border border-[#D4FD53]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Lock className="w-4 h-4 text-[#D4FD53]" />
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#0B0F19] border border-white/5 hover:border-emerald-500/40 transition-colors flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-lg bg-[#10B981]/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Lock className="w-4 h-4 text-[#34D399]" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
                           <h4 className="text-sm font-semibold text-white truncate">
                             Private VPC & On-Premises Isolation
                           </h4>
-                          <span className="font-mono text-[10px] text-[#D4FD53] font-bold uppercase tracking-wider shrink-0">
+                          <span className="font-mono text-[10px] text-[#34D399] font-bold uppercase tracking-wider shrink-0">
                             Pillar 02
                           </span>
                         </div>
@@ -259,7 +259,7 @@ const AboutUs = () => {
                     </div>
 
                     {/* Mandate 3: Commercial Production Scale */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#9B95FE]/40 transition-colors flex items-start gap-3.5">
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#0B0F19] border border-white/5 hover:border-[#9B95FE]/40 transition-colors flex items-start gap-3.5">
                       <div className="w-9 h-9 rounded-lg bg-[#9B95FE]/10 border border-[#9B95FE]/20 flex items-center justify-center shrink-0 mt-0.5">
                         <Layers className="w-4 h-4 text-[#9B95FE]" />
                       </div>
@@ -299,8 +299,8 @@ const AboutUs = () => {
 
             {/* Government Statutory Licences & Accreditations Card */}
             <div className="relative group flex flex-col">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#D4FD53]/25 to-[#00E5C9]/25 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative rounded-2xl bg-[#141518] border border-[#22242A] overflow-hidden p-6 sm:p-7 shadow-2xl flex-1 flex flex-col justify-between">
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/25 to-[#00E5C9]/25 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] overflow-hidden p-6 sm:p-7 shadow-2xl flex-1 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-4 pb-4 border-b border-white/10">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00E5C9]/10 border border-[#00E5C9]/30 text-[#00E5C9] font-mono text-[11px] font-bold tracking-wider uppercase">
@@ -321,7 +321,7 @@ const AboutUs = () => {
 
                   <div className="space-y-3.5">
                     {/* License 1: MSME / Udyam */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#0B0F19] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
                       <div className="w-9 h-9 rounded-lg bg-[#00E5C9]/10 border border-[#00E5C9]/20 flex items-center justify-center shrink-0 mt-0.5">
                         <Building2 className="w-4 h-4 text-[#00E5C9]" />
                       </div>
@@ -341,16 +341,16 @@ const AboutUs = () => {
                     </div>
 
                     {/* License 2: Gumasta / Shop Act */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#D4FD53]/40 transition-colors flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#D4FD53]/10 border border-[#D4FD53]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <FileText className="w-4 h-4 text-[#D4FD53]" />
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#0B0F19] border border-white/5 hover:border-emerald-500/40 transition-colors flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-lg bg-[#10B981]/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <FileText className="w-4 h-4 text-[#34D399]" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
                           <h4 className="text-sm font-semibold text-white truncate">
                             Maharashtra Shop & Establishment (Gumasta)
                           </h4>
-                          <span className="font-mono text-[10px] text-[#D4FD53] font-bold uppercase tracking-wider shrink-0">
+                          <span className="font-mono text-[10px] text-[#34D399] font-bold uppercase tracking-wider shrink-0">
                             Pune PMC
                           </span>
                         </div>
@@ -361,7 +361,7 @@ const AboutUs = () => {
                     </div>
 
                     {/* License 3: GSTIN Commercial Entity */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#0B0F19] border border-white/5 hover:border-[#00E5C9]/40 transition-colors flex items-start gap-3.5">
                       <div className="w-9 h-9 rounded-lg bg-[#00E5C9]/10 border border-[#00E5C9]/20 flex items-center justify-center shrink-0 mt-0.5">
                         <Shield className="w-4 h-4 text-[#00E5C9]" />
                       </div>
@@ -381,16 +381,16 @@ const AboutUs = () => {
                     </div>
 
                     {/* License 4: ISO 27001 & 9001 + SOC 2 */}
-                    <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/5 hover:border-[#D4FD53]/40 transition-colors flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#D4FD53]/10 border border-[#D4FD53]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Lock className="w-4 h-4 text-[#D4FD53]" />
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#0B0F19] border border-white/5 hover:border-emerald-500/40 transition-colors flex items-start gap-3.5">
+                      <div className="w-9 h-9 rounded-lg bg-[#10B981]/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Lock className="w-4 h-4 text-[#34D399]" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
                           <h4 className="text-sm font-semibold text-white truncate">
                             ISO 27001 & 9001 Certified Architecture
                           </h4>
-                          <span className="font-mono text-[10px] text-[#D4FD53] font-bold uppercase tracking-wider shrink-0">
+                          <span className="font-mono text-[10px] text-[#34D399] font-bold uppercase tracking-wider shrink-0">
                             SOC 2 Type II
                           </span>
                         </div>
@@ -407,16 +407,16 @@ const AboutUs = () => {
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5C9]" />
                     Legal Entity: Sole Proprietorship Firm
                   </span>
-                  <span className="text-[#D4FD53]">Pune, Maharashtra, India</span>
+                  <span className="text-[#34D399]">Pune, Maharashtra, India</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Strategic Narrative & Vision */}
-          <div className="rounded-2xl bg-[#141518] border border-[#22242A] p-8 sm:p-10 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
-              <Briefcase className="w-3.5 h-3.5 text-[#D4FD53]" />
+          <div className="rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] p-8 sm:p-10 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-slate-300">
+              <Briefcase className="w-3.5 h-3.5 text-[#34D399]" />
               Executive Strategic Vision
             </div>
 
@@ -433,8 +433,8 @@ const AboutUs = () => {
             </p>
 
             {/* Founder Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#22242A]">
-              <div className="p-4 rounded-lg bg-[#0C0D0F] border border-white/5 space-y-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-white/5 space-y-1">
                 <div className="flex items-center gap-2 text-white font-semibold text-sm">
                   <CheckCircle2 className="w-4 h-4 text-[#00E5C9]" />
                   <span>Hands-On Engineering Leadership</span>
@@ -444,9 +444,9 @@ const AboutUs = () => {
                 </p>
               </div>
 
-              <div className="p-4 rounded-lg bg-[#0C0D0F] border border-white/5 space-y-1">
+              <div className="p-4 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-white/5 space-y-1">
                 <div className="flex items-center gap-2 text-white font-semibold text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4FD53]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#34D399]" />
                   <span>Statutory Governance & Compliance</span>
                 </div>
                 <p className="text-xs text-slate-400 font-mono">
@@ -459,25 +459,25 @@ const AboutUs = () => {
       </section>
 
       {/* 3. PILLARS GRID */}
-      <section className="py-20 border-b border-[#22242A]">
+      <section className="py-20 border-b border-slate-200 dark:border-[#1E293B]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {pillars.map((p, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#D4FD53]/50 transition-all group flex flex-col justify-between"
+                className="p-8 rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] hover:border-blue-500/50 transition-all group flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     {p.icon}
-                    <span className="font-mono text-xs text-[#D4FD53] bg-[#1C1C1E] px-2.5 py-1 rounded border border-white/10">
+                    <span className="font-mono text-xs text-[#34D399] bg-slate-100 dark:bg-[#161F32] px-2.5 py-1 rounded border border-white/10">
                       {p.metric}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#D4FD53] transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#34D399] transition-colors">
                     {p.title}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed font-mono">
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
                     {p.detail}
                   </p>
                 </div>
@@ -488,7 +488,7 @@ const AboutUs = () => {
       </section>
 
       {/* 4. PROVEN PORTFOLIO DEPLOYMENTS */}
-      <section className="py-20 bg-[#0C0D0F] border-b border-[#22242A]">
+      <section className="py-20 bg-slate-50 dark:bg-[#0B0F19] border-b border-slate-200 dark:border-[#1E293B]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center justify-between mb-10">
             <div>
@@ -501,7 +501,7 @@ const AboutUs = () => {
             </div>
             <Link
               to="/customers/portfolio"
-              className="inline-flex items-center gap-1.5 font-mono text-xs text-[#D4FD53] hover:underline"
+              className="inline-flex items-center gap-1.5 font-mono text-xs text-[#34D399] hover:underline"
             >
               <span>View All 6 Live Systems</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -509,7 +509,7 @@ const AboutUs = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#141518] p-6 rounded-lg border border-[#22242A] hover:border-[#00E5C9]/50 transition-all">
+            <div className="bg-white dark:bg-[#111827] p-6 rounded-lg border border-slate-200 dark:border-[#1E293B] hover:border-[#00E5C9]/50 transition-all">
               <h4 className="font-mono text-xs text-slate-400 uppercase">FOOD & HOSPITALITY</h4>
               <h3 className="text-xl font-bold text-white mt-1">Cloud Kitchen AI</h3>
               <p className="text-xs text-slate-400 mt-2 font-mono leading-relaxed">
@@ -520,7 +520,7 @@ const AboutUs = () => {
               </a>
             </div>
 
-            <div className="bg-[#141518] p-6 rounded-lg border border-[#22242A] hover:border-[#00E5C9]/50 transition-all">
+            <div className="bg-white dark:bg-[#111827] p-6 rounded-lg border border-slate-200 dark:border-[#1E293B] hover:border-[#00E5C9]/50 transition-all">
               <h4 className="font-mono text-xs text-slate-400 uppercase">ENTERPRISE SAAS</h4>
               <h3 className="text-xl font-bold text-white mt-1">Attendance SaaS</h3>
               <p className="text-xs text-slate-400 mt-2 font-mono leading-relaxed">
@@ -531,7 +531,7 @@ const AboutUs = () => {
               </a>
             </div>
 
-            <div className="bg-[#141518] p-6 rounded-lg border border-[#22242A] hover:border-[#00E5C9]/50 transition-all">
+            <div className="bg-white dark:bg-[#111827] p-6 rounded-lg border border-slate-200 dark:border-[#1E293B] hover:border-[#00E5C9]/50 transition-all">
               <h4 className="font-mono text-xs text-slate-400 uppercase">RETAIL ENGINE</h4>
               <h3 className="text-xl font-bold text-white mt-1">APNA Store</h3>
               <p className="text-xs text-slate-400 mt-2 font-mono leading-relaxed">
@@ -546,19 +546,19 @@ const AboutUs = () => {
       </section>
 
       {/* 5. CLOSING CTA */}
-      <section className="py-24 border-b border-[#22242A] text-center relative overflow-hidden">
+      <section className="py-24 border-b border-slate-200 dark:border-[#1E293B] text-center relative overflow-hidden">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
-          <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-white tracking-tight leading-tight max-w-2xl mx-auto">
+          <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-slate-900 dark:text-white tracking-tight leading-tight max-w-2xl mx-auto">
             Partner with our AI engineering pod.
           </h2>
-          <p className="mt-4 text-slate-400 text-base max-w-lg mx-auto">
+          <p className="mt-4 text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">
             Visit our Center of Excellence at Hinjawadi Phase 2, Pune or connect directly with our founder and lead architects.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
             <button
               onClick={() => setModalOpen(true)}
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#10B981] px-8 text-sm font-semibold text-white hover:brightness-105 transition-all"
             >
               <span>Schedule Executive Architecture Briefing</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -566,7 +566,7 @@ const AboutUs = () => {
 
             <a
               href="tel:+918261840199"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-white/20 bg-[#1C1C1E] px-8 text-sm font-mono text-white hover:bg-[#2C2C30] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>Call Specialist: +91 82618 40199</span>
             </a>
@@ -577,7 +577,7 @@ const AboutUs = () => {
       {/* EXECUTIVE BRIEFING MODAL */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-[#141518] border border-[#22242A] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setModalOpen(false)}
               className="absolute top-4 right-4 text-slate-400 hover:text-white"
@@ -592,7 +592,7 @@ const AboutUs = () => {
                   alt="Aparaitech Software"
                   className="w-12 h-12 rounded-xl object-contain bg-white/5 border border-[#00E5C9]/40 p-1 shadow-lg shadow-[#00E5C9]/10"
                 />
-                <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#00E5C9] text-[9px] font-bold text-[#0C0D0F]">✓</span>
+                <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#00E5C9] text-[9px] font-bold text-white">✓</span>
               </div>
               <div>
                 <span className="font-mono text-xs uppercase tracking-widest text-[#00E5C9]">
@@ -616,7 +616,7 @@ const AboutUs = () => {
                   required
                   value={bookingForm.name}
                   onChange={(e) => setBookingForm({ ...bookingForm, name: e.target.value })}
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3 py-2 text-white focus:border-[#00E5C9] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3 py-2 text-white focus:border-[#00E5C9] focus:outline-none"
                   placeholder="e.g., Rajesh Kumar"
                 />
               </div>
@@ -629,7 +629,7 @@ const AboutUs = () => {
                     required
                     value={bookingForm.email}
                     onChange={(e) => setBookingForm({ ...bookingForm, email: e.target.value })}
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3 py-2 text-white focus:border-[#00E5C9] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3 py-2 text-white focus:border-[#00E5C9] focus:outline-none"
                     placeholder="rajesh@enterprise.com"
                   />
                 </div>
@@ -640,7 +640,7 @@ const AboutUs = () => {
                     required
                     value={bookingForm.phone}
                     onChange={(e) => setBookingForm({ ...bookingForm, phone: e.target.value })}
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3 py-2 text-white focus:border-[#00E5C9] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3 py-2 text-white focus:border-[#00E5C9] focus:outline-none"
                     placeholder="+91 98765 43210"
                   />
                 </div>
@@ -652,7 +652,7 @@ const AboutUs = () => {
                   type="text"
                   value={bookingForm.company}
                   onChange={(e) => setBookingForm({ ...bookingForm, company: e.target.value })}
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3 py-2 text-white focus:border-[#00E5C9] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3 py-2 text-white focus:border-[#00E5C9] focus:outline-none"
                   placeholder="Acme Technologies Ltd."
                 />
               </div>
@@ -663,7 +663,7 @@ const AboutUs = () => {
                   rows="3"
                   value={bookingForm.message}
                   onChange={(e) => setBookingForm({ ...bookingForm, message: e.target.value })}
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3 py-2 text-white focus:border-[#00E5C9] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3 py-2 text-white focus:border-[#00E5C9] focus:outline-none"
                   placeholder="Describe your architecture requirements, data volume, or target rollout timeline..."
                 ></textarea>
               </div>
@@ -674,7 +674,7 @@ const AboutUs = () => {
                   id="nda-about"
                   checked={bookingForm.nda}
                   onChange={(e) => setBookingForm({ ...bookingForm, nda: e.target.checked })}
-                  className="rounded border-[#22242A] bg-[#0C0D0F] text-[#00E5C9] focus:ring-0"
+                  className="rounded border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] text-[#00E5C9] focus:ring-0"
                 />
                 <label htmlFor="nda-about" className="text-slate-400 text-[11px]">
                   Require mutual non-disclosure agreement (NDA) before briefing
@@ -685,7 +685,7 @@ const AboutUs = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#00E5C9] px-5 py-3 font-bold text-[#0C0D0F] hover:brightness-110 disabled:opacity-50 transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#00E5C9] px-5 py-3 font-bold text-white hover:brightness-110 disabled:opacity-50 transition-all"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{isSubmitting ? "Dispatching..." : "Confirm Briefing Request"}</span>

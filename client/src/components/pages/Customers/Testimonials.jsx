@@ -149,43 +149,43 @@ const Testimonials = () => {
     : testimonials.filter((t) => t.category === activeFilter);
 
   return (
-    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-[#22242A] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(#766DFE 1.2px, transparent 1.2px)",
+            backgroundImage: "radial-gradient(rgba(37, 99, 235, 0.4) 1.2px, transparent 1.2px)",
             backgroundSize: "28px 28px",
           }}
         ></div>
 
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
-            <span className="block h-3 w-3 bg-[#D4FD53]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53]">
+            <span className="block h-3 w-3 bg-[#10B981]"></span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
               VERIFIED ENDORSEMENTS // CLIENT TESTIMONIALS
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
             Trusted by CTOs, Product Leads & Operations Directors
           </h1>
 
-          <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
             Read direct feedback from executives and technical leaders whose production systems are built, hosted, and operated by Aparaitech Software's Pune engineering pods.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
               100% Production Verified
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
               <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
               5.0 / 5.0 Engineering CSAT
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
               <Building2 className="w-3.5 h-3.5 text-[#00E5C9]" />
               Pune Hinjawadi CoE Delivery
             </div>
@@ -194,14 +194,14 @@ const Testimonials = () => {
           <div className="mt-10 flex flex-wrap gap-4">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all shadow-lg shadow-[#D4FD53]/10"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#2563EB] px-8 text-sm font-semibold text-white hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20"
             >
               <Calendar className="w-4 h-4" />
               <span>Connect with Our Architects</span>
             </button>
             <a
               href="tel:+918261840199"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-white/20 bg-[#1C1C1E] px-8 text-sm font-mono text-white hover:bg-[#2C2C30] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>+91 82618 40199</span>
             </a>
@@ -219,8 +219,8 @@ const Testimonials = () => {
               onClick={() => setActiveFilter(cat)}
               className={`px-4 py-2 rounded font-mono text-xs uppercase tracking-wider transition-all ${
                 activeFilter === cat
-                  ? "bg-[#D4FD53] text-[#0C0D0F] font-bold shadow-md shadow-[#D4FD53]/20"
-                  : "bg-[#141518] text-slate-300 border border-[#22242A] hover:border-slate-500"
+                  ? "bg-[#10B981] text-white font-bold shadow-md shadow-blue-500/20"
+                  : "bg-white dark:bg-[#111827] text-slate-300 border border-slate-200 dark:border-[#1E293B] hover:border-slate-500"
               }`}
             >
               {cat}
@@ -233,7 +233,7 @@ const Testimonials = () => {
           {filteredTestimonials.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between rounded-xl border border-[#22242A] bg-[#141518] p-8 hover:border-[#D4FD53]/50 transition-all duration-300 relative group"
+              className="flex flex-col justify-between rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-8 hover:border-blue-500/50 transition-all duration-300 relative group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -247,15 +247,15 @@ const Testimonials = () => {
                   </span>
                 </div>
 
-                <Quote className="w-8 h-8 text-[#22242A] mb-2 group-hover:text-[#D4FD53]/30 transition-colors" />
+                <Quote className="w-8 h-8 text-[#22242A] mb-2 group-hover:text-[#34D399]/30 transition-colors" />
 
                 <p className="text-slate-300 text-sm leading-relaxed mb-6 italic">
                   "{item.quote}"
                 </p>
 
                 {/* Platform Metric Badge */}
-                <div className="rounded-lg bg-[#0C0D0F] border border-[#22242A] p-3 mb-6">
-                  <div className="font-mono text-xs text-[#D4FD53] font-bold">
+                <div className="rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] p-3 mb-6">
+                  <div className="font-mono text-xs text-[#34D399] font-bold">
                     {item.stats}
                   </div>
                   <div className="mt-1 flex items-center justify-between text-[11px] text-slate-400">
@@ -273,8 +273,8 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#22242A] flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1C1C1E] border border-white/10 flex items-center justify-center font-mono font-bold text-sm text-[#D4FD53] shrink-0">
+              <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B] flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-[#161F32] border border-white/10 flex items-center justify-center font-mono font-bold text-sm text-[#34D399] shrink-0">
                   {item.author.charAt(0)}
                 </div>
                 <div>
@@ -289,9 +289,9 @@ const Testimonials = () => {
       </section>
 
       {/* 3. EXECUTIVE CTA */}
-      <section className="py-20 border-t border-[#22242A] bg-[#141518]/50">
+      <section className="py-20 border-t border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/50">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-[#D4FD53] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#34D399] mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             <span>DIRECT ACCESS TO LEAD ARCHITECTS</span>
           </div>
@@ -304,7 +304,7 @@ const Testimonials = () => {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all shadow-lg shadow-[#D4FD53]/10"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#2563EB] px-8 text-sm font-semibold text-white hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Discovery Sprint</span>
@@ -316,7 +316,7 @@ const Testimonials = () => {
       {/* 4. CONSULTATION MODAL */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-[#22242A] bg-[#141518] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute right-5 top-5 text-slate-400 hover:text-white"
@@ -324,7 +324,7 @@ const Testimonials = () => {
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#D4FD53] font-mono text-xs uppercase mb-2">
+            <div className="flex items-center gap-2 text-[#34D399] font-mono text-xs uppercase mb-2">
               <Calendar className="w-4 h-4" />
               <span>Executive Discovery Consultation</span>
             </div>
@@ -337,7 +337,7 @@ const Testimonials = () => {
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Full Name *</label>
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -345,13 +345,13 @@ const Testimonials = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g., Alok Singhania"
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Corporate Email *</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Corporate Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -359,11 +359,11 @@ const Testimonials = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="alok@company.com"
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -371,30 +371,30 @@ const Testimonials = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Company / Organization</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Company / Organization</label>
                   <input
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
                     placeholder="Enter organization"
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Area of Interest</label>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Area of Interest</label>
                   <select
                     name="interest"
                     value={formData.interest}
                     onChange={handleInputChange}
-                    className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white focus:border-[#D4FD53] focus:outline-none"
+                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white focus:border-blue-500 focus:outline-none"
                   >
                     <option value="Enterprise AI & Cloud Architecture">Enterprise AI & Cloud Architecture</option>
                     <option value="Edge Biometric Recognition">Edge Biometric Recognition</option>
@@ -406,14 +406,14 @@ const Testimonials = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Project Details or Questions</label>
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Project Details or Questions</label>
                 <textarea
                   name="notes"
                   rows="3"
                   value={formData.notes}
                   onChange={handleInputChange}
                   placeholder="Tell us about your upcoming initiatives, timeline, or reference questions..."
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 ></textarea>
               </div>
 
@@ -421,7 +421,7 @@ const Testimonials = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#D4FD53] py-3 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all disabled:opacity-50"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#10B981] py-3 text-sm font-semibold text-white hover:brightness-105 transition-all disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isSubmitting ? "Logging Request..." : "Schedule Discovery Session"}</span>

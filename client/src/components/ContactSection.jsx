@@ -72,22 +72,20 @@ const ContactSection = () => {
       id="contact"
       className="
         relative py-32 overflow-hidden
-        bg-gradient-to-br
-        from-[#f6f2ff]
-        via-[#f1ecff]
-        to-[#faf8ff]
+        bg-slate-50 dark:bg-[#0B0F19]
+        transition-colors
       "
     >
-      {/* 🔮 Decorative Background Blobs */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#a78bfa]/25 rounded-full blur-[140px]" />
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-[#7c3aed]/20 rounded-full blur-[140px]" />
+      {/* Decorative Subtle Background Accents */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-500/10 dark:bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-indigo-500/10 dark:bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-6">
 
         {/* Heading */}
         <div className="relative mb-16 text-center">
-          <div className="absolute inset-x-0 top-1/2 h-[1px] bg-[#d9d1f3]" />
-          <h2 className="relative inline-block bg-[#f3eeff] px-6 text-3xl font-semibold text-[#2d1b69]">
+          <div className="absolute inset-x-0 top-1/2 h-[1px] bg-slate-200 dark:bg-[#1E293B]" />
+          <h2 className="relative inline-block bg-slate-50 dark:bg-[#0B0F19] px-6 text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
             Let’s Talk
           </h2>
         </div>
@@ -96,15 +94,18 @@ const ContactSection = () => {
 
           {/* LEFT CONTENT */}
           <div>
-            <h3 className="text-4xl font-semibold text-[#2d1b69] mb-6 leading-tight">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700/50 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">
+              Get In Touch
+            </div>
+            <h3 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
               Got an idea?
               <br />
-              Let’s build it together.
+              <span className="text-blue-600 dark:text-blue-400">Let’s build it together.</span>
             </h3>
 
-            <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
+            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
               We collaborate closely with you to turn ideas into elegant,
-              scalable digital products — with clarity and care.
+              scalable digital products — with engineering rigor, clarity, and precision.
             </p>
           </div>
 
@@ -119,13 +120,13 @@ const ContactSection = () => {
                 transformStyle: "preserve-3d"
               }}
               className="
-                bg-[#fdfcff]
-                border border-[rgba(124,58,237,0.25)]
-                rounded-3xl p-12
-                shadow-[0_30px_60px_rgba(124,58,237,0.35)]
+                bg-white dark:bg-[#111827]
+                border border-slate-200 dark:border-[#1E293B]
+                rounded-3xl p-8 sm:p-12
+                shadow-xl shadow-slate-200/50 dark:shadow-none
               "
             >
-              <h4 className="text-2xl font-semibold text-[#2d1b69] mb-6">
+              <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
                 Start the conversation
               </h4>
 
@@ -138,10 +139,11 @@ const ContactSection = () => {
                   required
                   className="
                     w-full p-4 rounded-xl
-                    bg-white focus:bg-white active:bg-white
-                    text-gray-800 placeholder-gray-400
-                    border border-[rgba(124,58,237,0.25)]
-                    focus:outline-none focus:border-[#7c3aed]
+                    bg-slate-50 dark:bg-[#161F32]
+                    text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500
+                    border border-slate-200 dark:border-white/10
+                    focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                    transition-all
                   "
                 />
 
@@ -154,10 +156,11 @@ const ContactSection = () => {
                   required
                   className="
                     w-full p-4 rounded-xl
-                    bg-white focus:bg-white active:bg-white
-                    text-gray-800 placeholder-gray-400
-                    border border-[rgba(124,58,237,0.25)]
-                    focus:outline-none focus:border-[#7c3aed]
+                    bg-slate-50 dark:bg-[#161F32]
+                    text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500
+                    border border-slate-200 dark:border-white/10
+                    focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                    transition-all
                   "
                 />
 
@@ -165,29 +168,30 @@ const ContactSection = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="What's in your mind..?"
+                  placeholder="What's on your mind..?"
                   rows="4"
                   required
                   className="
                     w-full p-4 rounded-xl
-                    bg-white focus:bg-white active:bg-white
-                    text-gray-800 placeholder-gray-400
-                    border border-[rgba(124,58,237,0.25)]
+                    bg-slate-50 dark:bg-[#161F32]
+                    text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500
+                    border border-slate-200 dark:border-white/10
                     resize-none
-                    focus:outline-none focus:border-[#7c3aed]
+                    focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                    transition-all
                   "
                 />
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[#7c3aed] text-white py-4 rounded-xl font-semibold hover:bg-[#6d28d9] transition disabled:opacity-60"
+                  className="w-full bg-[#2563EB] text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20 disabled:opacity-60"
                 >
                   {loading ? "Sending..." : "Send Message"}
                 </button>
 
                 {success && (
-                  <p className="text-green-600 font-medium text-center">
-                    We'll reach out to you soon!!
+                  <p className="text-emerald-600 dark:text-emerald-400 font-medium text-center">
+                    We'll reach out to you soon!
                   </p>
                 )}
               </form>

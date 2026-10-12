@@ -96,7 +96,7 @@ const MobileAppDevelopment = () => {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-white p-8 rounded-2xl shadow hover:shadow-xl transition text-center"
+              className="bg-white dark:bg-[#111827] p-8 rounded-2xl shadow hover:shadow-xl transition text-center"
             >
               <item.icon className="mx-auto w-8 h-8 text-indigo-600 mb-4" />
               <div className="text-4xl font-bold">{item.value}+</div>
@@ -159,7 +159,7 @@ const MobileAppDevelopment = () => {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition"
+                className="bg-white dark:bg-[#111827] p-8 rounded-3xl shadow hover:shadow-xl transition"
               >
                 <div className={`inline-flex p-4 rounded-2xl text-white ${item.color} mb-6`}>
                   {item.icon}
@@ -270,7 +270,7 @@ const MobileAppDevelopment = () => {
             ].map((faq, i) => (
               <div
                 key={i}
-                className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition"
+                className="bg-white dark:bg-[#111827] p-8 rounded-2xl shadow hover:shadow-lg transition"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <HelpCircle className="w-6 h-6 text-indigo-600" />

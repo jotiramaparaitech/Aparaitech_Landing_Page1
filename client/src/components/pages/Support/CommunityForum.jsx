@@ -150,13 +150,13 @@ const CommunityForum = () => {
   };
 
   return (
-    <div className="bg-[#0C0D0F] text-white font-sans selection:bg-[#D4FD53] selection:text-[#0C0D0F] min-h-screen">
+    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-[#22242A] pt-24 pb-16">
+      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-16">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(#766DFE 1.2px, transparent 1.2px)",
+            backgroundImage: "radial-gradient(rgba(37, 99, 235, 0.4) 1.2px, transparent 1.2px)",
             backgroundSize: "28px 28px",
           }}
         ></div>
@@ -165,8 +165,8 @@ const CommunityForum = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <span className="block h-3 w-3 bg-[#D4FD53]"></span>
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4FD53]">
+                <span className="block h-3 w-3 bg-[#10B981]"></span>
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
                   DEVELOPER ECOSYSTEM // COMMUNITY DISCUSSIONS
                 </span>
               </div>
@@ -180,7 +180,7 @@ const CommunityForum = () => {
 
             <button
               onClick={() => setShowNewDiscussionModal(true)}
-              className="inline-flex h-[48px] items-center gap-2 rounded bg-[#D4FD53] px-6 text-xs font-mono font-bold uppercase text-[#0C0D0F] hover:brightness-105 transition-all shadow-lg shadow-[#D4FD53]/10 shrink-0"
+              className="inline-flex h-[48px] items-center gap-2 rounded bg-[#10B981] px-6 text-xs font-mono font-bold uppercase text-white hover:brightness-105 transition-all shadow-lg shadow-blue-500/20 shrink-0"
             >
               <Plus className="w-4 h-4" />
               <span>Start New Discussion</span>
@@ -200,7 +200,7 @@ const CommunityForum = () => {
               placeholder="Search discussions by topic or author..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full h-[44px] rounded-lg bg-[#141518] border border-[#22242A] pl-10 pr-4 text-xs font-mono text-white placeholder-slate-500 focus:border-[#D4FD53] focus:outline-none"
+              className="w-full h-[44px] rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] pl-10 pr-4 text-xs font-mono text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
             />
           </div>
 
@@ -215,7 +215,7 @@ const CommunityForum = () => {
           {/* SIDEBAR */}
           <div className="lg:col-span-4 space-y-6">
             {/* Category Navigation */}
-            <div className="rounded-xl border border-[#22242A] bg-[#141518] p-5">
+            <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-5">
               <h3 className="font-mono text-xs uppercase tracking-wider text-slate-400 mb-3">
                 Discussion Channels
               </h3>
@@ -226,12 +226,12 @@ const CommunityForum = () => {
                       onClick={() => setSelectedCategory(cat)}
                       className={`w-full text-left px-3 py-2 rounded font-mono text-xs transition-colors flex items-center justify-between ${
                         selectedCategory === cat
-                          ? "bg-[#D4FD53] text-[#0C0D0F] font-bold"
-                          : "text-slate-300 hover:bg-[#1C1C1E] hover:text-white"
+                          ? "bg-[#10B981] text-white font-bold"
+                          : "text-slate-300 hover:bg-slate-100 dark:bg-[#161F32] hover:text-white"
                       }`}
                     >
                       <span>{cat}</span>
-                      {selectedCategory === cat && <span className="h-1.5 w-1.5 rounded-full bg-[#0C0D0F]"></span>}
+                      {selectedCategory === cat && <span className="h-1.5 w-1.5 rounded-full bg-slate-50 dark:bg-[#0B0F19]"></span>}
                     </button>
                   </li>
                 ))}
@@ -239,7 +239,7 @@ const CommunityForum = () => {
             </div>
 
             {/* Top Contributors */}
-            <div className="rounded-xl border border-[#22242A] bg-[#141518] p-5">
+            <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-5">
               <h3 className="font-mono text-xs uppercase tracking-wider text-[#00E5C9] mb-4 flex items-center gap-2">
                 <Users className="w-4 h-4" />
                 <span>Featured Engineering Leads</span>
@@ -247,7 +247,7 @@ const CommunityForum = () => {
               <div className="space-y-3.5">
                 {topContributors.map((c, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#0C0D0F] border border-white/10 flex items-center justify-center font-mono text-xs font-bold text-[#D4FD53]">
+                    <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-white/10 flex items-center justify-center font-mono text-xs font-bold text-[#34D399]">
                       {c.avatar}
                     </div>
                     <div>
@@ -260,12 +260,12 @@ const CommunityForum = () => {
             </div>
 
             {/* Forum Telemetry Stats */}
-            <div className="rounded-xl border border-[#22242A] bg-[#0C0D0F] p-5 font-mono text-xs">
+            <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-5 font-mono text-xs">
               <h3 className="text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 text-[#D4FD53]" />
+                <Activity className="w-3.5 h-3.5 text-[#34D399]" />
                 <span>Community Telemetry</span>
               </h3>
-              <div className="space-y-2 border-t border-[#22242A] pt-3 text-slate-300">
+              <div className="space-y-2 border-t border-slate-200 dark:border-[#1E293B] pt-3 text-slate-300">
                 <div className="flex justify-between">
                   <span className="text-slate-500">Active Engineers:</span>
                   <span className="font-bold text-white">1,420+</span>
@@ -290,25 +290,25 @@ const CommunityForum = () => {
                   key={d.id}
                   className={`p-6 rounded-xl border transition-all duration-200 group ${
                     d.pinned
-                      ? "border-[#D4FD53]/40 bg-[#141518]"
-                      : "border-[#22242A] bg-[#141518] hover:border-slate-500"
+                      ? "border-emerald-500/40 bg-white dark:bg-[#111827]"
+                      : "border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] hover:border-slate-500"
                   }`}
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         {d.pinned && (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold bg-[#D4FD53] text-[#0C0D0F] px-2 py-0.5 rounded">
+                          <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold bg-[#10B981] text-white px-2 py-0.5 rounded">
                             <Pin className="w-3 h-3" />
                             PINNED
                           </span>
                         )}
-                        <span className="text-[10px] font-mono text-[#00E5C9] uppercase tracking-wider px-2 py-0.5 rounded bg-[#1C1C1E] border border-white/5">
+                        <span className="text-[10px] font-mono text-[#00E5C9] uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 dark:bg-[#161F32] border border-white/5">
                           {d.tag}
                         </span>
                       </div>
 
-                      <h3 className="text-base font-semibold text-white group-hover:text-[#D4FD53] transition-colors leading-snug">
+                      <h3 className="text-base font-semibold text-white group-hover:text-[#34D399] transition-colors leading-snug">
                         {d.title}
                       </h3>
 
@@ -326,11 +326,11 @@ const CommunityForum = () => {
                     </div>
 
                     <div className="flex items-center gap-4 text-xs font-mono text-slate-400 shrink-0">
-                      <div className="text-center px-2 py-1 rounded bg-[#0C0D0F] border border-[#22242A]">
-                        <div className="font-bold text-[#D4FD53]">{d.replies}</div>
+                      <div className="text-center px-2 py-1 rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B]">
+                        <div className="font-bold text-[#34D399]">{d.replies}</div>
                         <div className="text-[10px] text-slate-500">Replies</div>
                       </div>
-                      <div className="text-center px-2 py-1 rounded bg-[#0C0D0F] border border-[#22242A]">
+                      <div className="text-center px-2 py-1 rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B]">
                         <div className="font-bold text-white">{d.views}</div>
                         <div className="text-[10px] text-slate-500">Views</div>
                       </div>
@@ -339,7 +339,7 @@ const CommunityForum = () => {
                 </div>
               ))
             ) : (
-              <div className="text-center py-16 rounded-xl border border-[#22242A] bg-[#141518]">
+              <div className="text-center py-16 rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]">
                 <MessageSquare className="w-10 h-10 text-slate-500 mx-auto mb-3" />
                 <h3 className="text-base font-bold text-white mb-1">No discussions found</h3>
                 <p className="text-xs text-slate-400">Try modifying your filter keyword or post a new topic.</p>
@@ -352,15 +352,15 @@ const CommunityForum = () => {
       {/* 3. NEW DISCUSSION MODAL */}
       {showNewDiscussionModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
-          <div className="bg-[#141518] border border-[#22242A] rounded-2xl max-w-xl w-full p-8 shadow-2xl relative">
+          <div className="bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] rounded-2xl max-w-xl w-full p-8 shadow-2xl relative">
             <button
               onClick={() => setShowNewDiscussionModal(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-white"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="font-mono text-xs text-[#D4FD53] uppercase mb-2">
+            <div className="font-mono text-xs text-[#34D399] uppercase mb-2">
               POST TO COMMUNITY
             </div>
             <h2 className="text-2xl font-bold text-white mb-2">Start New Technical Discussion</h2>
@@ -370,23 +370,23 @@ const CommunityForum = () => {
 
             <form onSubmit={handleNewDiscussion} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Discussion Title *</label>
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Discussion Title *</label>
                 <input
                   type="text"
                   required
                   value={newDiscussion.title}
                   onChange={(e) => setNewDiscussion({ ...newDiscussion, title: e.target.value })}
                   placeholder="e.g., How to configure Kafka partition keys for high-scale order ingestion?"
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Channel Category</label>
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Channel Category</label>
                 <select
                   value={newDiscussion.category}
                   onChange={(e) => setNewDiscussion({ ...newDiscussion, category: e.target.value })}
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white focus:border-[#D4FD53] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white focus:border-blue-500 focus:outline-none"
                 >
                   <option value="Architecture & Scaling">Architecture & Scaling</option>
                   <option value="AI & Vision">AI & Vision</option>
@@ -397,14 +397,14 @@ const CommunityForum = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Technical Context & Snippets *</label>
+                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Technical Context & Snippets *</label>
                 <textarea
                   rows="5"
                   required
                   value={newDiscussion.content}
                   onChange={(e) => setNewDiscussion({ ...newDiscussion, content: e.target.value })}
                   placeholder="Describe your architecture requirements, observed bottlenecks, or proposed code structure..."
-                  className="w-full rounded bg-[#0C0D0F] border border-[#22242A] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#D4FD53] focus:outline-none"
+                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 ></textarea>
               </div>
 
@@ -412,13 +412,13 @@ const CommunityForum = () => {
                 <button
                   type="button"
                   onClick={() => setShowNewDiscussionModal(false)}
-                  className="px-5 py-2.5 rounded bg-[#1C1C1E] border border-white/10 text-xs font-mono text-slate-300 hover:text-white"
+                  className="px-5 py-2.5 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 text-xs font-mono text-slate-300 hover:text-white"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 rounded bg-[#D4FD53] px-6 py-2.5 text-xs font-mono font-bold uppercase text-[#0C0D0F] hover:brightness-105 transition-all"
+                  className="inline-flex items-center gap-2 rounded bg-[#10B981] px-6 py-2.5 text-xs font-mono font-bold uppercase text-white hover:brightness-105 transition-all"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Publish Thread</span>

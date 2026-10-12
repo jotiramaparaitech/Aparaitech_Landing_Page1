@@ -141,7 +141,7 @@ const CloudSolutions = () => {
       name: "IBM Cloud", 
       logo: "💼", 
       description: "Enterprise cloud and AI services",
-      color: "text-gray-700"
+      color: "text-slate-700 dark:text-slate-300"
     }
   ];
 
@@ -211,7 +211,7 @@ const CloudSolutions = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white">
       {/* Back Button - Fixed on Right Side */}
       <button
         onClick={() => navigate('/#services')}
@@ -242,7 +242,7 @@ const CloudSolutions = () => {
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               Drive operational excellence with scalable, secure cloud infrastructure designed for enterprises. Reduce costs, improve agility, and accelerate time-to-market with our comprehensive cloud solutions
             </p>
             
@@ -255,7 +255,7 @@ const CloudSolutions = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
               Core Advantages of Our Platform
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
@@ -275,7 +275,7 @@ const CloudSolutions = () => {
                 }`}
               >
                 <div className="text-3xl mb-4">{benefit.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
                   {benefit.title}
                 </h3>
                 <p className="text-gray-600 text-sm mb-3">{benefit.description}</p>
@@ -290,7 +290,7 @@ const CloudSolutions = () => {
           <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-6 md:p-8 border border-gray-200 shadow-lg">
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                   {benefits.find(b => b.id === selectedFeature)?.title}
                 </h3>
                 <p className="text-gray-700 mb-6 leading-relaxed">
@@ -300,7 +300,7 @@ const CloudSolutions = () => {
                   {benefits.find(b => b.id === selectedFeature)?.details.map((detail, detailIdx) => (
                     <div key={`detail-${detailIdx}`} className="flex items-center">
                       <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">{detail}</span>
+                      <span className="text-slate-700 dark:text-slate-300">{detail}</span>
                     </div>
                   ))}
                 </div>
@@ -320,7 +320,7 @@ const CloudSolutions = () => {
                     style={{ width: `${benefits.find(b => b.id === selectedFeature)?.progress || 0}%` }}
                   ></div>
                 </div>
-                <div className="flex justify-between text-xs text-gray-500 mt-2">
+                <div className="flex justify-between text-xs text-slate-500 dark:text-slate-500 mt-2">
                   <span>0%</span>
                   <span>100%</span>
                 </div>
@@ -334,7 +334,7 @@ const CloudSolutions = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
               Comprehensive Cloud Services
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
@@ -360,14 +360,14 @@ const CloudSolutions = () => {
                     {service.time}
                   </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white mb-3">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm sm:text-base">{service.description}</p>
                 
                 <div className="space-y-2">
                   {service.features.map((feature, featureIdx) => (
-                    <div key={`feature-${service.id}-${featureIdx}`} className="flex items-center text-sm text-gray-700">
+                    <div key={`feature-${service.id}-${featureIdx}`} className="flex items-center text-sm text-slate-700 dark:text-slate-300">
                       <svg className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -385,7 +385,7 @@ const CloudSolutions = () => {
       <section className="py-16 bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
               Supported Cloud Platforms
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -407,8 +407,8 @@ const CloudSolutions = () => {
                   {platform.logo}
                 </div>
                 <div className="text-center">
-                  <div className="font-semibold text-gray-900 mb-1">{platform.name}</div>
-                  <div className={`text-xs text-gray-600 transition-all duration-300 ${
+                  <div className="font-semibold text-slate-900 dark:text-white mb-1">{platform.name}</div>
+                  <div className={`text-xs text-slate-600 dark:text-slate-400 transition-all duration-300 ${
                     hoveredPlatform === platform.name ? 'opacity-100 h-auto mt-2' : 'opacity-0 h-0'
                   }`}>
                     {platform.description}
@@ -424,7 +424,7 @@ const CloudSolutions = () => {
       <section className="py-16 bg-gradient-to-r from-gray-900 via-black to-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
               Cloud Performance Metrics
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -437,29 +437,29 @@ const CloudSolutions = () => {
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
                 {stats.uptime}%
               </div>
-              <div className="text-lg font-semibold text-gray-900">Uptime SLA</div>
-              <div className="text-sm text-gray-600">Guaranteed availability</div>
+              <div className="text-lg font-semibold text-slate-900 dark:text-white">Uptime SLA</div>
+              <div className="text-sm text-slate-600 dark:text-slate-400">Guaranteed availability</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-2">
                 {stats.cost}%
               </div>
-              <div className="text-lg font-semibold text-gray-900">Cost Reduction</div>
-              <div className="text-sm text-gray-600">vs on-premise infrastructure</div>
+              <div className="text-lg font-semibold text-slate-900 dark:text-white">Cost Reduction</div>
+              <div className="text-sm text-slate-600 dark:text-slate-400">vs on-premise infrastructure</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
                 3x
               </div>
-              <div className="text-lg font-semibold text-gray-900">Faster Deployment</div>
-              <div className="text-sm text-gray-600">than traditional setup</div>
+              <div className="text-lg font-semibold text-slate-900 dark:text-white">Faster Deployment</div>
+              <div className="text-sm text-slate-600 dark:text-slate-400">than traditional setup</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent mb-2">
                 24/7
               </div>
-              <div className="text-lg font-semibold text-gray-900">Support</div>
-              <div className="text-sm text-gray-600">Expert cloud engineers</div>
+              <div className="text-lg font-semibold text-slate-900 dark:text-white">Support</div>
+              <div className="text-sm text-slate-600 dark:text-slate-400">Expert cloud engineers</div>
             </div>
           </div>
         </div>
@@ -468,7 +468,7 @@ const CloudSolutions = () => {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-900/30 via-cyan-900/30 to-indigo-900/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
             Transform Your Infrastructure Today
           </h2>
           <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
