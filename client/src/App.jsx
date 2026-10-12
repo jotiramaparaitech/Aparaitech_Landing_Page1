@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
-import AltrdHome from "./components/AltrdHome";
 
 /* ================= PAGES ================= */
 import ApplicationForm from "./components/pages/ApplicationForm";
@@ -12,6 +11,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import StudentVisitWidget from "./components/StudentVisitWidget";
+
+/* ================= ADMIN ================= */
+import AdminLogin from "./components/admin/AdminLogin";
+import AdminDashboard from "./components/admin/AdminDashboard";
 
 /* ================= HOME SECTIONS ================= */
 import Hero from "./components/Hero";
@@ -29,7 +32,6 @@ import GenerativeAI from "./components/Generative_AI";
 import GrowthAnalytics from "./components/services/GrowthAnalytics";
 import CloudSolutionsService from "./components/services/CloudSolutions";
 import SecurePlatformPage from "./components/services/SecurePlatformPage";
-import SalesforceSolutionsPage from "./components/services/SalesforceSolutionsPage";
 import AIMachineLearning from "./components/services/AIMachineLearning";
 import DevOpsCICD from "./components/services/DevOpsCICD";
 import Cybersecurity from "./components/services/Cybersecurity";
@@ -103,41 +105,42 @@ const HomePage = () => (
 /* ================= APP ================= */
 function App() {
   const location = useLocation();
-  const isHomePage = location.pathname === "/" || location.pathname === "/altrd";
+  const isAdminRoute = location.pathname.startsWith("/admin");
 
   return (
-    <div className="min-h-screen bg-[#0C0D0F] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#020617] text-white overflow-x-hidden font-sans">
       {/* 🔔 Toast Container (Required Once) */}
       <Toaster
         position="top-right"
         toastOptions={{
           duration: 4000,
           style: {
-            background: "#111827",
+            background: "#0B1220",
             color: "#fff",
+            border: "1px solid #1e293b",
           },
           success: {
             iconTheme: {
-              primary: "#22c55e",
-              secondary: "#111827",
+              primary: "#0D9488",
+              secondary: "#020617",
             },
           },
           error: {
             iconTheme: {
               primary: "#ef4444",
-              secondary: "#111827",
+              secondary: "#020617",
             },
           },
         }}
       />
 
       <ScrollToTop />
-      <Header />
+      {!isAdminRoute && <Header />}
 
       <Routes>
         {/* Home */}
-        <Route path="/" element={<AltrdHome />} />
-        <Route path="/altrd" element={<AltrdHome />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/altrd" element={<Navigate to="/" replace />} />
         <Route path="/classic-home" element={<HomePage />} />
 
         {/* Core */}
@@ -160,7 +163,7 @@ function App() {
         <Route path="/services/growth-analytics" element={<GrowthAnalytics />} />
         <Route path="/services/cloud-solutions" element={<CloudSolutionsService />} />
         <Route path="/services/secure-platform" element={<SecurePlatformPage />} />
-        <Route path="/services/salesforce-solutions" element={<SalesforceSolutionsPage />} />
+        <Route path="/services/salesforce-solutions" element={<Navigate to="/software-development" replace />} />
         <Route path="/services/ai-machine-learning" element={<AIMachineLearning />} />
         <Route path="/services/devops-cicd" element={<DevOpsCICD />} />
         <Route path="/services/cybersecurity" element={<Cybersecurity />} />
@@ -214,10 +217,14 @@ function App() {
         <Route path="/news-detail" element={<NewsDetail />} />
         <Route path="/company/partners" element={<PartnersPage />} />
         <Route path="/company/investors" element={<InvestorRelations />} />
+
+        {/* Admin Console */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
 
-      <Footer />
-      <StudentVisitWidget />
+      {!isAdminRoute && <Footer />}
+      {!isAdminRoute && <StudentVisitWidget />}
     </div>
   );
 }

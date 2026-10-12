@@ -14,7 +14,7 @@ const services = [
     description:
       "Scalable, secure cloud solutions designed for enterprise performance and reliability.",
     image: null,
-    path: null,
+    path: "/cloud-computing",
     icon: <Cloud className="w-6 h-6 text-blue-500" />,
   },
   {
@@ -159,18 +159,24 @@ const Services = () => {
   }, [isHovered, isMobile, hovered]);
 
   return (
-    <section className="bg-gray-50 py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Enterprise-grade solutions crafted to support your business growth.
+    <section className="bg-[#0B1220] py-20 border-b border-slate-800 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-950/60 border border-teal-500/30 text-[#22D3EE] text-xs font-mono font-semibold uppercase tracking-wider mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse"></span>
+            Enterprise Software & Services
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+            Specialized Engineering Domains
+          </h2>
+          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            High-availability systems, cloud-native deployments, and autonomous intelligence engineered to scale.
           </p>
         </div>
 
         <section className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0B1220] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0B1220] to-transparent z-10 pointer-events-none" />
 
           <div ref={scrollRef} className="flex gap-6 pb-4">
             {duplicatedServices.map((service, index) => (
@@ -180,7 +186,7 @@ const Services = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                onClick={() => navigate(service.path)}
+                onClick={() => service.path && navigate(service.path)}
                 onMouseEnter={() => {
                   setHovered(index);
                   setIsHovered(true);
@@ -190,47 +196,51 @@ const Services = () => {
                   setIsHovered(false);
                 }}
                 className="
-                  service-card group relative overflow-hidden flex-shrink-0
-                  w-[360px]
-                  transition-all duration-300
-                  hover:bg-violet-700 hover:border-violet-900
-                  hover:shadow-[0_15px_40px_rgba(109,40,217,0.45)]
+                  group relative overflow-hidden flex-shrink-0
+                  w-[330px] sm:w-[350px] p-6 rounded-2xl
+                  bg-[#020617] border border-slate-800
+                  hover:border-[#0D9488] hover:shadow-2xl hover:shadow-[#0D9488]/15
+                  transition-all duration-300 cursor-pointer
                 "
               >
-                {/* 🔥 FIXED SMALLER CORNER CIRCLE */}
+                {/* Subtle corner glow */}
                 <div className="
-                  absolute -bottom-14 -right-14
-                  w-32 h-32
-                  rounded-full
-                  bg-violet-900/20
-                  transition-all duration-300
-                  group-hover:bg-violet-900/30
+                  absolute -bottom-12 -right-12
+                  w-28 h-28 rounded-full
+                  bg-teal-500/5 group-hover:bg-[#0D9488]/15
+                  transition-all duration-300 blur-xl
                 " />
 
                 <div className="relative z-10">
-                  <div className="mb-6 flex justify-center transition-colors duration-300 group-hover:text-white">
-                    {service.image ? (
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-7 h-7 brightness-100 group-hover:brightness-0 group-hover:invert transition-all duration-300"
-                      />
-                    ) : (
-                      service.icon
-                    )}
+                  <div className="mb-4 flex items-center justify-between">
+                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center group-hover:scale-110 group-hover:border-[#0D9488]/50 transition-all">
+                      {service.image ? (
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-6 h-6 brightness-100"
+                        />
+                      ) : (
+                        service.icon
+                      )}
+                    </div>
+                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest px-2 py-0.5 rounded bg-slate-900 border border-slate-800">
+                      Tier 1
+                    </span>
                   </div>
 
-                  <h3 className="service-title transition-colors duration-300 group-hover:text-white">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-[#22D3EE] transition-colors">
                     {service.title}
                   </h3>
 
-                  <p className="service-desc transition-colors duration-300 group-hover:text-white/90">
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4 line-clamp-3">
                     {service.description}
                   </p>
 
-                  <span className="service-cta transition-colors duration-300 group-hover:text-white">
-                    Explore More →
-                  </span>
+                  <div className="flex items-center text-xs font-semibold text-[#0D9488] group-hover:text-[#22D3EE] transition-colors gap-1">
+                    <span>Explore Domain</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
                 </div>
               </motion.div>
             ))}

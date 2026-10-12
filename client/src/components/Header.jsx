@@ -79,7 +79,7 @@ const Header = () => {
       }, 2000);
     } catch (err) {
       console.error(err);
-      toast.error("Saved locally. Our team will contact you shortly.");
+      toast.error(err.message || "Failed to submit request to database. Please try again.");
     } finally {
       setSubmitting(false);
     }
@@ -137,37 +137,37 @@ const Header = () => {
 
   return (
     <div className="sticky top-0 z-40 w-full">
-      {/* 1. TOP ANNOUNCEMENT BANNER (SALESFORCE INDIA STYLE) */}
+      {/* 1. TOP ANNOUNCEMENT BANNER */}
       <div
-        className="flex min-h-[38px] flex-wrap items-center justify-between gap-2 px-4 sm:px-8 py-1.5 text-xs text-white shadow-sm bg-[#032D60] border-b border-white/10"
+        className="flex min-h-[38px] flex-wrap items-center justify-between gap-2 px-4 sm:px-8 py-1.5 text-xs text-white shadow-sm bg-[#0B1220] border-b border-white/10"
       >
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="font-bold text-[#D4FD53] bg-white/10 px-2 py-0.5 rounded text-[11px] uppercase tracking-wide">
-            India's #1 Agentic CRM
+          <span className="font-bold text-[#22D3EE] bg-cyan-950/60 border border-cyan-500/30 px-2 py-0.5 rounded text-[11px] uppercase tracking-wide">
+            Next-Gen Software & AI
           </span>
-          <span className="text-white/90">
-            Uniquely built for India's growing businesses — SMB Growth Kit live in just 4 weeks!
+          <span className="text-slate-300">
+            Enterprise Custom Software, Cloud Platforms & Autonomous AI Agents — Built for Global Scale.
           </span>
         </div>
         <div className="flex items-center gap-4">
           <button
             onClick={() => setModalOpen(true)}
-            className="inline-flex cursor-pointer items-center gap-1 text-[#00E5C9] font-bold hover:underline transition-opacity whitespace-nowrap text-xs"
+            className="inline-flex cursor-pointer items-center gap-1 text-[#22D3EE] font-bold hover:underline transition-opacity whitespace-nowrap text-xs"
           >
-            <span>Get SMB Growth Kit</span>
+            <span>Schedule Architecture Review</span>
             <span>→</span>
           </button>
           <a
-            href="tel:+918261840199"
-            className="hidden md:inline-flex items-center gap-1 text-white/80 hover:text-white text-xs font-mono"
+            href="tel:+919158852129"
+            className="hidden md:inline-flex items-center gap-1 text-slate-300 hover:text-white text-xs font-mono"
           >
-            <Phone className="w-3 h-3 text-[#00E5C9]" />
-            <span>1800-420-7332 / +91 82618 40199</span>
+            <Phone className="w-3 h-3 text-[#22D3EE]" />
+            <span>+91 9158852129 / Hinjawadi Phase 2, Pune</span>
           </a>
         </div>
       </div>
 
-      {/* 2. SALESFORCE-GRADE NAVBAR */}
+      {/* 2. ENTERPRISE GRADE NAVBAR */}
       <header className="relative w-full border-b border-[#22242A] bg-[#0C0D0F]/95 backdrop-blur-md">
         <div className="mx-auto w-full max-w-[1340px] px-4 sm:px-6 lg:px-8">
           <div className="flex h-[72px] items-center justify-between gap-4">
@@ -176,32 +176,32 @@ const Header = () => {
               <img
                 src="/aparaitech_logo.jpg"
                 alt="Aparaitech Software"
-                className="h-10 w-10 rounded-lg object-contain bg-white/5 border border-white/10 group-hover:border-[#0176D3] transition-all shadow-md shadow-[#0176D3]/20"
+                className="h-10 w-10 rounded-lg object-contain bg-white/5 border border-white/10 group-hover:border-[#0D9488] transition-all shadow-md shadow-[#0D9488]/20"
               />
               <div className="flex flex-col">
                 <span className="font-bold text-[17px] tracking-tight text-white leading-none">
                   Aparaitech Software
                 </span>
-                <span className="text-[10px] font-mono tracking-widest text-[#0176D3] uppercase mt-0.5 font-bold">
-                  The #1 AI CRM Platform
+                <span className="text-[10px] font-mono tracking-widest text-[#22D3EE] uppercase mt-0.5 font-bold">
+                  Enterprise Software & AI Systems
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Navigation Menus (Salesforce India) */}
+            {/* Desktop Navigation Menus */}
             <nav className="hidden lg:flex items-center gap-6 xl:gap-7 font-sans text-[13px] font-semibold text-slate-200">
               {/* Products Dropdown */}
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1 hover:text-[#0176D3] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-[#22D3EE] transition-colors cursor-pointer"
                 >
                   <span>Products</span>
                   <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
                 <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
-                  <div className="text-[11px] font-mono text-[#0176D3] uppercase tracking-wider px-3 py-1 font-bold">
-                    Agentforce & CRM Suite
+                  <div className="text-[11px] font-mono text-[#22D3EE] uppercase tracking-wider px-3 py-1 font-bold">
+                    Custom Software & AI Suite
                   </div>
                   {moreDropdownContent.Products.map((p, i) => (
                     <Link
@@ -219,13 +219,13 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1 hover:text-[#0176D3] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-[#22D3EE] transition-colors cursor-pointer"
                 >
                   <span>Industries</span>
                   <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
                 <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
-                  <div className="text-[11px] font-mono text-[#0176D3] uppercase tracking-wider px-3 py-1 font-bold">
+                  <div className="text-[11px] font-mono text-[#22D3EE] uppercase tracking-wider px-3 py-1 font-bold">
                     Specialized Solutions
                   </div>
                   {moreDropdownContent.Industries.map((ind, i) => (
@@ -244,14 +244,14 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1 hover:text-[#0176D3] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-[#22D3EE] transition-colors cursor-pointer"
                 >
                   <span>Customers</span>
                   <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
                 <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
-                  <div className="text-[11px] font-mono text-[#0176D3] uppercase tracking-wider px-3 py-1 font-bold">
-                    Enterprise Proof Points
+                  <div className="text-[11px] font-mono text-[#22D3EE] uppercase tracking-wider px-3 py-1 font-bold">
+                    Enterprise Case Studies
                   </div>
                   {moreDropdownContent.Customers.map((cust, i) => (
                     <Link
@@ -269,14 +269,14 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1 hover:text-[#0176D3] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-[#22D3EE] transition-colors cursor-pointer"
                 >
                   <span>Learning</span>
                   <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
                 <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
-                  <div className="text-[11px] font-mono text-[#0176D3] uppercase tracking-wider px-3 py-1 font-bold">
-                    Agentblazer & Academy
+                  <div className="text-[11px] font-mono text-[#22D3EE] uppercase tracking-wider px-3 py-1 font-bold">
+                    Developer Center & LMS
                   </div>
                   {moreDropdownContent.Learning.map((lrn, i) =>
                     lrn.external ? (
@@ -306,14 +306,14 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1 hover:text-[#0176D3] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-[#22D3EE] transition-colors cursor-pointer"
                 >
                   <span>Company</span>
                   <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
                 <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
-                  <div className="text-[11px] font-mono text-[#0176D3] uppercase tracking-wider px-3 py-1 font-bold">
-                    About Salesforce / Aparaitech
+                  <div className="text-[11px] font-mono text-[#22D3EE] uppercase tracking-wider px-3 py-1 font-bold">
+                    About APARAITECH SOFTWARE
                   </div>
                   {moreDropdownContent.Company.map((c, i) => (
                     <Link
@@ -340,29 +340,29 @@ const Header = () => {
               {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
-                className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg bg-[#1C1C1E] border border-white/10 text-slate-300 hover:text-white hover:border-[#0176D3]/50 transition-all focus:outline-none"
+                className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg bg-[#1C1C1E] border border-white/10 text-slate-300 hover:text-white hover:border-[#22D3EE]/50 transition-all focus:outline-none"
                 title={theme === "dark" ? "Switch to White / Light Theme" : "Switch to Dark Theme"}
                 aria-label="Toggle Theme"
               >
                 {theme === "dark" ? (
                   <Sun className="w-4 h-4 text-[#D4FD53] transition-transform duration-300 hover:rotate-45" />
                 ) : (
-                  <Moon className="w-4 h-4 text-[#0176D3] transition-transform duration-300 hover:-rotate-12" />
+                  <Moon className="w-4 h-4 text-[#22D3EE] transition-transform duration-300 hover:-rotate-12" />
                 )}
               </button>
 
-              {/* Signature Salesforce "Try for free" CTA Button */}
+              {/* Primary Consultation CTA Button */}
               <button
                 onClick={() => setModalOpen(true)}
-                className="relative inline-flex h-10 cursor-pointer items-center justify-center rounded-lg bg-[#008244] hover:bg-[#007038] text-white font-bold text-xs sm:text-sm px-4 sm:px-5 transition-all shadow-md hover:shadow-lg hover:brightness-105"
+                className="relative inline-flex h-10 cursor-pointer items-center justify-center rounded-lg bg-[#0D9488] hover:bg-[#0f766e] text-white font-bold text-xs sm:text-sm px-4 sm:px-5 transition-all shadow-md hover:shadow-cyan-500/20 hover:brightness-105"
               >
-                <span>Try for free</span>
+                <span>Book Consultation</span>
               </button>
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="lg:hidden p-2 text-white hover:text-[#0176D3] transition-colors"
+                className="lg:hidden p-2 text-white hover:text-[#22D3EE] transition-colors"
                 aria-label="Toggle menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -502,11 +502,13 @@ const Header = () => {
               {/* Direct Actions in Mobile Menu */}
               <div className="pt-4 border-t border-[#22242A] space-y-2.5">
                 <a
-                  href="tel:+918261840199"
+                  href="https://wa.me/919158852129"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 py-2.5 rounded bg-[#141518] border border-[#22242A] text-xs text-[#00E5C9]"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  <span>Call Pune CoE: +91 82618 40199</span>
+                  <span>WhatsApp: +91 9158852129</span>
                 </a>
                 <button
                   onClick={() => {

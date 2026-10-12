@@ -186,65 +186,47 @@ const Features = () => {
   const mobileFeatures = features.slice(0, 4);
 
   return (
-    <section className="relative py-8 sm:py-10 md:py-12 lg:py-16 bg-gradient-to-b from-blue-50/30 to-white overflow-hidden">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/5 via-transparent to-cyan-100/5"></div>
+    <section className="relative py-16 lg:py-20 bg-[#020617] text-white overflow-hidden border-b border-slate-800">
+      {/* Subtle background glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-950/10 via-transparent to-cyan-950/10 pointer-events-none"></div>
 
-      {/* Very subtle grid pattern - much less visible */}
-      <div className="absolute inset-0 opacity-1">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(to right, #bfdbfe 0.1px, transparent 0.5px),
-                           linear-gradient(to bottom, #bfdbfe 0.1px, transparent 0.5px)`,
-          backgroundSize: '90px 85px'
-        }}></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header - Responsive */}
-        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 lg:mb-12 animate-fadeInUp">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-blue-50 rounded-full mb-3 sm:mb-4 border border-blue-500">
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
-            <span className="text-xs font-semibold tracking-wide text-blue-600">
-              ENTERPRISE FEATURES
-            </span>
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14 animate-fadeInUp">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-teal-950/60 rounded-full mb-3.5 border border-teal-500/30 text-[#22D3EE] text-xs font-mono font-semibold uppercase tracking-wider">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse"></div>
+            <span>Enterprise Architecture Principles</span>
           </div>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 sm:mb-3 px-2">
-            Everything you need to{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
-              build and scale
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3">
+            Engineered for{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300">
+              High-Reliability Scale
             </span>
           </h2>
-          <p className="text-gray-700 text-sm sm:text-base px-4">
-            Powerful features designed for modern software teams
+          <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+            Resilient microservices, zero-trust security pipelines, and sovereign data intelligence built for modern enterprises.
           </p>
         </div>
 
         {/* Mobile: Grid Layout */}
         {isMobile ? (
           <div className="mb-8 sm:mb-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {mobileFeatures.map((feature, index) => (
                 <div
                   key={`mobile-${index}`}
                   className="
-                    bg-white/95
-                    backdrop-blur-sm
+                    bg-[#0B1220]
                     rounded-xl
-                    border border-gray-200/40
-                    p-4
-                    shadow-sm
-                    shadow-blue-100/10
-                    hover:shadow-md
-                    hover:shadow-blue-200/20
+                    border border-slate-800
+                    p-5
+                    hover:border-[#0D9488]/60
                     transition-all
                     duration-300
-                    hover:scale-[1.02]
                     active:scale-95
                     cursor-pointer
-                    animate-fadeInUp
                   "
-                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className={`
                     w-10 h-10
@@ -329,29 +311,21 @@ const Features = () => {
                     flex-shrink-0
                     mx-2
                     sm:mx-3
-                    px-3
-                    sm:px-4
-                    md:px-5
-                    py-3
-                    sm:py-4
-                    bg-white/95
-                    backdrop-blur-sm
-                    rounded-lg
-                    sm:rounded-xl
-                    border border-gray-200/40
-                    shadow-sm
-                    shadow-blue-100/10
-                    hover:shadow-md
-                    hover:shadow-blue-200/20
+                    p-5
+                    sm:p-6
+                    bg-[#0B1220]
+                    rounded-xl
+                    border border-slate-800
+                    hover:border-[#0D9488]
+                    hover:shadow-xl hover:shadow-[#0D9488]/10
                     transition-all
                     duration-300
                     hover:scale-[1.02]
-                    active:scale-95
                     cursor-pointer
-                    w-[240px]
-                    sm:w-[260px]
-                    md:w-[280px]
-                    lg:w-[300px]
+                    w-[260px]
+                    sm:w-[280px]
+                    md:w-[300px]
+                    lg:w-[320px]
                   "
                 >
                   {/* Icon - Responsive */}
@@ -385,14 +359,12 @@ const Features = () => {
 
                   {/* Content - Responsive */}
                   <h3 className="
-                    text-sm
-                    sm:text-base
-                    md:text-lg
+                    text-base
+                    sm:text-lg
                     font-bold 
-                    text-gray-900 
+                    text-white 
                     mb-1.5
-                    sm:mb-2
-                    group-hover:text-gray-800 
+                    group-hover:text-[#22D3EE] 
                     transition-colors 
                     duration-300
                     line-clamp-1
@@ -400,7 +372,7 @@ const Features = () => {
                     {feature.title}
                   </h3>
                   <p className="
-                    text-gray-600 
+                    text-slate-400 
                     text-xs
                     sm:text-sm
                     leading-relaxed
@@ -409,21 +381,6 @@ const Features = () => {
                   ">
                     {feature.description}
                   </p>
-
-                  {/* Subtle hover border effect */}
-                  <div className={`
-                    absolute
-                    inset-0
-                    rounded-lg
-                    sm:rounded-xl
-                    bg-gradient-to-br
-                    ${feature.gradient}
-                    opacity-0
-                    group-hover:opacity-5
-                    transition-opacity
-                    duration-300
-                    -z-10
-                  `}></div>
                 </div>
               ))}
             </div>
@@ -431,39 +388,38 @@ const Features = () => {
         )}
 
         {/* Responsive Stats Cards */}
-        <div className="mb-6 sm:mb-8 px-2 sm:px-0">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
+        <div className="mb-8 px-2 sm:px-0">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             {[
-              { value: "5,000+", label: "Active Companies", color: "from-blue-400 to-cyan-400" },
-              { value: "120+", label: "Countries Served", color: "from-blue-400 to-indigo-400" },
-              { value: "15M+", label: "Users Empowered", color: "from-indigo-400 to-purple-400" },
-              { value: "98%", label: "Customer Satisfaction", color: "from-cyan-400 to-teal-400" }
+              { value: "99.9%", label: "Uptime SLA Guarantee", color: "from-teal-400 to-cyan-300" },
+              { value: "Zero-Trust", label: "ISO 27001 Security", color: "from-cyan-400 to-blue-400" },
+              { value: "<50ms", label: "Edge Latency Target", color: "from-emerald-400 to-teal-400" },
+              { value: "Dedicated", label: "Senior Engineering Pods", color: "from-teal-300 to-cyan-400" }
             ].map((stat, index) => (
               <div
                 key={index}
                 className="
                   text-center 
-                  bg-white/60 
-                  backdrop-blur-sm 
-                  rounded-lg 
-                  p-2
-                  sm:p-3
+                  bg-[#0B1220] 
+                  rounded-xl 
+                  p-3.5
+                  sm:p-4
                   border 
-                  border-gray-200/30 
-                  hover:border-blue-200/50 
+                  border-slate-800 
+                  hover:border-[#0D9488]/50 
                   transition-colors 
                   duration-300
-                  min-h-[70px]
-                  sm:min-h-[80px]
+                  min-h-[75px]
+                  sm:min-h-[85px]
                   flex
                   flex-col
                   justify-center
                 "
               >
-                <div className={`text-lg sm:text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${stat.color} mb-0.5 sm:mb-1`}>
+                <div className={`text-xl sm:text-2xl font-bold font-mono text-transparent bg-clip-text bg-gradient-to-r ${stat.color} mb-1`}>
                   {stat.value}
                 </div>
-                <p className="text-gray-500 text-xs font-medium">{stat.label}</p>
+                <p className="text-slate-400 text-xs font-medium uppercase tracking-wider">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -476,81 +432,63 @@ const Features = () => {
             flex-col 
             sm:flex-row 
             items-center 
-            gap-3 
-            sm:gap-4 
-            p-4 
-            sm:p-5
-            bg-white/90 
-            backdrop-blur-sm 
-            rounded-xl 
+            gap-4 
+            p-5 
+            sm:p-6
+            bg-[#0B1220] 
+            rounded-2xl 
             border 
-            border-gray-200/30 
-            shadow-sm 
-            hover:shadow-md 
-            transition-shadow 
-            duration-300
+            border-slate-800 
+            shadow-xl 
             w-full
-            max-w-2xl
+            max-w-3xl
             mx-auto
+            justify-between
           ">
             <div className="text-left">
               <div className="flex items-center gap-2 mb-1">
-                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-pulse"></div>
-                <h3 className="text-sm sm:text-base font-bold text-gray-800">Ready to get started?</h3>
+                <div className="w-2 h-2 rounded-full bg-[#22D3EE] animate-pulse"></div>
+                <h3 className="text-base sm:text-lg font-bold text-white">Ready to architect your platform?</h3>
               </div>
-              <p className="text-gray-500 text-xs">We’d love to hear from you — connect with our experts today.
-</p>
+              <p className="text-slate-400 text-xs sm:text-sm">Connect with our Hinjawadi technical architects for an end-to-end evaluation.</p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto justify-center sm:justify-start">
-              {/* Contact Us Button */}
+            <div className="flex flex-col sm:flex-row gap-2.5 w-full sm:w-auto shrink-0">
               <button 
                 onClick={scrollToContact}
                 className="
-                  px-3
-                  sm:px-4
-                  py-2
-                  bg-gradient-to-r from-blue-500 to-cyan-500
+                  px-4
+                  py-2.5
+                  bg-[#0D9488] hover:bg-[#0f766e]
                   text-white
-                  font-semibold
-                  rounded-lg
-                  hover:shadow-md
-                  hover:shadow-blue-500/30
+                  font-bold
+                  rounded-xl
+                  shadow-lg shadow-teal-500/20
                   transition-all
                   duration-300
-                  hover:-translate-y-0.5
-                  active:translate-y-0
+                  hover:scale-105
                   text-xs
                   sm:text-sm
-                  hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-600
-                  w-full
-                  sm:w-auto
+                  cursor-pointer
                 "
               >
-                Contact Us
+                Schedule Consultation
               </button>
               
-              {/* Our Partners Button */}
               <button 
                 onClick={scrollToPartners}
                 className="
-                  px-3
-                  sm:px-4
-                  py-2
-                  bg-gradient-to-r from-indigo-500 to-purple-500
-                  text-white
+                  px-4
+                  py-2.5
+                  bg-slate-900 hover:bg-slate-800
+                  text-slate-300 hover:text-white
+                  border border-slate-700 hover:border-[#22D3EE]/50
                   font-semibold
-                  rounded-lg
-                  hover:shadow-md
-                  hover:shadow-indigo-500/30
+                  rounded-xl
                   transition-all
                   duration-300
-                  hover:-translate-y-0.5
-                  active:translate-y-0
                   text-xs
                   sm:text-sm
-                  hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600
-                  w-full
-                  sm:w-auto
+                  cursor-pointer
                 "
               >
                 Our Partners

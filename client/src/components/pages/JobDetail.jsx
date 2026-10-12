@@ -88,13 +88,13 @@ We're looking for someone who combines deep technical knowledge with strong busi
       "Strong presentation and demonstration skills to executive audiences",
       "Knowledge of sales processes and methodologies",
       "Bachelor's degree in Business, Computer Science, or related field",
-      "Relevant certifications (Salesforce certifications preferred)",
+      "Relevant certifications (AWS Solutions Architect, Azure, or TOGAF preferred)",
       "Ability to travel up to 30% for customer meetings and events"
     ],
     
-    qualifications: "Bachelor's degree required, MBA or advanced technical degree preferred. Salesforce certifications highly valued.",
+    qualifications: "Bachelor's degree required, MBA or advanced technical degree preferred. Enterprise Architecture certifications highly valued.",
     
-    skills: ["Revenue Cloud", "CPQ", "Salesforce", "Solution Architecture", "Enterprise Sales", "API Integration", "Business Process"],
+    skills: ["Cloud Architecture", "Enterprise SaaS", "Solution Architecture", "Distributed Systems", "API Integration", "Business Process"],
     
     benefits: [
       "Competitive salary with significant commission potential",
