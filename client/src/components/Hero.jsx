@@ -84,19 +84,7 @@ const HeroSection = () => {
   return (
     <div
       id="home"
-      className="
-    min-h-screen
-    pt-[25px]
-    bg-gradient-to-br
-    from-slate-900
-    via-slate-800
-    to-blue-900
-    dark:from-gray-900
-    dark:via-gray-800
-    dark:to-blue-900
-    text-white
-    overflow-hidden
-  "
+      className="relative min-h-[90vh] pt-6 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 dark:from-[#020617] dark:via-[#0B1220] dark:to-[#020617] text-white overflow-hidden border-b border-slate-800/80"
     >
 
       {/* Animated background elements */}
@@ -109,61 +97,63 @@ const HeroSection = () => {
       <div className="relative container mx-auto px-4 py-12 md:py-24 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm">
+            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 backdrop-blur-sm text-[#22D3EE] text-xs font-mono font-semibold uppercase tracking-wider">
               <Icons.TrendingUp />
-              <span className="ml-2 text-sm font-medium">Trusted by industry leaders</span>
+              <span className="ml-2 font-bold">Enterprise Software & AI Engineering</span>
             </div>
 
             {/* Main heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Transform Your Business With{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                Innovative Solutions
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold leading-tight tracking-tight text-white">
+              Architecting Enterprise Software &{' '}
+              <span className="bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                Sovereign AI Platforms
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-xl text-gray-300 max-w-2xl">
-              We help companies and businesses of all sizes leverage cutting-edge technology to drive growth,
-              increase efficiency, and stay ahead of the competition.
+            <p className="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed">
+              We engineer high-performance custom software, distributed cloud systems, and autonomous AI agents designed to accelerate enterprise velocity and scale operations with resilience.
             </p>
 
             {/* Features list */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-3.5 pt-1">
               {[
-                'Custom software solutions',
-                '24/7 dedicated support team',
-                'Proven track record of success',
-                'Scalable and secure infrastructure',
+                'Enterprise Cloud & SaaS Architecture',
+                'Autonomous Multi-Agent Workflows',
+                'DevSecOps & Microservices Pipelines',
+                'Dedicated Full-Stack Engineering Pods',
               ].map((feature, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <div className="flex-shrink-0 w-5 h-5">
+                <div key={index} className="flex items-center space-x-2.5">
+                  <div className="flex-shrink-0 w-4 h-4 text-[#22D3EE]">
                     <Icons.CheckCircle />
                   </div>
-                  <span className="text-gray-300">{feature}</span>
+                  <span className="text-slate-300 text-xs sm:text-sm font-medium">{feature}</span>
                 </div>
               ))}
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3.5 pt-3">
               <button
-                onClick={() => window.open('https://lms.aparaitech.org/', '_blank')}
-                className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-blue-500/30"
+                onClick={handleConnectClick}
+                className="group inline-flex items-center justify-center px-6 sm:px-7 py-3.5 text-sm sm:text-base font-bold rounded-xl bg-[#0D9488] hover:bg-[#0f766e] text-white transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-teal-500/20 cursor-pointer"
               >
-                <div className="mr-3 group-hover:rotate-12 transition-transform">
+                <div className="mr-2.5 group-hover:rotate-12 transition-transform">
                   <Icons.Rocket />
                 </div>
-                Live Programs
+                <span>Book Architecture Consultation</span>
               </button>
 
-              <button onClick={handleConnectClick} className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-105">
-                <div className="mr-3 group-hover:scale-110 transition-transform">
+              <button
+                onClick={() => navigate('/software-development')}
+                className="group inline-flex items-center justify-center px-6 sm:px-7 py-3.5 text-sm sm:text-base font-semibold rounded-xl bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-slate-700 hover:border-[#22D3EE]/50 transition-all duration-300 hover:scale-[1.02] text-white cursor-pointer"
+              >
+                <div className="mr-2.5 group-hover:scale-110 transition-transform text-[#22D3EE]">
                   <Icons.PlayCircle />
                 </div>
-                Connect Us
+                <span>Explore Solutions</span>
               </button>
             </div>
           </div>
@@ -171,75 +161,69 @@ const HeroSection = () => {
           {/* Right content - Visual cards */}
           <div className="relative">
             {/* Main card container */}
-            <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl overflow-hidden">
-              {/* Animated background elements inside card */}
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-2xl rotate-12 animate-bounce"></div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-purple-500/20 to-pink-400/20 rounded-2xl -rotate-12 animate-bounce animation-delay-1000"></div>
+            <div className="relative bg-[#0B1220]/95 backdrop-blur-xl rounded-2xl p-5 sm:p-6 border border-slate-800 shadow-2xl overflow-hidden">
+              {/* Subtle accent glows */}
+              <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#0D9488]/15 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="absolute -bottom-10 -right-10 w-36 h-36 bg-[#22D3EE]/15 rounded-full blur-2xl pointer-events-none"></div>
 
-              <div className="relative space-y-6">
+              <div className="relative space-y-4">
                 {/* Service cards */}
                 {[
                   {
                     icon: <Icons.ChartLine />,
-                    title: 'Growth Analytics',
-                    description: 'Data-driven insights for business growth',
-                    color: 'from-blue-500 to-cyan-400',
+                    title: 'Growth Analytics & BI',
+                    description: 'Enterprise data pipelines and predictive intelligence',
+                    color: 'from-teal-500 to-cyan-400',
                     path: "/services/growth-analytics"
                   },
                   {
                     icon: <Icons.Cloud />,
-                    title: 'Cloud Solutions',
-                    description: 'Scalable infrastructure for your needs',
-                    color: 'from-purple-500 to-pink-400',
+                    title: 'Cloud Infrastructure',
+                    description: 'Resilient multi-cloud deployments & Kubernetes',
+                    color: 'from-cyan-500 to-blue-500',
                     path: "/services/cloud-solutions"
                   },
                   {
                     icon: <Icons.Shield />,
-                    title: 'Secure Platform',
-                    description: 'Enterprise-grade security protocols',
-                    color: 'from-green-500 to-emerald-400',
+                    title: 'Secure Enterprise Systems',
+                    description: 'Zero-trust architecture with ISO & SOC2 standards',
+                    color: 'from-emerald-500 to-teal-400',
                     path: "/services/secure-platform"
                   },
-                ]
-
-                  .map((service, index) => (
-                    <div
-                      key={index}
-                      onClick={() => navigate(service.path)}
-                      className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300 hover:scale-105 cursor-pointer"
-                    >
-
-                      <div className="flex items-center space-x-4">
-                        <div className={`p-4 rounded-xl bg-gradient-to-br ${service.color}`}>
-                          {service.icon}
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-semibold">{service.title}</h3>
-                          <p className="text-gray-400 text-sm">{service.description}</p>
-                        </div>
+                ].map((service, index) => (
+                  <div
+                    key={index}
+                    onClick={() => navigate(service.path)}
+                    className="group bg-[#020617]/80 rounded-xl p-4 border border-slate-800/80 hover:border-[#22D3EE]/50 hover:bg-[#020617] transition-all duration-300 hover:scale-[1.01] cursor-pointer"
+                  >
+                    <div className="flex items-center space-x-3.5">
+                      <div className={`p-3 rounded-lg bg-gradient-to-br ${service.color} text-slate-950 font-bold shrink-0`}>
+                        {service.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-[#22D3EE] transition-colors">{service.title}</h3>
+                        <p className="text-slate-400 text-xs mt-0.5">{service.description}</p>
                       </div>
                     </div>
-                  ))}
+                  </div>
+                ))}
 
-                {/* Testimonial card */}
-                {/* Testimonial card (hidden on mobile) */}
-                {/* Testimonial card */}
+                {/* Enterprise Engineering Pods Card */}
                 <div
-
-                  onClick={() => navigate('/services/salesforce-solutions')}
-                  className="hidden md:block cursor-pointer bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl p-6 border border-blue-500/30 hover:border-blue-500/50 transition-all duration-300"
+                  onClick={() => navigate('/software-development')}
+                  className="cursor-pointer bg-gradient-to-r from-teal-950/40 via-slate-900 to-cyan-950/40 rounded-xl p-4.5 border border-teal-500/30 hover:border-cyan-400/50 transition-all duration-300"
                 >
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full flex items-center justify-center font-bold">
-                      SS
+                  <div className="flex items-center space-x-3.5 mb-2.5">
+                    <div className="w-10 h-10 bg-gradient-to-br from-teal-400 to-cyan-400 text-slate-950 rounded-lg flex items-center justify-center font-bold text-xs tracking-wider shadow-md shrink-0">
+                      ES
                     </div>
                     <div>
-                      <div className="font-semibold">Salesforce Solutions</div>
-                      <div className="text-sm text-gray-300">Implementation • Customization • Integration</div>
+                      <div className="font-bold text-white text-sm">Enterprise Software & AI Systems</div>
+                      <div className="text-[11px] font-mono text-[#22D3EE]">Architecture • Cloud Native • Autonomous Workflows</div>
                     </div>
                   </div>
-                  <p className="text-gray-300 italic">
-                    Helping businesses unlock the full potential of Salesforce for smarter processes and stronger customer relationships
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    Engineering mission-critical enterprise software, distributed cloud platforms, and intelligent automation built for resilient scale.
                   </p>
                 </div>
               </div>

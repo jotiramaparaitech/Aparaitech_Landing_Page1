@@ -71,7 +71,7 @@ const capabilitiesList = [
   { name: "Personalized Recommendation Systems", icon: <Sliders className="w-5 h-5 text-[#00E5C9]" />, desc: "Collaborative and embedding-based item recommendations for e-commerce." },
   { name: "End-to-End Workflow Automation", icon: <Workflow className="w-5 h-5 text-[#00E5C9]" />, desc: "Connecting CRMs, ERPs, emails, and databases into autonomous pipelines." },
   { name: "Private Sovereign LLMs", icon: <Shield className="w-5 h-5 text-[#00E5C9]" />, desc: "Fine-tuned open models deployed inside your private VPC or on-prem servers." },
-  { name: "Enterprise API Connectors", icon: <Code2 className="w-5 h-5 text-[#00E5C9]" />, desc: "Hardened REST, gRPC, and GraphQL connectors for SAP, Salesforce, and Postgres." },
+  { name: "Enterprise API Connectors", icon: <Code2 className="w-5 h-5 text-[#00E5C9]" />, desc: "Hardened REST, gRPC, and GraphQL connectors for SAP, Oracle, and Postgres." },
   { name: "Generative Media & Visuals", icon: <ImageIcon className="w-5 h-5 text-[#00E5C9]" />, desc: "High-resolution product rendering, image variation, and marketing assets." },
   { name: "Automated Code & SQL Generation", icon: <Terminal className="w-5 h-5 text-[#00E5C9]" />, desc: "Accelerating internal engineering pods with domain-specific code copilots." },
   { name: "Enterprise AI Guardrails", icon: <ShieldCheck className="w-5 h-5 text-[#00E5C9]" />, desc: "Input sanitization, prompt injection defense, and continuous audit telemetry." },
@@ -93,7 +93,7 @@ const chatbotSolutions = [
 ];
 
 const connectedSystems = [
-  "Salesforce & HubSpot CRM",
+  "Enterprise CRM Systems (HubSpot, Zoho, Dynamics)",
   "SAP, Oracle & Custom ERP",
   "PostgreSQL, MySQL & MongoDB",
   "Snowflake, BigQuery & Databricks",

@@ -12,6 +12,8 @@ import {
   X,
   File,
 } from "lucide-react";
+import toast from "react-hot-toast";
+import { careerAPI } from "../../utils/api";
 
 const ApplicationForm = () => {
   const location = useLocation();
@@ -119,80 +121,75 @@ const ApplicationForm = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-const fileToBase64 = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () =>
-      resolve(reader.result.split(",")[1]);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+    if (!validateForm()) {
+      toast.error("Please fill in all required fields and upload your resume.");
+      return;
+    }
 
-  if (!validateForm()) return;
+    setIsSubmitting(true);
 
-  setIsSubmitting(true);
+    const formDataPayload = new FormData();
+    formDataPayload.append("fullName", `${formData.firstName.trim()} ${formData.lastName.trim()}`);
+    formDataPayload.append("firstName", formData.firstName.trim());
+    formDataPayload.append("lastName", formData.lastName.trim());
+    formDataPayload.append("email", formData.email.trim().toLowerCase());
+    formDataPayload.append("phone", formData.phone.trim());
+    formDataPayload.append("appliedPosition", job.title || "Software Engineering Role");
+    formDataPayload.append("jobId", job.id || "");
+    formDataPayload.append("linkedin", formData.linkedin.trim());
+    formDataPayload.append("github", formData.github.trim());
+    formDataPayload.append("portfolio", formData.portfolio.trim());
+    formDataPayload.append("coverLetter", formData.coverLetter.trim());
+    formDataPayload.append("workAuthorization", formData.workAuthorization || "Authorized");
+    formDataPayload.append("veteranStatus", formData.veteranStatus || "");
 
-  // ✅ Convert resume to base64
-  let resumePayload = null;
-  if (formData.resume) {
-    const base64 = await fileToBase64(formData.resume);
-    resumePayload = {
-      name: formData.resume.name,
-      type: formData.resume.type,
-      base64: base64
-    };
-  }
+    if (formData.resume) {
+      formDataPayload.append("resume", formData.resume);
+    }
 
-  const submissionData = {
-    firstName: formData.firstName.trim(),
-    lastName: formData.lastName.trim(),
-    email: formData.email.trim(),
-    phone: formData.phone.trim(),
-    linkedin: formData.linkedin.trim(),
-    github: formData.github.trim(),
-    portfolio: formData.portfolio.trim(),
-    coverLetter: formData.coverLetter.trim(),
-    workAuthorization: formData.workAuthorization,
-    veteranStatus: formData.veteranStatus,
+    try {
+      // 1. Submit directly to MongoDB backend API
+      const res = await careerAPI.apply(formDataPayload);
 
-    // ✅ FIXED
-    resume: resumePayload,
+      // 2. Non-blocking secondary sync to Google Script webhook if available
+      try {
+        fetch(
+          "https://script.google.com/macros/s/AKfycbxHXJnib24YceD0Kk4Dty8oE2vovz_HaW1_GKcyuZ9BIl5CE010zVCDsrXz3fso-12PtQ/exec",
+          {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              fullName: `${formData.firstName} ${formData.lastName}`,
+              email: formData.email,
+              phone: formData.phone,
+              appliedPosition: job.title || "General Application",
+              timestamp: new Date().toISOString(),
+            }),
+          }
+        ).catch(() => {});
+      } catch (scriptErr) {
+        // Non-blocking
+      }
 
-    job: {
-      title: job.title || "",
-      type: job.type || "",
-      location: job.location || "",
-      id: job.id || ""
+      toast.success(res.message || "Application submitted successfully!");
+      setIsSubmitting(false);
+      setSubmitSuccess(true);
+
+      setTimeout(() => {
+        navigate("/company/careers");
+      }, 3500);
+    } catch (err) {
+      console.error("[Career Submission Error]:", err);
+      setIsSubmitting(false);
+      const errorMessage =
+        err.message || (typeof err === "string" ? err : "Failed to record application in database. Please try again.");
+      toast.error(errorMessage);
     }
   };
-
-  try {
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbxHXJnib24YceD0Kk4Dty8oE2vovz_HaW1_GKcyuZ9BIl5CE010zVCDsrXz3fso-12PtQ/exec",
-      {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(submissionData),
-      }
-    );
-
-    setIsSubmitting(false);
-    setSubmitSuccess(true);
-
-    setTimeout(() => {
-      navigate("/company/careers");
-    }, 3000);
-
-  } catch (err) {
-    console.error(err);
-    setIsSubmitting(false);
-    alert("Submission failed");
-  }
-};
 
   if (submitSuccess) {
     return (

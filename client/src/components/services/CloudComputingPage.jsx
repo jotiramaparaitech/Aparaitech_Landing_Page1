@@ -135,7 +135,7 @@ const CloudComputingPage = () => {
             <section id="examples" className="mb-16 scroll-mt-28">
               <h2 className="text-4xl font-bold mb-8">Examples</h2>
               <p className="text-lg text-slate-700 dark:text-slate-300">
-                Platforms like Netflix, Amazon, Salesforce, and Google Workspace
+                Platforms like Netflix, Amazon, GitHub, and Google Workspace
                 rely on cloud infrastructure to operate at global scale.
               </p>
             </section>

@@ -36,6 +36,7 @@ module.exports = {
           },
         },
         brand: {
+          navy: '#0B1220',
           dark: '#0B0F19',
           surface: '#111827',
           surfaceElevated: '#161F32',
@@ -45,6 +46,10 @@ module.exports = {
           primaryHover: '#1D4ED8',
           secondary: '#10B981',
           secondaryHover: '#059669',
+          teal: '#0D9488',
+          cyan: '#22D3EE',
+          textDark: '#0F172A',
+          textMuted: '#64748B',
         },
         primary: {
           50: '#eff6ff',
@@ -58,16 +63,24 @@ module.exports = {
           800: '#1e40af',
           900: '#1e3a8a',
         },
+        accent: {
+          cyan: '#22D3EE',
+          teal: '#0D9488',
+          navy: '#0B1220',
+        },
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
         heading: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
         serif: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
         times: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'Menlo', 'monospace'],
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #2563EB, #1D4ED8)',
         'gradient-text': 'linear-gradient(135deg, #FFFFFF 0%, #93C5FD 100%)',
+        'gradient-brand': 'linear-gradient(135deg, #0B1220 0%, #0D9488 50%, #22D3EE 100%)',
+        'gradient-dark': 'linear-gradient(180deg, #020617 0%, #0B1220 100%)',
       },
     },
   },

@@ -79,7 +79,7 @@ const Header = () => {
       }, 2000);
     } catch (err) {
       console.error(err);
-      toast.error("Saved locally. Our team will contact you shortly.");
+      toast.error(err.message || "Failed to submit request to database. Please try again.");
     } finally {
       setSubmitting(false);
     }
@@ -143,10 +143,10 @@ const Header = () => {
       >
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-semibold text-blue-600 dark:text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded text-[11px] uppercase tracking-wider">
-            India's #1 Agentic CRM
+            Next-Gen Software & AI
           </span>
           <span className="text-slate-700 dark:text-slate-300 text-xs">
-            Uniquely built for India's growing businesses — SMB Growth Kit live in just 4 weeks!
+            Enterprise Custom Software, Cloud Platforms & Autonomous AI Agents — Built for Global Scale.
           </span>
         </div>
         <div className="flex items-center gap-4">
@@ -154,15 +154,15 @@ const Header = () => {
             onClick={() => setModalOpen(true)}
             className="inline-flex cursor-pointer items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors whitespace-nowrap text-xs"
           >
-            <span>Get SMB Growth Kit</span>
+            <span>Schedule Architecture Review</span>
             <span>→</span>
           </button>
           <a
-            href="tel:+918261840199"
+            href="tel:+919158852129"
             className="hidden md:inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 text-xs transition-colors"
           >
             <Phone className="w-3 h-3 text-blue-600 dark:text-blue-400" />
-            <span>1800-420-7332 / +91 82618 40199</span>
+            <span>+91 9158852129 / Hinjawadi Phase 2, Pune</span>
           </a>
         </div>
       </div>
@@ -183,7 +183,7 @@ const Header = () => {
                   Aparaitech Software
                 </span>
                 <span className="text-[10px] tracking-wider text-blue-600 dark:text-blue-400 uppercase mt-1 font-semibold">
-                  Enterprise AI & Cloud Platform
+                  Enterprise Software & AI Systems
                 </span>
               </div>
             </Link>
@@ -201,7 +201,7 @@ const Header = () => {
                 </button>
                 <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 p-2.5 shadow-xl dark:shadow-2xl z-50">
                   <div className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider px-3 py-1.5">
-                    Agentforce & CRM Suite
+                    Custom Software & AI Suite
                   </div>
                   {moreDropdownContent.Products.map((p, i) => (
                     <Link
@@ -251,7 +251,7 @@ const Header = () => {
                 </button>
                 <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 p-2.5 shadow-xl dark:shadow-2xl z-50">
                   <div className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider px-3 py-1.5">
-                    Enterprise Proof Points
+                    Enterprise Case Studies
                   </div>
                   {moreDropdownContent.Customers.map((cust, i) => (
                     <Link
@@ -276,7 +276,7 @@ const Header = () => {
                 </button>
                 <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 p-2.5 shadow-xl dark:shadow-2xl z-50">
                   <div className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider px-3 py-1.5">
-                    Agentblazer & Academy
+                    Developer Center & LMS
                   </div>
                   {moreDropdownContent.Learning.map((lrn, i) =>
                     lrn.external ? (
@@ -313,7 +313,7 @@ const Header = () => {
                 </button>
                 <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 p-2.5 shadow-xl dark:shadow-2xl z-50">
                   <div className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider px-3 py-1.5">
-                    About Aparaitech Software
+                    About APARAITECH SOFTWARE
                   </div>
                   {moreDropdownContent.Company.map((c, i) => (
                     <Link
@@ -356,7 +356,7 @@ const Header = () => {
                 onClick={() => setModalOpen(true)}
                 className="relative inline-flex h-9 cursor-pointer items-center justify-center rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm px-4 sm:px-5 transition-all shadow-sm hover:shadow-md hover:brightness-105"
               >
-                <span>Try for free</span>
+                <span>Book Consultation</span>
               </button>
 
               {/* Mobile Menu Button */}
@@ -502,11 +502,13 @@ const Header = () => {
               {/* Direct Actions in Mobile Menu */}
               <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2.5">
                 <a
-                  href="tel:+918261840199"
+                  href="https://wa.me/919158852129"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 dark:bg-[#111827] border border-slate-200 dark:border-slate-800 text-xs text-blue-600 dark:text-blue-400 font-medium"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  <span>Call Pune CoE: +91 82618 40199</span>
+                  <span>WhatsApp: +91 9158852129</span>
                 </a>
                 <button
                   onClick={() => {

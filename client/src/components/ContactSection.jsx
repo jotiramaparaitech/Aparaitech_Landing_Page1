@@ -1,204 +1,305 @@
+// client/src/components/ContactSection.jsx
 import React, { useRef, useState } from "react";
-import axios from "axios";
+import toast from "react-hot-toast";
+import { contactAPI } from "../utils/api";
 import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring
-} from "framer-motion";
+  MapPin,
+  Phone,
+  PhoneCall,
+  Mail,
+  MessageSquare,
+  Navigation,
+  Send,
+  CheckCircle2,
+  Clock
+} from "lucide-react";
 
 const ContactSection = () => {
   const formWrapperRef = useRef(null);
 
-  // 🔹 Form State
+  // Form State
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
+    subject: "Enterprise Consultation",
     message: ""
   });
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  // 🔹 Scroll Animations
-  const { scrollYProgress } = useScroll({
-    target: formWrapperRef,
-    offset: ["start 90%", "start 40%"]
-  });
-
-  const rawRotateX = useTransform(scrollYProgress, [0, 0.7], [-90, 0]);
-  const rawScaleY = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
-  const rawOpacity = useTransform(scrollYProgress, [0, 0.25], [0, 1]);
-
-  const springConfig = { stiffness: 45, damping: 22, mass: 1 };
-
-  const rotateX = useSpring(rawRotateX, springConfig);
-  const scaleY = useSpring(rawScaleY, springConfig);
-  const opacity = useSpring(rawOpacity, springConfig);
-
-  // 🔹 Handlers
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  setSuccess(false);
+    e.preventDefault();
 
-  console.log("API URL:", import.meta.env.VITE_API_URL);
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast.error("Please fill in your name, email, and project scope.");
+      return;
+    }
 
-  try {
-    await axios.post(
-      `${import.meta.env.VITE_API_URL}/api/contacts`,
-      formData,
-      { headers: { "Content-Type": "application/json" } }
-    );
+    setLoading(true);
+    setSuccess(false);
 
-    setSuccess(true);
-    setFormData({ name: "", email: "", message: "" });
-  } catch (error) {
-    console.log("ERROR:", error);
-    console.log("RESPONSE:", error.response);
-    alert(error.response?.data?.message || error.message || "Something went wrong");
-  } finally {
-    setLoading(false);
-  }
-};
+    try {
+      const res = await contactAPI.submit(formData);
+      setSuccess(true);
+      toast.success(res.message || "Thank you! Your inquiry has been submitted and stored in our database.");
+      setFormData({ name: "", email: "", phone: "", subject: "Enterprise Consultation", message: "" });
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast.error(error.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  const googleMapsUrl = "https://maps.google.com/?q=Office+122+Gera+Imperial+Opposite+Wipro+Circle+Hinjawadi+Phase+2+Pune+Maharashtra+411057";
 
   return (
     <section
       id="contact"
-      className="
-        relative py-32 overflow-hidden
-        bg-slate-50 dark:bg-[#0B0F19]
-        transition-colors
-      "
+      className="relative py-20 lg:py-24 bg-slate-50 dark:bg-[#0B1220] text-slate-900 dark:text-white overflow-hidden border-t border-slate-200 dark:border-slate-800 transition-colors"
     >
-      {/* Decorative Subtle Background Accents */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-500/10 dark:bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-indigo-500/10 dark:bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* Subtle background ambient glows */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#0D9488]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 -right-32 w-96 h-96 bg-[#22D3EE]/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="relative max-w-6xl mx-auto px-6">
-
-        {/* Heading */}
-        <div className="relative mb-16 text-center">
-          <div className="absolute inset-x-0 top-1/2 h-[1px] bg-slate-200 dark:bg-[#1E293B]" />
-          <h2 className="relative inline-block bg-slate-50 dark:bg-[#0B0F19] px-6 text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-            Let’s Talk
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header Section */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-100 dark:bg-teal-950/60 border border-teal-300 dark:border-teal-500/30 text-teal-800 dark:text-[#22D3EE] text-xs font-mono font-semibold uppercase tracking-wider mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-[#22D3EE] animate-pulse"></span>
+            Direct Architectural Consultation
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
+            Let’s Architect Your Next Platform
           </h2>
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Collaborate directly with our senior software and AI engineers in Pune. We deliver rapid scoping, proof-of-concept sprints, and production deployment.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          
+          {/* LEFT COLUMN: Direct Contact Information */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* Quick Contact Cards */}
+            <div className="space-y-3.5">
+              
+              {/* Address Card */}
+              <div className="p-4 sm:p-5 rounded-xl bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-800 hover:border-[#0D9488]/50 shadow-sm dark:shadow-none transition-all">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-600 dark:text-[#22D3EE] shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-0.5">Corporate Headquarters</h4>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Office 122, Gera Imperial, Opposite Wipro Circle, Hinjawadi Phase 2, Pune, Maharashtra – 411057
+                    </p>
+                    <a
+                      href={googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-teal-600 dark:text-[#22D3EE] hover:underline font-mono mt-2"
+                    >
+                      <Navigation className="w-3.5 h-3.5" />
+                      <span>Open in Google Maps ↗</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
 
-          {/* LEFT CONTENT */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700/50 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">
-              Get In Touch
+              {/* Calling & Phone Card */}
+              <div className="p-4 sm:p-5 rounded-xl bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-800 hover:border-[#22D3EE]/50 shadow-sm dark:shadow-none transition-all">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-[#22D3EE] shrink-0">
+                      <PhoneCall className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Direct Calling</span>
+                      <a href="tel:+918261840199" className="text-sm font-bold text-slate-900 dark:text-white font-mono hover:text-teal-600 dark:hover:text-[#22D3EE] transition-colors">
+                        +91 82618 40199
+                      </a>
+                    </div>
+                  </div>
+                  <a
+                    href="tel:+918261840199"
+                    className="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:border-[#22D3EE] hover:text-teal-600 dark:hover:text-white transition-all"
+                  >
+                    Call Now
+                  </a>
+                </div>
+              </div>
+
+              {/* WhatsApp Card */}
+              <div className="p-4 sm:p-5 rounded-xl bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 shadow-sm dark:shadow-none transition-all">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+                      <MessageSquare className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block">WhatsApp Connect</span>
+                      <a
+                        href="https://wa.me/919158852129"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-bold text-slate-900 dark:text-white font-mono hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                      >
+                        +91 9158852129
+                      </a>
+                    </div>
+                  </div>
+                  <a
+                    href="https://wa.me/919158852129"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-500/40 text-xs font-semibold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 transition-all"
+                  >
+                    Chat
+                  </a>
+                </div>
+              </div>
+
+              {/* Email Card */}
+              <div className="p-4 sm:p-5 rounded-xl bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-800 hover:border-[#0D9488]/50 shadow-sm dark:shadow-none transition-all">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-600 dark:text-[#22D3EE] shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Official Email Inquiries</span>
+                    <a href="mailto:info@ai.aparaitech.org" className="text-sm font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-[#22D3EE] transition-colors block">
+                      info@ai.aparaitech.org
+                    </a>
+                    <span className="text-xs text-slate-500 dark:text-slate-400">Careers & HR: <a href="mailto:hr@info.aparaitech.org" className="text-teal-700 dark:text-slate-300 hover:underline">hr@info.aparaitech.org</a></span>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <h3 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
-              Got an idea?
-              <br />
-              <span className="text-blue-600 dark:text-blue-400">Let’s build it together.</span>
-            </h3>
 
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
-              We collaborate closely with you to turn ideas into elegant,
-              scalable digital products — with engineering rigor, clarity, and precision.
-            </p>
+            {/* Response time reassurance */}
+            <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 px-1">
+              <Clock className="w-4 h-4 text-[#0D9488]" />
+              <span>Average engineering inquiry response time: &lt; 2 business hours</span>
+            </div>
+
           </div>
 
-          {/* FORM WRAPPER */}
-          <div ref={formWrapperRef} id="contact-form" style={{ perspective: "1400px" }}>
-            <motion.div
-              style={{
-                rotateX,
-                scaleY,
-                opacity,
-                transformOrigin: "top center",
-                transformStyle: "preserve-3d"
-              }}
-              className="
-                bg-white dark:bg-[#111827]
-                border border-slate-200 dark:border-[#1E293B]
-                rounded-3xl p-8 sm:p-12
-                shadow-xl shadow-slate-200/50 dark:shadow-none
-              "
-            >
-              <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
-                Start the conversation
-              </h4>
+          {/* RIGHT COLUMN: Interactive Intake Form */}
+          <div className="lg:col-span-7" ref={formWrapperRef}>
+            <div className="bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl dark:shadow-2xl">
+              <div className="mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                  Send Us a Direct Message
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  Fill in your details below and our technical leads will reach out with architecture options.
+                </p>
+              </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  required
-                  className="
-                    w-full p-4 rounded-xl
-                    bg-slate-50 dark:bg-[#161F32]
-                    text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500
-                    border border-slate-200 dark:border-white/10
-                    focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500
-                    transition-all
-                  "
-                />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-mono text-slate-700 dark:text-slate-300 mb-1">Your Full Name *</label>
+                    <input
+                      name="name"
+                      type="text"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="e.g. Vikram Deshmukh"
+                      required
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#0D9488]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono text-slate-700 dark:text-slate-300 mb-1">Business Email *</label>
+                    <input
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="vikram@enterprise.com"
+                      required
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#0D9488]"
+                    />
+                  </div>
+                </div>
 
-                <input
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Email"
-                  required
-                  className="
-                    w-full p-4 rounded-xl
-                    bg-slate-50 dark:bg-[#161F32]
-                    text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500
-                    border border-slate-200 dark:border-white/10
-                    focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500
-                    transition-all
-                  "
-                />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-mono text-slate-700 dark:text-slate-300 mb-1">Phone Number (Optional)</label>
+                    <input
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+91 98765 43210"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#0D9488]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono text-slate-700 dark:text-slate-300 mb-1">Inquiry Subject</label>
+                    <input
+                      name="subject"
+                      type="text"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="e.g. Custom AI Platform"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#0D9488]"
+                    />
+                  </div>
+                </div>
 
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="What's on your mind..?"
-                  rows="4"
-                  required
-                  className="
-                    w-full p-4 rounded-xl
-                    bg-slate-50 dark:bg-[#161F32]
-                    text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500
-                    border border-slate-200 dark:border-white/10
-                    resize-none
-                    focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500
-                    transition-all
-                  "
-                />
+                <div>
+                  <label className="block text-xs font-mono text-slate-700 dark:text-slate-300 mb-1">Project Scope & Requirements *</label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Describe your current tech stack, target deliverables, or architectural timeline..."
+                    rows="4"
+                    required
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#0D9488] resize-none"
+                  />
+                </div>
+
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[#2563EB] text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20 disabled:opacity-60"
+                  className="w-full py-3.5 rounded-xl bg-[#0D9488] hover:bg-[#0f766e] text-white font-bold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/20 disabled:opacity-60 flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  {loading ? "Sending..." : "Send Message"}
+                  {loading ? (
+                    <span>Transmitting to Database...</span>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Submit Inquiry to Engineering Hub →</span>
+                    </>
+                  )}
                 </button>
 
                 {success && (
-                  <p className="text-emerald-600 dark:text-emerald-400 font-medium text-center">
-                    We'll reach out to you soon!
-                  </p>
+                  <div className="flex items-center justify-center gap-2 p-3 rounded-lg bg-teal-50 dark:bg-teal-950/60 border border-teal-300 dark:border-teal-500/40 text-teal-800 dark:text-teal-300 text-xs">
+                    <CheckCircle2 className="w-4 h-4" />
+                    <span>Inquiry logged successfully. Our architects will contact you shortly.</span>
+                  </div>
                 )}
               </form>
-            </motion.div>
+            </div>
           </div>
 
         </div>
+
       </div>
     </section>
   );

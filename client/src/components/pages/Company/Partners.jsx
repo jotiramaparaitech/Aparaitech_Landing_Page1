@@ -21,6 +21,7 @@ import {
   Globe
 } from "lucide-react";
 import { toast } from "react-hot-toast";
+import { partnerAPI } from "../../../utils/api";
 import { saveAppointmentToSheet, GOOGLE_SHEET_VIEW_URL } from "../../../utils/sheetService";
 
 const Partners = () => {
@@ -48,29 +49,29 @@ const Partners = () => {
     }
     setIsSubmitting(true);
     try {
-      const result = await saveAppointmentToSheet({
-        ...formData,
-        service: `Partner Application: ${formData.partnerTier}`,
-        source: "Partners Page"
+      const result = await partnerAPI.apply({
+        companyName: formData.company,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        partnershipType: formData.partnerTier,
+        message: formData.partnershipGoals || formData.notes || "",
       });
-      if (result.success) {
-        toast.success("Partner application recorded! Logged to executive alliances sheet.");
-        setIsModalOpen(false);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          partnerTier: "System Integrator (SI)",
-          partnershipGoals: "",
-          notes: ""
-        });
-      } else {
-        toast.error("Application recorded locally. Our partnerships team will connect shortly.");
-        setIsModalOpen(false);
-      }
+
+      toast.success(result.message || "Partner application submitted successfully!");
+      setIsModalOpen(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        partnerTier: "System Integrator (SI)",
+        partnershipGoals: "",
+        notes: ""
+      });
     } catch (err) {
-      toast.error("Network error. Please reach out to info@ai.aparaitech.org");
+      console.error("[Partner Application Error]:", err);
+      toast.error(err.message || "Failed to submit partner application. Please try again.");
     } finally {
       setIsSubmitting(false);
     }

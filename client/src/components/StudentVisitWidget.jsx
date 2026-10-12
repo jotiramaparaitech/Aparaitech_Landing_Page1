@@ -264,9 +264,9 @@ export default function StudentVisitWidget() {
                   <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
                     Book Office Visit / Interview
                   </h3>
-                  <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5">
-                    <MapPin className="w-3 h-3 text-blue-400" />
-                    Gera Imperium, Hinjawadi Phase 2, Pune
+                  <p className="text-[11px] font-mono text-slate-400 flex items-center gap-1 mt-0.5">
+                    <MapPin className="w-3 h-3 text-[#00E5C9]" />
+                    Office 122, Gera Imperial, Opp. Wipro Circle, Hinjawadi Phase 2, Pune
                   </p>
                 </div>
               </div>
@@ -342,13 +342,13 @@ export default function StudentVisitWidget() {
                     </div>
                     <div className="flex justify-between pt-0.5">
                       <span className="text-slate-400">Location:</span>
-                      <span className="text-white text-right">Gera Imperium, Hinjawadi Ph 2, Pune</span>
+                      <span className="text-white text-right">Office 122, Gera Imperial, Hinjawadi Ph 2, Pune</span>
                     </div>
                   </div>
 
                   {/* Candidate Instructions & Directions */}
-                  <div className="rounded-xl bg-slate-50 dark:bg-[#0B0F19] border border-white/5 p-3.5 text-left font-mono space-y-2 text-[11px] text-slate-300">
-                    <div className="text-[#34D399] font-bold text-xs flex items-center gap-1.5">
+                  <div className="rounded-xl bg-slate-50 dark:bg-[#0C0D0F] border border-slate-200 dark:border-white/10 p-3.5 text-left font-mono space-y-2 text-[11px] text-slate-700 dark:text-slate-300">
+                    <div className="text-emerald-600 dark:text-[#34D399] font-bold text-xs flex items-center gap-1.5">
                       <Briefcase className="w-3.5 h-3.5" />
                       Candidate Visit Checklist:
                     </div>
@@ -356,14 +356,14 @@ export default function StudentVisitWidget() {
                       <li>Carry 2 printed copies of your updated resume.</li>
                       <li>Bring your College ID card or valid Govt. Photo ID for entry.</li>
                       <li>Please arrive 10–15 minutes prior to your scheduled slot.</li>
-                      <li>Report to Reception, Gera Imperium, Hinjawadi Phase 2, Pune.</li>
+                      <li>Report to Reception, Office 122, Gera Imperial, Opp. Wipro Circle, Hinjawadi Phase 2, Pune.</li>
                     </ul>
                   </div>
 
                   {/* Candidate Action Buttons */}
                   <div className="space-y-2 pt-1">
                     <a
-                      href="https://maps.app.goo.gl/zshFooG4n2aS8Dr3A"
+                      href="https://maps.google.com/?q=Office+122+Gera+Imperial+Opposite+Wipro+Circle+Hinjawadi+Phase+2+Pune+Maharashtra+411057"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#00E5C9] hover:brightness-110 text-[#0C0D0F] font-bold py-2.5 px-4 text-xs transition-all shadow-md"

@@ -48,9 +48,9 @@ const ErpCrm = () => {
       title: 'CRM Integration',
       description: 'Seamless CRM integrations to enhance customer relationships and sales processes.',
       icon: <Users className="w-8 h-8" />,
-      features: ['Salesforce integration', 'Customer data management', 'Sales automation', 'Marketing automation'],
+      features: ['Enterprise CRM integration', 'Customer data management', 'Sales pipeline automation', 'Marketing workflows'],
       color: 'from-purple-500 to-pink-500',
-      platforms: ['Salesforce', 'HubSpot', 'Microsoft Dynamics', 'Zoho']
+      platforms: ['HubSpot', 'Microsoft Dynamics', 'Zoho', 'Custom CRM Engines']
     },
     {
       title: 'System Integration',
