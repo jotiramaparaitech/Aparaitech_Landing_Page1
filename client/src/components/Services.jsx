@@ -159,24 +159,24 @@ const Services = () => {
   }, [isHovered, isMobile, hovered]);
 
   return (
-    <section className="bg-slate-50 dark:bg-[#0B1220] py-20 border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white transition-colors">
+    <section className="bg-[#F3F6FA] dark:bg-[#0B1220] py-20 border-b border-[#E2E8F0] dark:border-[#29384D] text-[#475569] dark:text-[#CBD5E1] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-100 dark:bg-teal-950/60 border border-teal-300 dark:border-teal-500/30 text-teal-800 dark:text-[#22D3EE] text-xs font-mono font-semibold uppercase tracking-wider mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-[#22D3EE] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] text-[#0F9F8F] dark:text-[#2DD4BF] text-xs font-semibold uppercase tracking-wider mb-3 shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0F9F8F] dark:bg-[#2DD4BF]"></span>
             Enterprise Software & Services
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#142B4A] dark:text-[#F1F5F9] tracking-tight mb-3">
             Specialized Engineering Domains
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-[#475569] dark:text-[#CBD5E1] max-w-2xl mx-auto leading-relaxed">
             High-availability systems, cloud-native deployments, and autonomous intelligence engineered to scale.
           </p>
         </div>
 
-        <section className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-50 dark:from-slate-50 dark:from-[#0B1220] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0B1220] to-transparent z-10 pointer-events-none" />
+        <div className="relative overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#F3F6FA] dark:from-[#0B1220] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#F3F6FA] dark:from-[#0B1220] to-transparent z-10 pointer-events-none" />
 
           <div ref={scrollRef} className="flex gap-6 pb-4">
             {duplicatedServices.map((service, index) => (
@@ -196,24 +196,16 @@ const Services = () => {
                   setIsHovered(false);
                 }}
                 className="
-                  group relative overflow-hidden flex-shrink-0
+                  group relative flex-shrink-0
                   w-[330px] sm:w-[350px] p-6 rounded-2xl
-                  bg-white dark:bg-[#020617] border border-slate-200 dark:border-slate-800 shadow-md dark:shadow-none
-                  hover:border-[#0D9488] hover:shadow-2xl hover:shadow-[#0D9488]/15
+                  bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] shadow-sm
+                  hover:border-[#2563EB] dark:hover:border-[#3B82F6] hover:shadow-md
                   transition-all duration-300 cursor-pointer
                 "
               >
-                {/* Subtle corner glow */}
-                <div className="
-                  absolute -bottom-12 -right-12
-                  w-28 h-28 rounded-full
-                  bg-teal-500/5 group-hover:bg-[#0D9488]/15
-                  transition-all duration-300 blur-xl
-                " />
-
                 <div className="relative z-10">
                   <div className="mb-4 flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:scale-110 group-hover:border-[#0D9488]/50 transition-all">
+                    <div className="w-12 h-12 rounded-xl bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] flex items-center justify-center transition-all group-hover:border-[#2563EB] dark:group-hover:border-[#3B82F6]">
                       {service.image ? (
                         <img
                           src={service.image}
@@ -224,20 +216,20 @@ const Services = () => {
                         service.icon
                       )}
                     </div>
-                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 uppercase tracking-widest px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <span className="text-[10px] font-mono text-[#64748B] dark:text-[#94A3B8] uppercase tracking-widest px-2 py-0.5 rounded bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D]">
                       Tier 1
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 dark:group-hover:text-[#22D3EE] transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2 group-hover:text-[#2563EB] dark:group-hover:text-[#3B82F6] transition-colors">
                     {service.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-xs sm:text-sm text-[#475569] dark:text-[#CBD5E1] leading-relaxed mb-4 line-clamp-3">
                     {service.description}
                   </p>
 
-                  <div className="flex items-center text-xs font-semibold text-[#0D9488] group-hover:text-[#22D3EE] transition-colors gap-1">
+                  <div className="flex items-center text-xs font-semibold text-[#2563EB] dark:text-[#3B82F6] transition-colors gap-1">
                     <span>Explore Domain</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </div>
@@ -245,7 +237,7 @@ const Services = () => {
               </motion.div>
             ))}
           </div>
-        </section>
+        </div>
       </div>
     </section>
     

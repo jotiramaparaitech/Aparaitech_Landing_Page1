@@ -157,7 +157,7 @@ const Solutions = () => {
 
     const techStack = [
         { name: 'React', category: 'frontend', color: 'bg-blue-500' },
-        { name: 'Vue.js', category: 'frontend', color: 'bg-green-500' },
+        { name: 'Vue.js', category: 'frontend', color: 'bg-[#0F9F8F]' },
         { name: 'Angular', category: 'frontend', color: 'bg-red-500' },
         { name: 'Node.js', category: 'backend', color: 'bg-green-600' },
         { name: 'Python', category: 'backend', color: 'bg-yellow-500' },
@@ -166,7 +166,7 @@ const Solutions = () => {
         { name: 'Kotlin', category: 'mobile', color: 'bg-purple-500' },
         { name: 'React Native', category: 'mobile', color: 'bg-blue-400' },
         { name: 'PostgreSQL', category: 'database', color: 'bg-blue-600' },
-        { name: 'MongoDB', category: 'database', color: 'bg-green-500' },
+        { name: 'MongoDB', category: 'database', color: 'bg-[#0F9F8F]' },
         { name: 'Redis', category: 'database', color: 'bg-red-500' },
         { name: 'AWS', category: 'cloud', color: 'bg-orange-600' },
         { name: 'Azure', category: 'cloud', color: 'bg-blue-700' },
@@ -259,14 +259,14 @@ const Solutions = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
+        <div className="min-h-screen bg-gradient-to-b from-[#F3F6FA] dark:from-[#0B1220] to-black text-[#142B4A] dark:text-[#F1F5F9]">
             {/* Hero Section */}
             <section className="relative overflow-hidden pt-24 pb-16">
                 {/* Animated background */}
                 <div className="absolute inset-0">
-                    <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/10 rounded-full filter blur-3xl animate-pulse"></div>
-                    <div className="absolute top-1/3 right-0 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse animation-delay-2000"></div>
-                    <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-cyan-500/10 rounded-full filter blur-3xl animate-pulse animation-delay-4000"></div>
+                    <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/10 rounded-full filter blur-3xl opacity-0 pointer-events-none"></div>
+                    <div className="absolute top-1/3 right-0 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl opacity-0 pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-cyan-500/10 rounded-full filter blur-3xl opacity-0 pointer-events-none"></div>
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10">
@@ -283,16 +283,16 @@ const Solutions = () => {
                             {' '}That Drive Results
                         </h1>
 
-                        <p className="text-xl text-slate-300 dark:text-slate-400 mb-8 max-w-3xl mx-auto">
+                        <p className="text-xl text-slate-300 dark:text-[#94A3B8] mb-8 max-w-3xl mx-auto">
                             End-to-end software solutions designed to solve complex business challenges,
                             drive innovation, and deliver measurable value.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-500/25">
+                            <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-[#142B4A] dark:text-[#F1F5F9] rounded-lg font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-500/25">
                                 Explore Solutions
                             </button>
-                            <button className="px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg font-semibold hover:bg-white/20 transition-all duration-300">
+                            <button className="px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-[#142B4A] dark:text-[#F1F5F9] rounded-lg font-semibold hover:bg-white/20 transition-all duration-300">
                                 View Case Studies
                             </button>
                         </div>
@@ -301,10 +301,10 @@ const Solutions = () => {
             </section>
 
             {/* Main Solutions */}
-            <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
+            <section className="py-16 bg-gradient-to-b from-[#F3F6FA] dark:from-[#0B1220] to-black">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-4">
                             Our Core Solutions
                         </h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
@@ -319,13 +319,13 @@ const Solutions = () => {
                                 onClick={() => setActiveSolution(solution.id)}
                                 className={`rounded-xl p-6 border-2 cursor-pointer transition-all duration-300 ${activeSolution === solution.id
                                         ? 'border-blue-500 bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl shadow-blue-500/10'
-                                        : 'border-gray-700 bg-gray-800/50 hover:border-blue-400 hover:shadow-lg hover:bg-gray-800'
+                                        : 'border-gray-700 bg-white dark:bg-[#131F32]/50 hover:border-blue-400 hover:shadow-lg hover:bg-white dark:bg-[#131F32]'
                                     }`}
                             >
                                 <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${solution.color} mb-4`}>
-                                    <span className="text-2xl text-white">{solution.icon}</span>
+                                    <span className="text-2xl text-[#142B4A] dark:text-[#F1F5F9]">{solution.icon}</span>
                                 </div>
-                                <h3 className="text-xl font-semibold text-white mb-3">
+                                <h3 className="text-xl font-semibold text-[#142B4A] dark:text-[#F1F5F9] mb-3">
                                     {solution.title}
                                 </h3>
                                 <p className="text-gray-400 text-sm mb-4">
@@ -334,7 +334,7 @@ const Solutions = () => {
 
                                 <div className="space-y-2">
                                     {solution.features.map((feature, index) => (
-                                        <div key={index} className="flex items-center text-sm text-slate-300 dark:text-slate-400">
+                                        <div key={index} className="flex items-center text-sm text-slate-300 dark:text-[#94A3B8]">
                                             <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
                                             {feature}
                                         </div>
@@ -348,7 +348,7 @@ const Solutions = () => {
                     <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700 shadow-lg">
                         <div className="grid lg:grid-cols-2 gap-8">
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4">
+                                <h3 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-4">
                                     {mainSolutions.find(s => s.id === activeSolution)?.title} Solutions
                                 </h3>
                                 <p className="text-gray-300 mb-6">
@@ -358,37 +358,37 @@ const Solutions = () => {
 
                                 <div className="space-y-4">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-slate-400 dark:text-slate-500">Development Time</span>
-                                        <span className="font-semibold text-white">8-16 Weeks</span>
+                                        <span className="text-slate-400 dark:text-[#64748B] dark:text-[#94A3B8]">Development Time</span>
+                                        <span className="font-semibold text-[#142B4A] dark:text-[#F1F5F9]">8-16 Weeks</span>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-slate-400 dark:text-slate-500">Team Size</span>
-                                        <span className="font-semibold text-white">5-10 Experts</span>
+                                        <span className="text-slate-400 dark:text-[#64748B] dark:text-[#94A3B8]">Team Size</span>
+                                        <span className="font-semibold text-[#142B4A] dark:text-[#F1F5F9]">5-10 Experts</span>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-slate-400 dark:text-slate-500">Success Rate</span>
-                                        <span className="font-semibold text-green-400">98%</span>
+                                        <span className="text-slate-400 dark:text-[#64748B] dark:text-[#94A3B8]">Success Rate</span>
+                                        <span className="font-semibold text-[#0F9F8F] dark:text-[#2DD4BF]">98%</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                                <h4 className="font-semibold text-white mb-4">Ideal For</h4>
+                            <div className="bg-white dark:bg-[#131F32]/50 rounded-xl p-6 border border-gray-700">
+                                <h4 className="font-semibold text-[#142B4A] dark:text-[#F1F5F9] mb-4">Ideal For</h4>
                                 <div className="space-y-3">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-slate-300 dark:text-slate-400">Startups</span>
+                                        <span className="text-slate-300 dark:text-[#94A3B8]">Startups</span>
                                         <div className="w-24 h-2 bg-gray-700 rounded-full overflow-hidden">
                                             <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style={{ width: '80%' }}></div>
                                         </div>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-slate-300 dark:text-slate-400">SMEs</span>
+                                        <span className="text-slate-300 dark:text-[#94A3B8]">SMEs</span>
                                         <div className="w-24 h-2 bg-gray-700 rounded-full overflow-hidden">
                                             <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style={{ width: '95%' }}></div>
                                         </div>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-slate-300 dark:text-slate-400">Enterprise</span>
+                                        <span className="text-slate-300 dark:text-[#94A3B8]">Enterprise</span>
                                         <div className="w-24 h-2 bg-gray-700 rounded-full overflow-hidden">
                                             <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style={{ width: '70%' }}></div>
                                         </div>
@@ -401,10 +401,10 @@ const Solutions = () => {
             </section>
 
             {/* Technology Stack */}
-            <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
+            <section className="py-16 bg-gradient-to-b from-[#F3F6FA] dark:from-[#0B1220] to-black">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-4">
                             Our Technology Stack
                         </h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
@@ -420,7 +420,7 @@ const Solutions = () => {
                                 onClick={() => setSelectedTech(tech.id)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedTech === tech.id
                                         ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white'
-                                        : 'bg-gray-800 text-slate-300 dark:text-slate-400 hover:bg-gray-700'
+                                        : 'bg-white dark:bg-[#131F32] text-slate-300 dark:text-[#94A3B8] hover:bg-gray-700'
                                     }`}
                             >
                                 {tech.name}
@@ -435,18 +435,18 @@ const Solutions = () => {
                             .map((tech, index) => (
                                 <div
                                     key={index}
-                                    className="group bg-gray-800 rounded-lg p-4 border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                                    className="group bg-white dark:bg-[#131F32] rounded-lg p-4 border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all duration-300 cursor-pointer"
                                 >
                                     <div className="flex flex-col items-center">
                                         <div className={`w-10 h-10 ${tech.color} rounded-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform`}>
-                                            <span className="text-white text-sm font-bold">
+                                            <span className="text-[#142B4A] dark:text-[#F1F5F9] text-sm font-bold">
                                                 {tech.name.charAt(0)}
                                             </span>
                                         </div>
-                                        <div className="text-sm font-medium text-white text-center">
+                                        <div className="text-sm font-medium text-[#142B4A] dark:text-[#F1F5F9] text-center">
                                             {tech.name}
                                         </div>
-                                        <div className="text-xs text-slate-400 dark:text-slate-500 capitalize mt-1">
+                                        <div className="text-xs text-slate-400 dark:text-[#64748B] dark:text-[#94A3B8] capitalize mt-1">
                                             {tech.category}
                                         </div>
                                     </div>
@@ -457,10 +457,10 @@ const Solutions = () => {
             </section>
 
             {/* Case Studies */}
-            <section className="py-16 bg-slate-900 dark:bg-gray-900">
+            <section className="py-16 bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220]">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-4">
                             Success Stories
                         </h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
@@ -472,22 +472,22 @@ const Solutions = () => {
                         {caseStudies.map((study) => (
                             <div key={study.id} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:shadow-xl hover:border-blue-500 transition-all duration-300">
                                 <div className="mb-6">
-                                    <h3 className="text-xl font-semibold text-white mb-2">
+                                    <h3 className="text-xl font-semibold text-[#142B4A] dark:text-[#F1F5F9] mb-2">
                                         {study.client}
                                     </h3>
                                     <p className="text-gray-400 text-sm mb-4">
-                                        <span className="font-medium text-slate-300 dark:text-slate-400">Challenge:</span> {study.challenge}
+                                        <span className="font-medium text-slate-300 dark:text-[#94A3B8]">Challenge:</span> {study.challenge}
                                     </p>
                                     <p className="text-gray-400 text-sm">
-                                        <span className="font-medium text-slate-300 dark:text-slate-400">Solution:</span> {study.solution}
+                                        <span className="font-medium text-slate-300 dark:text-[#94A3B8]">Solution:</span> {study.solution}
                                     </p>
                                 </div>
 
                                 <div className="space-y-3">
-                                    <h4 className="font-medium text-white">Results:</h4>
+                                    <h4 className="font-medium text-[#142B4A] dark:text-[#F1F5F9]">Results:</h4>
                                     {study.results.map((result, index) => (
-                                        <div key={index} className="flex items-center text-sm text-slate-300 dark:text-slate-400">
-                                            <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                                        <div key={index} className="flex items-center text-sm text-slate-300 dark:text-[#94A3B8]">
+                                            <div className="w-2 h-2 bg-[#0F9F8F] rounded-full mr-3"></div>
                                             {result}
                                         </div>
                                     ))}
@@ -495,8 +495,8 @@ const Solutions = () => {
 
                                 <div className="mt-6 pt-6 border-t border-gray-700">
                                     <div className="flex justify-between items-center">
-                                        <span className="text-sm text-slate-400 dark:text-slate-500">Project Duration</span>
-                                        <span className="font-medium text-white">{study.duration}</span>
+                                        <span className="text-sm text-slate-400 dark:text-[#64748B] dark:text-[#94A3B8]">Project Duration</span>
+                                        <span className="font-medium text-[#142B4A] dark:text-[#F1F5F9]">{study.duration}</span>
                                     </div>
                                 </div>
                             </div>
@@ -506,10 +506,10 @@ const Solutions = () => {
             </section>
 
             {/* Stats & CTA */}
-            <section className="py-16 bg-gradient-to-r from-gray-900 to-black">
+            <section className="py-16 bg-gradient-to-r from-[#F3F6FA] dark:from-[#0B1220] to-black">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-4">
                             Proven Results
                         </h2>
                         <p className="text-gray-300 max-w-2xl mx-auto">
@@ -523,21 +523,21 @@ const Solutions = () => {
                                 <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
                                     {stat.value}
                                 </div>
-                                <div className="text-lg font-semibold text-white">{stat.label}</div>
-                                <div className="text-sm text-slate-300 dark:text-slate-400">{stat.sub}</div>
+                                <div className="text-lg font-semibold text-[#142B4A] dark:text-[#F1F5F9]">{stat.label}</div>
+                                <div className="text-sm text-slate-300 dark:text-[#94A3B8]">{stat.sub}</div>
                             </div>
                         ))}
                     </div>
 
                     <div className="text-center">
-                        <h3 className="text-2xl font-bold text-white mb-6">
+                        <h3 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-6">
                             Ready to Transform Your Business?
                         </h3>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 shadow-lg">
+                            <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-[#142B4A] dark:text-[#F1F5F9] font-semibold rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 shadow-lg">
                                 Get Free Consultation
                             </button>
-                            <button className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-300">
+                            <button className="px-8 py-3 bg-transparent border-2 border-white text-[#142B4A] dark:text-[#F1F5F9] font-semibold rounded-lg hover:bg-white/10 transition-colors duration-300">
                                 Request Proposal
                             </button>
                         </div>

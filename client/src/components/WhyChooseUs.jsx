@@ -186,25 +186,22 @@ const Features = () => {
   const mobileFeatures = features.slice(0, 4);
 
   return (
-    <section className="relative py-16 lg:py-20 bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-white overflow-hidden border-b border-slate-200 dark:border-slate-800 transition-colors">
-      {/* Subtle background glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-950/10 via-transparent to-cyan-950/10 pointer-events-none"></div>
-
+    <section className="relative py-16 lg:py-20 bg-[#F3F6FA] dark:bg-[#0B1220] text-[#475569] dark:text-[#CBD5E1] overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header - Responsive */}
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14 animate-fadeInUp">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-teal-100 dark:bg-teal-950/60 rounded-full mb-3.5 border border-teal-300 dark:border-teal-500/30 text-teal-800 dark:text-[#22D3EE] text-xs font-mono font-semibold uppercase tracking-wider">
-            <div className="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-[#22D3EE] animate-pulse"></div>
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white dark:bg-[#131F32] rounded-full mb-3.5 border border-[#E2E8F0] dark:border-[#29384D] text-[#0F9F8F] dark:text-[#2DD4BF] text-xs font-semibold uppercase tracking-wider shadow-sm">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#0F9F8F] dark:bg-[#2DD4BF]"></div>
             <span>Enterprise Architecture Principles</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#142B4A] dark:text-[#F1F5F9] tracking-tight mb-3">
             Engineered for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500 dark:from-teal-400 dark:to-cyan-300">
+            <span className="text-[#2563EB] dark:text-[#3B82F6]">
               High-Reliability Scale
             </span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+          <p className="text-[#475569] dark:text-[#CBD5E1] text-sm sm:text-base leading-relaxed">
             Resilient microservices, zero-trust security pipelines, and sovereign data intelligence built for modern enterprises.
           </p>
         </div>
@@ -217,49 +214,44 @@ const Features = () => {
                 <div
                   key={`mobile-${index}`}
                   className="
-                    bg-white dark:bg-[#0B1220]
+                    bg-white dark:bg-[#131F32]
                     rounded-xl
-                    border border-slate-200 dark:border-slate-800
-                    shadow-sm dark:shadow-none
+                    border border-[#E2E8F0] dark:border-[#29384D]
+                    shadow-sm
                     p-5
-                    hover:border-[#0D9488]/60
+                    hover:border-[#2563EB] dark:hover:border-[#3B82F6]
                     transition-all
                     duration-300
-                    active:scale-95
                     cursor-pointer
                   "
                 >
-                  <div className={`
+                  <div className="
                     w-10 h-10
                     rounded-lg
-                    bg-gradient-to-br
-                    ${feature.gradient}
+                    bg-[#F3F6FA] dark:bg-[#0B1220]
+                    border border-[#E2E8F0] dark:border-[#29384D]
+                    text-[#0F9F8F] dark:text-[#2DD4BF]
                     flex
                     items-center
                     justify-center
                     mb-3
-                    shadow-sm
-                    transition-all
-                    duration-300
-                  `}>
-                    <div className="text-white">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        {feature.icon.props.children}
-                      </svg>
-                    </div>
+                  ">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {feature.icon.props.children}
+                    </svg>
                   </div>
 
                   <h3 className="
                     text-base
                     font-bold 
-                    text-slate-900 dark:text-white 
+                    text-[#142B4A] dark:text-[#F1F5F9] 
                     mb-2
                     line-clamp-1
                   ">
                     {feature.title}
                   </h3>
                   <p className="
-                    text-slate-600 dark:text-slate-400 
+                    text-[#475569] dark:text-[#CBD5E1] 
                     text-sm
                     leading-relaxed
                     line-clamp-3
@@ -287,14 +279,14 @@ const Features = () => {
             <div className="
               absolute left-0 top-0 bottom-0 
               w-12 sm:w-16 md:w-20 lg:w-24
-              bg-gradient-to-r from-white via-white/90 to-transparent 
+              bg-gradient-to-r from-[#F3F6FA] dark:from-[#0B1220] to-transparent 
               pointer-events-none z-20
             "></div>
             
             <div className="
               absolute right-0 top-0 bottom-0 
               w-12 sm:w-16 md:w-20 lg:w-24
-              bg-gradient-to-l from-white via-white/90 to-transparent 
+              bg-gradient-to-l from-[#F3F6FA] dark:from-[#0B1220] to-transparent 
               pointer-events-none z-20
             "></div>
 
@@ -314,15 +306,14 @@ const Features = () => {
                     sm:mx-3
                     p-5
                     sm:p-6
-                    bg-white dark:bg-[#0B1220]
+                    bg-white dark:bg-[#131F32]
                     rounded-xl
-                    border border-slate-200 dark:border-slate-800
-                    hover:border-[#0D9488]
-                    shadow-sm dark:shadow-none
-                    hover:shadow-xl hover:shadow-[#0D9488]/10
+                    border border-[#E2E8F0] dark:border-[#29384D]
+                    hover:border-[#2563EB] dark:hover:border-[#3B82F6]
+                    shadow-sm
+                    hover:shadow-md
                     transition-all
                     duration-300
-                    hover:scale-[1.02]
                     cursor-pointer
                     w-[260px]
                     sm:w-[280px]
@@ -331,32 +322,21 @@ const Features = () => {
                   "
                 >
                   {/* Icon - Responsive */}
-                  <div className={`
-                    w-8
-                    h-8
-                    sm:w-9
-                    sm:h-9
-                    md:w-10
-                    md:h-10
-                    rounded-md
-                    sm:rounded-lg
-                    bg-gradient-to-br
-                    ${feature.gradient}
+                  <div className="
+                    w-9 h-9 sm:w-10 sm:h-10
+                    rounded-lg
+                    bg-[#F3F6FA] dark:bg-[#0B1220]
+                    border border-[#E2E8F0] dark:border-[#29384D]
+                    text-[#0F9F8F] dark:text-[#2DD4BF]
                     flex
                     items-center
                     justify-center
-                    mb-2
-                    sm:mb-3
-                    shadow-sm
-                    group-hover:shadow
+                    mb-3
                     transition-all
-                    duration-300
-                  `}>
-                    <div className="text-white">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        {feature.icon.props.children}
-                      </svg>
-                    </div>
+                  ">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {feature.icon.props.children}
+                    </svg>
                   </div>
 
                   {/* Content - Responsive */}
@@ -364,9 +344,9 @@ const Features = () => {
                     text-base
                     sm:text-lg
                     font-bold 
-                    text-slate-900 dark:text-white 
+                    text-[#142B4A] dark:text-[#F1F5F9] 
                     mb-1.5
-                    group-hover:text-[#22D3EE] 
+                    group-hover:text-[#2563EB] dark:group-hover:text-[#3B82F6] 
                     transition-colors 
                     duration-300
                     line-clamp-1
@@ -374,7 +354,7 @@ const Features = () => {
                     {feature.title}
                   </h3>
                   <p className="
-                    text-slate-600 dark:text-slate-400 
+                    text-[#475569] dark:text-[#CBD5E1] 
                     text-xs
                     sm:text-sm
                     leading-relaxed
@@ -393,23 +373,23 @@ const Features = () => {
         <div className="mb-8 px-2 sm:px-0">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             {[
-              { value: "99.9%", label: "Uptime SLA Guarantee", color: "from-teal-400 to-cyan-300" },
-              { value: "Zero-Trust", label: "ISO 27001 Security", color: "from-cyan-400 to-blue-400" },
-              { value: "<50ms", label: "Edge Latency Target", color: "from-emerald-400 to-teal-400" },
-              { value: "Dedicated", label: "Senior Engineering Pods", color: "from-teal-300 to-cyan-400" }
+              { value: "99.9%", label: "Uptime SLA Guarantee" },
+              { value: "Zero-Trust", label: "ISO 27001 Security" },
+              { value: "<50ms", label: "Edge Latency Target" },
+              { value: "Dedicated", label: "Senior Engineering Pods" }
             ].map((stat, index) => (
               <div
                 key={index}
                 className="
                   text-center 
-                  bg-white dark:bg-[#0B1220] 
+                  bg-white dark:bg-[#131F32] 
                   rounded-xl 
                   p-3.5
                   sm:p-4
                   border 
-                  border-slate-200 dark:border-slate-800
-                  shadow-sm dark:shadow-none 
-                  hover:border-[#0D9488]/50 
+                  border-[#E2E8F0] dark:border-[#29384D]
+                  shadow-sm 
+                  hover:border-[#2563EB] dark:hover:border-[#3B82F6] 
                   transition-colors 
                   duration-300
                   min-h-[75px]
@@ -419,10 +399,10 @@ const Features = () => {
                   justify-center
                 "
               >
-                <div className={`text-xl sm:text-2xl font-bold font-mono text-transparent bg-clip-text bg-gradient-to-r ${stat.color} mb-1`}>
+                <div className="text-xl sm:text-2xl font-bold font-mono text-[#2563EB] dark:text-[#3B82F6] mb-1">
                   {stat.value}
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">{stat.label}</p>
+                <p className="text-[#64748B] dark:text-[#94A3B8] text-xs font-medium uppercase tracking-wider">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -438,11 +418,11 @@ const Features = () => {
             gap-4 
             p-5 
             sm:p-6
-            bg-white dark:bg-[#0B1220] 
+            bg-white dark:bg-[#131F32] 
             rounded-2xl 
             border 
-            border-slate-200 dark:border-slate-800 
-            shadow-xl 
+            border-[#E2E8F0] dark:border-[#29384D] 
+            shadow-md 
             w-full
             max-w-3xl
             mx-auto
@@ -450,10 +430,10 @@ const Features = () => {
           ">
             <div className="text-left">
               <div className="flex items-center gap-2 mb-1">
-                <div className="w-2 h-2 rounded-full bg-teal-500 dark:bg-[#22D3EE] animate-pulse"></div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">Ready to architect your platform?</h3>
+                <div className="w-2 h-2 rounded-full bg-[#0F9F8F] dark:bg-[#2DD4BF]"></div>
+                <h3 className="text-base sm:text-lg font-bold text-[#142B4A] dark:text-[#F1F5F9]">Ready to architect your platform?</h3>
               </div>
-              <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">Connect with our Hinjawadi technical architects for an end-to-end evaluation.</p>
+              <p className="text-[#475569] dark:text-[#CBD5E1] text-xs sm:text-sm">Connect with our Hinjawadi technical architects for an end-to-end evaluation.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2.5 w-full sm:w-auto shrink-0">
               <button 
@@ -461,14 +441,14 @@ const Features = () => {
                 className="
                   px-4
                   py-2.5
-                  bg-[#0D9488] hover:bg-[#0f766e]
+                  bg-[#2563EB] hover:bg-[#1D4ED8]
+                  dark:bg-[#3B82F6] dark:hover:bg-[#2563EB]
                   text-white
-                  font-bold
-                  rounded-xl
-                  shadow-lg shadow-teal-500/20
+                  font-semibold
+                  rounded-lg
+                  shadow-sm hover:shadow-md
                   transition-all
                   duration-300
-                  hover:scale-105
                   text-xs
                   sm:text-sm
                   cursor-pointer
@@ -482,11 +462,12 @@ const Features = () => {
                 className="
                   px-4
                   py-2.5
-                  bg-slate-900 hover:bg-slate-800
-                  text-slate-300 hover:text-white
-                  border border-slate-700 hover:border-[#22D3EE]/50
+                  bg-[#F3F6FA] dark:bg-[#0B1220]
+                  hover:bg-[#EBF0F7] dark:hover:bg-[#1A2840]
+                  text-[#142B4A] dark:text-[#F1F5F9]
+                  border border-[#E2E8F0] dark:border-[#29384D]
                   font-semibold
-                  rounded-xl
+                  rounded-lg
                   transition-all
                   duration-300
                   text-xs

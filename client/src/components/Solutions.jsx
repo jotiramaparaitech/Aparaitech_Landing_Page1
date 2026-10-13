@@ -17,7 +17,7 @@ import {
 
 const solutionsData = {
   "AI Services": {
-    icon: <Bot className="w-5 h-5 text-[#34D399]" />,
+    icon: <Bot className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />,
     desc: "Advanced generative AI and autonomous multi-agent systems designed to drive operational velocity.",
     items: [
       { name: "Autonomous Agent Swarms", detail: "Self-coordinating agent pods for multi-step enterprise workflows." },
@@ -28,7 +28,7 @@ const solutionsData = {
     ],
   },
   "Enterprise Solutions": {
-    icon: <Building className="w-5 h-5 text-[#34D399]" />,
+    icon: <Building className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />,
     desc: "Custom-engineered business software connecting departments, data silos, and supply chains.",
     items: [
       { name: "Custom ERP & MRP Systems", detail: "Tailored manufacturing resource planning with real-time BOM tracking." },
@@ -39,7 +39,7 @@ const solutionsData = {
     ],
   },
   "Digital Transformation": {
-    icon: <Workflow className="w-5 h-5 text-[#34D399]" />,
+    icon: <Workflow className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />,
     desc: "Modernizing legacy architectures and transitioning traditional workflows into automated digital systems.",
     items: [
       { name: "Legacy System Decoupling", detail: "Migrating monolithic on-prem systems to modern microservices." },
@@ -49,7 +49,7 @@ const solutionsData = {
     ],
   },
   "Industry Solutions": {
-    icon: <Cpu className="w-5 h-5 text-[#34D399]" />,
+    icon: <Cpu className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />,
     desc: "Domain-specific platforms built around industry-specific compliance and workflows.",
     items: [
       { name: "Manufacturing & EPC Automation", detail: "Tender parsing, spec-to-CAD translation, and downtime intelligence." },
@@ -59,7 +59,7 @@ const solutionsData = {
     ],
   },
   "Security Solutions": {
-    icon: <ShieldCheck className="w-5 h-5 text-[#34D399]" />,
+    icon: <ShieldCheck className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />,
     desc: "Enterprise platform hardening, threat modeling, and zero-trust security postures.",
     items: [
       { name: "Zero-Trust Network Access (ZTNA)", detail: "Context-aware authentication for distributed engineering teams." },
@@ -74,11 +74,11 @@ const Solutions = () => {
   const [active, setActive] = useState("AI Services");
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-[#F3F6FA] dark:bg-[#0B1220] text-[#475569] dark:text-[#CBD5E1] font-sans min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-20 pb-20">
+      <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] pt-20 pb-20 bg-white dark:bg-[#131F32]">
         <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
+          className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
             backgroundImage: "radial-gradient(rgba(37, 99, 235, 0.4) 1.2px, transparent 1.2px)",
             backgroundSize: "28px 28px",
@@ -88,30 +88,30 @@ const Solutions = () => {
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="block h-3 w-3 bg-[#34D399]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#0F9F8F] dark:text-[#2DD4BF]">
               ENTERPRISE SOLUTIONS & SYSTEMS
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,3.5rem)] font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] leading-tight max-w-4xl">
             Intelligent software engineered for competitive advantage.
           </h1>
 
-          <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-[#475569] dark:text-[#CBD5E1] max-w-2xl leading-relaxed">
             We architect and deploy custom enterprise platforms that combine Generative AI, autonomous agents, and robust cloud microservices — designed around your exact business processes.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
-              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
+              <span className="h-2 w-2 rounded-full bg-[#0F9F8F]"></span>
               7 Live Production Deployments
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
-              <Lock className="w-3.5 h-3.5 text-[#34D399]" />
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
+              <Lock className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               Zero Hallucination Guarantee
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
-              <BarChart className="w-3.5 h-3.5 text-blue-400" />
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
+              <BarChart className="w-3.5 h-3.5 text-[#2563EB] dark:text-[#3B82F6]" />
               Outcome-Based Fixed Pricing
             </div>
           </div>
@@ -119,18 +119,18 @@ const Solutions = () => {
       </section>
 
       {/* 2. INTERACTIVE SOLUTIONS MATRIX */}
-      <section className="py-20 border-b border-slate-200 dark:border-[#1E293B]">
+      <section className="py-20 border-b border-[#E2E8F0] dark:border-[#29384D] bg-[#F3F6FA] dark:bg-[#0B1220]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           {/* Tabs */}
-          <div className="flex flex-wrap gap-2 pb-10 border-b border-slate-200 dark:border-[#1E293B]">
+          <div className="flex flex-wrap gap-2 pb-10 border-b border-[#E2E8F0] dark:border-[#29384D]">
             {Object.keys(solutionsData).map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
                 className={
                   active === cat
-                    ? "px-5 py-2.5 rounded font-mono text-xs uppercase tracking-wider bg-[#2563EB] text-white font-bold shadow-md shadow-blue-500/20"
-                    : "px-5 py-2.5 rounded font-mono text-xs uppercase tracking-wider bg-white dark:bg-[#111827] text-slate-300 border border-slate-200 dark:border-[#1E293B] hover:border-white/20 hover:text-white transition-all"
+                    ? "px-5 py-2.5 rounded-lg font-semibold text-xs uppercase tracking-wider bg-[#2563EB] text-white shadow-sm"
+                    : "px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider bg-white dark:bg-[#131F32] text-[#475569] dark:text-[#CBD5E1] border border-[#E2E8F0] dark:border-[#29384D] hover:border-[#2563EB]/50 hover:text-[#2563EB] dark:hover:text-[#3B82F6] transition-all"
                 }
               >
                 {cat}
@@ -142,11 +142,11 @@ const Solutions = () => {
           <div className="pt-12">
             <div className="flex items-center gap-3 mb-3">
               {solutionsData[active].icon}
-              <h2 className="text-2xl font-bold text-white tracking-tight">
+              <h2 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9] tracking-tight">
                 {active}
               </h2>
             </div>
-            <p className="text-slate-400 text-base max-w-2xl mb-10">
+            <p className="text-[#475569] dark:text-[#94A3B8] text-base max-w-2xl mb-10">
               {solutionsData[active].desc}
             </p>
 
@@ -154,15 +154,15 @@ const Solutions = () => {
               {solutionsData[active].items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] hover:border-blue-500/40 transition-all group"
+                  className="p-6 rounded-lg bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] hover:border-[#2563EB]/40 dark:hover:border-[#3B82F6]/40 transition-all group shadow-sm"
                 >
                   <div className="flex items-start justify-between">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-[#34D399] transition-colors">
+                    <h3 className="text-lg font-semibold text-white group-hover:text-[#0F9F8F] dark:text-[#2DD4BF] transition-colors">
                       {item.name}
                     </h3>
-                    <CheckCircle2 className="w-4 h-4 text-[#34D399] shrink-0 mt-1" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF] shrink-0 mt-1" />
                   </div>
-                  <p className="mt-2 text-sm text-slate-400 leading-relaxed font-mono">
+                  <p className="mt-2 text-sm text-[#475569] dark:text-[#94A3B8] leading-relaxed">
                     {item.detail}
                   </p>
                 </div>
@@ -173,19 +173,19 @@ const Solutions = () => {
       </section>
 
       {/* 3. CLOSING CTA */}
-      <section className="py-24 border-b border-slate-200 dark:border-[#1E293B] text-center relative overflow-hidden">
+      <section className="py-20 border-b border-[#E2E8F0] dark:border-[#29384D] text-center relative overflow-hidden bg-white dark:bg-[#131F32]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
-          <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-slate-900 dark:text-white tracking-tight leading-tight max-w-2xl mx-auto">
+          <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-[#142B4A] dark:text-[#F1F5F9] tracking-tight leading-tight max-w-2xl mx-auto">
             Ready to build custom enterprise solutions?
           </h2>
-          <p className="mt-4 text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">
+          <p className="mt-4 text-[#64748B] dark:text-[#94A3B8] text-base max-w-lg mx-auto">
             Speak directly with our senior system architects at our Hinjawadi Phase 2, Pune office.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
             <Link
               to="/generative-ai"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#2563EB] px-8 text-sm font-semibold text-white hover:bg-[#1D4ED8] transition-all"
+              className="inline-flex h-[48px] items-center justify-center gap-2 rounded-lg bg-[#2563EB] px-8 text-sm font-semibold text-white hover:bg-[#1D4ED8] transition-all"
             >
               <span>Explore Generative AI Suite</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -193,7 +193,7 @@ const Solutions = () => {
 
             <a
               href="tel:+918261840199"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
+              className="inline-flex h-[48px] items-center justify-center gap-2 rounded-lg border border-[#E2E8F0] dark:border-[#29384D] bg-[#F3F6FA] dark:bg-[#0B1220] px-8 text-sm font-medium text-[#142B4A] dark:text-[#F1F5F9] hover:bg-[#E2E8F0] dark:hover:bg-[#131F32] transition-all"
             >
               <span>Call Specialist: +91 82618 40199</span>
             </a>

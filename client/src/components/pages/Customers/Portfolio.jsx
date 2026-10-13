@@ -143,9 +143,9 @@ const Portfolio = () => {
     : platforms.filter((p) => p.category === activeFilter);
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] text-[#142B4A] dark:text-[#F1F5F9] font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
@@ -157,12 +157,12 @@ const Portfolio = () => {
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="block h-3 w-3 bg-[#10B981]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#0F9F8F] dark:text-[#2DD4BF]">
               PRODUCTION DEPLOYMENTS // REAL PLATFORMS
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-times font-serif font-bold tracking-tight text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-times font-serif font-bold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] leading-tight max-w-4xl">
             Live Production Systems & Enterprise Portfolio
           </h1>
 
@@ -171,15 +171,15 @@ const Portfolio = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
               6 Live Production Platforms
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
-              <Lock className="w-3.5 h-3.5 text-[#34D399]" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
+              <Lock className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               Pune Hinjawadi CoE Operations
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
               <Activity className="w-3.5 h-3.5 text-[#00E5C9]" />
               99.9% Production Availability
             </div>
@@ -195,7 +195,7 @@ const Portfolio = () => {
             </button>
             <a
               href="tel:+918261840199"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-[#29384D] bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-[#142B4A] dark:text-[#F1F5F9] hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>+91 82618 40199</span>
             </a>
@@ -204,7 +204,7 @@ const Portfolio = () => {
       </section>
 
       {/* 2. FILTER & PORTFOLIO GRID */}
-      <section className="py-20 border-b border-slate-200 dark:border-[#1E293B]">
+      <section className="py-20 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           {/* Category Tabs */}
           <div className="flex flex-wrap gap-2 mb-12">
@@ -215,7 +215,7 @@ const Portfolio = () => {
                 className={`px-4 py-2 rounded text-xs font-mono transition-all ${
                   activeFilter === cat
                     ? "bg-[#10B981] text-white font-bold"
-                    : "bg-white dark:bg-[#111827] text-slate-400 border border-slate-200 dark:border-[#1E293B] hover:border-white/20 hover:text-white"
+                    : "bg-white dark:bg-[#131F32] text-slate-400 border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-white/20 hover:text-white"
                 }`}
               >
                 {cat}
@@ -228,11 +228,11 @@ const Portfolio = () => {
             {filteredPlatforms.map((p, idx) => (
               <div
                 key={idx}
-                className="p-6 sm:p-7 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/5 flex flex-col justify-between group"
+                className="p-6 sm:p-7 rounded-xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/5 flex flex-col justify-between group"
               >
                 <div>
                   {/* Card Image Banner */}
-                  <div className="relative w-full h-48 sm:h-52 overflow-hidden rounded-lg mb-5 bg-slate-100 dark:bg-[#161F32] border border-white/10 group-hover:border-emerald-500/40 transition-all">
+                  <div className="relative w-full h-48 sm:h-52 overflow-hidden rounded-lg mb-5 bg-slate-100 dark:bg-[#161F32] border border-white/10 group-hover:border-[#0F9F8F]/40 transition-all">
                     <img
                       src={p.image}
                       alt={p.title}
@@ -243,17 +243,17 @@ const Portfolio = () => {
 
                     {/* Top Badges */}
                     <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                      <span className="font-mono text-[10px] text-[#10B981] flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-50 dark:bg-[#0B0F19]/90 backdrop-blur-md border border-white/15 font-bold">
+                      <span className="font-mono text-[10px] text-[#10B981] flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220]/90 backdrop-blur-md border border-white/15 font-bold">
                         <span className="h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
                         {p.badge}
                       </span>
-                      <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-slate-50 dark:bg-[#0B0F19]/90 backdrop-blur-md border border-emerald-500/30 text-[#34D399]">
+                      <span className="font-times font-serif text-xs font-bold px-2.5 py-1 rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220]/90 backdrop-blur-md border border-[#0F9F8F]/30 text-[#0F9F8F] dark:text-[#2DD4BF]">
                         {p.metric}
                       </span>
                     </div>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-white mb-2 group-hover:text-[#34D399] transition-colors leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-times font-serif font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2 group-hover:text-[#0F9F8F] dark:text-[#2DD4BF] transition-colors leading-snug">
                     {p.title}
                   </h3>
 
@@ -273,13 +273,13 @@ const Portfolio = () => {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B] flex items-center justify-between gap-3 font-mono text-xs">
-                  <span className="text-[11px] text-slate-500">Live Production SaaS</span>
+                <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] flex items-center justify-between gap-3 font-mono text-xs">
+                  <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8]">Live Production SaaS</span>
                   <a
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#10B981] hover:bg-[#10B981]/90 text-white font-mono text-xs font-bold transition-all shadow-md"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#10B981] hover:bg-[#10B981]/90 text-[#142B4A] dark:text-[#F1F5F9] font-mono text-xs font-bold transition-all shadow-md"
                   >
                     <span>Launch Live</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -294,26 +294,26 @@ const Portfolio = () => {
       {/* 3. MODAL */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-2 mb-2">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
-              <span className="font-mono text-xs text-[#34D399] uppercase">Hinjawadi Engineering Pod</span>
+              <span className="font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] uppercase">Hinjawadi Engineering Pod</span>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Schedule Production Architecture Review</h3>
+            <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">Schedule Production Architecture Review</h3>
             <p className="text-xs text-slate-400 mb-6 font-mono">
               Live code walkthrough and architecture breakdown of our production platforms with our Lead Architect.
             </p>
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -321,13 +321,13 @@ const Portfolio = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g. Ketan Shinde"
-                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Work Email *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Work Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -335,11 +335,11 @@ const Portfolio = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="name@enterprise.com"
-                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -347,18 +347,18 @@ const Portfolio = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
-                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Target Production System</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Target Production System</label>
                 <select
                   name="portfolioSystem"
                   value={formData.portfolioSystem}
                   onChange={handleInputChange}
-                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                 >
                   <option value="All Live Production Systems">All Live Production Systems (Comprehensive Review)</option>
                   <option value="CloudKitchen OS (Multi-Brand Dispatch & KDS)">CloudKitchen OS (Multi-Brand Dispatch & KDS)</option>
@@ -370,14 +370,14 @@ const Portfolio = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Architecture Objectives / Questions</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Architecture Objectives / Questions</label>
                 <textarea
                   name="notes"
                   rows="3"
                   value={formData.notes}
                   onChange={handleInputChange}
                   placeholder="Outline scale goals, concurrency needs, or deployment inquiries..."
-                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                 ></textarea>
               </div>
 

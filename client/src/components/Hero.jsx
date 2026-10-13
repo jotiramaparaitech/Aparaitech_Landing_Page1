@@ -84,36 +84,28 @@ const HeroSection = () => {
   return (
     <div
       id="home"
-      className="relative min-h-[90vh] pt-6 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 dark:from-[#020617] dark:via-[#0B1220] dark:to-[#020617] text-white overflow-hidden border-b border-slate-800/80"
+      className="relative min-h-[85vh] pt-8 pb-16 bg-[#F3F6FA] dark:bg-[#0B1220] text-[#475569] dark:text-[#CBD5E1] overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] transition-colors"
     >
-
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute top-1/3 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
-        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-4000"></div>
-      </div>
-
-      <div className="relative container mx-auto px-4 py-12 md:py-24 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-20">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Left content */}
-          <div className="space-y-6 lg:space-y-8">
+          <div className="lg:col-span-7 space-y-6">
             {/* Badge */}
-            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 backdrop-blur-sm text-[#22D3EE] text-xs font-mono font-semibold uppercase tracking-wider">
+            <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] text-[#0F9F8F] dark:text-[#2DD4BF] text-xs font-semibold uppercase tracking-wider shadow-sm">
               <Icons.TrendingUp />
-              <span className="ml-2 font-bold">Enterprise Software & AI Engineering</span>
+              <span className="ml-2 font-semibold">Enterprise Software & AI Engineering</span>
             </div>
 
             {/* Main heading */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold leading-tight tracking-tight text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[#142B4A] dark:text-[#F1F5F9]">
               Architecting Enterprise Software &{' '}
-              <span className="bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+              <span className="text-[#2563EB] dark:text-[#3B82F6]">
                 Sovereign AI Platforms
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg text-[#475569] dark:text-[#CBD5E1] max-w-xl leading-relaxed">
               We engineer high-performance custom software, distributed cloud systems, and autonomous AI agents designed to accelerate enterprise velocity and scale operations with resilience.
             </p>
 
@@ -126,21 +118,21 @@ const HeroSection = () => {
                 'Dedicated Full-Stack Engineering Pods',
               ].map((feature, index) => (
                 <div key={index} className="flex items-center space-x-2.5">
-                  <div className="flex-shrink-0 w-4 h-4 text-[#22D3EE]">
+                  <div className="flex-shrink-0 w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF]">
                     <Icons.CheckCircle />
                   </div>
-                  <span className="text-slate-300 text-xs sm:text-sm font-medium">{feature}</span>
+                  <span className="text-[#475569] dark:text-[#CBD5E1] text-xs sm:text-sm font-medium">{feature}</span>
                 </div>
               ))}
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3.5 pt-3">
+            <div className="flex flex-col sm:flex-row gap-3.5 pt-2">
               <button
                 onClick={handleConnectClick}
-                className="group inline-flex items-center justify-center px-6 sm:px-7 py-3.5 text-sm sm:text-base font-bold rounded-xl bg-[#0D9488] hover:bg-[#0f766e] text-white transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-teal-500/20 cursor-pointer"
+                className="inline-flex items-center justify-center px-6 sm:px-7 py-3 text-sm sm:text-base font-semibold rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] dark:bg-[#3B82F6] dark:hover:bg-[#2563EB] text-white transition-all shadow-sm hover:shadow-md cursor-pointer"
               >
-                <div className="mr-2.5 group-hover:rotate-12 transition-transform">
+                <div className="mr-2">
                   <Icons.Rocket />
                 </div>
                 <span>Book Architecture Consultation</span>
@@ -148,9 +140,9 @@ const HeroSection = () => {
 
               <button
                 onClick={() => navigate('/software-development')}
-                className="group inline-flex items-center justify-center px-6 sm:px-7 py-3.5 text-sm sm:text-base font-semibold rounded-xl bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-slate-700 hover:border-[#22D3EE]/50 transition-all duration-300 hover:scale-[1.02] text-white cursor-pointer"
+                className="inline-flex items-center justify-center px-6 sm:px-7 py-3 text-sm sm:text-base font-semibold rounded-lg bg-white dark:bg-[#131F32] hover:bg-[#EBF0F7] dark:hover:bg-[#1A2840] border border-[#E2E8F0] dark:border-[#29384D] text-[#142B4A] dark:text-[#F1F5F9] transition-all shadow-sm hover:shadow-md cursor-pointer"
               >
-                <div className="mr-2.5 group-hover:scale-110 transition-transform text-[#22D3EE]">
+                <div className="mr-2 text-[#2563EB] dark:text-[#3B82F6]">
                   <Icons.PlayCircle />
                 </div>
                 <span>Explore Solutions</span>
@@ -159,116 +151,83 @@ const HeroSection = () => {
           </div>
 
           {/* Right content - Visual cards */}
-          <div className="relative">
+          <div className="lg:col-span-5 relative">
             {/* Main card container */}
-            <div className="relative bg-[#0B1220]/95 backdrop-blur-xl rounded-2xl p-5 sm:p-6 border border-slate-800 shadow-2xl overflow-hidden">
-              {/* Subtle accent glows */}
-              <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#0D9488]/15 rounded-full blur-2xl pointer-events-none"></div>
-              <div className="absolute -bottom-10 -right-10 w-36 h-36 bg-[#22D3EE]/15 rounded-full blur-2xl pointer-events-none"></div>
+            <div className="bg-white dark:bg-[#131F32] rounded-2xl p-5 sm:p-6 border border-[#E2E8F0] dark:border-[#29384D] shadow-lg space-y-4">
+              {/* Header inside card */}
+              <div className="flex items-center justify-between pb-2 border-b border-[#E2E8F0] dark:border-[#29384D]">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8]">
+                  Core Capabilities
+                </span>
+                <span className="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-blue-500/10 text-[#2563EB] dark:text-[#3B82F6]">
+                  Pune CoE
+                </span>
+              </div>
 
-              <div className="relative space-y-4">
-                {/* Service cards */}
-                {[
-                  {
-                    icon: <Icons.ChartLine />,
-                    title: 'Growth Analytics & BI',
-                    description: 'Enterprise data pipelines and predictive intelligence',
-                    color: 'from-teal-500 to-cyan-400',
-                    path: "/services/growth-analytics"
-                  },
-                  {
-                    icon: <Icons.Cloud />,
-                    title: 'Cloud Infrastructure',
-                    description: 'Resilient multi-cloud deployments & Kubernetes',
-                    color: 'from-cyan-500 to-blue-500',
-                    path: "/services/cloud-solutions"
-                  },
-                  {
-                    icon: <Icons.Shield />,
-                    title: 'Secure Enterprise Systems',
-                    description: 'Zero-trust architecture with ISO & SOC2 standards',
-                    color: 'from-emerald-500 to-teal-400',
-                    path: "/services/secure-platform"
-                  },
-                ].map((service, index) => (
-                  <div
-                    key={index}
-                    onClick={() => navigate(service.path)}
-                    className="group bg-[#020617]/80 rounded-xl p-4 border border-slate-800/80 hover:border-[#22D3EE]/50 hover:bg-[#020617] transition-all duration-300 hover:scale-[1.01] cursor-pointer"
-                  >
-                    <div className="flex items-center space-x-3.5">
-                      <div className={`p-3 rounded-lg bg-gradient-to-br ${service.color} text-slate-950 font-bold shrink-0`}>
-                        {service.icon}
-                      </div>
-                      <div>
-                        <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-[#22D3EE] transition-colors">{service.title}</h3>
-                        <p className="text-slate-400 text-xs mt-0.5">{service.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-
-                {/* Enterprise Engineering Pods Card */}
+              {/* Service cards */}
+              {[
+                {
+                  icon: <Icons.ChartLine />,
+                  title: 'Growth Analytics & BI',
+                  description: 'Enterprise data pipelines and predictive intelligence',
+                  path: "/services/growth-analytics"
+                },
+                {
+                  icon: <Icons.Cloud />,
+                  title: 'Cloud Infrastructure',
+                  description: 'Resilient multi-cloud deployments & Kubernetes',
+                  path: "/services/cloud-solutions"
+                },
+                {
+                  icon: <Icons.Shield />,
+                  title: 'Secure Enterprise Systems',
+                  description: 'Zero-trust architecture with ISO & SOC2 standards',
+                  path: "/services/secure-platform"
+                },
+              ].map((service, index) => (
                 <div
-                  onClick={() => navigate('/software-development')}
-                  className="cursor-pointer bg-gradient-to-r from-teal-950/40 via-slate-900 to-cyan-950/40 rounded-xl p-4.5 border border-teal-500/30 hover:border-cyan-400/50 transition-all duration-300"
+                  key={index}
+                  onClick={() => navigate(service.path)}
+                  className="group bg-[#F3F6FA] dark:bg-[#0B1220] rounded-xl p-3.5 sm:p-4 border border-[#E2E8F0] dark:border-[#29384D] hover:border-[#2563EB] dark:hover:border-[#3B82F6] transition-all cursor-pointer shadow-sm hover:shadow"
                 >
-                  <div className="flex items-center space-x-3.5 mb-2.5">
-                    <div className="w-10 h-10 bg-gradient-to-br from-teal-400 to-cyan-400 text-slate-950 rounded-lg flex items-center justify-center font-bold text-xs tracking-wider shadow-md shrink-0">
-                      ES
+                  <div className="flex items-center space-x-3.5">
+                    <div className="w-10 h-10 rounded-lg bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] flex items-center justify-center text-[#0F9F8F] dark:text-[#2DD4BF] shrink-0">
+                      {service.icon}
                     </div>
                     <div>
-                      <div className="font-bold text-white text-sm">Enterprise Software & AI Systems</div>
-                      <div className="text-[11px] font-mono text-[#22D3EE]">Architecture • Cloud Native • Autonomous Workflows</div>
+                      <h3 className="text-sm font-bold text-[#142B4A] dark:text-[#F1F5F9] group-hover:text-[#2563EB] dark:group-hover:text-[#3B82F6] transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-[#64748B] dark:text-[#94A3B8] text-xs mt-0.5">
+                        {service.description}
+                      </p>
                     </div>
                   </div>
-                  <p className="text-slate-300 text-xs leading-relaxed">
-                    Engineering mission-critical enterprise software, distributed cloud platforms, and intelligent automation built for resilient scale.
-                  </p>
                 </div>
+              ))}
+
+              {/* Enterprise Engineering Pods Card */}
+              <div
+                onClick={() => navigate('/software-development')}
+                className="cursor-pointer bg-[#F3F6FA] dark:bg-[#0B1220] rounded-xl p-4 border border-[#E2E8F0] dark:border-[#29384D] hover:border-[#2563EB] dark:hover:border-[#3B82F6] transition-all shadow-sm"
+              >
+                <div className="flex items-center space-x-3.5 mb-2">
+                  <div className="w-10 h-10 bg-[#2563EB] dark:bg-[#3B82F6] text-white rounded-lg flex items-center justify-center font-bold text-xs tracking-wider shadow-sm shrink-0">
+                    ES
+                  </div>
+                  <div>
+                    <div className="font-bold text-[#142B4A] dark:text-[#F1F5F9] text-sm">Enterprise Software & AI Systems</div>
+                    <div className="text-[11px] text-[#0F9F8F] dark:text-[#2DD4BF] font-medium">Architecture • Cloud Native • Autonomous Workflows</div>
+                  </div>
+                </div>
+                <p className="text-[#475569] dark:text-[#CBD5E1] text-xs leading-relaxed">
+                  Engineering mission-critical enterprise software, distributed cloud platforms, and intelligent automation built for resilient scale.
+                </p>
               </div>
-            </div>
-
-            {/* Decorative floating elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 border-2 border-blue-400/30 rounded-full animate-ping"></div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 border-2 border-purple-400/30 rounded-full animate-ping animation-delay-500"></div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block">
-          <div className="animate-bounce">
-            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Inline styles for animations */}
-      <style jsx>{`
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient {
-          animation: gradient 3s ease infinite;
-          background-size: 200% auto;
-        }
-        .animation-delay-500 {
-          animation-delay: 0.5s;
-        }
-        .animation-delay-1000 {
-          animation-delay: 1s;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-      `}</style>
     </div>
   );
 };

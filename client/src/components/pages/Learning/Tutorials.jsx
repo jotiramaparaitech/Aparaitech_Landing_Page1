@@ -267,9 +267,9 @@ spec:
   };
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] text-[#142B4A] dark:text-[#F1F5F9] font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
@@ -279,12 +279,12 @@ spec:
         ></div>
 
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#34D399] mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] mb-6">
             <Terminal className="w-3.5 h-3.5" />
             <span>PRACTICAL ARCHITECTURE // HANDS-ON LABS</span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-3xl mx-auto">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] leading-tight max-w-3xl mx-auto">
             Production Engineering Tutorials
           </h1>
 
@@ -300,7 +300,7 @@ spec:
                 className={`px-5 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
                   activeFilter === filter
                     ? "bg-[#10B981] text-white font-bold shadow-md shadow-blue-500/20"
-                    : "bg-white dark:bg-[#111827] text-slate-300 border border-slate-200 dark:border-[#1E293B] hover:border-slate-500"
+                    : "bg-white dark:bg-[#131F32] text-slate-300 border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-slate-500"
                 }`}
               >
                 {filter}
@@ -317,7 +317,7 @@ spec:
             <div
               key={tutorial.id}
               onClick={() => setSelectedTutorial(tutorial)}
-              className="flex flex-col justify-between rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-7 hover:border-blue-500/50 transition-all cursor-pointer group relative"
+              className="flex flex-col justify-between rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32] p-7 hover:border-blue-500/50 transition-all cursor-pointer group relative"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -336,7 +336,7 @@ spec:
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-white group-hover:text-[#34D399] transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] group-hover:text-[#0F9F8F] dark:text-[#2DD4BF] transition-colors leading-snug">
                   {tutorial.title}
                 </h3>
 
@@ -345,34 +345,34 @@ spec:
                 </p>
 
                 {/* Modules Preview */}
-                <div className="mt-5 space-y-1.5 border-t border-slate-200 dark:border-[#1E293B] pt-4">
+                <div className="mt-5 space-y-1.5 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-4">
                   {tutorial.modules.slice(0, 2).map((mod, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-xs text-slate-400">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#34D399] shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF] shrink-0" />
                       <span className="truncate">{mod}</span>
                     </div>
                   ))}
                   {tutorial.modules.length > 2 && (
-                    <div className="text-[11px] font-mono text-slate-500 pl-5">
+                    <div className="text-[11px] font-mono text-[#64748B] dark:text-[#94A3B8] pl-5">
                       +{tutorial.modules.length - 2} more architectural steps...
                     </div>
                   )}
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-200 dark:border-[#1E293B] flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] flex items-center justify-between">
                 <div className="flex flex-wrap gap-1.5">
                   {tutorial.tags.slice(0, 2).map((tag, i) => (
                     <span
                       key={i}
-                      className="px-2 py-0.5 rounded bg-slate-50 dark:bg-[#0B0F19] border border-white/5 font-mono text-[10px] text-slate-400"
+                      className="px-2 py-0.5 rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-white/5 font-mono text-[10px] text-slate-400"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <span className="inline-flex items-center gap-1 font-mono text-xs text-[#34D399] group-hover:underline">
+                <span className="inline-flex items-center gap-1 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] group-hover:underline">
                   <span>Start Lab</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </span>
@@ -383,13 +383,13 @@ spec:
       </section>
 
       {/* 3. WORKSHOP CTA BANNER */}
-      <section className="py-20 border-t border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/50">
+      <section className="py-20 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32]/50">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#00E5C9] mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             <span>PUNE HINJAWADI COE ARCHITECTURE WORKSHOPS</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] mb-4">
             Custom Engineering Masterclasses for Your Team
           </h2>
           <p className="text-slate-300 max-w-2xl mx-auto text-base mb-8">
@@ -405,7 +405,7 @@ spec:
             </button>
             <a
               href="tel:+918261840199"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-[#29384D] bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-[#142B4A] dark:text-[#F1F5F9] hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>Call Pune CoE: +91 82618 40199</span>
             </a>
@@ -420,27 +420,27 @@ spec:
           onClick={() => setSelectedTutorial(null)}
         >
           <div
-            className="bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative"
+            className="bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedTutorial(null)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 font-mono text-xs text-[#34D399] uppercase mb-2">
+            <div className="flex items-center gap-2 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] uppercase mb-2">
               <Terminal className="w-4 h-4" />
               <span>HANDS-ON TUTORIAL LAB // {selectedTutorial.level}</span>
             </div>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-snug">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2 leading-snug">
               {selectedTutorial.title}
             </h2>
 
-            <div className="flex items-center gap-3 font-mono text-xs text-slate-400 mb-6 pb-4 border-b border-slate-200 dark:border-[#1E293B]">
-              <span>Duration: <strong className="text-white">{selectedTutorial.time}</strong></span>
+            <div className="flex items-center gap-3 font-mono text-xs text-slate-400 mb-6 pb-4 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
+              <span>Duration: <strong className="text-[#142B4A] dark:text-[#F1F5F9]">{selectedTutorial.time}</strong></span>
               <span>•</span>
               <div className="flex gap-2">
                 {selectedTutorial.tags.map((t, i) => (
@@ -454,15 +454,15 @@ spec:
             </p>
 
             {/* Modules List */}
-            <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-5 mb-6">
-              <h3 className="font-mono text-xs uppercase text-[#34D399] tracking-wider mb-3 flex items-center gap-2">
+            <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-5 mb-6">
+              <h3 className="font-mono text-xs uppercase text-[#0F9F8F] dark:text-[#2DD4BF] tracking-wider mb-3 flex items-center gap-2">
                 <BookOpen className="w-4 h-4" />
                 <span>Curriculum Modules</span>
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {selectedTutorial.modules.map((mod, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
-                    <CheckCircle2 className="w-4 h-4 text-[#34D399] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF] shrink-0 mt-0.5" />
                     <span>{mod}</span>
                   </div>
                 ))}
@@ -470,12 +470,12 @@ spec:
             </div>
 
             {/* Code Snippet */}
-            <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] overflow-hidden mb-6">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-[#1E293B] bg-slate-100 dark:bg-[#161F32] font-mono text-xs text-slate-400">
+            <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] overflow-hidden mb-6">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-slate-100 dark:bg-[#161F32] font-mono text-xs text-slate-400">
                 <span>Architecture Implementation Snippet</span>
                 <button
                   onClick={() => handleCopyCode(selectedTutorial.codeSnippet)}
-                  className="inline-flex items-center gap-1.5 text-xs text-[#34D399] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#0F9F8F] dark:text-[#2DD4BF] hover:underline"
                 >
                   {copiedCode ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>{copiedCode ? "Copied" : "Copy Code"}</span>
@@ -486,20 +486,20 @@ spec:
               </pre>
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
               <button
                 onClick={() => {
                   setSelectedTutorial(null);
                   setIsWorkshopModalOpen(true);
                 }}
-                className="inline-flex items-center gap-2 rounded bg-[#10B981] px-6 py-2.5 text-xs font-mono font-bold uppercase text-white hover:brightness-105"
+                className="inline-flex items-center gap-2 rounded bg-[#10B981] px-6 py-2.5 text-xs font-mono font-bold uppercase text-[#142B4A] dark:text-[#F1F5F9] hover:brightness-105"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Request Team Training</span>
               </button>
               <button
                 onClick={() => setSelectedTutorial(null)}
-                className="text-xs font-mono text-slate-400 hover:text-white"
+                className="text-xs font-mono text-slate-400 hover:text-[#142B4A] dark:text-[#F1F5F9]"
               >
                 Close Lab
               </button>
@@ -511,19 +511,19 @@ spec:
       {/* 5. WORKSHOP CONSULTATION MODAL */}
       {isWorkshopModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsWorkshopModalOpen(false)}
-              className="absolute right-5 top-5 text-slate-400 hover:text-white"
+              className="absolute right-5 top-5 text-slate-400 hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#34D399] font-mono text-xs uppercase mb-2">
+            <div className="flex items-center gap-2 text-[#0F9F8F] dark:text-[#2DD4BF] font-mono text-xs uppercase mb-2">
               <Calendar className="w-4 h-4" />
               <span>Pune CoE Technical Workshop</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">
               Book Engineering Workshop
             </h3>
             <p className="text-slate-400 text-xs mb-6">
@@ -532,7 +532,7 @@ spec:
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -540,13 +540,13 @@ spec:
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g., Neha Joshi"
-                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Corporate Email *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Corporate Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -554,11 +554,11 @@ spec:
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="neha@company.com"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -566,30 +566,30 @@ spec:
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Company / Organization</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Company / Organization</label>
                   <input
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
                     placeholder="Acme Tech"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Team Size</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Team Size</label>
                   <select
                     name="teamSize"
                     value={formData.teamSize}
                     onChange={handleInputChange}
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:border-blue-500 focus:outline-none"
                   >
                     <option value="1-5 Engineers">1-5 Engineers</option>
                     <option value="5-15 Engineers">5-15 Engineers</option>
@@ -600,12 +600,12 @@ spec:
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Target Curriculum Focus</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Target Curriculum Focus</label>
                 <select
                   name="workshopTopic"
                   value={formData.workshopTopic}
                   onChange={handleInputChange}
-                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:border-blue-500 focus:outline-none"
                 >
                   <option value="Enterprise RAG & LangGraph Architecture">Enterprise RAG & LangGraph Architecture</option>
                   <option value="Real-Time WebSockets & Redis Stream Systems">Real-Time WebSockets & Redis Stream Systems</option>
@@ -616,14 +616,14 @@ spec:
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Special Requirements or Schedule Constraints</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Special Requirements or Schedule Constraints</label>
                 <textarea
                   name="notes"
                   rows="3"
                   value={formData.notes}
                   onChange={handleInputChange}
                   placeholder="Outline preferred dates, existing technology bottlenecks, or custom team goals..."
-                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 ></textarea>
               </div>
 
@@ -631,7 +631,7 @@ spec:
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#10B981] py-3 text-sm font-semibold text-white hover:brightness-105 transition-all disabled:opacity-50"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#10B981] py-3 text-sm font-semibold text-[#142B4A] dark:text-[#F1F5F9] hover:brightness-105 transition-all disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isSubmitting ? "Syncing Request..." : "Confirm Workshop Booking"}</span>

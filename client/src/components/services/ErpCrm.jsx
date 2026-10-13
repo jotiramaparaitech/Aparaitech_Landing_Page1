@@ -96,11 +96,11 @@ const ErpCrm = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-16 md:pt-0 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#F3F6FA] dark:bg-[#0B1220] text-slate-900 dark:text-[#F1F5F9] pt-16 md:pt-0 overflow-x-hidden">
       {/* Back Button */}
       <button
         onClick={() => navigate('/#services')}
-        className="fixed top-24 right-6 md:right-8 z-40 flex items-center gap-2 text-blue-600 hover:text-blue-700 bg-white/80 backdrop-blur-sm hover:bg-gray-50/80 px-4 py-2 rounded-lg border border-gray-200 transition-all duration-300 hover:border-blue-500/50"
+        className="fixed top-24 right-6 md:right-8 z-40 flex items-center gap-2 text-blue-600 hover:text-blue-700 bg-white/80 backdrop-blur-sm hover:bg-[#F3F6FA] dark:bg-[#0B1220]/80 px-4 py-2 rounded-lg border border-[#E2E8F0] dark:border-[#29384D] transition-all duration-300 hover:border-blue-500/50"
       >
         ← Back
       </button>
@@ -116,14 +116,14 @@ const ErpCrm = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               ERP / CRM Solutions
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-700 dark:text-[#CBD5E1] max-w-4xl mx-auto mb-8 leading-relaxed">
               Custom ERP and CRM integrations to streamline operations, enhance customer relationships, 
               and drive business growth with unified systems.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button
                 onClick={() => navigate('/#contact-form')}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-[#142B4A] dark:text-[#F1F5F9] font-semibold rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 Get Started
               </button>
@@ -153,7 +153,7 @@ const ErpCrm = () => {
                 <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
                   {stat.value}{stat.suffix}
                 </div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">{stat.label}</div>
+                <div className="text-sm text-[#475569] dark:text-[#CBD5E1] dark:text-[#94A3B8]">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -161,11 +161,11 @@ const ErpCrm = () => {
       </section>
 
       {/* Capabilities Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-[#F3F6FA] dark:bg-[#0B1220]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Our ERP/CRM Services</h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-[#F1F5F9]">Our ERP/CRM Services</h2>
+            <p className="text-xl text-[#475569] dark:text-[#CBD5E1] dark:text-[#94A3B8] max-w-3xl mx-auto">
               Comprehensive enterprise solutions for business operations and customer management
             </p>
           </div>
@@ -174,20 +174,20 @@ const ErpCrm = () => {
             {capabilities.map((cap, idx) => (
               <div
                 key={idx}
-                className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+                className="group bg-white rounded-2xl p-8 shadow-lg border border-[#E2E8F0] dark:border-[#29384D] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
               >
                 <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${cap.color} text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   {cap.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-[#F1F5F9] group-hover:text-blue-600 transition-colors">
                   {cap.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{cap.description}</p>
+                <p className="text-[#475569] dark:text-[#CBD5E1] mb-6 leading-relaxed">{cap.description}</p>
                 <div className="mb-4">
-                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Key Features:</p>
+                  <p className="text-sm font-semibold text-slate-700 dark:text-[#CBD5E1] mb-2">Key Features:</p>
                   <ul className="space-y-2">
                     {cap.features.map((feature, i) => (
-                      <li key={i} className="flex items-start text-sm text-slate-700 dark:text-slate-300">
+                      <li key={i} className="flex items-start text-sm text-slate-700 dark:text-[#CBD5E1]">
                         <span className="text-blue-500 mr-2 mt-1">✓</span>
                         <span>{feature}</span>
                       </li>
@@ -195,7 +195,7 @@ const ErpCrm = () => {
                   </ul>
                 </div>
                 {cap.modules && (
-                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                  <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
                     <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Modules:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.modules.map((item, i) => (
@@ -207,7 +207,7 @@ const ErpCrm = () => {
                   </div>
                 )}
                 {cap.platforms && (
-                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                  <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
                     <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Platforms:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.platforms.map((item, i) => (
@@ -219,7 +219,7 @@ const ErpCrm = () => {
                   </div>
                 )}
                 {cap.integrations && (
-                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                  <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
                     <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Integrations:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.integrations.map((item, i) => (
@@ -231,7 +231,7 @@ const ErpCrm = () => {
                   </div>
                 )}
                 {cap.benefits && (
-                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                  <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
                     <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Benefits:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.benefits.map((item, i) => (
@@ -243,7 +243,7 @@ const ErpCrm = () => {
                   </div>
                 )}
                 {cap.reports && (
-                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                  <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
                     <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Reports:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.reports.map((item, i) => (
@@ -255,7 +255,7 @@ const ErpCrm = () => {
                   </div>
                 )}
                 {cap.standards && (
-                  <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+                  <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
                     <p className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-2">Standards:</p>
                     <div className="flex flex-wrap gap-2">
                       {cap.standards.map((item, i) => (
@@ -276,8 +276,8 @@ const ErpCrm = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">ERP Modules</h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-[#F1F5F9]">ERP Modules</h2>
+            <p className="text-xl text-[#475569] dark:text-[#CBD5E1] dark:text-[#94A3B8] max-w-3xl mx-auto">
               Comprehensive modules to manage all aspects of your business
             </p>
           </div>
@@ -288,8 +288,8 @@ const ErpCrm = () => {
                 key={idx}
                 className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
               >
-                <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">{item.module}</h3>
-                <p className="text-gray-600 text-sm">{item.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-[#F1F5F9]">{item.module}</h3>
+                <p className="text-[#475569] dark:text-[#CBD5E1] text-sm">{item.description}</p>
               </div>
             ))}
           </div>
@@ -299,7 +299,7 @@ const ErpCrm = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-6">
             Ready to Streamline Your Operations?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
@@ -308,13 +308,13 @@ const ErpCrm = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigate('/#contact-form')}
-              className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-xl"
+              className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-[#F3F6FA] dark:bg-[#0B1220] hover:scale-105 transition-all duration-300 shadow-xl"
             >
               Schedule Consultation
             </button>
             <button
               onClick={() => navigate('/#services')}
-              className="px-8 py-4 bg-transparent text-white font-semibold rounded-lg border-2 border-white hover:bg-white/10 transition-all duration-300"
+              className="px-8 py-4 bg-transparent text-[#142B4A] dark:text-[#F1F5F9] font-semibold rounded-lg border-2 border-white hover:bg-white/10 transition-all duration-300"
             >
               Explore More Services
             </button>

@@ -207,11 +207,11 @@ const ITConsulting = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-24">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#F3F6FA] dark:bg-[#0B1220] text-slate-900 dark:text-[#F1F5F9] pt-24">
       {/* Back Button - Fixed on Right Side */}
       <button
         onClick={() => navigate('/#services')}
-        className="fixed top-24 right-6 md:right-8 z-40 flex items-center gap-2 text-orange-600 hover:text-orange-300 bg-white/80 backdrop-blur-sm hover:bg-gray-50/80 px-4 py-2 rounded-lg border border-gray-200 transition-all duration-300 hover:border-orange-500/50"
+        className="fixed top-24 right-6 md:right-8 z-40 flex items-center gap-2 text-orange-600 hover:text-orange-300 bg-white/80 backdrop-blur-sm hover:bg-[#F3F6FA] dark:bg-[#0B1220]/80 px-4 py-2 rounded-lg border border-[#E2E8F0] dark:border-[#29384D] transition-all duration-300 hover:border-orange-500/50"
       >
         ← Back
       </button>
@@ -223,7 +223,7 @@ const ITConsulting = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-red-400 to-orange-300 bg-clip-text text-transparent">
             Enterprise IT Consulting & Digital Transformation
           </h1>
-          <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-700 dark:text-[#CBD5E1] max-w-2xl leading-relaxed">
             Expert guidance to navigate complex IT challenges and unlock digital opportunities. Transform your technology landscape with strategic consulting.
           </p>
         </div>
@@ -239,11 +239,11 @@ const ITConsulting = () => {
               { value: stats.roi, label: "Avg ROI Increase", suffix: "x" },
               { value: stats.clients, label: "Enterprise Clients", suffix: "+" }
             ].map((stat, statIdx) => (
-              <div key={`stat-${stat.label}`} className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 border border-gray-200 text-center hover:border-orange-500/50 transition-all duration-300">
+              <div key={`stat-${stat.label}`} className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 border border-[#E2E8F0] dark:border-[#29384D] text-center hover:border-orange-500/50 transition-all duration-300">
                 <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">
                   {stat.value}{stat.suffix}
                 </div>
-                <div className="text-slate-600 dark:text-slate-400">{stat.label}</div>
+                <div className="text-[#475569] dark:text-[#CBD5E1] dark:text-[#94A3B8]">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -257,7 +257,7 @@ const ITConsulting = () => {
       <h2 className="text-3xl md:text-4xl font-bold mb-4">
         Our Consulting Services
       </h2>
-      <p className="text-gray-600 text-lg">
+      <p className="text-[#475569] dark:text-[#CBD5E1] text-lg">
         Comprehensive IT consulting solutions for enterprises
       </p>
     </div>
@@ -266,29 +266,29 @@ const ITConsulting = () => {
       {consultingServices.map((service) => (
         <div
           key={service.id}
-          className={`group text-left rounded-xl border border-gray-200 p-8 transition-all duration-300 hover:border-orange-500/50 ${service.gradient}`}
+          className={`group text-left rounded-xl border border-[#E2E8F0] dark:border-[#29384D] p-8 transition-all duration-300 hover:border-orange-500/50 ${service.gradient}`}
         >
           <div className="text-4xl mb-4">{service.icon}</div>
 
-          <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white group-hover:text-orange-600 transition-colors">
+          <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-[#F1F5F9] group-hover:text-orange-600 transition-colors">
             {service.title}
           </h3>
 
-          <p className="text-gray-600 mb-6 text-sm">
+          <p className="text-[#475569] dark:text-[#CBD5E1] mb-6 text-sm">
             {service.description}
           </p>
 
           {/* CONTENT ALWAYS VISIBLE (NO HOVER) */}
-          <div className="space-y-4 border-t border-gray-200 pt-4">
+          <div className="space-y-4 border-t border-[#E2E8F0] dark:border-[#29384D] pt-4">
             <div>
-              <p className="text-sm text-slate-700 dark:text-slate-300 font-semibold mb-3">
+              <p className="text-sm text-slate-700 dark:text-[#CBD5E1] font-semibold mb-3">
                 Key Benefits:
               </p>
               <ul className="space-y-2">
                 {service.benefits.map((benefit, benefitId) => (
                   <li
                     key={`benefit-${service.id}-${benefitId}`}
-                    className="text-sm text-slate-600 dark:text-slate-400 flex items-center"
+                    className="text-sm text-[#475569] dark:text-[#CBD5E1] dark:text-[#94A3B8] flex items-center"
                   >
                     <span className="text-orange-600 mr-2">✓</span>
                     {benefit}
@@ -313,23 +313,23 @@ const ITConsulting = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Four Pillars of Our Consulting</h2>
-            <p className="text-gray-600 text-lg">Holistic approach to IT transformation</p>
+            <p className="text-[#475569] dark:text-[#CBD5E1] text-lg">Holistic approach to IT transformation</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {consultingPillars.map((pillar, pillarIdx) => (
               <div
                 key={`pillar-${pillar.pillar}`}
-                className="group cursor-pointer bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 border border-gray-200 hover:border-orange-500/50 transition-all duration-300"
+                className="group cursor-pointer bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 border border-[#E2E8F0] dark:border-[#29384D] hover:border-orange-500/50 transition-all duration-300"
               >
                 <h3 className="text-2xl font-semibold text-orange-600 mb-3 group-hover:text-orange-300 transition-colors">{pillar.pillar}</h3>
-                <p className="text-gray-600 mb-6">{pillar.description}</p>
+                <p className="text-[#475569] dark:text-[#CBD5E1] mb-6">{pillar.description}</p>
 
                 <div className="grid grid-cols-2 gap-3">
                   {pillar.items.map((item, itemId) => (
                     <div
                       key={`item-${pillarIdx}-${itemId}`}
-                      className="bg-gray-700/30 rounded-lg p-3 text-sm text-slate-700 dark:text-slate-300 border border-gray-600/50 hover:border-orange-500/50 transition-all duration-300 text-center"
+                      className="bg-gray-700/30 rounded-lg p-3 text-sm text-slate-700 dark:text-[#CBD5E1] border border-gray-600/50 hover:border-orange-500/50 transition-all duration-300 text-center"
                     >
                       {item}
                     </div>
@@ -346,14 +346,14 @@ const ITConsulting = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Industry Expertise</h2>
-            <p className="text-gray-600 text-lg">Proven experience across diverse sectors</p>
+            <p className="text-[#475569] dark:text-[#CBD5E1] text-lg">Proven experience across diverse sectors</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {industryExperience.map((industry, industryIdx) => (
-              <div key={`industry-${industry.industry}`} className="bg-gradient-to-r from-white to-gray-50 rounded-xl p-8 border border-gray-200 hover:border-orange-500/50 transition-all duration-300">
+              <div key={`industry-${industry.industry}`} className="bg-gradient-to-r from-white to-gray-50 rounded-xl p-8 border border-[#E2E8F0] dark:border-[#29384D] hover:border-orange-500/50 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{industry.industry}</h3>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-[#F1F5F9]">{industry.industry}</h3>
                   <span className="text-orange-600 font-bold">{industry.expertise}</span>
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
@@ -373,20 +373,20 @@ const ITConsulting = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Consulting Process</h2>
-            <p className="text-gray-600 text-lg">Structured approach to IT transformation</p>
+            <p className="text-[#475569] dark:text-[#CBD5E1] text-lg">Structured approach to IT transformation</p>
           </div>
 
           <div className="space-y-6">
             {consultingProcess.map((item) => (
               <div key={`process-${item.step}`} className="group flex gap-6">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-slate-900 dark:text-white font-bold text-lg group-hover:scale-110 transition-transform">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-slate-900 dark:text-[#F1F5F9] font-bold text-lg group-hover:scale-110 transition-transform">
                     {item.step}
                   </div>
                 </div>
                 <div className="flex-grow pt-1">
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-orange-600 transition-colors">{item.title}</h3>
-                  <p className="text-gray-600 mt-2">{item.description}</p>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-[#F1F5F9] group-hover:text-orange-600 transition-colors">{item.title}</h3>
+                  <p className="text-[#475569] dark:text-[#CBD5E1] mt-2">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -399,7 +399,7 @@ const ITConsulting = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-gradient-to-r from-orange-600/20 to-red-600/20 rounded-xl border border-orange-500/30 p-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your IT?</h2>
-            <p className="text-gray-700 mb-8 text-lg">Let's discuss your IT strategy and chart a path to success</p>
+            <p className="text-[#475569] dark:text-[#CBD5E1] mb-8 text-lg">Let's discuss your IT strategy and chart a path to success</p>
             
           </div>
         </div>

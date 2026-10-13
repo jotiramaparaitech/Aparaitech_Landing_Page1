@@ -44,7 +44,7 @@ const Careers = () => {
   const navigate = useNavigate(); // ✅ REQUIRED
 
   return (
-    <section className="bg-slate-50 dark:bg-[#0B0F19] pt-28 pb-20 transition-colors">
+    <section className="bg-slate-50 dark:bg-[#F3F6FA] dark:bg-[#0B1220] pt-28 pb-20 transition-colors">
       <div className="max-w-[1400px] mx-auto px-6">
 
         {/* HEADER */}
@@ -69,7 +69,7 @@ const Careers = () => {
               onClick={() => navigate("/job-detail", { state: job })} // ✅ CLICK NAVIGATION
               className="
                 cursor-pointer
-                bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B]
+                bg-white dark:bg-[#131F32] border border-slate-200 dark:border-[#1E293B]
                 rounded-xl p-7 shadow-sm
                 transition-all duration-300
                 hover:shadow-md hover:-translate-y-1 hover:border-blue-500/40

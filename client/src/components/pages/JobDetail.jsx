@@ -590,13 +590,13 @@ const JobDetail = () => {
 
   if (!job) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#F3F6FA] dark:bg-[#0B1220]">
         <div className="text-center p-8 bg-white rounded-lg shadow-lg">
           <h2 className="text-3xl font-bold mb-4 text-slate-800 dark:text-slate-100">No job selected</h2>
-          <p className="text-gray-600 mb-8">Please select a job from the careers page to view details.</p>
+          <p className="text-[#475569] dark:text-[#CBD5E1] mb-8">Please select a job from the careers page to view details.</p>
           <button 
             onClick={() => navigate("/careers")}
-            className="px-8 py-3 bg-[#0176d3] text-white font-semibold rounded-lg hover:bg-[#015ba3] transition-all shadow-md"
+            className="px-8 py-3 bg-[#0176d3] text-[#142B4A] dark:text-[#F1F5F9] font-semibold rounded-lg hover:bg-[#015ba3] transition-all shadow-md"
           >
             Back to Careers
           </button>
@@ -625,7 +625,7 @@ const JobDetail = () => {
                 </span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-slate-900 dark:text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-[#142B4A] dark:text-[#F1F5F9]">
                 {job.title}
               </h1>
 
@@ -633,24 +633,24 @@ const JobDetail = () => {
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-blue-600" />
                   <div>
-                    <span className="text-lg font-semibold text-slate-900 dark:text-white">{job.location}</span>
-                    <p className="text-gray-600 text-sm">Location</p>
+                    <span className="text-lg font-semibold text-[#142B4A] dark:text-[#F1F5F9]">{job.location}</span>
+                    <p className="text-[#475569] dark:text-[#CBD5E1] text-sm">Location</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-3">
                   <Briefcase className="w-5 h-5 text-blue-600" />
                   <div>
-                    <span className="text-lg font-semibold text-slate-900 dark:text-white">{job.type}</span>
-                    <p className="text-gray-600 text-sm">Employment Type</p>
+                    <span className="text-lg font-semibold text-[#142B4A] dark:text-[#F1F5F9]">{job.type}</span>
+                    <p className="text-[#475569] dark:text-[#CBD5E1] text-sm">Employment Type</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-3">
                   <Clock className="w-5 h-5 text-blue-600" />
                   <div>
-                    <span className="text-lg font-semibold text-slate-900 dark:text-white">Full-time</span>
-                    <p className="text-gray-600 text-sm">Schedule</p>
+                    <span className="text-lg font-semibold text-[#142B4A] dark:text-[#F1F5F9]">Full-time</span>
+                    <p className="text-[#475569] dark:text-[#CBD5E1] text-sm">Schedule</p>
                   </div>
                 </div>
               </div>
@@ -658,7 +658,7 @@ const JobDetail = () => {
               <div className="flex flex-wrap gap-4">
                 <button
                   onClick={() => navigate("/apply", { state: { job: job } })}
-                  className="mt-10 px-10 py-4 bg-[#0176d3] text-white text-lg font-bold rounded-lg hover:bg-[#015ba3] shadow-lg transition-all"
+                  className="mt-10 px-10 py-4 bg-[#0176d3] text-[#142B4A] dark:text-[#F1F5F9] text-lg font-bold rounded-lg hover:bg-[#015ba3] shadow-lg transition-all"
                 >
                   Apply Now
                 </button>  
@@ -684,31 +684,31 @@ const JobDetail = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Job ID & Posted Info */}
-          <div className="mb-12 p-6 bg-gray-50 rounded-xl border border-slate-200 dark:border-[#1E293B]">
+          <div className="mb-12 p-6 bg-[#F3F6FA] dark:bg-[#0B1220] rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <span className="text-slate-600 dark:text-slate-400">Job ID:</span>
-                <span className="ml-2 font-semibold text-slate-900 dark:text-white">{job.id || "JR" + Math.floor(Math.random() * 1000000)}</span>
+                <span className="text-[#475569] dark:text-[#94A3B8]">Job ID:</span>
+                <span className="ml-2 font-semibold text-[#142B4A] dark:text-[#F1F5F9]">{job.id || "JR" + Math.floor(Math.random() * 1000000)}</span>
               </div>
               <div>
-                <span className="text-slate-600 dark:text-slate-400">Posted:</span>
-                <span className="ml-2 font-semibold text-slate-900 dark:text-white">{job.postedDate || "Recently"}</span>
+                <span className="text-[#475569] dark:text-[#94A3B8]">Posted:</span>
+                <span className="ml-2 font-semibold text-[#142B4A] dark:text-[#F1F5F9]">{job.postedDate || "Recently"}</span>
               </div>
               <div>
-                <span className="text-slate-600 dark:text-slate-400">Category:</span>
-                <span className="ml-2 font-semibold text-slate-900 dark:text-white">{job.category || jobDetails.department}</span>
+                <span className="text-[#475569] dark:text-[#94A3B8]">Category:</span>
+                <span className="ml-2 font-semibold text-[#142B4A] dark:text-[#F1F5F9]">{job.category || jobDetails.department}</span>
               </div>
             </div>
           </div>
 
           {/* Job Description */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-3">
+            <h2 className="text-3xl font-bold mb-6 text-[#142B4A] dark:text-[#F1F5F9] flex items-center gap-3">
               <Briefcase className="w-8 h-8 text-blue-600" />
               Job Description
             </h2>
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 leading-relaxed mb-6 text-lg">
+              <p className="text-[#475569] dark:text-[#CBD5E1] leading-relaxed mb-6 text-lg">
                 {jobDetails.fullDescription}
               </p>
             </div>
@@ -716,15 +716,15 @@ const JobDetail = () => {
 
           {/* Responsibilities */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-3">
+            <h2 className="text-3xl font-bold mb-6 text-[#142B4A] dark:text-[#F1F5F9] flex items-center gap-3">
               <Layers className="w-8 h-8 text-green-600" />
               Key Responsibilities
             </h2>
             <ul className="space-y-4">
               {jobDetails.responsibilities.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0"></div>
-                  <span className="text-gray-700 text-lg">{item}</span>
+                  <div className="w-2 h-2 bg-[#0F9F8F] rounded-full mt-3 flex-shrink-0"></div>
+                  <span className="text-[#475569] dark:text-[#CBD5E1] text-lg">{item}</span>
                 </li>
               ))}
             </ul>
@@ -732,8 +732,8 @@ const JobDetail = () => {
 
           {/* Requirements & Qualifications */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-3">
-              <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+            <h2 className="text-3xl font-bold mb-6 text-[#142B4A] dark:text-[#F1F5F9] flex items-center gap-3">
+              <GraduationCap className="w-8 h-8 text-blue-600 dark:text-[#2563EB] dark:text-[#3B82F6]" />
               Required Qualifications
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -743,7 +743,7 @@ const JobDetail = () => {
                   {jobDetails.requirements.map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-slate-700 dark:text-slate-300">{item}</span>
+                      <span className="text-[#475569] dark:text-[#CBD5E1]">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -751,7 +751,7 @@ const JobDetail = () => {
               
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-100">Preferred Qualifications</h3>
-                <p className="text-gray-700 mb-4">{jobDetails.qualifications}</p>
+                <p className="text-[#475569] dark:text-[#CBD5E1] mb-4">{jobDetails.qualifications}</p>
                 
                 <h4 className="text-lg font-semibold mb-3 text-slate-800 dark:text-slate-100">Technical Skills</h4>
                 <div className="flex flex-wrap gap-2">
@@ -773,8 +773,8 @@ const JobDetail = () => {
             <div className="mb-12">
               {jobDetails.extraSections.map((section, index) => (
                 <div key={index} className="mb-8 last:mb-0">
-                  <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{section.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{section.content}</p>
+                  <h3 className="text-2xl font-bold mb-4 text-[#142B4A] dark:text-[#F1F5F9]">{section.title}</h3>
+                  <p className="text-[#475569] dark:text-[#CBD5E1] leading-relaxed">{section.content}</p>
                 </div>
               ))}
             </div>
@@ -782,7 +782,7 @@ const JobDetail = () => {
 
           {/* Benefits */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-3">
+            <h2 className="text-3xl font-bold mb-6 text-[#142B4A] dark:text-[#F1F5F9] flex items-center gap-3">
               <DollarSign className="w-8 h-8 text-yellow-600" />
               What We Offer
             </h2>
@@ -790,7 +790,7 @@ const JobDetail = () => {
               {jobDetails.benefits.map((benefit, index) => (
                 <div 
                   key={index}
-                  className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-200 hover:border-blue-300 transition-all hover:shadow-md"
+                  className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-[#E2E8F0] dark:border-[#29384D] hover:border-blue-300 transition-all hover:shadow-md"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -801,7 +801,7 @@ const JobDetail = () => {
                       {index % 6 === 4 && <Code className="w-5 h-5 text-blue-600" />}
                       {index % 6 === 5 && <Database className="w-5 h-5 text-blue-600" />}
                     </div>
-                    <span className="font-semibold text-slate-900 dark:text-white">{benefit}</span>
+                    <span className="font-semibold text-[#142B4A] dark:text-[#F1F5F9]">{benefit}</span>
                   </div>
                 </div>
               ))}
@@ -810,22 +810,22 @@ const JobDetail = () => {
 
           {/* Apply CTA */}
           <div className="mb-16 p-8 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">Ready to Join Our Team?</h3>
+            <h3 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-4">Ready to Join Our Team?</h3>
             <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
               Take the next step in your career and apply today. We're excited to learn more about you and how you can contribute to our success.
             </p>
             <button
               onClick={() => navigate("/apply", { state: { job: job } })}
-              className="px-10 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              className="px-10 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-[#F3F6FA] dark:bg-[#0B1220] transition-all transform hover:scale-105 shadow-lg"
             >
               Apply Now
             </button>
           </div>
 
           {/* Equal Opportunity */}
-          <div className="p-8 bg-gray-50 rounded-xl border border-slate-200 dark:border-[#1E293B]">
-            <h4 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">Equal Opportunity Employer</h4>
-            <p className="text-gray-700 italic">
+          <div className="p-8 bg-[#F3F6FA] dark:bg-[#0B1220] rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
+            <h4 className="text-xl font-bold mb-3 text-[#142B4A] dark:text-[#F1F5F9]">Equal Opportunity Employer</h4>
+            <p className="text-[#475569] dark:text-[#CBD5E1] italic">
               "Aparaitech is an Equal Opportunity and Affirmative Action Employer. We celebrate diversity and are committed to creating an inclusive environment for all employees. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or veteran status."
             </p>
           </div>
@@ -836,29 +836,29 @@ const JobDetail = () => {
       <section className="py-20 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-6">
               Join Our Talent Community
             </h2>
-            <p className="text-xl text-slate-700 dark:text-slate-300 max-w-3xl mx-auto">
+            <p className="text-xl text-[#475569] dark:text-[#CBD5E1] max-w-3xl mx-auto">
               Not ready to apply? Join our Talent Community to stay connected and receive updates on new opportunities, company news, and career insights.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
+            <div className="p-6 bg-white rounded-xl border border-[#E2E8F0] dark:border-[#29384D] shadow-sm">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Bell className="w-6 h-6 text-blue-600" />
               </div>
               <h4 className="text-lg font-semibold mb-2">Job Alerts</h4>
-              <p className="text-slate-600 dark:text-slate-400">Get notified when roles matching your profile become available</p>
+              <p className="text-[#475569] dark:text-[#94A3B8]">Get notified when roles matching your profile become available</p>
             </div>
             
-            <div className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
+            <div className="p-6 bg-white rounded-xl border border-[#E2E8F0] dark:border-[#29384D] shadow-sm">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Users className="w-6 h-6 text-blue-600" />
               </div>
               <h4 className="text-lg font-semibold mb-2">Networking</h4>
-              <p className="text-slate-600 dark:text-slate-400">Connect with our recruiters and hiring managers</p>
+              <p className="text-[#475569] dark:text-[#94A3B8]">Connect with our recruiters and hiring managers</p>
             </div>
           </div>
 
@@ -868,7 +868,7 @@ const JobDetail = () => {
             rel="noopener noreferrer"
             className="inline-block"
           >
-            <button className="px-12 py-4 bg-[#0176d3] text-white text-lg font-bold rounded-lg hover:bg-[#015ba3] transition-all shadow-lg hover:shadow-xl">
+            <button className="px-12 py-4 bg-[#0176d3] text-[#142B4A] dark:text-[#F1F5F9] text-lg font-bold rounded-lg hover:bg-[#015ba3] transition-all shadow-lg hover:shadow-xl">
               Join Talent Community
             </button>
           </a>

@@ -47,14 +47,14 @@ const SecurePlatformPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-16 md:pt-0"> {/* ADDED: pt-16 for mobile */}
+        <div className="min-h-screen bg-slate-50 dark:bg-[#F3F6FA] dark:bg-[#0B1220] text-slate-900 dark:text-[#F1F5F9] pt-16 md:pt-0"> {/* ADDED: pt-16 for mobile */}
             {/* Hero Section - FIXED: Added more top padding */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 pt-24 pb-16 md:pt-32 md:pb-24"> {/* CHANGED: Increased padding */}
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8"> {/* CHANGED: Smaller text on mobile */}
                         Build Trust and Transparency with Protection Built into All Our Products
                     </h1>
-                    <p className="text-lg md:text-xl lg:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-8 md:mb-12"> {/* CHANGED: Smaller text on mobile */}
+                    <p className="text-lg md:text-xl lg:text-2xl text-slate-700 dark:text-[#CBD5E1] max-w-4xl mx-auto mb-8 md:mb-12"> {/* CHANGED: Smaller text on mobile */}
                         Across sales, service, marketing, and more, we're dedicated to keeping your customers' data safe and secure, building a trusted digital world.
                     </p>
                 </div>
@@ -74,7 +74,7 @@ const SecurePlatformPage = () => {
                                 }}
                                 className={`px-4 md:px-6 py-2 md:py-3 whitespace-nowrap rounded-lg font-medium text-sm md:text-base transition ${activeSection === section.id
                                     ? 'bg-blue-600 text-white'
-                                    : 'text-gray-700 hover:bg-gray-100'
+                                    : 'text-[#475569] dark:text-[#CBD5E1] hover:bg-[#F3F6FA] dark:bg-[#0B1220]'
                                     }`}
                             >
                                 {section.label}
@@ -87,15 +87,15 @@ const SecurePlatformPage = () => {
                 <section id="overview" className="mb-16 md:mb-20 scroll-mt-24 md:scroll-mt-32"> {/* CHANGED: Adjusted scroll margin */}
                     <div className="prose prose-lg max-w-none">
                         <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Create Transparent, Secure Customer Experiences with Platform</h2>
-                        <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-6 md:mb-8">
+                        <p className="text-lg md:text-xl text-slate-700 dark:text-[#CBD5E1] mb-6 md:mb-8">
                             As data intelligence becomes more prevalent as a way for companies to understand and better serve customers, companies must remain accountable for safeguarding the privacy and security of individuals' data. As the leading CRM platform, we provide companies like yours with tools to build trust while enhancing customer experiences.
                         </p>
                         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 md:p-8 rounded-2xl mb-8 md:mb-12"> {/* CHANGED: Adjusted padding */}
-                            <p className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-white">
+                            <p className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-[#F1F5F9]">
                                 Gain increased transparency and control of your customers' data, while harnessing the power of that data to connect with customers in new ways.
                             </p>
                         </div>
-                        <p className="text-base md:text-lg text-slate-700 dark:text-slate-300"> {/* CHANGED: Adjusted text size */}
+                        <p className="text-base md:text-lg text-slate-700 dark:text-[#CBD5E1]"> {/* CHANGED: Adjusted text size */}
                             We offer customers a robust data processing addendum containing strong privacy commitments. This addendum contains data transfer mechanisms to enable our customers to lawfully transfer personal data to us from any geography by relying (depending on the service) on our Processor Binding Corporate Rules or the European Commission's standard contractual clauses. This addendum also contains specific provisions to assist customers in their compliance with applicable data protection laws.
                         </p>
                     </div>
@@ -106,10 +106,10 @@ const SecurePlatformPage = () => {
                     <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Security Built Into Every Layer of the Platform</h2>
                     <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16"> {/* CHANGED: Adjusted gaps */}
                         {platformFeatures.map((feature, index) => (
-                            <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 hover:shadow-xl transition-shadow">
+                            <div key={index} className="bg-white rounded-2xl shadow-lg border border-[#E2E8F0] dark:border-[#29384D] p-6 md:p-8 hover:shadow-xl transition-shadow">
                                 <div className="text-4xl md:text-5xl mb-4 md:mb-6">{feature.icon}</div> {/* CHANGED: Adjusted icon size */}
-                                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-slate-900 dark:text-white">{feature.title}</h3>
-                                <p className="text-gray-700 mb-4 md:mb-6 text-sm md:text-base">{feature.description}</p> {/* CHANGED: Adjusted text size */}
+                                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-slate-900 dark:text-[#F1F5F9]">{feature.title}</h3>
+                                <p className="text-[#475569] dark:text-[#CBD5E1] mb-4 md:mb-6 text-sm md:text-base">{feature.description}</p> {/* CHANGED: Adjusted text size */}
                                 <ul className="space-y-2 md:space-y-3"> {/* CHANGED: Adjusted spacing */}
                                     {feature.features.map((item, idx) => (
                                         <li key={idx} className="flex items-center">
@@ -130,7 +130,7 @@ const SecurePlatformPage = () => {
                                 <div key={index} className="bg-white rounded-xl p-4 md:p-6 text-center shadow-sm hover:shadow-md transition"> {/* CHANGED: Adjusted padding */}
                                     <div className="text-2xl md:text-3xl mb-2 md:mb-3">{framework.icon}</div> {/* CHANGED: Adjusted icon size */}
                                     <div className="font-bold text-sm md:text-lg mb-1">{framework.name}</div> {/* CHANGED: Adjusted text size */}
-                                    <div className="text-xs md:text-sm text-slate-600 dark:text-slate-400">{framework.region}</div> {/* CHANGED: Adjusted text size */}
+                                    <div className="text-xs md:text-sm text-[#475569] dark:text-[#CBD5E1] dark:text-[#94A3B8]">{framework.region}</div> {/* CHANGED: Adjusted text size */}
                                 </div>
                             ))}
                         </div>
@@ -142,10 +142,10 @@ const SecurePlatformPage = () => {
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Data Governance & Compliance Obligations</h2>
                     <div className="grid lg:grid-cols-2 gap-8 md:gap-12"> {/* CHANGED: Adjusted gap */}
                         <div>
-                            <p className="text-base md:text-lg text-slate-700 dark:text-slate-300 mb-6 md:mb-8"> {/* CHANGED: Adjusted text size */}
+                            <p className="text-base md:text-lg text-slate-700 dark:text-[#CBD5E1] mb-6 md:mb-8"> {/* CHANGED: Adjusted text size */}
                                 You may need to access, export, delete, or update customer data to comply with data protection regulations. Our platform offers customers a rich set of features to help you meet your legal obligations.
                             </p>
-                            <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-8"> {/* CHANGED: Adjusted padding */}
+                            <div className="bg-white border border-[#E2E8F0] dark:border-[#29384D] rounded-xl p-6 md:p-8"> {/* CHANGED: Adjusted padding */}
                                 <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Key Privacy Rights Management Features</h3>
                                 <ul className="space-y-4 md:space-y-6"> {/* CHANGED: Adjusted spacing */}
                                     {[
@@ -160,14 +160,14 @@ const SecurePlatformPage = () => {
                                             </div>
                                             <div>
                                                 <h4 className="font-bold text-base md:text-lg mb-1">{item.title}</h4> {/* CHANGED: Adjusted text size */}
-                                                <p className="text-gray-700 text-sm md:text-base">{item.desc}</p> {/* CHANGED: Adjusted text size */}
+                                                <p className="text-[#475569] dark:text-[#CBD5E1] text-sm md:text-base">{item.desc}</p> {/* CHANGED: Adjusted text size */}
                                             </div>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
                         </div>
-                        <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 md:p-10 text-white"> {/* CHANGED: Adjusted padding */}
+                        <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 md:p-10 text-[#142B4A] dark:text-[#F1F5F9]"> {/* CHANGED: Adjusted padding */}
                             <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Data Processing Addendum</h3>
                             <p className="mb-6 md:mb-8 text-sm md:text-base"> {/* CHANGED: Adjusted text size */}
                                 Our addendum contains robust data transfer mechanisms that support customers in legally transferring personal data to us from any region worldwide.
@@ -192,7 +192,7 @@ const SecurePlatformPage = () => {
 
                 {/* Security Shield Section */}
                 <section id="security-shield" className="mb-16 md:mb-20 scroll-mt-24 md:scroll-mt-32"> {/* CHANGED: Adjusted scroll margin */}
-                    <div className="bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-6 md:p-12 text-white"> {/* CHANGED: Adjusted padding */}
+                    <div className="bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-6 md:p-12 text-[#142B4A] dark:text-[#F1F5F9]"> {/* CHANGED: Adjusted padding */}
                         <div className="max-w-3xl">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Additional Layer of Trust: Security Shield Suite</h2>
                             <p className="text-lg md:text-xl mb-6 md:mb-10 opacity-90"> {/* CHANGED: Adjusted text size */}
@@ -231,7 +231,7 @@ const SecurePlatformPage = () => {
                 <section id="privacy-center" className="mb-16 md:mb-20 scroll-mt-24 md:scroll-mt-32"> {/* CHANGED: Adjusted scroll margin */}
                     <div className="text-center mb-8 md:mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Privacy Management Center</h2>
-                        <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-3xl mx-auto"> {/* CHANGED: Adjusted text size */}
+                        <p className="text-lg md:text-xl text-slate-700 dark:text-[#CBD5E1] max-w-3xl mx-auto"> {/* CHANGED: Adjusted text size */}
                             Your complete privacy and data management solution that simplifies data privacy, compliance, and archiving.
                         </p>
                     </div>
@@ -247,7 +247,7 @@ const SecurePlatformPage = () => {
                                         'Compliance reporting & dashboards'
                                     ].map((item, idx) => (
                                         <li key={idx} className="flex items-center">
-                                            <div className="w-6 h-6 md:w-8 md:h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm md:text-base mr-3 md:mr-4"> {/* CHANGED: Adjusted size */}
+                                            <div className="w-6 h-6 md:w-8 md:h-8 bg-green-500 text-[#142B4A] dark:text-[#F1F5F9] rounded-full flex items-center justify-center text-sm md:text-base mr-3 md:mr-4"> {/* CHANGED: Adjusted size */}
                                                 ✓
                                             </div>
                                             <span className="text-sm md:text-lg font-medium">{item}</span> {/* CHANGED: Adjusted text size */}
@@ -258,19 +258,19 @@ const SecurePlatformPage = () => {
                         </div>
                         <div>
                             <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Simplify Global Compliance Processes</h3>
-                            <p className="text-gray-700 mb-6 md:mb-8 text-sm md:text-base"> {/* CHANGED: Adjusted text size */}
+                            <p className="text-[#475569] dark:text-[#CBD5E1] mb-6 md:mb-8 text-sm md:text-base"> {/* CHANGED: Adjusted text size */}
                                 The Privacy Management Center helps you manage privacy obligations across multiple jurisdictions worldwide, from GDPR to CCPA and other regional regulations, all within a unified platform.
                             </p>
-                            <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-8"> {/* CHANGED: Adjusted padding */}
+                            <div className="bg-white border border-[#E2E8F0] dark:border-[#29384D] rounded-xl p-6 md:p-8"> {/* CHANGED: Adjusted padding */}
                                 <h4 className="font-bold text-base md:text-lg mb-3 md:mb-4">Key Benefits</h4> {/* CHANGED: Adjusted text size */}
                                 <div className="grid grid-cols-2 gap-4 md:gap-6"> {/* CHANGED: Adjusted gap */}
                                     <div>
                                         <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1 md:mb-2">70%</div> {/* CHANGED: Adjusted text size */}
-                                        <div className="text-gray-700 text-sm md:text-base">Reduction in manual compliance work time</div> {/* CHANGED: Adjusted text size */}
+                                        <div className="text-[#475569] dark:text-[#CBD5E1] text-sm md:text-base">Reduction in manual compliance work time</div> {/* CHANGED: Adjusted text size */}
                                     </div>
                                     <div>
                                         <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1 md:mb-2">100%</div> {/* CHANGED: Adjusted text size */}
-                                        <div className="text-gray-700 text-sm md:text-base">Auditable tracking of DSAR requests</div> {/* CHANGED: Adjusted text size */}
+                                        <div className="text-[#475569] dark:text-[#CBD5E1] text-sm md:text-base">Auditable tracking of DSAR requests</div> {/* CHANGED: Adjusted text size */}
                                     </div>
                                 </div>
                             </div>
@@ -280,7 +280,7 @@ const SecurePlatformPage = () => {
 
                 {/* Contact Us Section */}
                 <section id="contact" className="scroll-mt-24 md:scroll-mt-32"> {/* CHANGED: Adjusted scroll margin */}
-                    <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-6 md:p-12 text-white text-center"> {/* CHANGED: Adjusted padding */}
+                    <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-6 md:p-12 text-[#142B4A] dark:text-[#F1F5F9] text-center"> {/* CHANGED: Adjusted padding */}
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">We Understand That Better Customer Experiences Start with Data Privacy</h2>
                         <p className="text-lg md:text-xl mb-6 md:mb-10 max-w-3xl mx-auto"> {/* CHANGED: Adjusted text size */}
                             Contact us if you have questions, comments, or requests related to our Privacy Statement, our data privacy practices, or how we embrace privacy and data protection laws.

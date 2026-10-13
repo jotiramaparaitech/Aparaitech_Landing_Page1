@@ -4,31 +4,33 @@
 @tailwind utilities;
 
 :root, html.light {
-  --bg-page: #F8FAFC;
+  --bg-page: #F3F6FA;
   --bg-surface: #FFFFFF;
-  --bg-elevated: #F1F5F9;
+  --bg-elevated: #EBF0F7;
   --border-subtle: #E2E8F0;
   --border-card: #E2E8F0;
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
+  --text-heading: #142B4A;
+  --text-primary: #475569;
   --text-muted: #64748B;
   --accent-primary: #2563EB;
   --accent-primary-hover: #1D4ED8;
-  --status-positive: #10B981;
+  --accent-teal: #0F9F8F;
+  --status-positive: #0F9F8F;
 }
 
 html.dark {
-  --bg-page: #0B0F19;
-  --bg-surface: #111827;
-  --bg-elevated: #161F32;
-  --border-subtle: #263247;
-  --border-card: #263247;
-  --text-primary: #F8FAFC;
-  --text-secondary: #CBD5E1;
+  --bg-page: #0B1220;
+  --bg-surface: #131F32;
+  --bg-elevated: #1A2840;
+  --border-subtle: #29384D;
+  --border-card: #29384D;
+  --text-heading: #F1F5F9;
+  --text-primary: #CBD5E1;
   --text-muted: #94A3B8;
   --accent-primary: #3B82F6;
   --accent-primary-hover: #2563EB;
-  --status-positive: #34D399;
+  --accent-teal: #2DD4BF;
+  --status-positive: #2DD4BF;
 }
 
 @layer base {
@@ -60,6 +62,7 @@ html.dark {
     text-wrap: balance;
     letter-spacing: -0.025em;
     font-weight: 700;
+    color: var(--text-heading);
   }
 
   p, li {
@@ -299,29 +302,33 @@ html.dark {
 
 /* Default / Dark Theme Baseline overrides */
 html.dark body {
-  background-color: #0B0F19 !important;
-  color: #F8FAFC !important;
+  background-color: #0B1220 !important;
+  color: #CBD5E1 !important;
 }
 
 /* Mapping legacy colors to modern dark palette */
 html.dark .bg-\[\#0C0D0F\],
+html.dark .bg-\[\#0B0F19\],
 .bg-\[\#0C0D0F\] {
-  background-color: #0B0F19 !important;
+  background-color: #0B1220 !important;
 }
 
 html.dark .bg-\[\#0C0D0F\]\/95,
+html.dark .bg-\[\#0B0F19\]\/95,
 .bg-\[\#0C0D0F\]\/95 {
-  background-color: rgba(11, 15, 25, 0.95) !important;
+  background-color: rgba(11, 18, 32, 0.95) !important;
 }
 
 html.dark .bg-\[\#141518\],
+html.dark .bg-\[\#111827\],
 .bg-\[\#141518\] {
-  background-color: #111827 !important;
+  background-color: #131F32 !important;
 }
 
 html.dark .bg-\[\#141518\]\/95,
+html.dark .bg-\[\#111827\]\/95,
 .bg-\[\#141518\]\/95 {
-  background-color: rgba(17, 24, 39, 0.95) !important;
+  background-color: rgba(19, 31, 50, 0.95) !important;
 }
 
 html.dark .bg-\[\#1C1C1E\],
@@ -332,17 +339,18 @@ html.dark .bg-\[\#0A0A0C\],
 .bg-\[\#18191D\],
 .bg-\[\#111215\],
 .bg-\[\#0A0A0C\] {
-  background-color: #161F32 !important;
+  background-color: #131F32 !important;
 }
 
 html.dark .bg-\[\#22242A\],
 .bg-\[\#22242A\] {
-  background-color: #1E293B !important;
+  background-color: #1A2840 !important;
 }
 
 html.dark .border-\[\#22242A\],
+html.dark .border-slate-800,
 .border-\[\#22242A\] {
-  border-color: #1E293B !important;
+  border-color: #29384D !important;
 }
 
 /* Modernize Blue / Salesforce branding to unified tech blue */
@@ -436,9 +444,9 @@ a.bg-\[\#D4FD53\]:hover {
 html.dark input:not([type="checkbox"]):not([type="radio"]),
 html.dark select,
 html.dark textarea {
-  background-color: #0F172A;
-  color: #F8FAFC;
-  border-color: #1E293B;
+  background-color: #0B1220;
+  color: #CBD5E1;
+  border-color: #29384D;
 }
 
 html.dark input:focus,
@@ -471,25 +479,32 @@ html.light {
 
 html.light,
 html.light body {
-  background-color: #F8FAFC !important;
-  color: #0F172A !important;
+  background-color: #F3F6FA !important;
+  color: #475569 !important;
 }
 
 /* Light Surfaces */
-html.light .bg-\[\#0C0D0F\] {
-  background-color: #F8FAFC !important;
+html.light .bg-\[\#0C0D0F\],
+html.light .bg-\[\#0B0F19\],
+html.light .bg-\[\#0B1220\],
+html.light .bg-slate-50 {
+  background-color: #F3F6FA !important;
 }
 
-html.light .bg-\[\#0C0D0F\]\/95 {
-  background-color: rgba(248, 250, 252, 0.95) !important;
+html.light .bg-\[\#0C0D0F\]\/95,
+html.light .bg-\[\#0B1220\]\/95 {
+  background-color: rgba(243, 246, 250, 0.95) !important;
 }
 
-html.light .bg-\[\#141518\] {
+html.light .bg-\[\#141518\],
+html.light .bg-\[\#111827\],
+html.light .bg-\[\#020617\] {
   background-color: #FFFFFF !important;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 2px 12px -2px rgba(20, 43, 74, 0.05);
 }
 
-html.light .bg-\[\#141518\]\/95 {
+html.light .bg-\[\#141518\]\/95,
+html.light .bg-\[\#111827\]\/95 {
   background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
@@ -497,7 +512,7 @@ html.light .bg-\[\#1C1C1E\],
 html.light .bg-\[\#111215\],
 html.light .bg-\[\#0A0A0C\],
 html.light .bg-\[\#0a0a0f\] {
-  background-color: #F1F5F9 !important;
+  background-color: #EBF0F7 !important;
 }
 
 html.light .bg-\[\#18191D\] {
@@ -505,8 +520,8 @@ html.light .bg-\[\#18191D\] {
 }
 
 html.light .bg-\[\#22242A\] {
-  background-color: #F1F5F9 !important;
-  color: #0F172A !important;
+  background-color: #EBF0F7 !important;
+  color: #142B4A !important;
 }
 
 html.light .hover\:bg-\[\#2C2E36\]:hover {
@@ -515,6 +530,8 @@ html.light .hover\:bg-\[\#2C2E36\]:hover {
 
 /* Light Borders */
 html.light .border-\[\#22242A\],
+html.light .border-slate-800,
+html.light .border-slate-800\/80,
 html.light .border-white\/10,
 html.light .border-white {
   border-color: #E2E8F0 !important;
@@ -525,20 +542,25 @@ html.light .border-white\/20 {
 }
 
 html.light .border-white\/5 {
-  border-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
 }
 
 /* Light Typography */
-html.light .text-white {
-  color: #0F172A !important;
+html.light .text-white,
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4 {
+  color: #142B4A !important;
 }
 
-html.light .text-slate-200 {
-  color: #1E293B !important;
+html.light .text-slate-900 {
+  color: #142B4A !important;
 }
 
+html.light .text-slate-200,
 html.light .text-slate-300 {
-  color: #334155 !important;
+  color: #475569 !important;
 }
 
 html.light .text-slate-400 {
@@ -546,6 +568,10 @@ html.light .text-slate-400 {
 }
 
 html.light .text-slate-500 {
+  color: #64748B !important;
+}
+
+html.light .text-slate-600 {
   color: #475569 !important;
 }
 
@@ -554,12 +580,14 @@ html.light .text-\[\#C9C9CE\] {
 }
 
 /* Light Mode Accents */
-html.light .text-\[\#00E5C9\] {
-  color: #0D9488 !important;
+html.light .text-\[\#00E5C9\],
+html.light .text-\[\#22D3EE\],
+html.light .text-\[\#0D9488\] {
+  color: #0F9F8F !important;
 }
 
 html.light .text-\[\#D4FD53\] {
-  color: #059669 !important;
+  color: #0F9F8F !important;
 }
 
 html.light .text-\[\#0176D3\] {
@@ -655,7 +683,7 @@ html.light .service-card:hover {
 }
 
 html.light .service-title {
-  color: #0F172A;
+  color: #142B4A;
 }
 
 html.light .service-card:hover .service-title {
@@ -671,8 +699,8 @@ html.light input:not([type="checkbox"]):not([type="radio"]),
 html.light select,
 html.light textarea {
   background-color: #FFFFFF !important;
-  color: #0F172A !important;
-  border-color: #CBD5E1 !important;
+  color: #142B4A !important;
+  border-color: #E2E8F0 !important;
 }
 
 html.light input:focus,

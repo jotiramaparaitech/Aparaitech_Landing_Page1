@@ -77,7 +77,7 @@ const MobileAppDevelopment = () => {
             </span>
           </h1>
 
-          <p className="mt-8 text-xl text-slate-600 max-w-4xl mx-auto">
+          <p className="mt-8 text-xl text-[#475569] dark:text-[#CBD5E1] max-w-4xl mx-auto">
             We are a full-cycle mobile app development company delivering
             scalable, secure and high-performance applications tailored for
             startups, enterprises and digital-first businesses.
@@ -112,7 +112,7 @@ const MobileAppDevelopment = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
             Comprehensive Mobile App Solutions
           </h2>
-          <p className="text-lg text-slate-600 text-center max-w-3xl mx-auto mb-16">
+          <p className="text-lg text-[#475569] dark:text-[#CBD5E1] text-center max-w-3xl mx-auto mb-16">
             From ideation to launch and ongoing support, we offer end-to-end
             mobile app development services designed to deliver measurable
             business value.
@@ -165,7 +165,7 @@ const MobileAppDevelopment = () => {
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                <p className="text-slate-600">{item.desc}</p>
+                <p className="text-[#475569] dark:text-[#CBD5E1]">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -179,7 +179,7 @@ const MobileAppDevelopment = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
               Why Choose Our Mobile Development Team
             </h2>
-            <p className="text-lg text-slate-600 mb-10">
+            <p className="text-lg text-[#475569] dark:text-[#CBD5E1] mb-10">
               We combine technical expertise, strategic thinking and
               user-experience design to deliver mobile applications that help
               businesses scale and stay competitive.
@@ -218,7 +218,7 @@ const MobileAppDevelopment = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Technology Stack We Use
           </h2>
-          <p className="text-lg text-slate-600 mb-12">
+          <p className="text-lg text-[#475569] dark:text-[#CBD5E1] mb-12">
             We leverage modern, reliable and proven technologies to build
             high-performance mobile applications.
           </p>
@@ -276,7 +276,7 @@ const MobileAppDevelopment = () => {
                   <HelpCircle className="w-6 h-6 text-indigo-600" />
                   <h4 className="font-semibold">{faq.q}</h4>
                 </div>
-                <p className="text-slate-600">{faq.a}</p>
+                <p className="text-[#475569] dark:text-[#CBD5E1]">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -285,7 +285,7 @@ const MobileAppDevelopment = () => {
 
       {/* ================= CTA ================= */}
       <section className="py-32 px-6">
-        <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-16 rounded-3xl shadow-xl">
+        <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-[#142B4A] dark:text-[#F1F5F9] p-16 rounded-3xl shadow-xl">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Start Your Mobile App Project?
           </h2>

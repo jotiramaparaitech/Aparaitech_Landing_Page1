@@ -123,9 +123,9 @@ const News = () => {
     : articles.filter((a) => a.category === activeCategory);
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] text-[#142B4A] dark:text-[#F1F5F9] font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
@@ -137,12 +137,12 @@ const News = () => {
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="block h-3 w-3 bg-[#10B981]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#0F9F8F] dark:text-[#2DD4BF]">
               NEWSROOM // PRESS DISPATCHES & MILESTONES
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] leading-tight max-w-4xl">
             Aparaitech Software Newsroom
           </h1>
 
@@ -151,11 +151,11 @@ const News = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
-              <Building2 className="w-3.5 h-3.5 text-[#34D399]" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
+              <Building2 className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               Pune Hinjawadi Phase 2 CoE
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
               <Sparkles className="w-3.5 h-3.5 text-[#2DD4BF]" />
               6 Live Production Platforms
             </div>
@@ -164,16 +164,16 @@ const News = () => {
       </section>
 
       {/* 2. FEATURED ARTICLE BANNER */}
-      <section className="py-14 border-b border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/70">
+      <section className="py-14 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32]/70">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div
             onClick={() => setSelectedArticle(featuredArticle)}
-            className="rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-8 md:p-12 hover:border-blue-500/40 transition-all cursor-pointer relative group overflow-hidden"
+            className="rounded-2xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-8 md:p-12 hover:border-blue-500/40 transition-all cursor-pointer relative group overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#34D399]">
+              <span className="px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF]">
                 {featuredArticle.category}
               </span>
               <span className="font-mono text-xs text-slate-400">
@@ -181,7 +181,7 @@ const News = () => {
               </span>
             </div>
 
-            <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 group-hover:text-[#34D399] transition-colors leading-tight max-w-4xl">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-4 group-hover:text-[#0F9F8F] dark:text-[#2DD4BF] transition-colors leading-tight max-w-4xl">
               {featuredArticle.title}
             </h2>
 
@@ -189,7 +189,7 @@ const News = () => {
               {featuredArticle.excerpt}
             </p>
 
-            <div className="flex items-center gap-2 font-mono text-xs text-[#34D399] group-hover:underline">
+            <div className="flex items-center gap-2 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] group-hover:underline">
               <span>Read Full Press Dispatch</span>
               <ChevronRight className="w-4 h-4" />
             </div>
@@ -207,7 +207,7 @@ const News = () => {
               className={`px-4 py-2 rounded font-mono text-xs uppercase tracking-wider transition-all ${
                 activeCategory === cat
                   ? "bg-[#2563EB] text-white font-bold shadow-md shadow-blue-500/20"
-                  : "bg-white dark:bg-[#111827] text-slate-300 border border-slate-200 dark:border-[#1E293B] hover:border-slate-500"
+                  : "bg-white dark:bg-[#131F32] text-slate-300 border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-slate-500"
               }`}
             >
               {cat}
@@ -220,17 +220,17 @@ const News = () => {
             <div
               key={idx}
               onClick={() => setSelectedArticle(article)}
-              className="flex flex-col justify-between rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-7 hover:border-blue-500/40 transition-all cursor-pointer group"
+              className="flex flex-col justify-between rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32] p-7 hover:border-blue-500/40 transition-all cursor-pointer group"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <span className="font-mono text-[11px] px-2.5 py-0.5 rounded bg-slate-100 dark:bg-[#161F32] border border-white/5 text-[#2DD4BF] uppercase">
                     {article.category}
                   </span>
-                  <span className="font-mono text-xs text-slate-500">{article.date}</span>
+                  <span className="font-mono text-xs text-[#64748B] dark:text-[#94A3B8]">{article.date}</span>
                 </div>
 
-                <h3 className="text-xl font-bold text-white group-hover:text-[#34D399] transition-colors leading-snug mb-3">
+                <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] group-hover:text-[#0F9F8F] dark:text-[#2DD4BF] transition-colors leading-snug mb-3">
                   {article.title}
                 </h3>
 
@@ -239,9 +239,9 @@ const News = () => {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B] flex items-center justify-between font-mono text-xs">
-                <span className="text-slate-500">{article.readTime}</span>
-                <span className="text-[#34D399] inline-flex items-center gap-1 group-hover:underline">
+              <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] flex items-center justify-between font-mono text-xs">
+                <span className="text-[#64748B] dark:text-[#94A3B8]">{article.readTime}</span>
+                <span className="text-[#0F9F8F] dark:text-[#2DD4BF] inline-flex items-center gap-1 group-hover:underline">
                   <span>Read Article</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </span>
@@ -252,13 +252,13 @@ const News = () => {
       </section>
 
       {/* 4. MEDIA CONTACT & PRESS ENQUIRIES */}
-      <section className="py-16 border-t border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/50">
+      <section className="py-16 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32]/50">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#2DD4BF] mb-4">
             <Newspaper className="w-3.5 h-3.5" />
             <span>PRESS & MEDIA INQUIRIES</span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">
             Looking for Official Statements or Executive Interviews?
           </h2>
           <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
@@ -275,9 +275,9 @@ const News = () => {
             </a>
             <a
               href="tel:+918261840199"
-              className="inline-flex items-center gap-2 rounded border border-white/20 bg-slate-100 dark:bg-[#161F32] px-6 py-3 text-white hover:bg-[#1E293B] transition-all"
+              className="inline-flex items-center gap-2 rounded border border-white/20 bg-slate-100 dark:bg-[#161F32] px-6 py-3 text-[#142B4A] dark:text-[#F1F5F9] hover:bg-[#1E293B] transition-all"
             >
-              <Phone className="w-4 h-4 text-[#34D399]" />
+              <Phone className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               <span>+91 82618 40199</span>
             </a>
           </div>
@@ -291,27 +291,27 @@ const News = () => {
           onClick={() => setSelectedArticle(null)}
         >
           <div
-            className="bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative"
+            className="bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedArticle(null)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 font-mono text-xs text-[#34D399] uppercase mb-2">
+            <div className="flex items-center gap-2 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] uppercase mb-2">
               <Newspaper className="w-4 h-4" />
               <span>{selectedArticle.category} // Dispatch</span>
             </div>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-snug">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2 leading-snug">
               {selectedArticle.title}
             </h2>
 
-            <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-slate-400 mb-6 pb-4 border-b border-slate-200 dark:border-[#1E293B]">
-              <span>Date: <strong className="text-white">{selectedArticle.date}</strong></span>
+            <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-slate-400 mb-6 pb-4 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
+              <span>Date: <strong className="text-[#142B4A] dark:text-[#F1F5F9]">{selectedArticle.date}</strong></span>
               <span>•</span>
               <span>By {selectedArticle.author || "Aparaitech Press"}</span>
               <span>•</span>
@@ -327,14 +327,14 @@ const News = () => {
             </p>
 
             {selectedArticle.highlights && (
-              <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-5 mb-6">
-                <h4 className="font-mono text-xs uppercase text-[#34D399] tracking-wider mb-3">
+              <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-5 mb-6">
+                <h4 className="font-mono text-xs uppercase text-[#0F9F8F] dark:text-[#2DD4BF] tracking-wider mb-3">
                   Key Takeaways & Production Milestones
                 </h4>
                 <div className="space-y-2">
                   {selectedArticle.highlights.map((h, i) => (
                     <div key={i} className="flex items-start gap-2.5 text-xs text-slate-300">
-                      <CheckCircle2 className="w-4 h-4 text-[#34D399] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF] shrink-0 mt-0.5" />
                       <span>{h}</span>
                     </div>
                   ))}
@@ -342,10 +342,10 @@ const News = () => {
               </div>
             )}
 
-            <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B] flex justify-end">
+            <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] flex justify-end">
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="rounded bg-slate-100 dark:bg-[#161F32] border border-white/20 px-6 py-2.5 text-xs font-mono text-white hover:bg-[#1E293B]"
+                className="rounded bg-slate-100 dark:bg-[#161F32] border border-white/20 px-6 py-2.5 text-xs font-mono text-[#142B4A] dark:text-[#F1F5F9] hover:bg-[#1E293B]"
               >
                 Close Dispatch
               </button>

@@ -54,7 +54,7 @@ const Certifications = () => {
         "Client-side caching with Redis and optimistic updates"
       ],
       icon: Terminal,
-      color: "border-slate-200 dark:border-[#1E293B]"
+      color: "border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]"
     },
     {
       id: "professional",
@@ -72,7 +72,7 @@ const Certifications = () => {
         "Kubernetes GitOps deployment via ArgoCD & Helm"
       ],
       icon: Cpu,
-      color: "border-emerald-500/60"
+      color: "border-[#0F9F8F]/60"
     },
     {
       id: "principal",
@@ -143,9 +143,9 @@ const Certifications = () => {
   };
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] text-[#142B4A] dark:text-[#F1F5F9] font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
@@ -155,12 +155,12 @@ const Certifications = () => {
         ></div>
 
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#34D399] mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] mb-6">
             <Award className="w-3.5 h-3.5" />
             <span>INDUSTRY RECOGNITION // VERIFIABLE CREDENTIALS</span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-white leading-tight max-w-3xl mx-auto">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] leading-tight max-w-3xl mx-auto">
             Aparaitech Engineering Certifications
           </h1>
 
@@ -178,7 +178,7 @@ const Certifications = () => {
             </button>
             <a
               href="mailto:info@ai.aparaitech.org?subject=Enterprise%20Cohort%20Certifications"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-[#29384D] bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-[#142B4A] dark:text-[#F1F5F9] hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>Corporate Team Cohorts</span>
             </a>
@@ -187,7 +187,7 @@ const Certifications = () => {
       </section>
 
       {/* 2. FILTER SECTION */}
-      <section className="border-b border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/70 py-4">
+      <section className="border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32]/70 py-4">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
@@ -226,15 +226,15 @@ const Certifications = () => {
             return (
               <div
                 key={cert.id}
-                className={`flex flex-col justify-between rounded-xl border bg-white dark:bg-[#111827] p-8 transition-all duration-300 relative group ${
+                className={`flex flex-col justify-between rounded-xl border bg-white dark:bg-[#131F32] p-8 transition-all duration-300 relative group ${
                   cert.popular
-                    ? "border-emerald-500/70 shadow-2xl shadow-emerald-500/5 md:-translate-y-2"
-                    : "border-slate-200 dark:border-[#1E293B] hover:border-blue-500/50"
+                    ? "border-[#0F9F8F]/70 shadow-2xl shadow-emerald-500/5 md:-translate-y-2"
+                    : "border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-blue-500/50"
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-[11px] px-2.5 py-0.5 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 text-[#34D399]">
+                    <span className="font-mono text-[11px] px-2.5 py-0.5 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 text-[#0F9F8F] dark:text-[#2DD4BF]">
                       {cert.badge}
                     </span>
                     <span className="font-mono text-xs text-slate-400 uppercase tracking-wider">
@@ -242,11 +242,11 @@ const Certifications = () => {
                     </span>
                   </div>
 
-                  <div className="w-12 h-12 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] flex items-center justify-center text-[#34D399] mb-5">
+                  <div className="w-12 h-12 rounded-lg bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] flex items-center justify-center text-[#0F9F8F] dark:text-[#2DD4BF] mb-5">
                     <IconComp className="w-6 h-6" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-2 leading-snug group-hover:text-[#34D399] transition-colors">
+                  <h3 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2 leading-snug group-hover:text-[#0F9F8F] dark:text-[#2DD4BF] transition-colors">
                     {cert.title}
                   </h3>
 
@@ -254,26 +254,26 @@ const Certifications = () => {
                     {cert.description}
                   </p>
 
-                  <div className="rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] p-3 mb-6 space-y-1 font-mono text-[11px] text-slate-400">
+                  <div className="rounded-lg bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] p-3 mb-6 space-y-1 font-mono text-[11px] text-slate-400">
                     <div>Format: <strong className="text-slate-200">{cert.format}</strong></div>
                     <div>Duration: <strong className="text-slate-200">{cert.duration}</strong></div>
                   </div>
 
                   {/* Skills Grid */}
-                  <div className="space-y-2 border-t border-slate-200 dark:border-[#1E293B] pt-4 mb-6">
+                  <div className="space-y-2 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-4 mb-6">
                     {cert.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-[#34D399] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF] shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B] flex gap-2">
+                <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] flex gap-2">
                   <button
                     onClick={() => handleViewDetails(cert)}
-                    className="flex-1 py-2.5 rounded border border-white/20 bg-slate-100 dark:bg-[#161F32] text-xs font-mono text-slate-300 hover:text-white hover:bg-[#1E293B] transition-colors"
+                    className="flex-1 py-2.5 rounded border border-white/20 bg-slate-100 dark:bg-[#161F32] text-xs font-mono text-slate-300 hover:text-[#142B4A] dark:text-[#F1F5F9] hover:bg-[#1E293B] transition-colors"
                   >
                     View Curriculum
                   </button>
@@ -285,7 +285,7 @@ const Certifications = () => {
                       });
                       setIsEnrollModalOpen(true);
                     }}
-                    className="flex-1 py-2.5 rounded bg-[#10B981] text-white text-xs font-mono font-bold hover:brightness-105 transition-all"
+                    className="flex-1 py-2.5 rounded bg-[#10B981] text-[#142B4A] dark:text-[#F1F5F9] text-xs font-mono font-bold hover:brightness-105 transition-all"
                   >
                     Enroll Now
                   </button>
@@ -297,41 +297,41 @@ const Certifications = () => {
       </section>
 
       {/* 4. WHY GET CERTIFIED */}
-      <section className="py-20 border-t border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/50">
+      <section className="py-20 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32]/50">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="font-mono text-xs text-[#00E5C9] uppercase tracking-wider">
               INDUSTRY VALUE PROPOSITION
             </span>
-            <h2 className="text-3xl font-bold text-white mt-2">Why Certify with Aparaitech?</h2>
+            <h2 className="text-3xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mt-2">Why Certify with Aparaitech?</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-6 text-center">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-[#161F32] border border-white/10 flex items-center justify-center mx-auto text-[#34D399] mb-4">
+            <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-6 text-center">
+              <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-[#161F32] border border-white/10 flex items-center justify-center mx-auto text-[#0F9F8F] dark:text-[#2DD4BF] mb-4">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Cryptographically Verifiable</h3>
+              <h3 className="text-lg font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">Cryptographically Verifiable</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
                 Credentials issue a verifiable cryptographic token on the SVPM / Aparaitech blockchain ledger, verifiable by enterprise hiring directors instantly.
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-6 text-center">
+            <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-6 text-center">
               <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-[#161F32] border border-white/10 flex items-center justify-center mx-auto text-[#00E5C9] mb-4">
                 <Terminal className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Real Production Code Labs</h3>
+              <h3 className="text-lg font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">Real Production Code Labs</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
                 No trivial multiple-choice questions. Candidates are evaluated on actual system implementations in Monaco code sandboxes with live assertions.
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-6 text-center">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-[#161F32] border border-white/10 flex items-center justify-center mx-auto text-[#34D399] mb-4">
+            <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-6 text-center">
+              <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-[#161F32] border border-white/10 flex items-center justify-center mx-auto text-[#0F9F8F] dark:text-[#2DD4BF] mb-4">
                 <Sparkles className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Fast-Track Hiring & CoE Pods</h3>
+              <h3 className="text-lg font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">Fast-Track Hiring & CoE Pods</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
                 Certified alumni receive priority placement in Aparaitech Hinjawadi Phase 2 engineering pods and partner enterprise consulting teams.
               </p>
@@ -347,41 +347,41 @@ const Certifications = () => {
           onClick={() => setShowModal(false)}
         >
           <div
-            className="bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative"
+            className="bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="font-mono text-xs text-[#34D399] uppercase mb-2">
+            <div className="font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] uppercase mb-2">
               CURRICULUM SPECIFICATION // {selectedCert.level}
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2">{selectedCert.title}</h2>
+            <h2 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">{selectedCert.title}</h2>
             <p className="text-slate-400 text-xs mb-6 font-mono">{selectedCert.duration} • {selectedCert.format}</p>
 
             <p className="text-slate-300 text-sm leading-relaxed mb-6">
               {selectedCert.description}
             </p>
 
-            <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-5 mb-6">
+            <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-5 mb-6">
               <h4 className="font-mono text-xs uppercase text-[#00E5C9] tracking-wider mb-3">
                 Key Tested Competencies
               </h4>
               <div className="space-y-2">
                 {selectedCert.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-2 text-xs text-slate-300">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF] shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+            <div className="flex items-center justify-between gap-4 pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
               <button
                 onClick={() => {
                   setShowModal(false);
@@ -391,14 +391,14 @@ const Certifications = () => {
                   });
                   setIsEnrollModalOpen(true);
                 }}
-                className="inline-flex items-center gap-2 rounded bg-[#10B981] px-6 py-2.5 text-xs font-mono font-bold uppercase text-white hover:brightness-105"
+                className="inline-flex items-center gap-2 rounded bg-[#10B981] px-6 py-2.5 text-xs font-mono font-bold uppercase text-[#142B4A] dark:text-[#F1F5F9] hover:brightness-105"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Register for Examination</span>
               </button>
               <button
                 onClick={() => setShowModal(false)}
-                className="text-xs font-mono text-slate-400 hover:text-white"
+                className="text-xs font-mono text-slate-400 hover:text-[#142B4A] dark:text-[#F1F5F9]"
               >
                 Close Spec
               </button>
@@ -410,19 +410,19 @@ const Certifications = () => {
       {/* 6. MODAL: ENROLLMENT FORM */}
       {isEnrollModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsEnrollModalOpen(false)}
-              className="absolute right-5 top-5 text-slate-400 hover:text-white"
+              className="absolute right-5 top-5 text-slate-400 hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#34D399] font-mono text-xs uppercase mb-2">
+            <div className="flex items-center gap-2 text-[#0F9F8F] dark:text-[#2DD4BF] font-mono text-xs uppercase mb-2">
               <Award className="w-4 h-4" />
               <span>Aparaitech Examination Registration</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">
               Candidate Examination Enrollment
             </h3>
             <p className="text-slate-400 text-xs mb-6">
@@ -431,7 +431,7 @@ const Certifications = () => {
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -439,13 +439,13 @@ const Certifications = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g., Pooja Deshmukh"
-                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Corporate / Academic Email *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Corporate / Academic Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -453,11 +453,11 @@ const Certifications = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="pooja@domain.com"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -465,30 +465,30 @@ const Certifications = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Company / Institution</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Company / Institution</label>
                   <input
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
                     placeholder="Enterprise Corp"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Experience Level</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Experience Level</label>
                   <select
                     name="experienceLevel"
                     value={formData.experienceLevel}
                     onChange={handleInputChange}
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:border-blue-500 focus:outline-none"
                   >
                     <option value="1-3 Years Software Engineering">1-3 Years Software Engineering</option>
                     <option value="3-5 Years Software Engineering">3-5 Years Software Engineering</option>
@@ -499,12 +499,12 @@ const Certifications = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Selected Certification Track</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Selected Certification Track</label>
                 <select
                   name="certificationTrack"
                   value={formData.certificationTrack}
                   onChange={handleInputChange}
-                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:border-blue-500 focus:outline-none"
                 >
                   <option value="Associate AI Platform Engineer">Associate AI Platform Engineer (Level 1)</option>
                   <option value="Professional Distributed Systems Architect">Professional Distributed Systems Architect (Level 2)</option>
@@ -513,14 +513,14 @@ const Certifications = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Preferred Examination Date / Target Month</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Preferred Examination Date / Target Month</label>
                 <textarea
                   name="notes"
                   rows="3"
                   value={formData.notes}
                   onChange={handleInputChange}
                   placeholder="Outline your target exam window or cohort requirements..."
-                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 ></textarea>
               </div>
 
@@ -528,7 +528,7 @@ const Certifications = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#10B981] py-3 text-sm font-semibold text-white hover:brightness-105 transition-all disabled:opacity-50"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#10B981] py-3 text-sm font-semibold text-[#142B4A] dark:text-[#F1F5F9] hover:brightness-105 transition-all disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isSubmitting ? "Syncing Examination Booking..." : "Confirm Exam Registration"}</span>

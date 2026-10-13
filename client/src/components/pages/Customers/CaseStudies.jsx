@@ -258,9 +258,9 @@ const CaseStudies = () => {
     : studies.filter((s) => s.category === activeCategory);
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] text-[#142B4A] dark:text-[#F1F5F9] font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
@@ -272,30 +272,30 @@ const CaseStudies = () => {
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="block h-3 w-3 bg-[#10B981]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#0F9F8F] dark:text-[#2DD4BF]">
               TECHNICAL ARCHITECTURE // IN-DEPTH CASE STUDIES
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] leading-tight max-w-4xl">
             Engineering Under the Hood. Real Problems Solved.
           </h1>
 
-          <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-[#475569] dark:text-[#CBD5E1] max-w-2xl leading-relaxed">
             Examine the engineering blueprints, latency budgets, database models, and operational tradeoffs behind Aparaitech Software's production platforms.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
-              <Cpu className="w-3.5 h-3.5 text-[#34D399]" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
+              <Cpu className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               Architectural Blueprints
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
               <Clock className="w-3.5 h-3.5 text-[#2DD4BF]" />
               Sub-Millisecond SLAs
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
-              <Server className="w-3.5 h-3.5 text-[#34D399]" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
+              <Server className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               Event-Driven Backends
             </div>
           </div>
@@ -310,7 +310,7 @@ const CaseStudies = () => {
             </button>
             <a
               href="tel:+918261840199"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-[#29384D] bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-[#142B4A] dark:text-[#F1F5F9] hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>Call Pune CoE: +91 82618 40199</span>
             </a>
@@ -319,15 +319,15 @@ const CaseStudies = () => {
       </section>
 
       {/* 2. FEATURED CASE STUDY BANNER */}
-      <section className="py-16 border-b border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/70">
+      <section className="py-16 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32]/70">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
-          <div className="rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-8 md:p-12 relative overflow-hidden">
+          <div className="rounded-2xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-8 md:p-12 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="grid lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#34D399]">
+                  <span className="px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF]">
                     FEATURED ARCHITECTURE CASE STUDY
                   </span>
                   <span className="font-mono text-xs text-slate-400">
@@ -335,7 +335,7 @@ const CaseStudies = () => {
                   </span>
                 </div>
 
-                <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#142B4A] dark:text-[#F1F5F9] leading-tight">
                   {featuredStudy.title}
                 </h2>
                 <p className="mt-2 font-mono text-xs text-slate-400">
@@ -347,10 +347,10 @@ const CaseStudies = () => {
                 </p>
 
                 {/* Key Metrics */}
-                <div className="mt-6 grid grid-cols-3 gap-4 border-y border-slate-200 dark:border-[#1E293B] py-4">
+                <div className="mt-6 grid grid-cols-3 gap-4 border-y border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] py-4">
                   {featuredStudy.metrics.map((m, idx) => (
                     <div key={idx}>
-                      <div className="font-mono text-2xl font-bold text-[#34D399]">{m.value}</div>
+                      <div className="font-mono text-2xl font-bold text-[#0F9F8F] dark:text-[#2DD4BF]">{m.value}</div>
                       <div className="font-mono text-[11px] text-slate-400 uppercase mt-0.5">{m.label}</div>
                     </div>
                   ))}
@@ -379,35 +379,35 @@ const CaseStudies = () => {
                     href={featuredStudy.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-300 hover:text-white"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-300 hover:text-[#142B4A] dark:text-[#F1F5F9]"
                   >
                     <span>Launch Live Platform</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-[#34D399]" />
+                    <ExternalLink className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
                   </a>
                 </div>
               </div>
 
               {/* Terminal / Code Representation */}
-              <div className="lg:col-span-5 rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-5 font-mono text-xs">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-[#1E293B] text-slate-400">
+              <div className="lg:col-span-5 rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32] p-5 font-mono text-xs">
+                <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] text-slate-400">
                   <div className="flex items-center gap-2">
-                    <Terminal className="w-4 h-4 text-[#34D399]" />
+                    <Terminal className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF]" />
                     <span>kds-order-stream.ts</span>
                   </div>
-                  <span className="text-[10px] text-emerald-400">● LIVE WORKER</span>
+                  <span className="text-[10px] text-[#0F9F8F] dark:text-[#2DD4BF]">● LIVE WORKER</span>
                 </div>
                 <div className="mt-3 space-y-1.5 text-slate-300">
-                  <p className="text-slate-500">// Event routing via Redis Pub/Sub</p>
-                  <p><span className="text-purple-400">const</span> sub = <span className="text-blue-400">redis</span>.duplicate();</p>
-                  <p><span className="text-purple-400">await</span> sub.subscribe(<span className="text-[#34D399]">'kds:orders:live'</span>);</p>
-                  <p className="text-slate-500 mt-2">// Sub-15ms broadcast to station terminals</p>
-                  <p>sub.on(<span className="text-[#34D399]">'message'</span>, (channel, raw) =&gt; &#123;</p>
+                  <p className="text-[#64748B] dark:text-[#94A3B8]">// Event routing via Redis Pub/Sub</p>
+                  <p><span className="text-purple-400">const</span> sub = <span className="text-[#2563EB] dark:text-[#3B82F6]">redis</span>.duplicate();</p>
+                  <p><span className="text-purple-400">await</span> sub.subscribe(<span className="text-[#0F9F8F] dark:text-[#2DD4BF]">'kds:orders:live'</span>);</p>
+                  <p className="text-[#64748B] dark:text-[#94A3B8] mt-2">// Sub-15ms broadcast to station terminals</p>
+                  <p>sub.on(<span className="text-[#0F9F8F] dark:text-[#2DD4BF]">'message'</span>, (channel, raw) =&gt; &#123;</p>
                   <p className="pl-4">const order = JSON.parse(raw);</p>
                   <p className="pl-4">wsGateway.broadcastToStation(order.stationId, order);</p>
-                  <p className="pl-4 text-emerald-400">telemetry.recordDispatchLag(Date.now() - order.ts);</p>
+                  <p className="pl-4 text-[#0F9F8F] dark:text-[#2DD4BF]">telemetry.recordDispatchLag(Date.now() - order.ts);</p>
                   <p>&#125;);</p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-slate-200 dark:border-[#1E293B] flex items-center justify-between text-[11px] text-slate-400">
+                <div className="mt-4 pt-3 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] flex items-center justify-between text-[11px] text-slate-400">
                   <span>Latency P99: 14.2ms</span>
                   <span>Throughput: 850 msg/s</span>
                 </div>
@@ -421,10 +421,10 @@ const CaseStudies = () => {
       <section className="py-20 max-w-[1240px] mx-auto px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
-            <div className="font-mono text-xs uppercase tracking-wider text-[#34D399] mb-1">
+            <div className="font-mono text-xs uppercase tracking-wider text-[#0F9F8F] dark:text-[#2DD4BF] mb-1">
               SYSTEM REPERTORY
             </div>
-            <h3 className="text-2xl font-bold text-white">Production Case Studies</h3>
+            <h3 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9]">Production Case Studies</h3>
           </div>
 
           {/* Filter Tabs */}
@@ -436,7 +436,7 @@ const CaseStudies = () => {
                 className={`px-3 py-1.5 rounded font-mono text-xs uppercase tracking-wider transition-all ${
                   activeCategory === cat
                     ? "bg-[#2563EB] text-white font-bold"
-                    : "bg-white dark:bg-[#111827] text-slate-300 border border-slate-200 dark:border-[#1E293B] hover:border-slate-500"
+                    : "bg-white dark:bg-[#131F32] text-slate-300 border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-slate-500"
                 }`}
               >
                 {cat}
@@ -450,17 +450,17 @@ const CaseStudies = () => {
             <div
               key={study.id}
               onClick={() => setSelectedStudy(study)}
-              className="group flex flex-col justify-between rounded-xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-6 hover:border-blue-500/40 transition-all cursor-pointer relative"
+              className="group flex flex-col justify-between rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32] p-6 hover:border-blue-500/40 transition-all cursor-pointer relative"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <span className="font-mono text-xs text-[#2DD4BF] uppercase tracking-wider">
                     {study.category}
                   </span>
-                  <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-[#34D399] transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-[#64748B] dark:text-[#94A3B8] group-hover:text-[#0F9F8F] dark:text-[#2DD4BF] transition-colors" />
                 </div>
 
-                <h4 className="text-lg font-bold text-white group-hover:text-[#34D399] transition-colors leading-snug">
+                <h4 className="text-lg font-bold text-[#142B4A] dark:text-[#F1F5F9] group-hover:text-[#0F9F8F] dark:text-[#2DD4BF] transition-colors leading-snug">
                   {study.title}
                 </h4>
 
@@ -469,17 +469,17 @@ const CaseStudies = () => {
                 </p>
 
                 {/* Metrics Grid */}
-                <div className="mt-5 grid grid-cols-3 gap-2 rounded-lg bg-slate-50 dark:bg-[#0B0F19] p-2.5 border border-slate-200 dark:border-[#1E293B]">
+                <div className="mt-5 grid grid-cols-3 gap-2 rounded-lg bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-2.5 border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
                   {study.metrics.map((m, i) => (
                     <div key={i} className="text-center">
-                      <div className="font-mono text-xs font-bold text-[#34D399]">{m.value}</div>
+                      <div className="font-mono text-xs font-bold text-[#0F9F8F] dark:text-[#2DD4BF]">{m.value}</div>
                       <div className="text-[10px] text-slate-400">{m.label}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-200 dark:border-[#1E293B] flex flex-wrap gap-1.5">
+              <div className="mt-6 pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] flex flex-wrap gap-1.5">
                 {study.tags.map((tag, i) => (
                   <span
                     key={i}
@@ -501,33 +501,33 @@ const CaseStudies = () => {
           onClick={() => setSelectedStudy(null)}
         >
           <div
-            className="bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative"
+            className="bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedStudy(null)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 font-mono text-xs text-[#34D399] uppercase mb-2">
+            <div className="flex items-center gap-2 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] uppercase mb-2">
               <Server className="w-4 h-4" />
               <span>{selectedStudy.category} // Architecture Deep Dive</span>
             </div>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-snug">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2 leading-snug">
               {selectedStudy.title}
             </h2>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400 mb-6 pb-4 border-b border-slate-200 dark:border-[#1E293B]">
-              <span>Client: <strong className="text-white">{selectedStudy.client}</strong></span>
+            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400 mb-6 pb-4 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
+              <span>Client: <strong className="text-[#142B4A] dark:text-[#F1F5F9]">{selectedStudy.client}</strong></span>
               {selectedStudy.url && (
                 <a
                   href={selectedStudy.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[#34D399] hover:underline"
+                  className="inline-flex items-center gap-1 text-[#0F9F8F] dark:text-[#2DD4BF] hover:underline"
                 >
                   <span>Launch Live Platform</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -536,10 +536,10 @@ const CaseStudies = () => {
             </div>
 
             {/* Metrics Row */}
-            <div className="grid grid-cols-3 gap-4 rounded-xl bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] p-4 mb-6">
+            <div className="grid grid-cols-3 gap-4 rounded-xl bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] p-4 mb-6">
               {selectedStudy.metrics.map((m, idx) => (
                 <div key={idx} className="text-center">
-                  <div className="text-2xl font-mono font-bold text-[#34D399]">{m.value}</div>
+                  <div className="text-2xl font-mono font-bold text-[#0F9F8F] dark:text-[#2DD4BF]">{m.value}</div>
                   <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">{m.label}</div>
                 </div>
               ))}
@@ -547,7 +547,7 @@ const CaseStudies = () => {
 
             {/* Challenge & Solution */}
             <div className="space-y-6 text-sm">
-              <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-5">
+              <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-5">
                 <h3 className="font-mono text-xs uppercase text-amber-400 tracking-wider mb-2 flex items-center gap-2">
                   <Activity className="w-4 h-4" />
                   <span>The Engineering Challenge</span>
@@ -555,7 +555,7 @@ const CaseStudies = () => {
                 <p className="text-slate-300 leading-relaxed">{selectedStudy.challenge}</p>
               </div>
 
-              <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-5">
+              <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-5">
                 <h3 className="font-mono text-xs uppercase text-[#2DD4BF] tracking-wider mb-2 flex items-center gap-2">
                   <Cpu className="w-4 h-4" />
                   <span>The Implemented Solution</span>
@@ -564,15 +564,15 @@ const CaseStudies = () => {
               </div>
 
               {selectedStudy.architecture && (
-                <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-5">
-                  <h3 className="font-mono text-xs uppercase text-[#34D399] tracking-wider mb-3 flex items-center gap-2">
+                <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-5">
+                  <h3 className="font-mono text-xs uppercase text-[#0F9F8F] dark:text-[#2DD4BF] tracking-wider mb-3 flex items-center gap-2">
                     <Terminal className="w-4 h-4" />
                     <span>Architectural Pipeline</span>
                   </h3>
                   <div className="space-y-2">
                     {selectedStudy.architecture.map((item, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 font-mono text-xs text-slate-300">
-                        <span className="text-[#34D399]">0{idx + 1}.</span>
+                        <span className="text-[#0F9F8F] dark:text-[#2DD4BF]">0{idx + 1}.</span>
                         <span>{item}</span>
                       </div>
                     ))}
@@ -581,15 +581,15 @@ const CaseStudies = () => {
               )}
 
               {/* Quantifiable Results */}
-              <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] p-5">
-                <h3 className="font-mono text-xs uppercase text-emerald-400 tracking-wider mb-3 flex items-center gap-2">
+              <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] p-5">
+                <h3 className="font-mono text-xs uppercase text-[#0F9F8F] dark:text-[#2DD4BF] tracking-wider mb-3 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4" />
                   <span>Verified Production Results</span>
                 </h3>
                 <div className="space-y-2">
                   {selectedStudy.results.map((res, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-xs text-slate-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF] shrink-0 mt-0.5" />
                       <span>{res}</span>
                     </div>
                   ))}
@@ -603,7 +603,7 @@ const CaseStudies = () => {
               )}
             </div>
 
-            <div className="mt-8 pt-6 border-t border-slate-200 dark:border-[#1E293B] flex flex-wrap items-center justify-between gap-4">
+            <div className="mt-8 pt-6 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] flex flex-wrap items-center justify-between gap-4">
               <button
                 onClick={() => {
                   setSelectedStudy(null);
@@ -616,7 +616,7 @@ const CaseStudies = () => {
               </button>
               <button
                 onClick={() => setSelectedStudy(null)}
-                className="text-xs font-mono text-slate-400 hover:text-white"
+                className="text-xs font-mono text-slate-400 hover:text-[#142B4A] dark:text-[#F1F5F9]"
               >
                 Close Breakdown
               </button>
@@ -628,19 +628,19 @@ const CaseStudies = () => {
       {/* 5. CONSULTATION MODAL */}
       {isConsultModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsConsultModalOpen(false)}
-              className="absolute right-5 top-5 text-slate-400 hover:text-white"
+              className="absolute right-5 top-5 text-slate-400 hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#34D399] font-mono text-xs uppercase mb-2">
+            <div className="flex items-center gap-2 text-[#0F9F8F] dark:text-[#2DD4BF] font-mono text-xs uppercase mb-2">
               <Calendar className="w-4 h-4" />
               <span>Pune Hinjawadi CoE Architectural Review</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">
               Schedule Architecture Consultation
             </h3>
             <p className="text-slate-400 text-xs mb-6">
@@ -649,7 +649,7 @@ const CaseStudies = () => {
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -657,13 +657,13 @@ const CaseStudies = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g., Vikram Deshmukh"
-                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#2563EB] focus:outline-none"
+                  className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-[#2563EB] focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Corporate Email *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Corporate Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -671,11 +671,11 @@ const CaseStudies = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="vikram@enterprise.com"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#2563EB] focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-[#2563EB] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -683,30 +683,30 @@ const CaseStudies = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#2563EB] focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-[#2563EB] focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Company / Organization</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Company / Organization</label>
                   <input
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
                     placeholder="Fintech / Retail Enterprise"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#2563EB] focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-[#2563EB] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Architecture Area</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Architecture Area</label>
                   <select
                     name="architectureFocus"
                     value={formData.architectureFocus}
                     onChange={handleInputChange}
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white focus:border-[#2563EB] focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:border-[#2563EB] focus:outline-none"
                   >
                     <option value="Microservices & Distributed Systems">Microservices & Distributed Systems</option>
                     <option value="Edge AI & Biometrics">Edge AI & Biometrics</option>
@@ -718,14 +718,14 @@ const CaseStudies = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Architecture Notes & Specific SLAs</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Architecture Notes & Specific SLAs</label>
                 <textarea
                   name="notes"
                   rows="3"
                   value={formData.notes}
                   onChange={handleInputChange}
                   placeholder="Outline current tech stack, peak QPS, latency requirements, or refactoring scope..."
-                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-[#2563EB] focus:outline-none"
+                  className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-[#2563EB] focus:outline-none"
                 ></textarea>
               </div>
 

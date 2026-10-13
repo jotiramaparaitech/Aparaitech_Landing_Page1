@@ -88,9 +88,9 @@ const Careers = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] text-[#142B4A] dark:text-[#F1F5F9] font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-20 pb-20">
+      <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-20 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
@@ -102,29 +102,29 @@ const Careers = () => {
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="block h-3 w-3 bg-[#10B981]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#0F9F8F] dark:text-[#2DD4BF]">
               CAREERS & ENGINEERING PODS
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] leading-tight max-w-4xl">
             Build production AI systems with high autonomy.
           </h1>
 
-          <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-[#475569] dark:text-[#CBD5E1] max-w-2xl leading-relaxed">
             We are looking for exceptional software engineers, distributed systems builders, and AI researchers to join our specialized pods in Hinjawadi, Pune.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
-              <MapPin className="w-3.5 h-3.5 text-[#34D399]" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
+              <MapPin className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               Hinjawadi Phase 2, Pune
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
               <Cpu className="w-3.5 h-3.5 text-[#2563EB]" />
               Frontier Model Access
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
               <Briefcase className="w-3.5 h-3.5 text-[#10B981]" />
               6 Open Positions
             </div>
@@ -133,12 +133,12 @@ const Careers = () => {
       </section>
 
       {/* 2. CULTURE & PERKS */}
-      <section className="py-20 border-b border-slate-200 dark:border-[#1E293B]">
+      <section className="py-20 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399] font-bold block mb-2">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#0F9F8F] dark:text-[#2DD4BF] font-bold block mb-2">
             WHY JOIN APARAITECH
           </span>
-          <h2 className="text-3xl font-bold tracking-tight text-white mb-12">
+          <h2 className="text-3xl font-bold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] mb-12">
             An engineering-first culture with zero bureaucracy.
           </h2>
 
@@ -146,12 +146,12 @@ const Careers = () => {
             {perks.map((perk, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] hover:border-blue-500/40 transition-colors"
+                className="p-6 rounded-lg bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-blue-500/40 transition-colors"
               >
-                <span className="font-mono text-sm font-bold text-[#34D399] mb-3 block">
+                <span className="font-mono text-sm font-bold text-[#0F9F8F] dark:text-[#2DD4BF] mb-3 block">
                   0{idx + 1}
                 </span>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-[#142B4A] dark:text-[#F1F5F9] mb-2">
                   {perk.title}
                 </h3>
                 <p className="text-xs text-slate-400 leading-relaxed font-mono">
@@ -164,20 +164,20 @@ const Careers = () => {
       </section>
 
       {/* 3. OPEN POSITIONS GRID */}
-      <section className="py-20 bg-slate-50 dark:bg-[#0B0F19] text-white border-b border-slate-200 dark:border-[#1E293B]">
+      <section className="py-20 bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] text-[#142B4A] dark:text-[#F1F5F9] border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399] font-bold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#0F9F8F] dark:text-[#2DD4BF] font-bold block mb-2">
                 ACTIVE RECRUITMENT SPRINT
               </span>
-              <h2 className="text-3xl font-bold tracking-tight text-white">
+              <h2 className="text-3xl font-bold tracking-tight text-[#142B4A] dark:text-[#F1F5F9]">
                 Open Roles Across Engineering Pods
               </h2>
             </div>
             <a
               href="mailto:info@ai.aparaitech.org?subject=Application%20for%20Engineering%20Pod"
-              className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-blue-400 hover:text-blue-300 hover:underline"
+              className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-[#2563EB] dark:text-[#3B82F6] hover:text-blue-300 hover:underline"
             >
               Direct Email: info@ai.aparaitech.org ↗
             </a>
@@ -187,7 +187,7 @@ const Careers = () => {
             {jobOpenings.map((job, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-[#111827] p-7 rounded-xl border border-slate-200 dark:border-[#1E293B] shadow-lg flex flex-col justify-between hover:border-blue-500/40 transition-all group"
+                className="bg-white dark:bg-[#131F32] p-7 rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] shadow-lg flex flex-col justify-between hover:border-blue-500/40 transition-all group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
@@ -199,7 +199,7 @@ const Careers = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#2DD4BF] transition-colors">
+                  <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2 group-hover:text-[#2DD4BF] transition-colors">
                     {job.title}
                   </h3>
 
@@ -235,12 +235,12 @@ const Careers = () => {
       </section>
 
       {/* 4. CLOSING FAST INTAKE */}
-      <section className="py-24 border-b border-slate-200 dark:border-[#1E293B] text-center relative overflow-hidden">
+      <section className="py-24 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] text-center relative overflow-hidden">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
-          <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-slate-900 dark:text-white tracking-tight leading-tight max-w-2xl mx-auto">
+          <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-[#142B4A] dark:text-[#F1F5F9] tracking-tight leading-tight max-w-2xl mx-auto">
             Don't see your specific specialization?
           </h2>
-          <p className="mt-4 text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">
+          <p className="mt-4 text-[#64748B] dark:text-[#94A3B8] dark:text-[#94A3B8] text-base max-w-lg mx-auto">
             Send your GitHub profile and architectural highlights directly to our engineering leadership.
           </p>
 

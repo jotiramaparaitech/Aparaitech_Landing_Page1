@@ -57,7 +57,7 @@ const Solutions = () => {
   const [active, setActive] = useState("AI Services");
 
   return (
-    <section className="bg-slate-50 dark:bg-[#0B0F19] pt-20 pb-20">
+    <section className="bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] pt-20 pb-20">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* MOBILE TABS */}
@@ -87,7 +87,7 @@ const Solutions = () => {
                     ${
                       active === key
                         ? "bg-[#2563EB] text-white"
-                        : "bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-[#1E293B] text-slate-300"
+                        : "bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] text-slate-300"
                     }
                   `}
                 >
@@ -103,7 +103,7 @@ const Solutions = () => {
           {/* LEFT SIDEBAR */}
           <aside className="hidden md:block md:col-span-3">
             <div className="sticky top-24">
-              <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200 dark:border-[#1E293B] shadow-md p-3">
+              <div className="bg-white dark:bg-[#131F32] rounded-2xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] shadow-md p-3">
                 {Object.keys(solutionsData).map((key) => (
                   <button
                     key={key}
@@ -112,7 +112,7 @@ const Solutions = () => {
                     ${
                       active === key
                         ? "bg-[#2563EB] text-white shadow"
-                        : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:bg-[#161F32]"
+                        : "text-[#475569] dark:text-[#CBD5E1] dark:text-[#CBD5E1] hover:bg-slate-100 dark:bg-[#161F32]"
                     }`}
                 >
                   {key}
@@ -128,7 +128,7 @@ const Solutions = () => {
               <h1 className="text-3xl md:text-4xl font-bold text-slate-50 mb-3">
                 {active}
               </h1>
-              <p className="text-slate-500 dark:text-slate-400 max-w-3xl text-sm md:text-base">
+              <p className="text-[#64748B] dark:text-[#94A3B8] dark:text-[#94A3B8] max-w-3xl text-sm md:text-base">
                 {solutionsData[active].desc}
               </p>
             </div>
@@ -139,8 +139,8 @@ const Solutions = () => {
                 <div
                   key={item}
                   className="
-                    bg-white dark:bg-[#111827]
-                    border border-slate-200 dark:border-[#1E293B]
+                    bg-white dark:bg-[#131F32]
+                    border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]
                     rounded-xl p-6
                     shadow-sm
                     transition-all duration-300
@@ -152,7 +152,7 @@ const Solutions = () => {
                   <h3 className="text-lg font-semibold text-slate-50 mb-2">
                     {item}
                   </h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed flex-grow">
+                  <p className="text-sm text-[#64748B] dark:text-[#94A3B8] dark:text-[#94A3B8] leading-relaxed flex-grow">
                     Enterprise-ready {item.toLowerCase()} designed to deliver
                     scalability, security, and long-term business value.
                   </p>

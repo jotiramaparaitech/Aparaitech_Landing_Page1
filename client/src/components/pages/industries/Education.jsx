@@ -79,25 +79,25 @@ const Education = () => {
       code: "01 / LIVE LMS SUITE",
       title: "Interactive Code & MCQ Evaluation",
       desc: "Architected around our live platform (lms-full-stack-mcq7.vercel.app), offering real-time browser sandbox execution, automated test case evaluation, and instant performance telemetry.",
-      icon: <Code2 className="w-5 h-5 text-[#34D399]" />
+      icon: <Code2 className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
     },
     {
       code: "02 / INSTITUTIONAL KNOWLEDGE",
       title: "SVPM Alumni Knowledge Graph",
       desc: "Proven through our live SVPM Alumni Network (svpmalumni.aparaitech.org), connecting thousands of graduates, faculty, and research mentors through an intelligent relational directory.",
-      icon: <Network className="w-5 h-5 text-[#34D399]" />
+      icon: <Network className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
     },
     {
       code: "03 / ADAPTIVE LEARNING LOOPS",
       title: "Personalized Skill Gap Remediation",
       desc: "Machine learning algorithms that analyze continuous student submissions, dynamically adjusting exercise difficulty and generating custom remediation paths.",
-      icon: <Cpu className="w-5 h-5 text-[#34D399]" />
+      icon: <Cpu className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
     },
     {
       code: "04 / ENTERPRISE CERTIFICATIONS",
       title: "Verifiable Credential Ledger",
       desc: "Tamper-proof digital certificate generation with cryptographic verification badges, grade audit trails, and LinkedIn-ready skill verification endpoints.",
-      icon: <GraduationCap className="w-5 h-5 text-[#34D399]" />
+      icon: <GraduationCap className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
     }
   ];
 
@@ -117,9 +117,9 @@ const Education = () => {
   ];
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] text-[#142B4A] dark:text-[#F1F5F9] font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
@@ -131,29 +131,29 @@ const Education = () => {
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="block h-3 w-3 bg-[#10B981]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#0F9F8F] dark:text-[#2DD4BF]">
               ENTERPRISE INDUSTRIES // EDTECH & HIGHER EDUCATION
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] leading-tight max-w-4xl">
             EdTech, Adaptive Learning & Knowledge Graphs
           </h1>
 
-          <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-[#475569] dark:text-[#CBD5E1] max-w-2xl leading-relaxed">
             Automated code assessment, adaptive curriculum engines, and institutional alumni graphs engineered and operated live from our Hinjawadi, Pune Center of Excellence.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
               2 Live Academic Platforms
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
-              <Lock className="w-3.5 h-3.5 text-[#34D399]" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
+              <Lock className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               Cryptographic Credentials
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
               <Code2 className="w-3.5 h-3.5 text-[#00E5C9]" />
               In-Browser Code Sandboxes
             </div>
@@ -169,7 +169,7 @@ const Education = () => {
             </button>
             <a
               href="tel:+918261840199"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-[#29384D] bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-[#142B4A] dark:text-[#F1F5F9] hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>+91 82618 40199</span>
             </a>
@@ -178,13 +178,13 @@ const Education = () => {
       </section>
 
       {/* 2. CAPABILITIES GRID */}
-      <section className="py-20 border-b border-slate-200 dark:border-[#1E293B]">
+      <section className="py-20 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="mb-12">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-emerald-600 dark:text-[#34D399] block mb-2">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-emerald-600 dark:text-[#0F9F8F] dark:text-[#2DD4BF] block mb-2">
               ACADEMIC CAPABILITIES
             </span>
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9]">
               Institutional Engineering Capabilities
             </h2>
           </div>
@@ -193,16 +193,16 @@ const Education = () => {
             {capabilities.map((cap, i) => (
               <div
                 key={i}
-                className="p-8 rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] hover:border-blue-500/50 transition-all group"
+                className="p-8 rounded-lg bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-blue-500/50 transition-all group"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs text-[#34D399]">{cap.code}</span>
-                  <div className="p-2 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/5 group-hover:border-blue-500/30 transition-all">
+                  <span className="font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF]">{cap.code}</span>
+                  <div className="p-2 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-white/5 group-hover:border-blue-500/30 transition-all">
                     {cap.icon}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{cap.title}</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
+                <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-3">{cap.title}</h3>
+                <p className="text-sm text-[#64748B] dark:text-[#94A3B8] dark:text-[#94A3B8] leading-relaxed font-mono">
                   {cap.desc}
                 </p>
               </div>
@@ -212,23 +212,23 @@ const Education = () => {
       </section>
 
       {/* 3. LIVE PRODUCTION ANCHORS */}
-      <section className="py-20 border-b border-slate-200 dark:border-[#1E293B] bg-[#0D1322]">
+      <section className="py-20 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#0D1322]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="mb-12">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
               PRODUCTION DEPLOYMENTS
             </span>
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9]">
               Operating Platforms Engineered by Aparaitech
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {platforms.map((p, idx) => (
-              <div key={idx} className="p-8 rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] hover:border-[#00E5C9]/40 transition-all flex flex-col justify-between">
+              <div key={idx} className="p-8 rounded-lg bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-[#00E5C9]/40 transition-all flex flex-col justify-between">
                 <div>
-                  <span className="font-mono text-xs text-[#34D399] uppercase tracking-wider block mb-2">{p.badge}</span>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{p.name}</h3>
+                  <span className="font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] uppercase tracking-wider block mb-2">{p.badge}</span>
+                  <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-3">{p.name}</h3>
                   <p className="text-sm text-slate-400 leading-relaxed font-mono mb-6">
                     {p.desc}
                   </p>
@@ -238,7 +238,7 @@ const Education = () => {
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-[#34D399] hover:underline"
+                    className="inline-flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-[#0F9F8F] dark:text-[#2DD4BF] hover:underline"
                   >
                     <span>Launch Platform</span>
                     <ArrowUpRight className="w-4 h-4" />
@@ -253,26 +253,26 @@ const Education = () => {
       {/* 4. MODAL */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-2 mb-2">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
-              <span className="font-mono text-xs text-[#34D399] uppercase">Hinjawadi EdTech Engineering Pod</span>
+              <span className="font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] uppercase">Hinjawadi EdTech Engineering Pod</span>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Book EdTech Architecture Sprint</h3>
+            <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">Book EdTech Architecture Sprint</h3>
             <p className="text-xs text-slate-400 mb-6 font-mono">
               Discuss coding sandboxes, university alumni portals, and automated assessment pipelines with our engineering leads.
             </p>
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -280,13 +280,13 @@ const Education = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g. Prof. Rajesh Deshpande"
-                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Work Email *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Work Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -294,11 +294,11 @@ const Education = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="name@university.edu"
-                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -306,18 +306,18 @@ const Education = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
-                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Institution Focus</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Institution Focus</label>
                 <select
                   name="edtechFocus"
                   value={formData.edtechFocus}
                   onChange={handleInputChange}
-                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                 >
                   <option value="AI-Powered Adaptive Learning & Code Sandbox LMS">AI-Powered Adaptive Learning & Code Sandbox LMS</option>
                   <option value="Institutional Alumni Network & Knowledge Graph">Institutional Alumni Network & Knowledge Graph</option>
@@ -327,14 +327,14 @@ const Education = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Students / Enrollees & System Needs</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Students / Enrollees & System Needs</label>
                 <textarea
                   name="notes"
                   rows="3"
                   value={formData.notes}
                   onChange={handleInputChange}
                   placeholder="Student headcount, existing SIS/LMS integrations (Canvas, Moodle), and launch timeline..."
-                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                 ></textarea>
               </div>
 

@@ -110,9 +110,9 @@ const InvestorRelations = () => {
   ];
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] text-[#142B4A] dark:text-[#F1F5F9] font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
@@ -124,12 +124,12 @@ const InvestorRelations = () => {
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="block h-3 w-3 bg-[#10B981]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#0F9F8F] dark:text-[#2DD4BF]">
               INSTITUTIONAL RELATIONS // CORPORATE GOVERNANCE
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] leading-tight max-w-4xl">
             Aparaitech Software Investor Relations
           </h1>
 
@@ -147,7 +147,7 @@ const InvestorRelations = () => {
             </button>
             <a
               href="mailto:info@ai.aparaitech.org?subject=Investor%20Information%20Pack"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-[#29384D] bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-[#142B4A] dark:text-[#F1F5F9] hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>Request Information Memorandum</span>
             </a>
@@ -156,14 +156,14 @@ const InvestorRelations = () => {
       </section>
 
       {/* 2. OPERATIONAL METRICS */}
-      <section className="border-b border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/70 py-14">
+      <section className="border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32]/70 py-14">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {metrics.map((m, idx) => (
-              <div key={idx} className="p-6 rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19]">
-                <div className="font-mono text-2xl lg:text-3xl font-bold text-[#34D399]">{m.value}</div>
+              <div key={idx} className="p-6 rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220]">
+                <div className="font-mono text-2xl lg:text-3xl font-bold text-[#0F9F8F] dark:text-[#2DD4BF]">{m.value}</div>
                 <div className="text-xs font-mono uppercase tracking-wider text-slate-300 mt-1">{m.label}</div>
-                <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">{m.sub}</p>
+                <p className="text-[11px] text-[#64748B] dark:text-[#94A3B8] mt-2 leading-relaxed">{m.sub}</p>
               </div>
             ))}
           </div>
@@ -177,7 +177,7 @@ const InvestorRelations = () => {
             <span className="font-mono text-xs text-[#00E5C9] uppercase tracking-wider">
               CORE INVESTMENT THESIS
             </span>
-            <h2 className="text-3xl font-bold text-white mt-2 mb-6">
+            <h2 className="text-3xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mt-2 mb-6">
               Engineering Foundations. Tangible Production Moats.
             </h2>
             <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
@@ -191,41 +191,41 @@ const InvestorRelations = () => {
 
             <div className="mt-8 space-y-3 font-mono text-xs text-slate-300">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#34D399]" />
+                <CheckCircle2 className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF]" />
                 <span>Zero debt capitalization structure</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#34D399]" />
+                <CheckCircle2 className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF]" />
                 <span>Proprietary IP across 6 live production systems</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#34D399]" />
+                <CheckCircle2 className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF]" />
                 <span>Strategic expansion in Hinjawadi IT corridor, Pune</span>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-8 space-y-6">
-            <h3 className="text-xl font-bold text-white flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-[#34D399]" />
+          <div className="rounded-2xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32] p-8 space-y-6">
+            <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               <span>Corporate Governance & Compliance</span>
             </h3>
 
             <div className="space-y-4 text-xs font-mono text-slate-400">
-              <div className="p-4 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B]">
-                <div className="text-white font-bold mb-1">Corporate Registration</div>
+              <div className="p-4 rounded-lg bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
+                <div className="text-[#142B4A] dark:text-[#F1F5F9] font-bold mb-1">Corporate Registration</div>
                 <div>Aparaitech Software • Registered under Indian Companies Act</div>
-                <div className="text-slate-500 mt-1">CIN & Tax GST Compliance Up to Date</div>
+                <div className="text-[#64748B] dark:text-[#94A3B8] mt-1">CIN & Tax GST Compliance Up to Date</div>
               </div>
 
-              <div className="p-4 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B]">
-                <div className="text-white font-bold mb-1">Center of Excellence Operations</div>
+              <div className="p-4 rounded-lg bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
+                <div className="text-[#142B4A] dark:text-[#F1F5F9] font-bold mb-1">Center of Excellence Operations</div>
                 <div>Hinjawadi Phase 2, Pune, Maharashtra 411057</div>
-                <div className="text-slate-500 mt-1">Direct Engineering Pod Operations</div>
+                <div className="text-[#64748B] dark:text-[#94A3B8] mt-1">Direct Engineering Pod Operations</div>
               </div>
 
-              <div className="p-4 rounded-lg bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B]">
-                <div className="text-white font-bold mb-1">Audit & Accounting Standard</div>
+              <div className="p-4 rounded-lg bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
+                <div className="text-[#142B4A] dark:text-[#F1F5F9] font-bold mb-1">Audit & Accounting Standard</div>
                 <div>Statutory quarterly compliance, audited balance sheets</div>
               </div>
             </div>
@@ -234,14 +234,14 @@ const InvestorRelations = () => {
       </section>
 
       {/* 4. DISCLOSURES & FILINGS */}
-      <section className="py-20 border-t border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827]/50">
+      <section className="py-20 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32]/50">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
-              <span className="font-mono text-xs text-[#34D399] uppercase tracking-wider">
+              <span className="font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] uppercase tracking-wider">
                 TRANSPARENCY & REPORTS
               </span>
-              <h2 className="text-3xl font-bold text-white mt-1">Executive Briefings & Filings</h2>
+              <h2 className="text-3xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mt-1">Executive Briefings & Filings</h2>
             </div>
             <a
               href="mailto:info@ai.aparaitech.org?subject=Investor%20Data%20Room%20Access"
@@ -252,19 +252,19 @@ const InvestorRelations = () => {
             </a>
           </div>
 
-          <div className="rounded-xl border border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19] divide-y divide-[#22242A] overflow-hidden">
+          <div className="rounded-xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] divide-y divide-[#22242A] overflow-hidden">
             {filings.map((doc, idx) => (
               <div
                 key={idx}
-                className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-white dark:bg-[#111827] transition-colors"
+                className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-white dark:bg-[#131F32] transition-colors"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-[#161F32] border border-white/10 flex items-center justify-center text-[#34D399] shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-[#161F32] border border-white/10 flex items-center justify-center text-[#0F9F8F] dark:text-[#2DD4BF] shrink-0">
                     <FileText className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-white">{doc.name}</h4>
-                    <p className="text-xs font-mono text-slate-500 mt-0.5">{doc.date} • {doc.size}</p>
+                    <h4 className="text-sm font-semibold text-[#142B4A] dark:text-[#F1F5F9]">{doc.name}</h4>
+                    <p className="text-xs font-mono text-[#64748B] dark:text-[#94A3B8] mt-0.5">{doc.date} • {doc.size}</p>
                   </div>
                 </div>
 
@@ -274,7 +274,7 @@ const InvestorRelations = () => {
                   </span>
                   <a
                     href="mailto:info@ai.aparaitech.org?subject=Request%20Filing:%20"
-                    className="inline-flex items-center gap-1.5 font-mono text-xs text-[#34D399] hover:underline"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] hover:underline"
                   >
                     <span>Request Copy</span>
                     <Download className="w-3.5 h-3.5" />
@@ -287,13 +287,13 @@ const InvestorRelations = () => {
       </section>
 
       {/* 5. INVESTOR CONTACT DESK */}
-      <section className="py-16 border-t border-slate-200 dark:border-[#1E293B] bg-slate-50 dark:bg-[#0B0F19]">
+      <section className="py-16 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220]">
         <div className="max-w-[1240px] mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#34D399] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-white/10 font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] mb-4">
             <Building2 className="w-3.5 h-3.5" />
             <span>INVESTOR RELATIONS DESK</span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">
             Direct Executive Communication
           </h2>
           <p className="text-slate-400 text-xs font-mono max-w-lg mx-auto mb-6">
@@ -303,19 +303,19 @@ const InvestorRelations = () => {
           <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-xs">
             <a
               href="mailto:info@ai.aparaitech.org?subject=IR%20Inquiry"
-              className="inline-flex items-center gap-2 text-slate-300 hover:text-[#34D399]"
+              className="inline-flex items-center gap-2 text-slate-300 hover:text-[#0F9F8F] dark:text-[#2DD4BF]"
             >
-              <Mail className="w-4 h-4 text-[#34D399]" />
+              <Mail className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               <span>info@ai.aparaitech.org</span>
             </a>
             <a
               href="tel:+918261840199"
-              className="inline-flex items-center gap-2 text-slate-300 hover:text-[#34D399]"
+              className="inline-flex items-center gap-2 text-slate-300 hover:text-[#0F9F8F] dark:text-[#2DD4BF]"
             >
-              <Phone className="w-4 h-4 text-[#34D399]" />
+              <Phone className="w-4 h-4 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               <span>+91 82618 40199</span>
             </a>
-            <span className="text-slate-500">Hinjawadi Phase 2, Pune, Maharashtra 411057</span>
+            <span className="text-[#64748B] dark:text-[#94A3B8]">Hinjawadi Phase 2, Pune, Maharashtra 411057</span>
           </div>
         </div>
       </section>
@@ -323,19 +323,19 @@ const InvestorRelations = () => {
       {/* 6. MODAL: INVESTOR BRIEFING REQUEST */}
       {isBriefingModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-200 dark:border-[#1E293B] bg-white dark:bg-[#111827] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-white dark:bg-[#131F32] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsBriefingModalOpen(false)}
-              className="absolute right-5 top-5 text-slate-400 hover:text-white"
+              className="absolute right-5 top-5 text-slate-400 hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#34D399] font-mono text-xs uppercase mb-2">
+            <div className="flex items-center gap-2 text-[#0F9F8F] dark:text-[#2DD4BF] font-mono text-xs uppercase mb-2">
               <Calendar className="w-4 h-4" />
               <span>Executive Briefing Request</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className="text-2xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">
               Schedule Institutional Discussion
             </h3>
             <p className="text-slate-400 text-xs mb-6">
@@ -344,7 +344,7 @@ const InvestorRelations = () => {
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -352,13 +352,13 @@ const InvestorRelations = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g., Sanjeev Bajaj"
-                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Corporate Email *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Corporate Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -366,11 +366,11 @@ const InvestorRelations = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="sanjeev@fund.com"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -378,14 +378,14 @@ const InvestorRelations = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Institution / Fund Name *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Institution / Fund Name *</label>
                   <input
                     type="text"
                     name="company"
@@ -393,16 +393,16 @@ const InvestorRelations = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     placeholder="e.g., Apex Capital"
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Investor Category</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Investor Category</label>
                   <select
                     name="investorType"
                     value={formData.investorType}
                     onChange={handleInputChange}
-                    className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white focus:border-blue-500 focus:outline-none"
+                    className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:border-blue-500 focus:outline-none"
                   >
                     <option value="Venture Capital / Growth Equity">Venture Capital / Growth Equity</option>
                     <option value="Family Office / High Net Worth">Family Office / High Net Worth</option>
@@ -413,14 +413,14 @@ const InvestorRelations = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Inquiry Context / Discussion Topics</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Inquiry Context / Discussion Topics</label>
                 <textarea
                   name="notes"
                   rows="3"
                   value={formData.notes}
                   onChange={handleInputChange}
                   placeholder="Outline areas of interest, allocation thesis, or questions for leadership..."
-                  className="w-full rounded bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                 ></textarea>
               </div>
 
@@ -428,7 +428,7 @@ const InvestorRelations = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#10B981] py-3 text-sm font-semibold text-white hover:brightness-105 transition-all disabled:opacity-50"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#10B981] py-3 text-sm font-semibold text-[#142B4A] dark:text-[#F1F5F9] hover:brightness-105 transition-all disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isSubmitting ? "Syncing Request..." : "Request Executive Briefing"}</span>

@@ -139,36 +139,36 @@ const Header = () => {
     <div className="sticky top-0 z-40 w-full">
       {/* 1. TOP ANNOUNCEMENT BANNER */}
       <div
-        className="flex min-h-[38px] flex-wrap items-center justify-between gap-2 px-4 sm:px-8 py-1.5 text-xs shadow-sm bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 transition-colors"
+        className="flex min-h-[38px] flex-wrap items-center justify-between gap-2 px-4 sm:px-8 py-1.5 text-xs bg-[#F3F6FA] dark:bg-[#0B1220] border-b border-[#E2E8F0] dark:border-[#29384D] text-[#475569] dark:text-[#CBD5E1] transition-colors"
       >
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="font-semibold text-blue-600 dark:text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded text-[11px] uppercase tracking-wider">
+          <span className="font-semibold text-[#2563EB] dark:text-[#3B82F6] bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded text-[11px] uppercase tracking-wider">
             Next-Gen Software & AI
           </span>
-          <span className="text-slate-700 dark:text-slate-300 text-xs">
+          <span className="text-[#475569] dark:text-[#CBD5E1] text-xs">
             Enterprise Custom Software, Cloud Platforms & Autonomous AI Agents — Built for Global Scale.
           </span>
         </div>
         <div className="flex items-center gap-4">
           <button
             onClick={() => setModalOpen(true)}
-            className="inline-flex cursor-pointer items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors whitespace-nowrap text-xs"
+            className="inline-flex cursor-pointer items-center gap-1 text-[#2563EB] dark:text-[#3B82F6] hover:underline font-semibold transition-colors whitespace-nowrap text-xs"
           >
             <span>Schedule Architecture Review</span>
             <span>→</span>
           </button>
           <a
             href="tel:+919158852129"
-            className="hidden md:inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 text-xs transition-colors"
+            className="hidden md:inline-flex items-center gap-1.5 text-[#64748B] dark:text-[#94A3B8] hover:text-[#142B4A] dark:hover:text-[#F1F5F9] text-xs transition-colors"
           >
-            <Phone className="w-3 h-3 text-blue-600 dark:text-blue-400" />
+            <Phone className="w-3 h-3 text-[#2563EB] dark:text-[#3B82F6]" />
             <span>+91 9158852129 / Hinjawadi Phase 2, Pune</span>
           </a>
         </div>
       </div>
 
       {/* 2. ENTERPRISE NAVBAR */}
-      <header className="relative w-full border-b border-slate-200 dark:border-slate-800/80 bg-white/90 dark:bg-[#0B0F19]/90 backdrop-blur-md transition-colors">
+      <header className="relative w-full border-b border-[#E2E8F0] dark:border-[#29384D] bg-white/95 dark:bg-[#131F32]/95 backdrop-blur-md transition-colors">
         <div className="mx-auto w-full max-w-[1340px] px-4 sm:px-6 lg:px-8">
           <div className="flex h-[70px] items-center justify-between gap-4">
             {/* Official Logo & Brand */}
@@ -176,38 +176,38 @@ const Header = () => {
               <img
                 src="/aparaitech_logo.jpg"
                 alt="Aparaitech Software"
-                className="h-10 w-10 rounded-xl object-contain bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700/80 group-hover:border-blue-500 transition-all shadow-sm"
+                className="h-10 w-10 rounded-lg object-contain bg-white dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] group-hover:border-[#2563EB] transition-all shadow-sm"
               />
               <div className="flex flex-col">
-                <span className="font-bold text-[17px] tracking-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-none">
+                <span className="font-bold text-[17px] tracking-tight text-[#142B4A] dark:text-[#F1F5F9] group-hover:text-[#2563EB] dark:group-hover:text-[#3B82F6] transition-colors leading-none">
                   Aparaitech Software
                 </span>
-                <span className="text-[10px] tracking-wider text-blue-600 dark:text-blue-400 uppercase mt-1 font-semibold">
+                <span className="text-[10px] tracking-wider text-[#2563EB] dark:text-[#3B82F6] uppercase mt-1 font-semibold">
                   Enterprise Software & AI Systems
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation Menus */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-[13px] font-medium text-slate-700 dark:text-slate-200">
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-[13px] font-semibold text-[#142B4A] dark:text-[#F1F5F9]">
               {/* Products Dropdown */}
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer py-1"
+                  className="flex items-center gap-1.5 hover:text-[#2563EB] dark:hover:text-[#3B82F6] transition-colors cursor-pointer py-1"
                 >
                   <span>Products</span>
-                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-500 dark:text-slate-400" />
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-[#64748B] dark:text-[#94A3B8]" />
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 p-2.5 shadow-xl dark:shadow-2xl z-50">
-                  <div className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider px-3 py-1.5">
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] p-2.5 shadow-xl z-50">
+                  <div className="text-[10px] font-semibold text-[#2563EB] dark:text-[#3B82F6] uppercase tracking-wider px-3 py-1.5">
                     Custom Software & AI Suite
                   </div>
                   {moreDropdownContent.Products.map((p, i) => (
                     <Link
                       key={i}
                       to={p.link}
-                      className="block px-3 py-2 rounded-lg text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-colors"
+                      className="block px-3 py-2 rounded-lg text-xs text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563EB] dark:hover:text-white hover:bg-[#F3F6FA] dark:hover:bg-[#1A2840] transition-colors"
                     >
                       {p.name}
                     </Link>
@@ -219,20 +219,20 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer py-1"
+                  className="flex items-center gap-1.5 hover:text-[#2563EB] dark:hover:text-[#3B82F6] transition-colors cursor-pointer py-1"
                 >
                   <span>Industries</span>
-                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-500 dark:text-slate-400" />
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-[#64748B] dark:text-[#94A3B8]" />
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 p-2.5 shadow-xl dark:shadow-2xl z-50">
-                  <div className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider px-3 py-1.5">
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] p-2.5 shadow-xl z-50">
+                  <div className="text-[10px] font-semibold text-[#2563EB] dark:text-[#3B82F6] uppercase tracking-wider px-3 py-1.5">
                     Specialized Solutions
                   </div>
                   {moreDropdownContent.Industries.map((ind, i) => (
                     <Link
                       key={i}
                       to={ind.link}
-                      className="block px-3 py-2 rounded-lg text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-colors"
+                      className="block px-3 py-2 rounded-lg text-xs text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563EB] dark:hover:text-white hover:bg-[#F3F6FA] dark:hover:bg-[#1A2840] transition-colors"
                     >
                       {ind.name}
                     </Link>
@@ -244,20 +244,20 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer py-1"
+                  className="flex items-center gap-1.5 hover:text-[#2563EB] dark:hover:text-[#3B82F6] transition-colors cursor-pointer py-1"
                 >
                   <span>Customers</span>
-                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-500 dark:text-slate-400" />
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-[#64748B] dark:text-[#94A3B8]" />
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 p-2.5 shadow-xl dark:shadow-2xl z-50">
-                  <div className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider px-3 py-1.5">
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] p-2.5 shadow-xl z-50">
+                  <div className="text-[10px] font-semibold text-[#2563EB] dark:text-[#3B82F6] uppercase tracking-wider px-3 py-1.5">
                     Enterprise Case Studies
                   </div>
                   {moreDropdownContent.Customers.map((cust, i) => (
                     <Link
                       key={i}
                       to={cust.link}
-                      className="block px-3 py-2 rounded-lg text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-colors"
+                      className="block px-3 py-2 rounded-lg text-xs text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563EB] dark:hover:text-white hover:bg-[#F3F6FA] dark:hover:bg-[#1A2840] transition-colors"
                     >
                       {cust.name}
                     </Link>
@@ -269,13 +269,13 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer py-1"
+                  className="flex items-center gap-1.5 hover:text-[#2563EB] dark:hover:text-[#3B82F6] transition-colors cursor-pointer py-1"
                 >
                   <span>Learning</span>
-                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-500 dark:text-slate-400" />
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-[#64748B] dark:text-[#94A3B8]" />
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 p-2.5 shadow-xl dark:shadow-2xl z-50">
-                  <div className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider px-3 py-1.5">
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] p-2.5 shadow-xl z-50">
+                  <div className="text-[10px] font-semibold text-[#2563EB] dark:text-[#3B82F6] uppercase tracking-wider px-3 py-1.5">
                     Developer Center & LMS
                   </div>
                   {moreDropdownContent.Learning.map((lrn, i) =>
@@ -285,7 +285,7 @@ const Header = () => {
                         href={lrn.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block px-3 py-2 rounded-lg text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-colors"
+                        className="block px-3 py-2 rounded-lg text-xs text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563EB] dark:hover:text-white hover:bg-[#F3F6FA] dark:hover:bg-[#1A2840] transition-colors"
                       >
                         {lrn.name} ↗
                       </a>
@@ -293,7 +293,7 @@ const Header = () => {
                       <Link
                         key={i}
                         to={lrn.link}
-                        className="block px-3 py-2 rounded-lg text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-colors"
+                        className="block px-3 py-2 rounded-lg text-xs text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563EB] dark:hover:text-white hover:bg-[#F3F6FA] dark:hover:bg-[#1A2840] transition-colors"
                       >
                         {lrn.name}
                       </Link>
@@ -306,20 +306,20 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer py-1"
+                  className="flex items-center gap-1.5 hover:text-[#2563EB] dark:hover:text-[#3B82F6] transition-colors cursor-pointer py-1"
                 >
                   <span>Company</span>
-                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-500 dark:text-slate-400" />
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-[#64748B] dark:text-[#94A3B8]" />
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 p-2.5 shadow-xl dark:shadow-2xl z-50">
-                  <div className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider px-3 py-1.5">
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] p-2.5 shadow-xl z-50">
+                  <div className="text-[10px] font-semibold text-[#2563EB] dark:text-[#3B82F6] uppercase tracking-wider px-3 py-1.5">
                     About APARAITECH SOFTWARE
                   </div>
                   {moreDropdownContent.Company.map((c, i) => (
                     <Link
                       key={i}
                       to={c.link}
-                      className="block px-3 py-2 rounded-lg text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-colors"
+                      className="block px-3 py-2 rounded-lg text-xs text-[#475569] dark:text-[#CBD5E1] hover:text-[#2563EB] dark:hover:text-white hover:bg-[#F3F6FA] dark:hover:bg-[#1A2840] transition-colors"
                     >
                       {c.name}
                     </Link>
@@ -332,7 +332,7 @@ const Header = () => {
             <div className="flex items-center gap-3 sm:gap-4 shrink-0">
               <button
                 onClick={() => setModalOpen(true)}
-                className="hidden xl:flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white transition-colors cursor-pointer font-medium"
+                className="hidden xl:flex items-center gap-1.5 text-xs text-[#142B4A] dark:text-[#F1F5F9] hover:text-[#2563EB] dark:hover:text-[#3B82F6] transition-colors cursor-pointer font-semibold"
               >
                 <span>Contact Us</span>
               </button>
@@ -340,21 +340,21 @@ const Header = () => {
               {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
-                className="relative flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-500/60 transition-all focus:outline-none"
+                className="relative flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] text-[#142B4A] dark:text-[#F1F5F9] hover:text-[#2563EB] dark:hover:text-white hover:border-[#2563EB] transition-all focus:outline-none shadow-sm"
                 title={theme === "dark" ? "Switch to White / Light Theme" : "Switch to Dark Theme"}
                 aria-label="Toggle Theme"
               >
                 {theme === "dark" ? (
-                  <Sun className="w-4 h-4 text-emerald-400 transition-transform duration-300 hover:rotate-45" />
+                  <Sun className="w-4 h-4 text-[#2DD4BF] transition-transform duration-300 hover:rotate-45" />
                 ) : (
-                  <Moon className="w-4 h-4 text-blue-600 transition-transform duration-300 hover:-rotate-12" />
+                  <Moon className="w-4 h-4 text-[#2563EB] transition-transform duration-300 hover:-rotate-12" />
                 )}
               </button>
 
               {/* Signature CTA Button */}
               <button
                 onClick={() => setModalOpen(true)}
-                className="relative inline-flex h-9 cursor-pointer items-center justify-center rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm px-4 sm:px-5 transition-all shadow-sm hover:shadow-md hover:brightness-105"
+                className="relative inline-flex h-9 cursor-pointer items-center justify-center rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] dark:bg-[#3B82F6] dark:hover:bg-[#2563EB] text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 transition-all shadow-sm hover:shadow-md"
               >
                 <span>Book Consultation</span>
               </button>
@@ -362,7 +362,7 @@ const Header = () => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="lg:hidden p-2 text-slate-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="lg:hidden p-2 text-[#142B4A] dark:text-[#F1F5F9] hover:text-[#2563EB] dark:hover:text-[#3B82F6] transition-colors"
                 aria-label="Toggle menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -379,12 +379,12 @@ const Header = () => {
 
         {/* Mobile Nav Overlay */}
         {menuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 h-[calc(100vh-120px)] bg-white dark:bg-[#0B0F19] border-t border-slate-200 dark:border-slate-800 p-4 sm:p-6 overflow-y-auto z-50 shadow-2xl">
+          <div className="lg:hidden absolute top-full left-0 right-0 h-[calc(100vh-120px)] bg-white dark:bg-[#0B1220] border-t border-slate-200 dark:border-[#29384D] p-4 sm:p-6 overflow-y-auto z-50 shadow-2xl">
             <nav className="space-y-2 text-sm pb-16">
               {/* Mobile Theme Toggle Card */}
-              <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-[#111827] border border-slate-200 dark:border-slate-800 mb-3">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-[#131F32] border border-slate-200 dark:border-[#29384D] mb-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white dark:bg-[#0B1220] border border-slate-200 dark:border-[#29384D]/80">
                     {theme === "dark" ? (
                       <Sun className="w-4 h-4 text-emerald-400" />
                     ) : (
@@ -400,14 +400,14 @@ const Header = () => {
                 </div>
                 <button
                   onClick={toggleTheme}
-                  className="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-blue-500 text-xs font-medium text-slate-700 dark:text-slate-200 transition-all cursor-pointer"
+                  className="px-3 py-1.5 rounded-lg bg-white dark:bg-[#0B1220] border border-slate-300 dark:border-[#29384D] hover:border-blue-500 text-xs font-medium text-slate-700 dark:text-[#CBD5E1] transition-all cursor-pointer"
                 >
                   Switch to {theme === "dark" ? "Light" : "Dark"}
                 </button>
               </div>
 
               {/* Primary Pages */}
-              <div className="space-y-1 pb-3 border-b border-slate-200 dark:border-slate-800">
+              <div className="space-y-1 pb-3 border-b border-slate-200 dark:border-[#29384D]">
                 <Link
                   to="/"
                   onClick={() => setMenuOpen(false)}
@@ -418,10 +418,10 @@ const Header = () => {
                 <Link
                   to="/generative-ai"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-blue-600 dark:text-blue-400 transition-colors"
+                  className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 text-blue-600 dark:text-[#3B82F6] transition-colors"
                 >
                   <span>AI Solutions</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">21+ Systems</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-[#3B82F6] border border-blue-500/20">21+ Systems</span>
                 </Link>
                 <Link
                   to="/cloud"
@@ -448,17 +448,17 @@ const Header = () => {
                 {Object.entries(moreDropdownContent).map(([category, items]) => {
                   const isOpen = mobileCategory === category;
                   return (
-                    <div key={category} className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#111827] overflow-hidden">
+                    <div key={category} className="rounded-xl border border-slate-200 dark:border-[#29384D] bg-slate-50 dark:bg-[#131F32] overflow-hidden">
                       <button
                         onClick={() => setMobileCategory(isOpen ? null : category)}
-                        className="w-full flex items-center justify-between px-3.5 py-2.5 text-xs text-left font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        className="w-full flex items-center justify-between px-3.5 py-2.5 text-xs text-left font-semibold text-slate-800 dark:text-[#CBD5E1] hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                       >
                         <span className="uppercase tracking-wider">{category}</span>
-                        <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isOpen ? "rotate-180 text-blue-600 dark:text-blue-400" : "text-slate-500"}`} />
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isOpen ? "rotate-180 text-blue-600 dark:text-[#3B82F6]" : "text-slate-500"}`} />
                       </button>
 
                       {isOpen && (
-                        <div className="px-3.5 pb-3 pt-1 space-y-1.5 border-t border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0B0F19]">
+                        <div className="px-3.5 pb-3 pt-1 space-y-1.5 border-t border-slate-200 dark:border-[#29384D]/80 bg-white dark:bg-[#0B1220]">
                           {items.map((item, idx) => (
                             <div key={idx}>
                               {item.external ? (
@@ -500,12 +500,12 @@ const Header = () => {
               </div>
 
               {/* Direct Actions in Mobile Menu */}
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2.5">
+              <div className="pt-4 border-t border-slate-200 dark:border-[#29384D] space-y-2.5">
                 <a
                   href="https://wa.me/919158852129"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 dark:bg-[#111827] border border-slate-200 dark:border-slate-800 text-xs text-blue-600 dark:text-blue-400 font-medium"
+                  className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-50 dark:bg-[#131F32] border border-slate-200 dark:border-[#29384D] text-xs text-blue-600 dark:text-[#3B82F6] font-medium"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>WhatsApp: +91 9158852129</span>
@@ -527,22 +527,22 @@ const Header = () => {
 
       {/* 3. INTERACTIVE CONSULTATION MODAL */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-2xl text-slate-900 dark:text-white">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] rounded-2xl p-6 sm:p-8 shadow-2xl text-[#142B4A] dark:text-[#F1F5F9]">
             <button
               onClick={() => setModalOpen(false)}
-              className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white text-lg p-1 transition-colors"
+              className="absolute top-4 right-4 text-[#64748B] hover:text-[#142B4A] dark:text-[#94A3B8] dark:hover:text-white text-lg p-1 transition-colors"
             >
               ✕
             </button>
 
             <div className="mb-6 flex items-center gap-3">
-              <img src="/aparaitech_logo.jpg" alt="Logo" className="h-10 w-10 rounded-lg object-contain border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-900" />
+              <img src="/aparaitech_logo.jpg" alt="Logo" className="h-10 w-10 rounded-lg object-contain border border-[#E2E8F0] dark:border-[#29384D] bg-white dark:bg-[#0B1220]" />
               <div>
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#2563EB] dark:text-[#3B82F6]">
                   EXECUTIVE CONSULTATION INTAKE
                 </span>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+                <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] tracking-tight">
                   Aparaitech Software AI Advisory
                 </h3>
               </div>
@@ -550,69 +550,69 @@ const Header = () => {
 
             {submitted ? (
               <div className="py-12 text-center space-y-3">
-                <CheckCircle2 className="w-12 h-12 text-emerald-500 dark:text-emerald-400 mx-auto animate-bounce" />
-                <h4 className="text-lg font-bold text-slate-900 dark:text-white">Consultation Request Confirmed</h4>
-                <p className="text-xs text-slate-600 dark:text-slate-300">
+                <CheckCircle2 className="w-12 h-12 text-[#0F9F8F] dark:text-[#2DD4BF] mx-auto animate-bounce" />
+                <h4 className="text-lg font-bold text-[#142B4A] dark:text-[#F1F5F9]">Consultation Request Confirmed</h4>
+                <p className="text-xs text-[#475569] dark:text-[#CBD5E1]">
                   Our Lead AI Architect will review your parameters and reach out within 1 hour.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleFormSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Your Name *</label>
+                  <label className="block text-xs font-semibold text-[#142B4A] dark:text-[#F1F5F9] mb-1">Your Name *</label>
                   <input
                     type="text"
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     placeholder="e.g. Rahul Sharma"
-                    className="w-full bg-slate-50 dark:bg-[#0F172A] border border-slate-300 dark:border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none transition-all"
+                    className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] focus:outline-none transition-all"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Work Email *</label>
+                    <label className="block text-xs font-semibold text-[#142B4A] dark:text-[#F1F5F9] mb-1">Work Email *</label>
                     <input
                       type="email"
                       required
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="rahul@company.com"
-                      className="w-full bg-slate-50 dark:bg-[#0F172A] border border-slate-300 dark:border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none transition-all"
+                      className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] focus:outline-none transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Phone Number *</label>
+                    <label className="block text-xs font-semibold text-[#142B4A] dark:text-[#F1F5F9] mb-1">Phone Number *</label>
                     <input
                       type="tel"
                       required
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="+91 98765 43210"
-                      className="w-full bg-slate-50 dark:bg-[#0F172A] border border-slate-300 dark:border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none transition-all"
+                      className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] focus:outline-none transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Company / Organization *</label>
+                  <label className="block text-xs font-semibold text-[#142B4A] dark:text-[#F1F5F9] mb-1">Company / Organization *</label>
                   <input
                     type="text"
                     required
                     value={form.company}
                     onChange={(e) => setForm({ ...form, company: e.target.value })}
                     placeholder="e.g. Apex Enterprise Systems"
-                    className="w-full bg-slate-50 dark:bg-[#0F172A] border border-slate-300 dark:border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none transition-all"
+                    className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] focus:outline-none transition-all"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Primary Focus Area</label>
+                  <label className="block text-xs font-semibold text-[#142B4A] dark:text-[#F1F5F9] mb-1">Primary Focus Area</label>
                   <select
                     value={form.service}
                     onChange={(e) => setForm({ ...form, service: e.target.value })}
-                    className="w-full bg-slate-50 dark:bg-[#0F172A] border border-slate-300 dark:border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-slate-900 dark:text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none transition-all"
+                    className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] focus:outline-none transition-all"
                   >
                     <option value="Enterprise AI Diagnostic">Enterprise AI Diagnostic Sprint (Recommended)</option>
                     <option value="Autonomous Multi-Agents">Autonomous Multi-Agent Workflows</option>
@@ -624,13 +624,13 @@ const Header = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Operational Challenge (Optional)</label>
+                  <label className="block text-xs font-semibold text-[#142B4A] dark:text-[#F1F5F9] mb-1">Operational Challenge (Optional)</label>
                   <textarea
                     rows="3"
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Describe the workflow bottleneck or target automation system..."
-                    className="w-full bg-slate-50 dark:bg-[#0F172A] border border-slate-300 dark:border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none resize-none transition-all"
+                    className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3.5 py-2.5 text-sm text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] focus:outline-none resize-none transition-all"
                   ></textarea>
                 </div>
 
@@ -640,9 +640,9 @@ const Header = () => {
                     id="hdr-nda-check"
                     checked={form.nda}
                     onChange={(e) => setForm({ ...form, nda: e.target.checked })}
-                    className="rounded border-slate-300 dark:border-slate-700 bg-white dark:bg-[#0F172A] text-blue-600 focus:ring-0"
+                    className="rounded border-[#E2E8F0] dark:border-[#29384D] bg-white dark:bg-[#0B1220] text-[#2563EB] focus:ring-0"
                   />
-                  <label htmlFor="hdr-nda-check" className="text-xs text-slate-600 dark:text-slate-400 cursor-pointer">
+                  <label htmlFor="hdr-nda-check" className="text-xs text-[#64748B] dark:text-[#94A3B8] cursor-pointer">
                     Require mutual non-disclosure agreement (NDA) before call.
                   </label>
                 </div>
@@ -650,7 +650,7 @@ const Header = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full h-11 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-all flex items-center justify-center gap-2 mt-4 cursor-pointer shadow-sm hover:shadow-md"
+                  className="w-full h-11 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] dark:bg-[#3B82F6] dark:hover:bg-[#2563EB] text-white font-semibold text-sm transition-all flex items-center justify-center gap-2 mt-4 cursor-pointer shadow-sm hover:shadow-md"
                 >
                   {submitting ? "Transmitting..." : "Submit Consultation Request →"}
                 </button>

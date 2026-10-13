@@ -108,27 +108,27 @@ function App() {
   const isAdminRoute = location.pathname.startsWith("/admin");
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-slate-100 transition-colors duration-200 overflow-x-hidden font-sans">
+    <div className="min-h-screen bg-[#F3F6FA] dark:bg-[#0B1220] text-[#475569] dark:text-[#CBD5E1] transition-colors duration-200 overflow-x-hidden font-sans">
       {/* 🔔 Toast Container (Required Once) */}
       <Toaster
         position="top-right"
         toastOptions={{
           duration: 4000,
           style: {
-            background: "#0B1220",
-            color: "#fff",
-            border: "1px solid #1e293b",
+            background: "#131F32",
+            color: "#F1F5F9",
+            border: "1px solid #29384D",
           },
           success: {
             iconTheme: {
-              primary: "#0D9488",
-              secondary: "#020617",
+              primary: "#0F9F8F",
+              secondary: "#FFFFFF",
             },
           },
           error: {
             iconTheme: {
               primary: "#ef4444",
-              secondary: "#020617",
+              secondary: "#FFFFFF",
             },
           },
         }}

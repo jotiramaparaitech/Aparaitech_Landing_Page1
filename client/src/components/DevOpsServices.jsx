@@ -173,7 +173,7 @@ const DevOpsServices = () => {
         <p className="text-gray-600 mb-8 text-lg">
           Reduce deployment time from days to minutes with our expert DevOps consulting.
         </p>
-        <button className="px-8 py-3 bg-slate-900 text-white rounded-lg font-bold hover:bg-slate-800 transition-colors">
+        <button className="px-8 py-3 bg-[#F3F6FA] dark:bg-[#0B1220] text-white rounded-lg font-bold hover:bg-slate-800 transition-colors">
           Get a DevOps Assessment
         </button>
       </div>

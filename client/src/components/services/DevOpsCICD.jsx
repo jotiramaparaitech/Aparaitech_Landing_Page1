@@ -135,7 +135,7 @@ const DevOpsCICD = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-16 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#F3F6FA] dark:bg-[#0B1220] text-slate-900 dark:text-[#F1F5F9] pt-16 overflow-x-hidden">
       {/* BACK */}
       <button
         onClick={() => navigate("/#services")}
@@ -149,7 +149,7 @@ const DevOpsCICD = () => {
         <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 bg-clip-text text-transparent">
           DevOps & CI/CD Solutions
         </h1>
-        <p className="mt-6 text-xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto">
+        <p className="mt-6 text-xl text-slate-700 dark:text-[#CBD5E1] max-w-4xl mx-auto">
           Accelerate software delivery with automated pipelines, containers, and
           cloud-native infrastructure.
         </p>
@@ -167,14 +167,14 @@ const DevOpsCICD = () => {
             <div key={i} className="bg-orange-50 p-6 rounded-xl text-center">
               <s.icon className="mx-auto w-6 h-6 text-orange-600 mb-3" />
               <div className="text-3xl font-bold text-orange-600">{s.value}</div>
-              <p className="text-slate-600 dark:text-slate-400">{s.label}</p>
+              <p className="text-[#475569] dark:text-[#CBD5E1] dark:text-[#94A3B8]">{s.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* CAPABILITIES */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-[#F3F6FA] dark:bg-[#0B1220]">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
           {capabilities.map((cap, i) => (
             <div key={i} className="bg-white p-8 rounded-2xl shadow hover:shadow-xl transition">
@@ -182,8 +182,8 @@ const DevOpsCICD = () => {
                 {cap.icon}
               </div>
               <h3 className="text-xl font-bold mb-3">{cap.title}</h3>
-              <p className="text-gray-600 mb-4">{cap.description}</p>
-              <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+              <p className="text-[#475569] dark:text-[#CBD5E1] mb-4">{cap.description}</p>
+              <ul className="space-y-2 text-sm text-slate-700 dark:text-[#CBD5E1]">
                 {cap.features.map((f, j) => (
                   <li key={j}>✓ {f}</li>
                 ))}
@@ -194,7 +194,7 @@ const DevOpsCICD = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 text-center text-white">
+      <section className="py-24 bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 text-center text-[#142B4A] dark:text-[#F1F5F9]">
         <h2 className="text-4xl font-bold mb-6">
           Ready to Accelerate Your Delivery?
         </h2>

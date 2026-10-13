@@ -128,11 +128,11 @@ const WebDevelopment = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white pt-24">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#F3F6FA] dark:bg-[#0B1220] text-slate-900 dark:text-[#F1F5F9] pt-24">
       {/* Back Button - Fixed on Right Side */}
       <button
         onClick={() => navigate('/#services')}
-        className="fixed top-24 right-6 md:right-8 z-40 flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-purple-700 bg-white/80 backdrop-blur-sm hover:bg-gray-50/80 px-4 py-2 rounded-lg border border-gray-200 transition-all duration-300 hover:border-purple-500/50"
+        className="fixed top-24 right-6 md:right-8 z-40 flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-purple-700 bg-white/80 backdrop-blur-sm hover:bg-[#F3F6FA] dark:bg-[#0B1220]/80 px-4 py-2 rounded-lg border border-[#E2E8F0] dark:border-[#29384D] transition-all duration-300 hover:border-purple-500/50"
       >
         ← Back
       </button>
@@ -144,7 +144,7 @@ const WebDevelopment = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
             Enterprise Web Application Development
           </h1>
-          <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-700 dark:text-[#CBD5E1] max-w-2xl leading-relaxed">
             Build sophisticated web applications, and user-centric web applications that drive business growth. From concept to deployment, we deliver cutting-edge solutions.
           </p>
         </div>
@@ -160,11 +160,11 @@ const WebDevelopment = () => {
               { value: stats.satisfaction, label: "Client Satisfaction", suffix: "%" },
               { value: stats.experience, label: "Years Experience", suffix: "+" }
             ].map((stat, statIdx) => (
-              <div key={`stat-${statIdx}`} className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 border border-gray-200 text-center hover:border-purple-500/50 transition-all duration-300">
+              <div key={`stat-${statIdx}`} className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 border border-[#E2E8F0] dark:border-[#29384D] text-center hover:border-purple-500/50 transition-all duration-300">
                 <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                   {stat.value}{stat.suffix}
                 </div>
-                <div className="text-slate-600 dark:text-slate-400">{stat.label}</div>
+                <div className="text-[#475569] dark:text-[#CBD5E1] dark:text-[#94A3B8]">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -178,7 +178,7 @@ const WebDevelopment = () => {
       <h2 className="text-3xl md:text-4xl font-bold mb-4">
         Our Web Development Services
       </h2>
-      <p className="text-gray-600 text-lg">
+      <p className="text-[#475569] dark:text-[#CBD5E1] text-lg">
         Comprehensive web solutions tailored to your business needs
       </p>
     </div>
@@ -187,22 +187,22 @@ const WebDevelopment = () => {
       {webServices.map((service) => (
         <div
           key={service.id}
-          className={`group text-left rounded-xl border border-gray-200 p-8 transition-all duration-300 hover:border-purple-500/50 ${service.gradient}`}
+          className={`group text-left rounded-xl border border-[#E2E8F0] dark:border-[#29384D] p-8 transition-all duration-300 hover:border-purple-500/50 ${service.gradient}`}
         >
           <div className="text-4xl mb-4">{service.icon}</div>
 
-          <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white group-hover:text-purple-600 transition-colors">
+          <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-[#F1F5F9] group-hover:text-purple-600 transition-colors">
             {service.title}
           </h3>
 
-          <p className="text-gray-600 mb-6">
+          <p className="text-[#475569] dark:text-[#CBD5E1] mb-6">
             {service.description}
           </p>
 
           {/* CONTENT ALWAYS VISIBLE (NO HOVER) */}
           <div className="space-y-4">
             <div>
-              <p className="text-sm text-slate-700 dark:text-slate-300 font-semibold mb-2">
+              <p className="text-sm text-slate-700 dark:text-[#CBD5E1] font-semibold mb-2">
                 Technologies:
               </p>
               <div className="flex flex-wrap gap-2">
@@ -218,10 +218,10 @@ const WebDevelopment = () => {
             </div>
 
             <div>
-              <p className="text-sm text-slate-700 dark:text-slate-300 font-semibold mb-2">
+              <p className="text-sm text-slate-700 dark:text-[#CBD5E1] font-semibold mb-2">
                 Key Features:
               </p>
-              <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+              <ul className="text-sm text-[#475569] dark:text-[#CBD5E1] dark:text-[#94A3B8] space-y-1">
                 {service.features.map((feature, featureId) => (
                   <li key={`feature-${service.id}-${featureId}`}>
                     ✓ {feature}
@@ -230,7 +230,7 @@ const WebDevelopment = () => {
               </ul>
             </div>
 
-            <div className="pt-4 border-t border-slate-200 dark:border-[#1E293B]">
+            <div className="pt-4 border-t border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
               <p className="text-sm text-blue-600 dark:text-blue-400 font-semibold">
                 {service.timeToMarket}
               </p>
@@ -247,19 +247,19 @@ const WebDevelopment = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Development Process</h2>
-            <p className="text-gray-600 text-lg">Proven methodology for successful web projects</p>
+            <p className="text-[#475569] dark:text-[#CBD5E1] text-lg">Proven methodology for successful web projects</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {developmentProcess.map((item) => (
               <div key={`process-${item.step}`} className="group">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-slate-900 dark:text-white font-bold text-lg mr-4 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-slate-900 dark:text-[#F1F5F9] font-bold text-lg mr-4 group-hover:scale-110 transition-transform">
                     {item.step}
                   </div>
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-purple-600 transition-colors">{item.title}</h3>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-[#F1F5F9] group-hover:text-purple-600 transition-colors">{item.title}</h3>
                 </div>
-                <p className="text-gray-600 ml-16">{item.description}</p>
+                <p className="text-[#475569] dark:text-[#CBD5E1] ml-16">{item.description}</p>
               </div>
             ))}
           </div>
@@ -271,16 +271,16 @@ const WebDevelopment = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Technology Stack</h2>
-            <p className="text-gray-600 text-lg">Modern tools and frameworks we use</p>
+            <p className="text-[#475569] dark:text-[#CBD5E1] text-lg">Modern tools and frameworks we use</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {technologies.map((tech, techIdx) => (
-              <div key={`${tech.category}-${techIdx}`} className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 border border-gray-200 hover:border-purple-500/50 transition-all duration-300">
+              <div key={`${tech.category}-${techIdx}`} className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 border border-[#E2E8F0] dark:border-[#29384D] hover:border-purple-500/50 transition-all duration-300">
                 <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-6">{tech.category}</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {tech.tools.map((tool, toolId) => (
-                    <div key={`tool-${techIdx}-${toolId}`} className="flex items-center text-slate-700 dark:text-slate-300 hover:text-purple-600 transition-colors">
+                    <div key={`tool-${techIdx}-${toolId}`} className="flex items-center text-slate-700 dark:text-[#CBD5E1] hover:text-purple-600 transition-colors">
                       <span className="w-2 h-2 bg-blue-400 rounded-full mr-3" />
                       {tool}
                     </div>
@@ -297,9 +297,9 @@ const WebDevelopment = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-xl border border-purple-500/30 p-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Build Your Web Application?</h2>
-            <p className="text-gray-700 mb-8 text-lg">Let's discuss your project and create something amazing together</p>
+            <p className="text-[#475569] dark:text-[#CBD5E1] mb-8 text-lg">Let's discuss your project and create something amazing together</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate('/#contact-form')} className="px-8 py-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-slate-900 dark:text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300">
+              <button onClick={() => navigate('/#contact-form')} className="px-8 py-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-slate-900 dark:text-[#F1F5F9] font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300">
                 Get Started
               </button>
             </div>

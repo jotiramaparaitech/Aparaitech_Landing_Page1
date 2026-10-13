@@ -211,31 +211,30 @@ export default function StudentVisitWidget() {
         <div className="fixed bottom-6 right-6 z-40">
           <button
             onClick={() => setIsOpen(true)}
-            className="group relative flex items-center gap-3 rounded-full bg-white/95 dark:bg-[#111827]/95 backdrop-blur-md border border-slate-300 dark:border-slate-700/80 hover:border-blue-500/80 p-2 sm:p-2.5 pr-4 sm:pr-5 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            className="group relative flex items-center gap-3 rounded-full bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] hover:border-[#2563EB] p-2 sm:p-2.5 pr-4 sm:pr-5 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             aria-label="Book Student Office Visit & Interview"
           >
             {/* Avatar / Icon */}
-            <div className="relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-blue-600 text-white shadow-md">
+            <div className="relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-[#2563EB] text-white shadow-sm">
               <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6" />
-              <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
+              <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3">
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#0F9F8F]"></span>
               </span>
             </div>
 
             {/* Label */}
             <div className="text-left">
               <div className="flex items-center gap-1.5">
-                <span className="text-[10px] uppercase tracking-wider text-blue-600 dark:text-blue-400 font-semibold">
+                <span className="text-[10px] uppercase tracking-wider text-[#2563EB] dark:text-[#3B82F6] font-semibold">
                   Students & Candidates
                 </span>
-                <span className="rounded bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.2 text-[9px] text-emerald-600 dark:text-emerald-400 font-medium">
+                <span className="rounded bg-teal-50 dark:bg-[#0F9F8F]/15 border border-[#0F9F8F]/20 px-1.5 py-0.2 text-[9px] text-[#0F9F8F] dark:text-[#2DD4BF] font-medium">
                   Walk-In & Slots
                 </span>
               </div>
-              <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex items-center gap-1">
+              <div className="text-xs sm:text-sm font-semibold text-[#142B4A] dark:text-[#F1F5F9] group-hover:text-[#2563EB] dark:group-hover:text-[#3B82F6] transition-colors flex items-center gap-1">
                 <span>Book Office Visit / Interview</span>
-                <ChevronRight className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform" />
+                <ChevronRight className="w-3.5 h-3.5 text-[#2563EB] dark:text-[#3B82F6] group-hover:translate-x-0.5 transition-transform" />
               </div>
             </div>
           </button>
@@ -244,28 +243,28 @@ export default function StudentVisitWidget() {
 
       {/* ================= EXPANDED POPUP WINDOW ================= */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-end justify-end sm:p-6 bg-black/60 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none pointer-events-none">
-          <div className="pointer-events-auto w-full sm:w-[480px] max-h-[92vh] flex flex-col rounded-t-2xl sm:rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-700/80 shadow-2xl overflow-hidden transition-all duration-300 text-slate-900 dark:text-white">
+        <div className="fixed inset-0 z-50 flex items-end sm:items-end justify-end sm:p-6 bg-black/50 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none pointer-events-none">
+          <div className="pointer-events-auto w-full sm:w-[480px] max-h-[92vh] flex flex-col rounded-t-2xl sm:rounded-2xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] shadow-2xl overflow-hidden transition-all duration-200 text-[#475569] dark:text-[#CBD5E1]">
             {/* Popup Header */}
-            <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0F172A] flex items-start justify-between gap-3">
+            <div className="p-4 sm:p-5 border-b border-[#E2E8F0] dark:border-[#29384D] bg-[#F3F6FA] dark:bg-[#0B1220] flex items-start justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-                  <GraduationCap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <div className="w-10 h-10 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center shrink-0">
+                  <GraduationCap className="w-5 h-5 text-[#2563EB] dark:text-[#3B82F6]" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] uppercase tracking-wider text-blue-600 dark:text-blue-400 font-semibold">
+                    <span className="text-[10px] uppercase tracking-wider text-[#2563EB] dark:text-[#3B82F6] font-semibold">
                       OFFICE VISIT & INTERVIEW
                     </span>
-                    <span className="text-[9px] text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20 font-medium">
+                    <span className="text-[9px] text-[#0F9F8F] dark:text-[#2DD4BF] bg-teal-50 dark:bg-[#0F9F8F]/15 px-1.5 py-0.5 rounded border border-[#0F9F8F]/20 font-medium">
                       Pune CoE
                     </span>
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                  <h3 className="text-base sm:text-lg font-bold text-[#142B4A] dark:text-[#F1F5F9] tracking-tight">
                     Book Office Visit / Interview
                   </h3>
-                  <p className="text-[11px] font-mono text-slate-400 flex items-center gap-1 mt-0.5">
-                    <MapPin className="w-3 h-3 text-[#00E5C9]" />
+                  <p className="text-[11px] font-mono text-[#64748B] dark:text-[#94A3B8] flex items-center gap-1 mt-0.5">
+                    <MapPin className="w-3 h-3 text-[#0F9F8F]" />
                     Office 122, Gera Imperial, Opp. Wipro Circle, Hinjawadi Phase 2, Pune
                   </p>
                 </div>
@@ -273,7 +272,7 @@ export default function StudentVisitWidget() {
 
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+                className="p-1.5 rounded-lg text-[#64748B] hover:text-[#142B4A] dark:text-[#94A3B8] dark:hover:text-white hover:bg-[#E2E8F0] dark:hover:bg-[#29384D] transition-colors cursor-pointer"
                 aria-label="Close"
               >
                 <X className="w-5 h-5" />
@@ -283,14 +282,14 @@ export default function StudentVisitWidget() {
             {/* Popup Scrollable Body */}
             <div className="overflow-y-auto p-4 sm:p-5 space-y-4 text-xs">
               {/* Mandatory Saturday & Sunday Holiday Notice */}
-              <div className="rounded-xl bg-amber-500/10 border border-amber-500/30 p-3 text-amber-200">
+              <div className="rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 p-3 text-amber-800 dark:text-amber-200">
                 <div className="flex items-start gap-2.5">
-                  <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                  <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
                   <div className="space-y-1">
-                    <div className="font-bold text-amber-300 text-xs">
+                    <div className="font-bold text-amber-800 dark:text-amber-300 text-xs">
                       Office Schedule: Monday to Friday Only
                     </div>
-                    <p className="text-[11px] text-amber-200/90 leading-relaxed font-mono">
+                    <p className="text-[11px] text-amber-700 dark:text-amber-200/90 leading-relaxed font-mono">
                       <strong>Saturday & Sunday are office holidays.</strong> In-person interviews, assessments, and office visits are scheduled on weekdays between 10:00 AM – 6:00 PM.
                     </p>
                   </div>
@@ -300,59 +299,59 @@ export default function StudentVisitWidget() {
               {/* SUCCESS VIEW */}
               {bookingSuccess ? (
                 <div className="py-4 space-y-5 text-center">
-                  <div className="w-14 h-14 rounded-full bg-[#10B981]/15 border border-[#10B981]/40 flex items-center justify-center mx-auto text-[#10B981]">
-                    <CheckCircle2 className="w-8 h-8 animate-pulse" />
+                  <div className="w-14 h-14 rounded-full bg-[#0F9F8F]/15 border border-[#0F9F8F]/30 flex items-center justify-center mx-auto text-[#0F9F8F] dark:text-[#2DD4BF]">
+                    <CheckCircle2 className="w-8 h-8" />
                   </div>
 
                   <div>
-                    <span className="font-mono text-[10px] text-[#00E5C9] uppercase tracking-wider font-bold">
+                    <span className="font-mono text-[10px] text-[#0F9F8F] dark:text-[#2DD4BF] uppercase tracking-wider font-bold">
                       APPOINTMENT CONFIRMED
                     </span>
-                    <h4 className="text-lg font-bold text-white mt-1">
+                    <h4 className="text-lg font-bold text-[#142B4A] dark:text-[#F1F5F9] mt-1">
                       Office Visit Scheduled!
                     </h4>
-                    <p className="text-slate-400 text-xs mt-1">
+                    <p className="text-[#64748B] dark:text-[#94A3B8] text-xs mt-1">
                       Your interview slot has been recorded directly to our recruitment management sheet.
                     </p>
                   </div>
 
                   {/* Summary Card */}
-                  <div className="p-3.5 rounded-xl bg-[#0C0D0F] border border-white/10 text-left font-mono space-y-2 text-[11px]">
-                    <div className="flex justify-between border-b border-white/5 pb-1.5">
-                      <span className="text-slate-400">Booking Ref:</span>
-                      <span className="text-[#00E5C9] font-bold">{bookingSuccess.id}</span>
+                  <div className="p-3.5 rounded-xl bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] text-left font-mono space-y-2 text-[11px]">
+                    <div className="flex justify-between border-b border-[#E2E8F0] dark:border-[#29384D] pb-1.5">
+                      <span className="text-[#64748B] dark:text-[#94A3B8]">Booking Ref:</span>
+                      <span className="text-[#2563EB] dark:text-[#3B82F6] font-bold">{bookingSuccess.id}</span>
                     </div>
-                    <div className="flex justify-between border-b border-white/5 pb-1.5">
-                      <span className="text-slate-400">Candidate:</span>
-                      <span className="text-white font-medium">{bookingSuccess.name}</span>
+                    <div className="flex justify-between border-b border-[#E2E8F0] dark:border-[#29384D] pb-1.5">
+                      <span className="text-[#64748B] dark:text-[#94A3B8]">Candidate:</span>
+                      <span className="text-[#142B4A] dark:text-[#F1F5F9] font-medium">{bookingSuccess.name}</span>
                     </div>
-                    <div className="flex justify-between border-b border-white/5 pb-1.5">
-                      <span className="text-slate-400">Role / Track:</span>
-                      <span className="text-[#34D399] font-medium">{formData.role}</span>
+                    <div className="flex justify-between border-b border-[#E2E8F0] dark:border-[#29384D] pb-1.5">
+                      <span className="text-[#64748B] dark:text-[#94A3B8]">Role / Track:</span>
+                      <span className="text-[#0F9F8F] dark:text-[#2DD4BF] font-medium">{formData.role}</span>
                     </div>
-                    <div className="flex justify-between border-b border-white/5 pb-1.5">
-                      <span className="text-slate-400">Visit Date:</span>
-                      <span className="text-white font-bold">
+                    <div className="flex justify-between border-b border-[#E2E8F0] dark:border-[#29384D] pb-1.5">
+                      <span className="text-[#64748B] dark:text-[#94A3B8]">Visit Date:</span>
+                      <span className="text-[#142B4A] dark:text-[#F1F5F9] font-bold">
                         {formData.visitDate} ({selectedDayName})
                       </span>
                     </div>
-                    <div className="flex justify-between border-b border-white/5 pb-1.5">
-                      <span className="text-slate-400">Time Slot:</span>
-                      <span className="text-blue-400">{formData.slotTime}</span>
+                    <div className="flex justify-between border-b border-[#E2E8F0] dark:border-[#29384D] pb-1.5">
+                      <span className="text-[#64748B] dark:text-[#94A3B8]">Time Slot:</span>
+                      <span className="text-[#2563EB] dark:text-[#3B82F6]">{formData.slotTime}</span>
                     </div>
                     <div className="flex justify-between pt-0.5">
-                      <span className="text-slate-400">Location:</span>
-                      <span className="text-white text-right">Office 122, Gera Imperial, Hinjawadi Ph 2, Pune</span>
+                      <span className="text-[#64748B] dark:text-[#94A3B8]">Location:</span>
+                      <span className="text-[#142B4A] dark:text-[#F1F5F9] text-right">Office 122, Gera Imperial, Hinjawadi Ph 2, Pune</span>
                     </div>
                   </div>
 
                   {/* Candidate Instructions & Directions */}
-                  <div className="rounded-xl bg-slate-50 dark:bg-[#0C0D0F] border border-slate-200 dark:border-white/10 p-3.5 text-left font-mono space-y-2 text-[11px] text-slate-700 dark:text-slate-300">
-                    <div className="text-emerald-600 dark:text-[#34D399] font-bold text-xs flex items-center gap-1.5">
+                  <div className="rounded-xl bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] p-3.5 text-left font-mono space-y-2 text-[11px] text-[#475569] dark:text-[#CBD5E1]">
+                    <div className="text-[#0F9F8F] dark:text-[#2DD4BF] font-bold text-xs flex items-center gap-1.5">
                       <Briefcase className="w-3.5 h-3.5" />
                       Candidate Visit Checklist:
                     </div>
-                    <ul className="space-y-1.5 list-disc list-inside text-slate-400 text-[11px]">
+                    <ul className="space-y-1.5 list-disc list-inside text-[#64748B] dark:text-[#94A3B8] text-[11px]">
                       <li>Carry 2 printed copies of your updated resume.</li>
                       <li>Bring your College ID card or valid Govt. Photo ID for entry.</li>
                       <li>Please arrive 10–15 minutes prior to your scheduled slot.</li>
@@ -366,7 +365,7 @@ export default function StudentVisitWidget() {
                       href="https://maps.google.com/?q=Office+122+Gera+Imperial+Opposite+Wipro+Circle+Hinjawadi+Phase+2+Pune+Maharashtra+411057"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#00E5C9] hover:brightness-110 text-[#0C0D0F] font-bold py-2.5 px-4 text-xs transition-all shadow-md"
+                      className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#2563EB] hover:bg-blue-700 dark:bg-[#3B82F6] dark:hover:bg-blue-600 text-white font-semibold py-2.5 px-4 text-xs transition-all shadow-sm"
                     >
                       <MapPin className="w-3.5 h-3.5" />
                       <span>Get Directions to Pune Office ↗</span>
@@ -374,14 +373,14 @@ export default function StudentVisitWidget() {
 
                     <button
                       onClick={() => setIsOpen(false)}
-                      className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#22242A] hover:bg-[#2C2E36] text-white font-mono py-2.5 px-4 text-xs transition-all border border-white/10"
+                      className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#F3F6FA] hover:bg-slate-200 dark:bg-[#0B1220] dark:hover:bg-slate-800 text-[#142B4A] dark:text-[#F1F5F9] font-mono py-2.5 px-4 text-xs transition-all border border-[#E2E8F0] dark:border-[#29384D]"
                     >
                       <span>Done & Close</span>
                     </button>
 
                     <button
                       onClick={handleReset}
-                      className="text-slate-400 hover:text-white text-xs underline font-mono pt-1"
+                      className="text-[#64748B] hover:text-[#2563EB] dark:text-[#94A3B8] dark:hover:text-[#3B82F6] text-xs underline font-mono pt-1"
                     >
                       Book Another Office Visit Slot
                     </button>
@@ -392,18 +391,18 @@ export default function StudentVisitWidget() {
                 <form onSubmit={handleSubmit} className="space-y-3.5">
                   {/* Student Name */}
                   <div>
-                    <label className="block text-[11px] font-mono text-slate-700 dark:text-slate-300 mb-1">
+                    <label className="block text-[11px] font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">
                       Student / Candidate Full Name *
                     </label>
                     <div className="relative">
-                      <User className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-3" />
+                      <User className="w-3.5 h-3.5 text-[#94A3B8] absolute left-3 top-3" />
                       <input
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Rahul Sharma"
-                        className="w-full bg-slate-50 dark:bg-[#0C0D0F] border border-slate-300 dark:border-white/10 rounded-lg pl-9 pr-3 py-2 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-600 dark:focus:border-[#00E5C9] focus:outline-none"
+                        className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg pl-9 pr-3 py-2 text-xs text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:outline-none"
                       />
                     </div>
                   </div>
@@ -411,35 +410,35 @@ export default function StudentVisitWidget() {
                   {/* Contact Info (Email & Phone) */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     <div>
-                      <label className="block text-[11px] font-mono text-slate-700 dark:text-slate-300 mb-1">
+                      <label className="block text-[11px] font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">
                         Email Address *
                       </label>
                       <div className="relative">
-                        <Mail className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-3" />
+                        <Mail className="w-3.5 h-3.5 text-[#94A3B8] absolute left-3 top-3" />
                         <input
                           type="email"
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="rahul@college.edu"
-                          className="w-full bg-slate-50 dark:bg-[#0C0D0F] border border-slate-300 dark:border-white/10 rounded-lg pl-9 pr-3 py-2 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-600 dark:focus:border-[#00E5C9] focus:outline-none"
+                          className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg pl-9 pr-3 py-2 text-xs text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:outline-none"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-mono text-slate-700 dark:text-slate-300 mb-1">
+                      <label className="block text-[11px] font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">
                         Phone / WhatsApp *
                       </label>
                       <div className="relative">
-                        <Phone className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-3" />
+                        <Phone className="w-3.5 h-3.5 text-[#94A3B8] absolute left-3 top-3" />
                         <input
                           type="tel"
                           required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+91 98765 43210"
-                          className="w-full bg-slate-50 dark:bg-[#0C0D0F] border border-slate-300 dark:border-white/10 rounded-lg pl-9 pr-3 py-2 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-600 dark:focus:border-[#00E5C9] focus:outline-none"
+                          className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg pl-9 pr-3 py-2 text-xs text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -448,33 +447,33 @@ export default function StudentVisitWidget() {
                   {/* College / Institute & Degree */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     <div>
-                      <label className="block text-[11px] font-mono text-slate-700 dark:text-slate-300 mb-1">
+                      <label className="block text-[11px] font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">
                         College / University *
                       </label>
                       <div className="relative">
-                        <Building2 className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-3" />
+                        <Building2 className="w-3.5 h-3.5 text-[#94A3B8] absolute left-3 top-3" />
                         <input
                           type="text"
                           required
                           value={formData.college}
                           onChange={(e) => setFormData({ ...formData, college: e.target.value })}
                           placeholder="e.g. COEP / Pune University"
-                          className="w-full bg-slate-50 dark:bg-[#0C0D0F] border border-slate-300 dark:border-white/10 rounded-lg pl-9 pr-3 py-2 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-600 dark:focus:border-[#00E5C9] focus:outline-none"
+                          className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg pl-9 pr-3 py-2 text-xs text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:outline-none"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-mono text-slate-700 dark:text-slate-300 mb-1">
+                      <label className="block text-[11px] font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">
                         Degree / Branch
                       </label>
                       <select
                         value={formData.degree}
                         onChange={(e) => setFormData({ ...formData, degree: e.target.value })}
-                        className="w-full bg-slate-50 dark:bg-[#0C0D0F] border border-slate-300 dark:border-white/10 rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-white focus:border-blue-600 dark:focus:border-[#00E5C9] focus:outline-none"
+                        className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3 py-2 text-xs text-[#142B4A] dark:text-[#F1F5F9] focus:border-[#2563EB] focus:outline-none"
                       >
                         {degrees.map((d) => (
-                          <option key={d} value={d} className="bg-[#141518]">
+                          <option key={d} value={d} className="bg-white dark:bg-[#131F32]">
                             {d}
                           </option>
                         ))}
@@ -485,16 +484,16 @@ export default function StudentVisitWidget() {
                   {/* Passing Year & Role */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     <div>
-                      <label className="block text-[11px] font-mono text-slate-700 dark:text-slate-300 mb-1">
+                      <label className="block text-[11px] font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">
                         Passing Year
                       </label>
                       <select
                         value={formData.passingYear}
                         onChange={(e) => setFormData({ ...formData, passingYear: e.target.value })}
-                        className="w-full bg-slate-50 dark:bg-[#0C0D0F] border border-slate-300 dark:border-white/10 rounded-lg px-2.5 py-2 text-xs text-slate-900 dark:text-white focus:border-blue-600 dark:focus:border-[#00E5C9] focus:outline-none"
+                        className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-2.5 py-2 text-xs text-[#142B4A] dark:text-[#F1F5F9] focus:border-[#2563EB] focus:outline-none"
                       >
                         {passingYears.map((y) => (
-                          <option key={y} value={y} className="bg-[#141518]">
+                          <option key={y} value={y} className="bg-white dark:bg-[#131F32]">
                             {y}
                           </option>
                         ))}
@@ -502,16 +501,16 @@ export default function StudentVisitWidget() {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <label className="block text-[11px] font-mono text-slate-700 dark:text-slate-300 mb-1">
+                      <label className="block text-[11px] font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">
                         Interview Track / Purpose *
                       </label>
                       <select
                         value={formData.role}
                         onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                        className="w-full bg-slate-50 dark:bg-[#0C0D0F] border border-slate-300 dark:border-white/10 rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-white focus:border-blue-600 dark:focus:border-[#00E5C9] focus:outline-none"
+                        className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3 py-2 text-xs text-[#142B4A] dark:text-[#F1F5F9] focus:border-[#2563EB] focus:outline-none"
                       >
                         {roles.map((r) => (
-                          <option key={r} value={r} className="bg-[#141518]">
+                          <option key={r} value={r} className="bg-white dark:bg-[#131F32]">
                             {r}
                           </option>
                         ))}
@@ -522,11 +521,11 @@ export default function StudentVisitWidget() {
                   {/* Visit Date Selection (Monday - Friday Only) */}
                   <div className="pt-1">
                     <div className="flex items-center justify-between mb-1">
-                      <label className="text-[11px] font-mono text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-[#00E5C9]" />
+                      <label className="text-[11px] font-mono text-[#475569] dark:text-[#CBD5E1] flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-[#0F9F8F]" />
                         <span>Select Visit Date (Monday to Friday only) *</span>
                       </label>
-                      <span className="font-mono text-[9px] text-[#34D399] bg-[#34D399]/10 border border-[#34D399]/20 px-1.5 py-0.5 rounded">
+                      <span className="font-mono text-[9px] text-[#0F9F8F] bg-teal-50 dark:bg-[#0F9F8F]/15 border border-[#0F9F8F]/20 px-1.5 py-0.5 rounded">
                         Sat/Sun Closed
                       </span>
                     </div>
@@ -542,8 +541,8 @@ export default function StudentVisitWidget() {
                             onClick={() => handleDateChange(item.iso)}
                             className={`px-2.5 py-1 rounded-md text-[10px] font-medium transition-all border cursor-pointer ${
                               isSelected
-                                ? "bg-blue-600 text-white font-semibold border-blue-500 shadow-sm"
-                                : "bg-slate-900 text-slate-300 border-slate-700 hover:border-blue-500/60"
+                                ? "bg-[#2563EB] text-white font-semibold border-[#2563EB] shadow-sm"
+                                : "bg-[#F3F6FA] dark:bg-[#0B1220] text-[#475569] dark:text-[#CBD5E1] border-[#E2E8F0] dark:border-[#29384D] hover:border-[#2563EB]"
                             }`}
                           >
                             {item.label}
@@ -559,18 +558,18 @@ export default function StudentVisitWidget() {
                       min={minDateString}
                       value={formData.visitDate}
                       onChange={(e) => handleDateChange(e.target.value)}
-                      className={`w-full bg-[#0F172A] border rounded-lg px-3 py-2 text-xs text-white focus:outline-none transition-all ${
-                        dateError ? "border-red-500 focus:border-red-500" : "border-slate-700 focus:border-blue-500"
+                      className={`w-full bg-[#F3F6FA] dark:bg-[#0B1220] border rounded-lg px-3 py-2 text-xs text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none transition-all ${
+                        dateError ? "border-red-500 focus:border-red-500" : "border-[#E2E8F0] dark:border-[#29384D] focus:border-[#2563EB]"
                       }`}
                     />
 
                     {dateError ? (
-                      <p className="text-[11px] text-red-400 mt-1 flex items-center gap-1 font-medium">
+                      <p className="text-[11px] text-red-500 mt-1 flex items-center gap-1 font-medium">
                         <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                         {dateError}
                       </p>
                     ) : formData.visitDate ? (
-                      <p className="text-[11px] text-emerald-400 mt-1 flex items-center gap-1 font-medium">
+                      <p className="text-[11px] text-[#0F9F8F] dark:text-[#2DD4BF] mt-1 flex items-center gap-1 font-medium">
                         <CheckCircle2 className="w-3 h-3 shrink-0" />
                         Selected: {selectedDayName}, {formData.visitDate} (Office Working Day)
                       </p>
@@ -579,17 +578,17 @@ export default function StudentVisitWidget() {
 
                   {/* Slot Time Picker */}
                   <div>
-                    <label className="block text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-blue-400" />
+                    <label className="block text-[11px] font-medium text-[#475569] dark:text-[#CBD5E1] mb-1 flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-[#2563EB]" />
                       <span>Select Available Time Slot *</span>
                     </label>
                     <select
                       value={formData.slotTime}
                       onChange={(e) => setFormData({ ...formData, slotTime: e.target.value })}
-                      className="w-full bg-[#0F172A] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:border-blue-500 focus:outline-none"
+                      className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3 py-2 text-xs text-[#142B4A] dark:text-[#F1F5F9] focus:border-[#2563EB] focus:outline-none"
                     >
                       {timeSlots.map((s) => (
-                        <option key={s} value={s} className="bg-white dark:bg-[#111827]">
+                        <option key={s} value={s} className="bg-white dark:bg-[#131F32]">
                           {s}
                         </option>
                       ))}
@@ -598,7 +597,7 @@ export default function StudentVisitWidget() {
 
                   {/* Resume / Portfolio Link (Optional) */}
                   <div>
-                    <label className="block text-[11px] font-medium text-slate-300 mb-1">
+                    <label className="block text-[11px] font-medium text-[#475569] dark:text-[#CBD5E1] mb-1">
                       Resume Link / GitHub / LinkedIn (Optional)
                     </label>
                     <input
@@ -606,13 +605,13 @@ export default function StudentVisitWidget() {
                       value={formData.resumeUrl}
                       onChange={(e) => setFormData({ ...formData, resumeUrl: e.target.value })}
                       placeholder="https://drive.google.com/... or https://github.com/..."
-                      className="w-full bg-[#0F172A] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
+                      className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3 py-2 text-xs text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:outline-none"
                     />
                   </div>
 
                   {/* Notes / Message (Optional) */}
                   <div>
-                    <label className="block text-[11px] font-medium text-slate-300 mb-1">
+                    <label className="block text-[11px] font-medium text-[#475569] dark:text-[#CBD5E1] mb-1">
                       Questions / Special Request (Optional)
                     </label>
                     <textarea
@@ -620,7 +619,7 @@ export default function StudentVisitWidget() {
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                       placeholder="e.g. Inquiring about final semester internship or full-time placement drive"
-                      className="w-full bg-slate-50 dark:bg-[#0F172A] border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-1.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-500 focus:outline-none resize-none"
+                      className="w-full bg-[#F3F6FA] dark:bg-[#0B1220] border border-[#E2E8F0] dark:border-[#29384D] rounded-lg px-3 py-1.5 text-xs text-[#142B4A] dark:text-[#F1F5F9] placeholder-[#94A3B8] focus:border-[#2563EB] focus:outline-none resize-none"
                     />
                   </div>
 
@@ -628,7 +627,7 @@ export default function StudentVisitWidget() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full h-11 flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow-md disabled:opacity-50 cursor-pointer"
+                    className="w-full h-11 flex items-center justify-center gap-2 rounded-lg bg-[#2563EB] hover:bg-blue-700 dark:bg-[#3B82F6] dark:hover:bg-blue-600 active:scale-[0.99] text-white font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow-md disabled:opacity-50 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
@@ -644,12 +643,12 @@ export default function StudentVisitWidget() {
                   </button>
 
                   {/* Form Footer info */}
-                  <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[10px] text-slate-400">
-                    <span className="flex items-center gap-1 text-slate-400">
-                      <MapPin className="w-3 h-3 text-blue-400" />
+                  <div className="pt-2 border-t border-[#E2E8F0] dark:border-[#29384D] flex items-center justify-between text-[10px] text-[#64748B] dark:text-[#94A3B8]">
+                    <span className="flex items-center gap-1 text-[#64748B] dark:text-[#94A3B8]">
+                      <MapPin className="w-3 h-3 text-[#2563EB] dark:text-[#3B82F6]" />
                       <span>Hinjawadi Phase 2, Pune</span>
                     </span>
-                    <span className="text-emerald-400 font-medium">Monday – Friday (10 AM – 6 PM)</span>
+                    <span className="text-[#0F9F8F] dark:text-[#2DD4BF] font-medium">Monday – Friday (10 AM – 6 PM)</span>
                   </div>
                 </form>
               )}

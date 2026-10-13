@@ -95,7 +95,7 @@ const Cloud = () => {
   const [active, setActive] = useState("Storage");
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-slate-50 dark:bg-[#F3F6FA] dark:bg-[#0B1220] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-20 pb-20">
         {/* Radial Background Dots */}
@@ -152,7 +152,7 @@ const Cloud = () => {
                 className={
                   active === cat
                     ? "px-5 py-2.5 rounded font-mono text-xs uppercase tracking-wider bg-[#2563EB] text-white font-bold shadow-md shadow-blue-500/20"
-                    : "px-5 py-2.5 rounded font-mono text-xs uppercase tracking-wider bg-white dark:bg-[#111827] text-slate-300 border border-slate-200 dark:border-[#1E293B] hover:border-white/20 hover:text-white transition-all"
+                    : "px-5 py-2.5 rounded font-mono text-xs uppercase tracking-wider bg-white dark:bg-[#131F32] text-slate-300 border border-slate-200 dark:border-[#1E293B] hover:border-white/20 hover:text-white transition-all"
                 }
               >
                 {cat}
@@ -177,7 +177,7 @@ const Cloud = () => {
               {cloudData[active].items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] hover:border-blue-500/40 transition-all group"
+                  className="p-6 rounded-lg bg-white dark:bg-[#131F32] border border-slate-200 dark:border-[#1E293B] hover:border-blue-500/40 transition-all group"
                 >
                   <div className="flex items-start justify-between">
                     <h3 className="text-lg font-semibold text-white group-hover:text-[#34D399] transition-colors">

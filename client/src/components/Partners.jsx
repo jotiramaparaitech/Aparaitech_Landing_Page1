@@ -179,38 +179,35 @@ const Partners = () => {
       <section
         id="partners"
         ref={sectionRef}
-        className="relative py-16 lg:py-20 bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-white overflow-hidden border-y border-slate-200 dark:border-slate-800 transition-colors"
+        className="relative py-16 lg:py-20 bg-[#F3F6FA] dark:bg-[#0B1220] text-[#475569] dark:text-[#CBD5E1] overflow-hidden border-y border-[#E2E8F0] dark:border-[#29384D] transition-colors"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header Section */}
-          <div className="text-center max-w-2xl sm:max-w-3xl mx-auto mb-12 sm:mb-14 animate-fadeInUp">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-teal-100 dark:bg-teal-950/60 rounded-full mb-3.5 border border-teal-300 dark:border-teal-500/30 text-teal-800 dark:text-[#22D3EE] text-xs font-mono font-semibold uppercase tracking-wider">
-              <span className="w-1.5 h-1.5 bg-teal-600 dark:bg-[#22D3EE] rounded-full animate-pulse"></span>
+          <div className="text-center max-w-2xl sm:max-w-3xl mx-auto mb-12 sm:mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white dark:bg-[#131F32] rounded-full mb-3.5 border border-[#E2E8F0] dark:border-[#29384D] text-[#0F9F8F] dark:text-[#2DD4BF] text-xs font-semibold uppercase tracking-wider shadow-sm">
+              <span className="w-1.5 h-1.5 bg-[#0F9F8F] dark:bg-[#2DD4BF] rounded-full"></span>
               <span>Global Technology Ecosystem</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#142B4A] dark:text-[#F1F5F9] tracking-tight mb-3">
               Powering{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300">
+              <span className="text-[#2563EB] dark:text-[#3B82F6]">
                 Enterprise Engineering
               </span>{" "}
               Worldwide
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-[#475569] dark:text-[#CBD5E1] max-w-2xl mx-auto leading-relaxed">
               We architect and integrate across world-class infrastructure, data engines, and cloud platforms.
             </p>
           </div>
 
           {/* Infinite Scrolling Logos Section - Responsive */}
           <div className="
-  relative
-  overflow-hidden
-  py-4 sm:py-6 md:py-8
-  min-h-[90px] sm:min-h-[110px] md:min-h-[130px]
-  -mx-3 sm:-mx-4 md:-mx-6 lg:-mx-16 xl:-mx-24 2xl:-mx-32
-">
-
-
-
+            relative
+            overflow-hidden
+            py-4 sm:py-6 md:py-8
+            min-h-[90px] sm:min-h-[110px] md:min-h-[130px]
+            -mx-3 sm:-mx-4 md:-mx-6 lg:-mx-16 xl:-mx-24 2xl:-mx-32
+          ">
             <div
               ref={scrollRef}
               className="flex min-w-max transition-transform duration-75 ease-linear"
@@ -237,18 +234,14 @@ const Partners = () => {
                     sm:py-4
                     md:py-5
                     lg:py-6
-                    bg-white dark:bg-[#0B1220]
+                    bg-white dark:bg-[#131F32]
                     rounded-xl
-                    sm:rounded-2xl
-                    border border-slate-200 dark:border-slate-800
-                    hover:border-[#0D9488]/60
-                    shadow-md dark:shadow-lg
-                    hover:bg-slate-50 dark:hover:bg-slate-900
+                    border border-[#E2E8F0] dark:border-[#29384D]
+                    hover:border-[#2563EB] dark:hover:border-[#3B82F6]
+                    shadow-sm
+                    hover:shadow-md
                     transition-all
                     duration-300
-                    hover:scale-[1.03]
-                    sm:hover:scale-105
-                    active:scale-95
                     w-[120px]
                     sm:w-[140px]
                     md:w-[160px]

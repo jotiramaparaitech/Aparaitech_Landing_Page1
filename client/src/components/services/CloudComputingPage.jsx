@@ -15,18 +15,18 @@ const CloudComputingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white mt-5 text-slate-900 dark:text-white">
+    <div className="min-h-screen bg-white mt-5 text-slate-900 dark:text-[#F1F5F9]">
       {/* ================= HERO ================= */}
       <div className="bg-gradient-to-br from-blue-50 to-teal-50 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Guide to Cloud Computing
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 mb-10">
+          <p className="text-xl text-[#475569] dark:text-[#CBD5E1] dark:text-[#94A3B8] mb-10">
             Unlock the power of the cloud and discover how cloud computing drives
             innovation, scalability, and efficiency.
           </p>
-          <p className="text-lg text-slate-700 dark:text-slate-300 max-w-3xl mx-auto">
+          <p className="text-lg text-slate-700 dark:text-[#CBD5E1] max-w-3xl mx-auto">
             From startups to global enterprises, cloud computing enables faster
             innovation without the burden of managing physical infrastructure.
           </p>
@@ -57,7 +57,7 @@ const CloudComputingPage = () => {
                     className={`block w-full text-left px-4 py-3 rounded-lg transition ${
                       activeSection === id
                         ? "bg-blue-50 text-blue-600 border-l-4 border-blue-600 font-semibold"
-                        : "text-gray-700 hover:bg-gray-50"
+                        : "text-[#475569] dark:text-[#CBD5E1] hover:bg-[#F3F6FA] dark:bg-[#0B1220]"
                     }`}
                   >
                     {label}
@@ -73,7 +73,7 @@ const CloudComputingPage = () => {
               <h2 className="text-4xl font-bold mb-6">
                 What is cloud computing?
               </h2>
-              <p className="text-xl text-slate-700 dark:text-slate-300">
+              <p className="text-xl text-slate-700 dark:text-[#CBD5E1]">
                 Cloud computing delivers servers, storage, databases, networking,
                 and software over the internet on a pay-as-you-go basis — removing
                 the need for physical infrastructure.
@@ -84,7 +84,7 @@ const CloudComputingPage = () => {
               <h2 className="text-4xl font-bold mb-8">
                 Types of cloud computing
               </h2>
-              <p className="text-lg text-slate-700 dark:text-slate-300 max-w-3xl">
+              <p className="text-lg text-slate-700 dark:text-[#CBD5E1] max-w-3xl">
                 Businesses can choose from public, private, hybrid, or multicloud
                 strategies depending on security, scalability, and cost needs.
               </p>
@@ -115,7 +115,7 @@ const CloudComputingPage = () => {
               <h2 className="text-4xl font-bold mb-6">
                 How does cloud computing work?
               </h2>
-              <p className="text-lg text-slate-700 dark:text-slate-300">
+              <p className="text-lg text-slate-700 dark:text-[#CBD5E1]">
                 Cloud providers host data centers worldwide. Businesses rent
                 computing power and storage while providers manage hardware,
                 security, and maintenance.
@@ -126,7 +126,7 @@ const CloudComputingPage = () => {
               <h2 className="text-4xl font-bold mb-8">
                 Applications of cloud computing
               </h2>
-              <p className="text-lg text-slate-700 dark:text-slate-300">
+              <p className="text-lg text-slate-700 dark:text-[#CBD5E1]">
                 Cloud supports SaaS platforms, streaming services, AI workloads,
                 data analytics, IoT systems, and enterprise applications.
               </p>
@@ -134,7 +134,7 @@ const CloudComputingPage = () => {
 
             <section id="examples" className="mb-16 scroll-mt-28">
               <h2 className="text-4xl font-bold mb-8">Examples</h2>
-              <p className="text-lg text-slate-700 dark:text-slate-300">
+              <p className="text-lg text-slate-700 dark:text-[#CBD5E1]">
                 Platforms like Netflix, Amazon, GitHub, and Google Workspace
                 rely on cloud infrastructure to operate at global scale.
               </p>
@@ -142,7 +142,7 @@ const CloudComputingPage = () => {
 
             <section id="future" className="mb-16 scroll-mt-28">
               <h2 className="text-4xl font-bold mb-8">Future trends</h2>
-              <p className="text-lg text-slate-700 dark:text-slate-300">
+              <p className="text-lg text-slate-700 dark:text-[#CBD5E1]">
                 Edge computing, AI integration, sustainability initiatives, and
                 hybrid cloud adoption will shape the next decade of cloud
                 innovation.
@@ -153,7 +153,7 @@ const CloudComputingPage = () => {
               <h2 className="text-4xl font-bold mb-8">
                 How to choose the right solution
               </h2>
-              <p className="text-lg text-slate-700 dark:text-slate-300">
+              <p className="text-lg text-slate-700 dark:text-[#CBD5E1]">
                 Evaluate scalability needs, compliance requirements, pricing
                 models, and long-term business goals before selecting a cloud
                 provider.
@@ -161,7 +161,7 @@ const CloudComputingPage = () => {
             </section>
 
             {/* ===== CTA ===== */}
-            <div className="bg-gradient-to-r from-blue-600 to-teal-500 rounded-2xl p-12 text-white text-center">
+            <div className="bg-gradient-to-r from-blue-600 to-teal-500 rounded-2xl p-12 text-[#142B4A] dark:text-[#F1F5F9] text-center">
               <h2 className="text-3xl font-bold mb-6">
                 Ready to move to the cloud?
               </h2>

@@ -78,25 +78,25 @@ const MobileApps = () => {
       code: "01 / NATIVE PERFORMANCE",
       title: "SwiftUI & Jetpack Compose",
       desc: "Pixel-perfect native user interfaces engineered with modern Swift and Kotlin, achieving guaranteed 60fps and 120fps ProMotion animations under heavy compute loads.",
-      icon: <Smartphone className="w-5 h-5 text-[#34D399]" />
+      icon: <Smartphone className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
     },
     {
       code: "02 / CROSS-PLATFORM SPEED",
       title: "React Native & Flutter",
       desc: "Single codebase, dual native performance. Architected with custom C++ JSI bindings and skia renderers to eliminate bridge latency across high-frequency screens.",
-      icon: <Layers className="w-5 h-5 text-[#34D399]" />
+      icon: <Layers className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
     },
     {
       code: "03 / EDGE AI ON-DEVICE",
       title: "CoreML & TensorFlow Lite",
       desc: "Run neural models on-device without cloud round-trips. Powers real-time facial biometric check-in, document OCR scanning, and anomaly detection.",
-      icon: <Cpu className="w-5 h-5 text-[#34D399]" />
+      icon: <Cpu className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
     },
     {
       code: "04 / OFFLINE-FIRST RESILIENCE",
       title: "SQLite & Background Sync",
       desc: "Robust local-first persistence engines. Seamlessly operates in zero-connectivity environments with automated conflict-free differential synchronization upon reconnection.",
-      icon: <WifiOff className="w-5 h-5 text-[#34D399]" />
+      icon: <WifiOff className="w-5 h-5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
     }
   ];
 
@@ -122,9 +122,9 @@ const MobileApps = () => {
   ];
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-white font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
+    <div className="bg-[#F3F6FA] dark:bg-[#0B1220] dark:bg-[#0B1220] text-[#142B4A] dark:text-[#F1F5F9] font-sans selection:bg-blue-500/30 selection:text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-[#1E293B] pt-24 pb-20">
+      <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] pt-24 pb-20">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
@@ -136,29 +136,29 @@ const MobileApps = () => {
         <div className="relative mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="block h-3 w-3 bg-[#10B981]"></span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#34D399]">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#0F9F8F] dark:text-[#2DD4BF]">
               CORE PRODUCTS // NATIVE & HYBRID MOBILE
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-slate-900 dark:text-white leading-tight max-w-4xl">
+          <h1 className="text-[clamp(1.75rem,5vw,4.25rem)] font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9] leading-tight max-w-4xl">
             Enterprise Mobile Engineering & Edge AI
           </h1>
 
-          <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-[#475569] dark:text-[#CBD5E1] max-w-2xl leading-relaxed">
             High-performance iOS, Android, and cross-platform mobile systems. Built for offline resilience, biometric security, and on-device CoreML intelligence by our Pune engineering center.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
               Sub-100ms On-Device Inference
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
-              <Lock className="w-3.5 h-3.5 text-[#34D399]" />
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
+              <Lock className="w-3.5 h-3.5 text-[#0F9F8F] dark:text-[#2DD4BF]" />
               Biometric Hardware KeyStore
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-600 dark:text-slate-300">
+            <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#29384D] font-mono text-xs text-[#475569] dark:text-[#CBD5E1]">
               <Radio className="w-3.5 h-3.5 text-[#00E5C9]" />
               Offline-First SQLite Engine
             </div>
@@ -174,7 +174,7 @@ const MobileApps = () => {
             </button>
             <a
               href="tel:+918261840199"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-slate-300 dark:border-[#29384D] bg-slate-100 dark:bg-[#161F32] px-8 text-sm font-mono text-[#142B4A] dark:text-[#F1F5F9] hover:bg-slate-200 dark:hover:bg-[#1E293B] transition-all"
             >
               <span>+91 82618 40199</span>
             </a>
@@ -183,13 +183,13 @@ const MobileApps = () => {
       </section>
 
       {/* 2. CAPABILITIES GRID */}
-      <section className="py-20 border-b border-slate-200 dark:border-[#1E293B]">
+      <section className="py-20 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="mb-12">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-emerald-600 dark:text-[#34D399] block mb-2">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-emerald-600 dark:text-[#0F9F8F] dark:text-[#2DD4BF] block mb-2">
               MOBILE CORE ARCHITECTURE
             </span>
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9]">
               Engineered for Field-Grade Reliability
             </h2>
           </div>
@@ -198,16 +198,16 @@ const MobileApps = () => {
             {capabilities.map((cap, i) => (
               <div
                 key={i}
-                className="p-8 rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] hover:border-blue-500/50 transition-all group"
+                className="p-8 rounded-lg bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-blue-500/50 transition-all group"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs text-[#34D399]">{cap.code}</span>
-                  <div className="p-2 rounded bg-slate-100 dark:bg-[#161F32] border border-slate-200 dark:border-white/5 group-hover:border-blue-500/30 transition-all">
+                  <span className="font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF]">{cap.code}</span>
+                  <div className="p-2 rounded bg-slate-100 dark:bg-[#161F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-white/5 group-hover:border-blue-500/30 transition-all">
                     {cap.icon}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{cap.title}</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
+                <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-3">{cap.title}</h3>
+                <p className="text-sm text-[#64748B] dark:text-[#94A3B8] dark:text-[#94A3B8] leading-relaxed font-mono">
                   {cap.desc}
                 </p>
               </div>
@@ -217,27 +217,27 @@ const MobileApps = () => {
       </section>
 
       {/* 3. PLATFORM ARCHITECTURE TIERS */}
-      <section className="py-20 border-b border-slate-200 dark:border-[#1E293B] bg-[#0D1322]">
+      <section className="py-20 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] bg-[#0D1322]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="mb-12">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
               TARGET PLATFORMS
             </span>
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#142B4A] dark:text-[#F1F5F9]">
               Specialized Stacks for Every Deployment Target
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {platforms.map((p, idx) => (
-              <div key={idx} className="p-8 rounded-lg bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] hover:border-[#00E5C9]/40 transition-all flex flex-col justify-between">
+              <div key={idx} className="p-8 rounded-lg bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] hover:border-[#00E5C9]/40 transition-all flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span className="font-mono text-xs text-[#00E5C9] uppercase tracking-wider">{p.badge}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{p.name}</h3>
-                  <p className="text-xs text-[#34D399] font-mono mb-4">{p.tech}</p>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
+                  <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-3">{p.name}</h3>
+                  <p className="text-xs text-[#0F9F8F] dark:text-[#2DD4BF] font-mono mb-4">{p.tech}</p>
+                  <p className="text-sm text-[#64748B] dark:text-[#94A3B8] dark:text-[#94A3B8] leading-relaxed font-mono">
                     {p.desc}
                   </p>
                 </div>
@@ -248,17 +248,17 @@ const MobileApps = () => {
       </section>
 
       {/* 4. REAL SYSTEMS ANCHOR */}
-      <section className="py-20 border-b border-slate-200 dark:border-[#1E293B]">
+      <section className="py-20 border-b border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
-          <div className="rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] p-8 lg:p-12 relative overflow-hidden shadow-sm">
+          <div className="rounded-xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] p-8 lg:p-12 relative overflow-hidden shadow-sm">
             <div className="max-w-3xl relative z-10">
-              <span className="font-mono text-xs text-[#34D399] uppercase tracking-[0.2em] block mb-3">
+              <span className="font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] uppercase tracking-[0.2em] block mb-3">
                 FIELD VERIFIED
               </span>
-              <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-4">
+              <h3 className="text-2xl lg:text-3xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-4">
                 Powering Live Attendance & Field Workforce Operations
               </h3>
-              <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-mono">
+              <p className="text-[#475569] dark:text-[#CBD5E1] text-sm sm:text-base leading-relaxed mb-6 font-mono">
                 Our mobile frameworks power Aparaitech's live workforce systems: Attendance AI (biometric face detection with geofenced check-in) and ServiceHub (real-time technician task dispatch with offline signature capture).
               </p>
               <div className="flex flex-wrap items-center gap-4">
@@ -266,7 +266,7 @@ const MobileApps = () => {
                   href="https://attendance.aparaitech.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-[#34D399] hover:underline"
+                  className="inline-flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-[#0F9F8F] dark:text-[#2DD4BF] hover:underline"
                 >
                   <span>Inspect Attendance AI Platform</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -280,26 +280,26 @@ const MobileApps = () => {
       {/* 5. MODAL */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1E293B] p-5 sm:p-8 shadow-2xl">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl bg-white dark:bg-[#131F32] border border-[#E2E8F0] dark:border-[#29384D] dark:border-[#1E293B] p-5 sm:p-8 shadow-2xl">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-900 dark:hover:text-[#142B4A] dark:text-[#F1F5F9]"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-2 mb-2">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
-              <span className="font-mono text-xs text-[#34D399] uppercase">Hinjawadi Mobile Engineering Pod</span>
+              <span className="font-mono text-xs text-[#0F9F8F] dark:text-[#2DD4BF] uppercase">Hinjawadi Mobile Engineering Pod</span>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Book Mobile Architecture Consultation</h3>
+            <h3 className="text-xl font-bold text-[#142B4A] dark:text-[#F1F5F9] mb-2">Book Mobile Architecture Consultation</h3>
             <p className="text-xs text-slate-400 mb-6 font-mono">
               Discuss target platforms, offline sync requirements, and edge AI feasibility with our mobile leads.
             </p>
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Full Name *</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -307,13 +307,13 @@ const MobileApps = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g. Priyadarshini Patil"
-                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Work Email *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Work Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -321,11 +321,11 @@ const MobileApps = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="name@enterprise.com"
-                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Phone Number *</label>
+                  <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -333,18 +333,18 @@ const MobileApps = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
-                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                    className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">Platform Focus</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">Platform Focus</label>
                 <select
                   name="platformFocus"
                   value={formData.platformFocus}
                   onChange={handleInputChange}
-                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                 >
                   <option value="iOS & Android (React Native / Flutter)">iOS & Android (React Native / Flutter)</option>
                   <option value="Pure Native Swift (iOS)">Pure Native Swift (iOS)</option>
@@ -355,14 +355,14 @@ const MobileApps = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1">App Requirements / Field Spec</label>
+                <label className="block text-xs font-mono text-[#475569] dark:text-[#CBD5E1] mb-1">App Requirements / Field Spec</label>
                 <textarea
                   name="notes"
                   rows="3"
                   value={formData.notes}
                   onChange={handleInputChange}
                   placeholder="Outline hardware requirements, security standards, and launch goals..."
-                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full bg-slate-100 dark:bg-[#161F32] border border-white/10 rounded px-3 py-2 text-sm text-[#142B4A] dark:text-[#F1F5F9] focus:outline-none focus:border-blue-500"
                 ></textarea>
               </div>
 
