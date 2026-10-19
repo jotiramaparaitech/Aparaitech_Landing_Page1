@@ -297,11 +297,10 @@ spec:
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-5 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
-                  activeFilter === filter
+                className={`px-5 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${activeFilter === filter
                     ? "bg-[#D4FD53] text-[#0C0D0F] font-bold shadow-md shadow-[#D4FD53]/20"
                     : "bg-[#141518] text-slate-300 border border-[#22242A] hover:border-slate-500"
-                }`}
+                  }`}
               >
                 {filter}
               </button>
@@ -322,11 +321,10 @@ spec:
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span
-                    className={`font-mono text-xs px-2.5 py-0.5 rounded border ${
-                      tutorial.level === "Advanced"
+                    className={`font-mono text-xs px-2.5 py-0.5 rounded border ${tutorial.level === "Advanced"
                         ? "bg-purple-950/40 text-purple-300 border-purple-800/40"
                         : "bg-blue-950/40 text-blue-300 border-blue-800/40"
-                    }`}
+                      }`}
                   >
                     {tutorial.level}
                   </span>
@@ -383,36 +381,42 @@ spec:
       </section>
 
       {/* 3. WORKSHOP CTA BANNER */}
-      <section className="py-20 border-t border-[#22242A] bg-[#141518]/50">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-[#00E5C9] mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
+
+      <section className="border-t border-slate-200 bg-sky-50/60 py-20 dark:border-slate-800 dark:bg-[#0F172A]">
+        <div className="mx-auto max-w-[1240px] px-6 text-center lg:px-8">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-lg border border-sky-200 bg-white px-3 py-1 font-mono text-xs text-sky-700 dark:border-sky-400/20 dark:bg-[#111C30] dark:text-sky-300">
+            <Sparkles className="h-3.5 w-3.5" />
             <span>PUNE HINJAWADI COE ARCHITECTURE WORKSHOPS</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-4xl">
             Custom Engineering Masterclasses for Your Team
           </h2>
-          <p className="text-slate-300 max-w-2xl mx-auto text-base mb-8">
-            Level up your senior developers on enterprise microservices, real-time WebSockets, or on-device AI. Led by our hands-on engineering leads.
+
+          <p className="mx-auto mb-8 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300">
+            Level up your senior developers on enterprise microservices,
+            real-time WebSockets, or on-device AI. Led by our hands-on
+            engineering leads.
           </p>
+
           <div className="flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={() => setIsWorkshopModalOpen(true)}
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all shadow-lg shadow-[#D4FD53]/10"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded-lg bg-sky-600 px-8 text-sm font-semibold text-white shadow-lg shadow-sky-600/10 transition-all hover:bg-sky-700 dark:bg-sky-300 dark:text-slate-950 dark:shadow-sky-300/10 dark:hover:bg-sky-200"
             >
-              <Calendar className="w-4 h-4" />
+              <Calendar className="h-4 w-4" />
               <span>Request Private Engineering Workshop</span>
             </button>
+
             <a
               href="tel:+918261840199"
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded border border-white/20 bg-[#1C1C1E] px-8 text-sm font-mono text-white hover:bg-[#2C2C30] transition-all"
+              className="inline-flex h-[50px] items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-8 font-mono text-sm text-slate-700 transition-all hover:border-sky-400 hover:bg-sky-50 dark:border-slate-700 dark:bg-[#111C30] dark:text-slate-200 dark:hover:border-sky-400/50 dark:hover:bg-[#17243A]"
             >
               <span>Call Pune CoE: +91 82618 40199</span>
             </a>
           </div>
         </div>
       </section>
-
       {/* 4. MODAL: DETAILED TUTORIAL LAB */}
       {selectedTutorial && (
         <div

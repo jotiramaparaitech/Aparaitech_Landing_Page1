@@ -217,33 +217,71 @@ const MobileApps = () => {
       </section>
 
       {/* 3. PLATFORM ARCHITECTURE TIERS */}
-      <section className="py-20 border-b border-[#22242A] bg-[#0E0F12]">
+      {/* TARGET PLATFORMS */}
+
+      <section className="border-b border-slate-200 bg-sky-50/60 py-20 transition-colors duration-300 dark:border-slate-800 dark:bg-[#0F172A]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+
+          {/* Section Heading */}
+
           <div className="mb-12">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
-              TARGET PLATFORMS
+            <span className="mb-3 block font-mono text-xs uppercase tracking-[0.2em] text-sky-700 dark:text-sky-300">
+              Target Platforms
             </span>
-            <h2 className="text-3xl font-semibold tracking-tight text-white">
+
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
               Specialized Stacks for Every Deployment Target
             </h2>
+
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
+              Discover tailored technology stacks for web, mobile, cloud, and
+              other deployment environments.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Platform Cards */}
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {platforms.map((p, idx) => (
-              <div key={idx} className="p-8 rounded-lg bg-[#141518] border border-[#22242A] hover:border-[#00E5C9]/40 transition-all flex flex-col justify-between">
+              <div
+                key={p.name ?? idx}
+                className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg hover:shadow-sky-100/60 dark:border-slate-700/70 dark:bg-[#111827] dark:hover:border-sky-400/40 dark:hover:shadow-sky-950/20"
+              >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-xs text-[#00E5C9] uppercase tracking-wider">{p.badge}</span>
+                  {/* Platform Badge */}
+
+                  <div className="mb-4 flex items-center justify-between">
+                    <span className="inline-flex rounded-md border border-sky-200 bg-sky-50 px-3 py-1.5 font-mono text-xs uppercase tracking-wider text-sky-700 dark:border-sky-400/20 dark:bg-sky-400/10 dark:text-sky-300">
+                      {p.badge}
+                    </span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{p.name}</h3>
-                  <p className="text-xs text-[#D4FD53] font-mono mb-4">{p.tech}</p>
-                  <p className="text-sm text-slate-400 leading-relaxed font-mono">
+
+                  {/* Platform Name */}
+
+                  <h3 className="mb-3 text-xl font-bold text-slate-900 transition-colors group-hover:text-sky-700 dark:text-slate-100 dark:group-hover:text-sky-300">
+                    {p.name}
+                  </h3>
+
+                  {/* Technology Stack */}
+
+                  <p className="mb-4 font-mono text-xs leading-relaxed text-sky-700 dark:text-sky-300">
+                    {p.tech}
+                  </p>
+
+                  {/* Description */}
+
+                  <p className="font-mono text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                     {p.desc}
                   </p>
                 </div>
+
+                {/* Bottom Accent */}
+
+                <div className="mt-7 h-px w-full bg-slate-100 transition-colors group-hover:bg-sky-200 dark:bg-slate-800 dark:group-hover:bg-sky-400/30" />
               </div>
             ))}
           </div>
+
         </div>
       </section>
 

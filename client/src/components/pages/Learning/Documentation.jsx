@@ -369,26 +369,28 @@ console.log('Telemetry payload:', response);`,
       </section>
 
       {/* 2. CATEGORY FILTER BAR */}
-      <section className="border-b border-[#22242A] bg-[#141518]/70 py-4">
+      {/* DOCUMENTATION DOMAIN FILTER */}
+
+      <section className="border-b border-slate-200 bg-white/80 py-4 transition-colors duration-300 dark:border-slate-800 dark:bg-[#111827]/80">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="font-mono text-xs uppercase tracking-wider text-slate-400 mr-2">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <span className="font-mono text-xs uppercase tracking-wider text-center text-slate-500 dark:text-slate-400">
               Browse Domain:
             </span>
+
             {[
               { id: "all", label: "All Documentation" },
               { id: "getting-started", label: "Getting Started" },
               { id: "api-references", label: "API References" },
-              { id: "sdks-libraries", label: "SDKs & Libraries" }
+              { id: "sdks-libraries", label: "SDKs & Libraries" },
             ].map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
-                  selectedCategory === cat.id
-                    ? "bg-[#D4FD53] text-[#0C0D0F] font-bold"
-                    : "bg-[#1C1C1E] text-slate-300 border border-white/5 hover:border-slate-500"
-                }`}
+                className={`rounded-lg border px-3.5 py-1.5 font-mono text-xs uppercase tracking-wider transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 dark:focus:ring-offset-[#0F172A] ${selectedCategory === cat.id
+                  ? "border-sky-600 bg-sky-600 font-bold text-white shadow-sm shadow-sky-200/50 dark:border-sky-300 dark:bg-sky-300 dark:text-slate-950 dark:shadow-none"
+                  : "border-slate-200 bg-slate-50 text-slate-600 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-800 dark:border-slate-700 dark:bg-[#1E293B] dark:text-slate-300 dark:hover:border-sky-400/50 dark:hover:bg-slate-800 dark:hover:text-sky-300"
+                  }`}
               >
                 {cat.label}
               </button>
@@ -445,31 +447,45 @@ console.log('Telemetry payload:', response);`,
       </section>
 
       {/* 4. POPULAR TOPICS */}
-      <section className="py-16 border-t border-[#22242A] bg-[#141518]/50">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-6">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#00E5C9]">
+      ```jsx
+      {/* POPULAR IMPLEMENTATION TOPICS */}
+
+      <section className="border-t border-slate-200 bg-sky-50/60 py-16 transition-colors duration-300 dark:border-slate-800 dark:bg-[#0F172A]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          {/* Section Label */}
+
+          <div className="mb-6 flex items-center gap-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-sky-700 dark:text-sky-300">
               CORE ARCHITECTURAL GUIDES
             </span>
           </div>
-          <h2 className="text-2xl font-bold text-white mb-8">Popular Implementation Topics</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Section Heading */}
+
+          <h2 className="mb-8 text-2xl font-bold text-slate-950 dark:text-white">
+            Popular Implementation Topics
+          </h2>
+
+          {/* Topic Cards */}
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {filteredTopics.map((topic, idx) => (
               <button
                 key={idx}
                 onClick={() => handleContentClick(topic.content, topic.title)}
-                className="flex items-center justify-between p-4 rounded-xl border border-[#22242A] bg-[#0C0D0F] hover:border-[#D4FD53]/50 transition-all text-left group"
+                className="group flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-md hover:shadow-sky-100/60 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 dark:border-slate-700/70 dark:bg-[#111827] dark:hover:border-sky-400/50 dark:hover:shadow-sky-950/20 dark:focus:ring-offset-[#0F172A]"
               >
-                <div className="pr-2">
-                  <div className="text-xs font-semibold text-white group-hover:text-[#D4FD53] transition-colors">
+                <div className="pr-3">
+                  <div className="text-xs font-semibold text-slate-800 transition-colors group-hover:text-sky-700 dark:text-slate-100 dark:group-hover:text-sky-300">
                     {topic.title}
                   </div>
-                  <div className="font-mono text-[10px] text-slate-500 uppercase mt-1">
+
+                  <div className="mt-1 font-mono text-[10px] uppercase text-slate-500 dark:text-slate-400">
                     {topic.category}
                   </div>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-[#D4FD53] shrink-0 transition-colors" />
+
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-slate-400 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky-600 dark:text-slate-500 dark:group-hover:text-sky-300" />
               </button>
             ))}
           </div>

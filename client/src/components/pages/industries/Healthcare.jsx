@@ -203,7 +203,7 @@ const Healthcare = () => {
       </section>
 
       {/* 3. TECHNICAL STANDARDS */}
-      <section className="py-20 border-b border-[#22242A] bg-[#0E0F12]">
+      <section className="border-b border-slate-200 bg-sky-50/60 py-20 transition-colors duration-300 dark:border-slate-800 dark:bg-[#0F172A]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="mb-12">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">

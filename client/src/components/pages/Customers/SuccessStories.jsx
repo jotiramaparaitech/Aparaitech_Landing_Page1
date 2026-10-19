@@ -248,24 +248,44 @@ const SuccessStories = () => {
       </section>
 
       {/* 2. STATS BANNER */}
-      <section className="border-b border-[#22242A] bg-[#141518]/70 py-12">
+
+      <section className="border-b border-slate-200 bg-sky-50/60 py-12 dark:border-slate-800 dark:bg-[#0F172A]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="p-4 border-l-2 border-[#D4FD53]">
-              <div className="text-3xl lg:text-4xl font-mono font-bold text-white tracking-tight">99.98%</div>
-              <div className="text-xs font-mono uppercase tracking-wider text-slate-400 mt-1">Production Uptime SLA</div>
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+            <div className="border-l-2 border-sky-500 p-4 dark:border-sky-300">
+              <div className="font-mono text-3xl font-bold tracking-tight text-slate-900 dark:text-white lg:text-4xl">
+                99.98%
+              </div>
+              <div className="mt-1 text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Production Uptime SLA
+              </div>
             </div>
-            <div className="p-4 border-l-2 border-[#00E5C9]">
-              <div className="text-3xl lg:text-4xl font-mono font-bold text-white tracking-tight">&lt;400ms</div>
-              <div className="text-xs font-mono uppercase tracking-wider text-slate-400 mt-1">Biometric Edge Latency</div>
+
+            <div className="border-l-2 border-sky-400 p-4 dark:border-cyan-300">
+              <div className="font-mono text-3xl font-bold tracking-tight text-slate-900 dark:text-white lg:text-4xl">
+                &lt;400ms
+              </div>
+              <div className="mt-1 text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Biometric Edge Latency
+              </div>
             </div>
-            <div className="p-4 border-l-2 border-[#D4FD53]">
-              <div className="text-3xl lg:text-4xl font-mono font-bold text-white tracking-tight">100k+</div>
-              <div className="text-xs font-mono uppercase tracking-wider text-slate-400 mt-1">Catalog SKUs Synced</div>
+
+            <div className="border-l-2 border-sky-500 p-4 dark:border-sky-300">
+              <div className="font-mono text-3xl font-bold tracking-tight text-slate-900 dark:text-white lg:text-4xl">
+                100k+
+              </div>
+              <div className="mt-1 text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Catalog SKUs Synced
+              </div>
             </div>
-            <div className="p-4 border-l-2 border-[#00E5C9]">
-              <div className="text-3xl lg:text-4xl font-mono font-bold text-white tracking-tight">5,000+</div>
-              <div className="text-xs font-mono uppercase tracking-wider text-slate-400 mt-1">Daily Automated Check-ins</div>
+
+            <div className="border-l-2 border-sky-400 p-4 dark:border-cyan-300">
+              <div className="font-mono text-3xl font-bold tracking-tight text-slate-900 dark:text-white lg:text-4xl">
+                5,000+
+              </div>
+              <div className="mt-1 text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Daily Automated Check-ins
+              </div>
             </div>
           </div>
         </div>
@@ -279,11 +299,10 @@ const SuccessStories = () => {
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
-              className={`px-4 py-2 rounded font-mono text-xs uppercase tracking-wider transition-all ${
-                activeFilter === cat
-                  ? "bg-[#D4FD53] text-[#0C0D0F] font-bold shadow-md shadow-[#D4FD53]/20"
-                  : "bg-[#141518] text-slate-300 border border-[#22242A] hover:border-slate-500"
-              }`}
+              className={`px-4 py-2 rounded font-mono text-xs uppercase tracking-wider transition-all ${activeFilter === cat
+                ? "bg-[#D4FD53] text-[#0C0D0F] font-bold shadow-md shadow-[#D4FD53]/20"
+                : "bg-[#141518] text-slate-300 border border-[#22242A] hover:border-slate-500"
+                }`}
             >
               {cat}
             </button>
@@ -367,25 +386,36 @@ const SuccessStories = () => {
       </section>
 
       {/* 4. EXECUTIVE CTA BANNER */}
-      <section className="py-20 border-t border-[#22242A] bg-[#141518]/50">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1C1C1E] border border-white/10 font-mono text-xs text-[#00E5C9] mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
+      {/* CTA SECTION */}
+      <section className="border-t border-slate-200 bg-sky-50/60 py-20 dark:border-slate-800 dark:bg-[#0F172A]">
+        <div className="mx-auto max-w-[1240px] px-6 text-center lg:px-8">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-xl border border-sky-100 bg-white px-3 py-2 font-mono text-xs text-sky-700 dark:border-sky-400/20 dark:bg-slate-900 dark:text-sky-300">
+            <Sparkles className="h-4 w-4" />
             <span>PUNE HINJAWADI COE CONSULTING</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
-            Ready to Engineer Similar Production Results?
+
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-4xl">
+            Ready to Engineer Similar{" "}
+            <span className="text-sky-600 dark:text-sky-300">
+              Production Results?
+            </span>
           </h2>
-          <p className="text-slate-300 max-w-2xl mx-auto text-base mb-8">
-            Consult directly with Aparaitech senior software architects. We evaluate your current bottlenecks, architect a fault-tolerant solution, and provide a transparent delivery roadmap.
+
+          <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-300">
+            Consult directly with Aparaitech senior software architects. We evaluate
+            your current bottlenecks, architect a fault-tolerant solution, and provide
+            a transparent delivery roadmap.
           </p>
+
           <div className="flex flex-wrap items-center justify-center gap-4">
             <button
-              onClick={() => setIsModalOpen(true)}
-              className="inline-flex h-[50px] items-center justify-center gap-2 rounded bg-[#D4FD53] px-8 text-sm font-semibold text-[#0C0D0F] hover:brightness-105 transition-all shadow-lg shadow-[#D4FD53]/10"
+              type="button"
+              onClick={() => setIsConsultModalOpen(true)}
+              className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-xl bg-sky-600 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-600/15 transition-all hover:-translate-y-0.5 hover:bg-sky-700 dark:bg-sky-300 dark:text-slate-950 dark:hover:bg-sky-200"
             >
-              <Calendar className="w-4 h-4" />
+              <Calendar className="h-4 w-4" />
               <span>Book Strategy Session</span>
+              <ArrowUpRight className="h-4 w-4" />
             </button>
           </div>
         </div>

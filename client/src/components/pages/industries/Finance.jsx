@@ -204,138 +204,140 @@ const Finance = () => {
       </section>
 
       {/* 3. STANDARDS */}
-      <section className="py-20 border-b border-[#22242A] bg-[#0E0F12]">
+      <section className="border-b border-slate-200 bg-sky-50/60 py-20 transition-colors duration-300 dark:border-slate-800 dark:bg-[#0F172A]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
-              BANKING SPECIFICATIONS
-            </span>
-            <h2 className="text-3xl font-semibold tracking-tight text-white">
-              Regulatory Standards & Resilience
-            </h2>
+      <div className="mb-12">
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
+          BANKING SPECIFICATIONS
+        </span>
+        <h2 className="text-3xl font-semibold tracking-tight text-white">
+          Regulatory Standards & Resilience
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {standards.map((std, idx) => (
+          <div key={idx} className="p-6 rounded-lg bg-[#141518] border border-[#22242A]">
+            <h4 className="font-mono text-xs text-[#D4FD53] uppercase tracking-wider mb-2">
+              {std.label}
+            </h4>
+            <p className="text-sm text-white font-mono">{std.value}</p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {standards.map((std, idx) => (
-              <div key={idx} className="p-6 rounded-lg bg-[#141518] border border-[#22242A]">
-                <h4 className="font-mono text-xs text-[#D4FD53] uppercase tracking-wider mb-2">
-                  {std.label}
-                </h4>
-                <p className="text-sm text-white font-mono">{std.value}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. MODAL */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl bg-[#141518] border border-[#22242A] p-5 sm:p-8 shadow-2xl">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-white"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-2 mb-2">
-              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
-              <span className="font-mono text-xs text-[#D4FD53] uppercase">Hinjawadi FinTech Pod</span>
-            </div>
-            <h3 className="text-xl font-bold text-white mb-2">Book FinTech Architecture Sprint</h3>
-            <p className="text-xs text-slate-400 mb-6 font-mono">
-              Review transaction scale requirements, payment gateways, and PCI-DSS compliance blueprints with our Financial Systems Lead.
-            </p>
-
-            <form onSubmit={handleFormSubmit} className="space-y-4">
-              <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Full Name *</label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="e.g. Alok Agarwal"
-                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Work Email *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="name@finbank.com"
-                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="+91 98765 43210"
-                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">FinTech Architecture Focus</label>
-                <select
-                  name="fintechFocus"
-                  value={formData.fintechFocus}
-                  onChange={handleInputChange}
-                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
-                >
-                  <option value="Sub-15ms Real-Time Fraud Detection Engine">Sub-15ms Real-Time Fraud Detection Engine</option>
-                  <option value="PCI-DSS v4.0 Level 1 Tokenization Vault">PCI-DSS v4.0 Level 1 Tokenization Vault</option>
-                  <option value="Double-Entry Core Ledger & Batch Settlement">Double-Entry Core Ledger & Batch Settlement</option>
-                  <option value="Open Banking & Payment Gateway Aggregator">Open Banking & Payment Gateway Aggregator</option>
-                  <option value="Autonomous AML / SAR Regulatory Drafting">Autonomous AML / SAR Regulatory Drafting</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs font-mono text-slate-300 mb-1">Transaction Scale & System Scope</label>
-                <textarea
-                  name="notes"
-                  rows="3"
-                  value={formData.notes}
-                  onChange={handleInputChange}
-                  placeholder="Expected TPS, payment rails (UPI, Card, ACH), and banking partners..."
-                  className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-3 bg-[#D4FD53] text-[#0C0D0F] font-bold text-sm rounded hover:brightness-105 transition-all flex items-center justify-center gap-2 mt-4"
-              >
-                {isSubmitting ? (
-                  <span>Recording Appointment...</span>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    <span>Confirm FinTech Sprint</span>
-                  </>
-                )}
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
+      </section >
+
+  {/* 4. MODAL */ }
+{
+  isModalOpen && (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+      <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl bg-[#141518] border border-[#22242A] p-5 sm:p-8 shadow-2xl">
+        <button
+          onClick={() => setIsModalOpen(false)}
+          className="absolute top-5 right-5 text-slate-400 hover:text-white"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <div className="flex items-center gap-2 mb-2">
+          <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
+          <span className="font-mono text-xs text-[#D4FD53] uppercase">Hinjawadi FinTech Pod</span>
+        </div>
+        <h3 className="text-xl font-bold text-white mb-2">Book FinTech Architecture Sprint</h3>
+        <p className="text-xs text-slate-400 mb-6 font-mono">
+          Review transaction scale requirements, payment gateways, and PCI-DSS compliance blueprints with our Financial Systems Lead.
+        </p>
+
+        <form onSubmit={handleFormSubmit} className="space-y-4">
+          <div>
+            <label className="block text-xs font-mono text-slate-300 mb-1">Full Name *</label>
+            <input
+              type="text"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleInputChange}
+              placeholder="e.g. Alok Agarwal"
+              className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-mono text-slate-300 mb-1">Work Email *</label>
+              <input
+                type="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="name@finbank.com"
+                className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+              <input
+                type="tel"
+                name="phone"
+                required
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder="+91 98765 43210"
+                className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-mono text-slate-300 mb-1">FinTech Architecture Focus</label>
+            <select
+              name="fintechFocus"
+              value={formData.fintechFocus}
+              onChange={handleInputChange}
+              className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+            >
+              <option value="Sub-15ms Real-Time Fraud Detection Engine">Sub-15ms Real-Time Fraud Detection Engine</option>
+              <option value="PCI-DSS v4.0 Level 1 Tokenization Vault">PCI-DSS v4.0 Level 1 Tokenization Vault</option>
+              <option value="Double-Entry Core Ledger & Batch Settlement">Double-Entry Core Ledger & Batch Settlement</option>
+              <option value="Open Banking & Payment Gateway Aggregator">Open Banking & Payment Gateway Aggregator</option>
+              <option value="Autonomous AML / SAR Regulatory Drafting">Autonomous AML / SAR Regulatory Drafting</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-xs font-mono text-slate-300 mb-1">Transaction Scale & System Scope</label>
+            <textarea
+              name="notes"
+              rows="3"
+              value={formData.notes}
+              onChange={handleInputChange}
+              placeholder="Expected TPS, payment rails (UPI, Card, ACH), and banking partners..."
+              className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D4FD53]"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full py-3 bg-[#D4FD53] text-[#0C0D0F] font-bold text-sm rounded hover:brightness-105 transition-all flex items-center justify-center gap-2 mt-4"
+          >
+            {isSubmitting ? (
+              <span>Recording Appointment...</span>
+            ) : (
+              <>
+                <Send className="w-4 h-4" />
+                <span>Confirm FinTech Sprint</span>
+              </>
+            )}
+          </button>
+        </form>
+      </div>
+    </div>
+  )
+}
+    </div >
   );
 };
 

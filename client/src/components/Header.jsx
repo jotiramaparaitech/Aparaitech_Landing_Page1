@@ -138,7 +138,8 @@ const Header = () => {
   return (
     <div className="sticky top-0 z-40 w-full">
       {/* 1. TOP ANNOUNCEMENT BANNER */}
-      <div
+      {/* After careful consideration, we have decided to temporarily disable the top announcement banner for a cleaner UI. It can be re-enabled in the future if needed. 
+       <div
         className="flex min-h-[38px] flex-wrap items-center justify-between gap-2 px-4 sm:px-8 py-1.5 text-xs text-white shadow-sm bg-[#0B1220] border-b border-white/10"
       >
         <div className="flex items-center gap-2 flex-wrap">
@@ -165,49 +166,56 @@ const Header = () => {
             <span>+91 9158852129 / Hinjawadi Phase 2, Pune</span>
           </a>
         </div>
-      </div>
+      </div>*/}
 
       {/* 2. ENTERPRISE GRADE NAVBAR */}
-      <header className="relative w-full border-b border-[#22242A] bg-[#0C0D0F]/95 backdrop-blur-md">
-        <div className="mx-auto w-full max-w-[1340px] px-4 sm:px-6 lg:px-8">
-          <div className="flex h-[72px] items-center justify-between gap-4">
+      <header className={`relative w-full border-b shadow-sm transition-colors duration-200 ${theme === "dark"
+        ? "border-slate-700 bg-slate-950"
+        : "border-blue-100 bg-white"
+        }`}>
+        <div className="mx-auto w-full max-w-none px-2 sm:px-3 lg:px-4">
+          <div className="flex h-[76px] items-center gap-5">
             {/* Official Logo & Brand */}
             <Link to="/" className="flex items-center gap-3 shrink-0 group">
-              <img
-                src="/aparaitech_logo.jpg"
-                alt="Aparaitech Software"
-                className="h-10 w-10 rounded-lg object-contain bg-white/5 border border-white/10 group-hover:border-[#0D9488] transition-all shadow-md shadow-[#0D9488]/20"
-              />
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-white p-1 transition-colors duration-200 group-hover:border-blue-300">
+                <img
+                  src="/aparaitech_logo.jpg"
+                  alt="Aparaitech Software logo"
+                  className="block h-full w-full object-contain"
+                />
+              </span>
               <div className="flex flex-col">
-                <span className="font-bold text-[17px] tracking-tight text-white leading-none">
-                  Aparaitech Software
+                <span className={`font-bold text-2xl tracking-tight ${theme === "dark" ? "text-white" : "text-slate-900"
+                  }`}>
+                  Aparaitech
                 </span>
-                <span className="text-[10px] font-mono tracking-widest text-[#22D3EE] uppercase mt-0.5 font-bold">
+                <span className="text-[10px] tracking-wide text-blue-600 uppercase mt-0.5 font-semibold">
                   Enterprise Software & AI Systems
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation Menus */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-7 font-sans text-[13px] font-semibold text-slate-200">
+            <nav className={`hidden lg:flex items-center gap-4 xl:gap-5 font-sans text-[15px] font-medium ml-auto mr-4 transition-colors duration-200 ${theme === "dark" ? "text-slate-200" : "text-slate-700"
+              }`}>
               {/* Products Dropdown */}
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1 hover:text-[#22D3EE] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-blue-600 transition-colors cursor-pointer"
                 >
                   <span>Products</span>
                   <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
-                  <div className="text-[11px] font-mono text-[#22D3EE] uppercase tracking-wider px-3 py-1 font-bold">
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white border border-blue-100 p-3 shadow-xl shadow-slate-200/70 z-50">
+                  <div className="text-[11px] font-sans text-blue-600 uppercase tracking-wider px-3 py-1 font-bold">
                     Custom Software & AI Suite
                   </div>
                   {moreDropdownContent.Products.map((p, i) => (
                     <Link
                       key={i}
                       to={p.link}
-                      className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                      className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:text-blue-700 hover:bg-blue-50 transition-colors"
                     >
                       {p.name}
                     </Link>
@@ -219,20 +227,20 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1 hover:text-[#22D3EE] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-blue-600 transition-colors cursor-pointer"
                 >
                   <span>Industries</span>
                   <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
-                  <div className="text-[11px] font-mono text-[#22D3EE] uppercase tracking-wider px-3 py-1 font-bold">
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white border border-blue-100 p-3 shadow-xl shadow-slate-200/70 z-50">
+                  <div className="text-[11px] font-sans text-blue-600 uppercase tracking-wider px-3 py-1 font-bold">
                     Specialized Solutions
                   </div>
                   {moreDropdownContent.Industries.map((ind, i) => (
                     <Link
                       key={i}
                       to={ind.link}
-                      className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                      className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:text-blue-700 hover:bg-blue-50 transition-colors"
                     >
                       {ind.name}
                     </Link>
@@ -244,20 +252,20 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1 hover:text-[#22D3EE] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-blue-600 transition-colors cursor-pointer"
                 >
                   <span>Customers</span>
                   <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
-                  <div className="text-[11px] font-mono text-[#22D3EE] uppercase tracking-wider px-3 py-1 font-bold">
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white border border-blue-100 p-3 shadow-xl shadow-slate-200/70 z-50">
+                  <div className="text-[11px] font-sans text-blue-600 uppercase tracking-wider px-3 py-1 font-bold">
                     Enterprise Case Studies
                   </div>
                   {moreDropdownContent.Customers.map((cust, i) => (
                     <Link
                       key={i}
                       to={cust.link}
-                      className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                      className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:text-blue-700 hover:bg-blue-50 transition-colors"
                     >
                       {cust.name}
                     </Link>
@@ -269,13 +277,13 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1 hover:text-[#22D3EE] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-blue-600 transition-colors cursor-pointer"
                 >
                   <span>Learning</span>
                   <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
-                  <div className="text-[11px] font-mono text-[#22D3EE] uppercase tracking-wider px-3 py-1 font-bold">
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white border border-blue-100 p-3 shadow-xl shadow-slate-200/70 z-50">
+                  <div className="text-[11px] font-sans text-blue-600 uppercase tracking-wider px-3 py-1 font-bold">
                     Developer Center & LMS
                   </div>
                   {moreDropdownContent.Learning.map((lrn, i) =>
@@ -285,7 +293,7 @@ const Header = () => {
                         href={lrn.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                        className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:text-blue-700 hover:bg-blue-50 transition-colors"
                       >
                         {lrn.name} ↗
                       </a>
@@ -293,7 +301,7 @@ const Header = () => {
                       <Link
                         key={i}
                         to={lrn.link}
-                        className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                        className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:text-blue-700 hover:bg-blue-50 transition-colors"
                       >
                         {lrn.name}
                       </Link>
@@ -306,20 +314,20 @@ const Header = () => {
               <div className="relative group py-2">
                 <button
                   onClick={() => setMoreOpen(!moreOpen)}
-                  className="flex items-center gap-1 hover:text-[#22D3EE] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-blue-600 transition-colors cursor-pointer"
                 >
                   <span>Company</span>
                   <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform text-slate-400" />
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-[#141518] border border-[#22242A] p-3 shadow-2xl z-50">
-                  <div className="text-[11px] font-mono text-[#22D3EE] uppercase tracking-wider px-3 py-1 font-bold">
+                <div className="absolute left-0 top-full hidden group-hover:block w-72 rounded-xl bg-white border border-blue-100 p-3 shadow-xl shadow-slate-200/70 z-50">
+                  <div className="text-[11px] font-sans text-blue-600 uppercase tracking-wider px-3 py-1 font-bold">
                     About APARAITECH SOFTWARE
                   </div>
                   {moreDropdownContent.Company.map((c, i) => (
                     <Link
                       key={i}
                       to={c.link}
-                      className="block px-3 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+                      className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:text-blue-700 hover:bg-blue-50 transition-colors"
                     >
                       {c.name}
                     </Link>
@@ -329,10 +337,13 @@ const Header = () => {
             </nav>
 
             {/* Right Utility Actions */}
-            <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+            <div className="flex items-center gap-3 shrink-0">
               <button
                 onClick={() => setModalOpen(true)}
-                className="hidden xl:flex items-center gap-1.5 text-xs text-slate-300 hover:text-white transition-colors cursor-pointer font-medium"
+                className={`hidden xl:flex items-center gap-1.5 text-xs transition-colors cursor-pointer font-medium ${theme === "dark"
+                  ? "text-slate-200 hover:text-blue-300"
+                  : "text-slate-700 hover:text-blue-600"
+                  }`}
               >
                 <span>Contact Us</span>
               </button>
@@ -340,21 +351,22 @@ const Header = () => {
               {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
-                className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg bg-[#1C1C1E] border border-white/10 text-slate-300 hover:text-white hover:border-[#22D3EE]/50 transition-all focus:outline-none"
-                title={theme === "dark" ? "Switch to White / Light Theme" : "Switch to Dark Theme"}
-                aria-label="Toggle Theme"
+                className={`relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-300 ${theme === "dark"
+                  ? "bg-slate-800 border-slate-700 text-blue-200 hover:bg-slate-700"
+                  : "bg-blue-50 border-blue-200 text-blue-600 hover:bg-blue-100"
+                  }`}
               >
                 {theme === "dark" ? (
-                  <Sun className="w-4 h-4 text-[#D4FD53] transition-transform duration-300 hover:rotate-45" />
+                  <Sun className="w-4 h-4 text-blue-600 transition-transform duration-300 hover:rotate-45" />
                 ) : (
-                  <Moon className="w-4 h-4 text-[#22D3EE] transition-transform duration-300 hover:-rotate-12" />
+                  <Moon className="w-4 h-4 text-blue-600 transition-transform duration-300 hover:-rotate-12" />
                 )}
               </button>
 
               {/* Primary Consultation CTA Button */}
               <button
                 onClick={() => setModalOpen(true)}
-                className="relative inline-flex h-10 cursor-pointer items-center justify-center rounded-lg bg-[#0D9488] hover:bg-[#0f766e] text-white font-bold text-xs sm:text-sm px-4 sm:px-5 transition-all shadow-md hover:shadow-cyan-500/20 hover:brightness-105"
+                className="relative inline-flex h-10 cursor-pointer items-center justify-center rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 transition-all shadow-sm hover:shadow-md hover:shadow-blue-200"
               >
                 <span>Book Consultation</span>
               </button>
@@ -362,7 +374,7 @@ const Header = () => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="lg:hidden p-2 text-white hover:text-[#22D3EE] transition-colors"
+                className="lg:hidden p-2 text-slate-700 hover:text-blue-600 transition-colors"
                 aria-label="Toggle menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -379,61 +391,61 @@ const Header = () => {
 
         {/* Mobile Nav Overlay */}
         {menuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 h-[calc(100vh-120px)] bg-[#0C0D0F] border-t border-[#22242A] p-4 sm:p-6 overflow-y-auto z-50 shadow-2xl">
-            <nav className="space-y-2 font-mono text-sm pb-16">
+          <div className="lg:hidden absolute top-full left-0 right-0 h-[calc(100vh-120px)] bg-white border-t border-slate-200 p-4 sm:p-6 overflow-y-auto z-50 shadow-2xl">
+            <nav className="space-y-2 font-sans text-sm pb-16">
               {/* Mobile Theme Toggle Card */}
-              <div className="flex items-center justify-between p-3 rounded-lg bg-[#141518] border border-[#22242A] mb-3">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-blue-50 border border-blue-100 mb-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#1C1C1E] border border-white/10">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white border border-slate-200">
                     {theme === "dark" ? (
-                      <Sun className="w-4 h-4 text-[#D4FD53]" />
+                      <Sun className="w-4 h-4 text-blue-600" />
                     ) : (
-                      <Moon className="w-4 h-4 text-[#0D9488]" />
+                      <Moon className="w-4 h-4 text-blue-600" />
                     )}
                   </div>
                   <div>
-                    <div className="text-[10px] font-mono uppercase text-slate-400">Theme Appearance</div>
-                    <div className="text-xs font-bold text-white uppercase tracking-wider">
+                    <div className="text-[10px] font-sans uppercase text-slate-500">Theme Appearance</div>
+                    <div className="text-xs font-bold text-slate-800 uppercase tracking-wider">
                       {theme === "dark" ? "Dark Theme" : "White Theme"}
                     </div>
                   </div>
                 </div>
                 <button
                   onClick={toggleTheme}
-                  className="px-3 py-1.5 rounded-md bg-[#1C1C1E] border border-white/10 hover:border-[#00E5C9]/50 text-xs font-mono text-slate-200 transition-all cursor-pointer"
+                  className="px-3 py-1.5 rounded-md bg-white border border-slate-200 hover:border-blue-300 text-xs font-sans text-slate-700 transition-all cursor-pointer"
                 >
                   Switch to {theme === "dark" ? "White" : "Dark"}
                 </button>
               </div>
 
               {/* Primary Pages */}
-              <div className="space-y-1 pb-3 border-b border-[#22242A]">
+              <div className="space-y-1 pb-3 border-b border-slate-200">
                 <Link
                   to="/"
                   onClick={() => setMenuOpen(false)}
-                  className="block py-2 px-3 rounded hover:bg-[#141518] text-white hover:text-[#00E5C9] transition-colors"
+                  className="block py-2 px-3 rounded hover:bg-blue-50 text-slate-700 hover:text-blue-700 transition-colors"
                 >
                   Home
                 </Link>
                 <Link
                   to="/generative-ai"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between py-2 px-3 rounded hover:bg-[#141518] text-[#00E5C9] transition-colors"
+                  className="flex items-center justify-between py-2 px-3 rounded hover:bg-blue-50 text-blue-700 transition-colors"
                 >
                   <span>AI Solutions</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-[#00E5C9]/10 text-[#00E5C9] border border-[#00E5C9]/20">21+ Systems</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-blue-100 text-blue-700 border border-blue-200">21+ Systems</span>
                 </Link>
                 <Link
                   to="/cloud"
                   onClick={() => setMenuOpen(false)}
-                  className="block py-2 px-3 rounded hover:bg-[#141518] text-white hover:text-[#00E5C9] transition-colors"
+                  className="block py-2 px-3 rounded hover:bg-blue-50 text-slate-700 hover:text-blue-700 transition-colors"
                 >
                   Cloud Infrastructure
                 </Link>
                 <Link
                   to="/solutions"
                   onClick={() => setMenuOpen(false)}
-                  className="block py-2 px-3 rounded hover:bg-[#141518] text-white hover:text-[#00E5C9] transition-colors"
+                  className="block py-2 px-3 rounded hover:bg-blue-50 text-slate-700 hover:text-blue-700 transition-colors"
                 >
                   Enterprise Solutions
                 </Link>
@@ -441,24 +453,24 @@ const Header = () => {
 
               {/* Categorized Dropdown Sections for All Subpages */}
               <div className="pt-2 space-y-1.5">
-                <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest px-3 py-1">
+                <div className="text-[10px] font-sans text-slate-500 uppercase tracking-widest px-3 py-1">
                   Explore Architecture & Subpages
                 </div>
 
                 {Object.entries(moreDropdownContent).map(([category, items]) => {
                   const isOpen = mobileCategory === category;
                   return (
-                    <div key={category} className="rounded-lg border border-[#22242A] bg-[#141518] overflow-hidden">
+                    <div key={category} className="rounded-lg border border-slate-200 bg-white overflow-hidden">
                       <button
                         onClick={() => setMobileCategory(isOpen ? null : category)}
-                        className="w-full flex items-center justify-between px-3.5 py-2.5 text-xs text-left font-mono font-semibold text-slate-200 hover:text-[#00E5C9] transition-colors"
+                        className="w-full flex items-center justify-between px-3.5 py-2.5 text-sm text-left font-sans font-semibold text-slate-700 hover:text-blue-700 transition-colors"
                       >
                         <span className="uppercase tracking-wider">{category}</span>
-                        <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isOpen ? "rotate-180 text-[#00E5C9]" : "text-slate-500"}`} />
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isOpen ? "rotate-180 text-blue-600" : "text-slate-500"}`} />
                       </button>
 
                       {isOpen && (
-                        <div className="px-3.5 pb-3 pt-1 space-y-1.5 border-t border-[#22242A] bg-[#0C0D0F]">
+                        <div className="px-3.5 pb-3 pt-1 space-y-1.5 border-t border-slate-200 bg-slate-50">
                           {items.map((item, idx) => (
                             <div key={idx}>
                               {item.external ? (
@@ -467,7 +479,7 @@ const Header = () => {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   onClick={() => setMenuOpen(false)}
-                                  className="block py-1 text-xs text-slate-400 hover:text-[#D4FD53] transition-colors"
+                                  className="block py-1 text-sm text-slate-600 hover:text-blue-700 transition-colors"
                                 >
                                   {item.name} ↗
                                 </a>
@@ -477,7 +489,7 @@ const Header = () => {
                                     setMenuOpen(false);
                                     item.onClick();
                                   }}
-                                  className="block w-full text-left py-1 text-xs text-slate-400 hover:text-[#00E5C9] transition-colors"
+                                  className="block w-full text-left py-1 text-sm text-slate-600 hover:text-blue-700 transition-colors"
                                 >
                                   {item.name}
                                 </button>
@@ -485,7 +497,7 @@ const Header = () => {
                                 <Link
                                   to={item.link}
                                   onClick={() => setMenuOpen(false)}
-                                  className="block py-1 text-xs text-slate-400 hover:text-[#00E5C9] transition-colors"
+                                  className="block py-1 text-sm text-slate-600 hover:text-blue-700 transition-colors"
                                 >
                                   {item.name}
                                 </Link>
@@ -500,12 +512,12 @@ const Header = () => {
               </div>
 
               {/* Direct Actions in Mobile Menu */}
-              <div className="pt-4 border-t border-[#22242A] space-y-2.5">
+              <div className="pt-4 border-t border-slate-200 space-y-2.5">
                 <a
                   href="https://wa.me/919158852129"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-2.5 rounded bg-[#141518] border border-[#22242A] text-xs text-[#00E5C9]"
+                  className="flex items-center justify-center gap-2 py-2.5 rounded bg-blue-50 border border-blue-100 text-sm text-blue-700"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>WhatsApp: +91 9158852129</span>
@@ -515,7 +527,7 @@ const Header = () => {
                     setMenuOpen(false);
                     setModalOpen(true);
                   }}
-                  className="w-full py-3 bg-[#00E5C9] text-[#0C0D0F] font-bold text-xs uppercase tracking-wider text-center rounded hover:brightness-110 shadow-lg shadow-[#00E5C9]/20"
+                  className="w-full py-3 bg-blue-600 text-white font-semibold text-sm text-center rounded-lg hover:bg-blue-700 shadow-sm"
                 >
                   Schedule Architectural Consultation →
                 </button>
@@ -528,21 +540,29 @@ const Header = () => {
       {/* 3. INTERACTIVE CONSULTATION MODAL */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm">
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#141518] border border-white/20 rounded-xl p-5 sm:p-8 shadow-2xl text-white">
+          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white border border-blue-100 rounded-2xl p-5 sm:p-8 shadow-2xl shadow-slate-900/20 text-slate-800">
             <button
               onClick={() => setModalOpen(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-mono p-1"
+              className="absolute top-4 right-4 text-slate-500 hover:text-blue-700 text-lg font-mono p-1"
             >
               ✕
             </button>
 
             <div className="mb-6 flex items-center gap-3">
-              <img src="/aparaitech_logo.jpg" alt="Logo" className="h-10 w-10 rounded-md object-contain border border-white/10" />
+              <img
+                src="/aparaitech_logo.jpg"
+                alt="Aparaitech Software"
+                className={`h-12 w-12 rounded-xl object-contain border transition-all duration-200 ${theme === "dark"
+                    ? "bg-slate-900 border-slate-700 group-hover:border-blue-400"
+                    : "bg-white border-blue-200 group-hover:border-blue-400"
+                  }`}
+              />
+  
               <div>
-                <span className="font-mono text-xs uppercase tracking-widest text-[#00E5C9]">
+                <span className="font-sans text-xs uppercase tracking-widest text-blue-600">
                   EXECUTIVE CONSULTATION INTAKE
                 </span>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold text-slate-900">
                   Aparaitech Software AI Advisory
                 </h3>
               </div>
@@ -551,68 +571,68 @@ const Header = () => {
             {submitted ? (
               <div className="py-12 text-center space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-[#10B981] mx-auto animate-bounce" />
-                <h4 className="text-lg font-bold text-white">Consultation Request Confirmed</h4>
-                <p className="text-xs text-slate-300">
+                <h4 className="text-lg font-bold text-slate-900">Consultation Request Confirmed</h4>
+                <p className="text-sm text-slate-600">
                   Our Lead AI Architect will review your parameters and reach out within 1 hour.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleFormSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Your Name *</label>
+                  <label className="block text-xs font-medium text-slate-600 mb-1">Your Name *</label>
                   <input
                     type="text"
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     placeholder="e.g. Rahul Sharma"
-                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-[#00E5C9] focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-mono text-slate-300 mb-1">Work Email *</label>
+                    <label className="block text-xs font-medium text-slate-600 mb-1">Work Email *</label>
                     <input
                       type="email"
                       required
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="rahul@company.com"
-                      className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-[#00E5C9] focus:outline-none"
+                      className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+                    <label className="block text-xs font-medium text-slate-600 mb-1">Phone Number *</label>
                     <input
                       type="tel"
                       required
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="+91 98765 43210"
-                      className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-[#00E5C9] focus:outline-none"
+                      className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Company / Organization *</label>
+                  <label className="block text-xs font-medium text-slate-600 mb-1">Company / Organization *</label>
                   <input
                     type="text"
                     required
                     value={form.company}
                     onChange={(e) => setForm({ ...form, company: e.target.value })}
                     placeholder="e.g. Apex Enterprise Systems"
-                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-[#00E5C9] focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Primary Focus Area</label>
+                  <label className="block text-xs font-medium text-slate-600 mb-1">Primary Focus Area</label>
                   <select
                     value={form.service}
                     onChange={(e) => setForm({ ...form, service: e.target.value })}
-                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-[#00E5C9] focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none"
                   >
                     <option value="Enterprise AI Diagnostic">Enterprise AI Diagnostic Sprint (Recommended)</option>
                     <option value="Autonomous Multi-Agents">Autonomous Multi-Agent Workflows</option>
@@ -624,13 +644,13 @@ const Header = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1">Operational Challenge (Optional)</label>
+                  <label className="block text-xs font-medium text-slate-600 mb-1">Operational Challenge (Optional)</label>
                   <textarea
                     rows="3"
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Describe the workflow bottleneck or target automation system..."
-                    className="w-full bg-[#1C1C1E] border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-[#00E5C9] focus:outline-none resize-none"
+                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 focus:outline-none resize-none"
                   ></textarea>
                 </div>
 
@@ -640,9 +660,9 @@ const Header = () => {
                     id="hdr-nda-check"
                     checked={form.nda}
                     onChange={(e) => setForm({ ...form, nda: e.target.checked })}
-                    className="rounded border-white/20 bg-[#1C1C1E] text-[#00E5C9] focus:ring-0"
+                    className="rounded border-slate-300 bg-white text-blue-600 focus:ring-0"
                   />
-                  <label htmlFor="hdr-nda-check" className="text-xs text-slate-400">
+                  <label htmlFor="hdr-nda-check" className="text-sm text-slate-600">
                     Require mutual non-disclosure agreement (NDA) before call.
                   </label>
                 </div>
@@ -650,7 +670,7 @@ const Header = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full h-11 rounded bg-[#00E5C9] text-[#0C0D0F] font-bold text-sm hover:brightness-105 transition-all flex items-center justify-center gap-2 mt-4 cursor-pointer"
+                  className="w-full h-11 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-all flex items-center justify-center gap-2 mt-4 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {submitting ? "Transmitting..." : "Submit Consultation Request →"}
                 </button>

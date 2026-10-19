@@ -203,24 +203,39 @@ const UIUXDesign = () => {
       </section>
 
       {/* 3. DESIGN STANDARDS */}
-      <section className="py-20 border-b border-[#22242A] bg-[#0E0F12]">
+      {/* SPECIFICATIONS & TOOLING */}
+
+      <section className="border-b border-slate-200 bg-sky-50/60 py-20 transition-colors duration-300 dark:border-slate-800 dark:bg-[#0F172A]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          {/* Section Heading */}
+
           <div className="mb-12">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
-              SPECIFICATIONS & TOOLING
+            <span className="mb-2 block font-mono text-xs uppercase tracking-[0.2em] text-sky-700 dark:text-sky-300">
+              SPECIFICATIONS &amp; TOOLING
             </span>
-            <h2 className="text-3xl font-semibold tracking-tight text-white">
+
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
               Design Systems Architecture
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Specifications Cards */}
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {standards.map((std, idx) => (
-              <div key={idx} className="p-6 rounded-lg bg-[#141518] border border-[#22242A]">
-                <h4 className="font-mono text-xs text-[#D4FD53] uppercase tracking-wider mb-2">
+              <div
+                key={idx}
+                className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg hover:shadow-sky-100/60 dark:border-slate-700/70 dark:bg-[#111827] dark:hover:border-sky-400/40 dark:hover:shadow-sky-950/20"
+              >
+                <h4 className="mb-2 font-mono text-xs uppercase tracking-wider text-sky-700 transition-colors group-hover:text-sky-800 dark:text-sky-300 dark:group-hover:text-sky-200">
                   {std.label}
                 </h4>
-                <p className="text-sm text-white font-mono">{std.value}</p>
+
+                <p className="font-mono text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  {std.value}
+                </p>
+
+                <div className="mt-5 h-px w-full bg-slate-100 transition-colors group-hover:bg-sky-200 dark:bg-slate-800 dark:group-hover:bg-sky-400/30" />
               </div>
             ))}
           </div>

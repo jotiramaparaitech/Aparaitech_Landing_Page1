@@ -176,11 +176,15 @@ const Partners = () => {
   return (
     <>
       <style>{style}</style>
+
       <section
         id="partners"
         ref={sectionRef}
-        className="relative py-16 lg:py-20 bg-[#020617] text-white overflow-hidden border-y border-slate-800"
+
+        className="relative py-16 lg:py-20 bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-white overflow-hidden border-y border-slate-200 dark:border-slate-800 transition-colors duration-300"
+
       >
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header Section */}
           <div className="text-center max-w-2xl sm:max-w-3xl mx-auto mb-12 sm:mb-14 animate-fadeInUp">
@@ -195,7 +199,7 @@ const Partners = () => {
               </span>{" "}
               Worldwide
             </h2>
-            <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
               We architect and integrate across world-class infrastructure, data engines, and cloud platforms.
             </p>
           </div>
@@ -237,13 +241,13 @@ const Partners = () => {
                     sm:py-4
                     md:py-5
                     lg:py-6
-                    bg-[#0B1220]
+                    bg-white dark:bg-[#0B1220]
                     rounded-xl
                     sm:rounded-2xl
-                    border border-slate-800
-                    hover:border-[#0D9488]/60
+                    border border-slate-200 dark:border-slate-800
+                    hover:border-sky-300 dark:hover:border-sky-400/50
                     shadow-lg
-                    hover:bg-slate-900
+                    hover:bg-sky-50 dark:hover:bg-slate-900
                     transition-all
                     duration-300
                     hover:scale-[1.03]
@@ -324,7 +328,9 @@ const Partners = () => {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="text-center group p-4 rounded-xl bg-[#0B1220] border border-slate-800/80 hover:border-[#0D9488]/40 transition-all"
+
+                  className="text-center group p-4 rounded-xl bg-white dark:bg-[#0B1220] border border-slate-200 dark:border-slate-800 hover:border-sky-300 dark:hover:border-sky-400/40 transition-all"
+                  style={{ animationDelay: stat.delay }}  
                 >
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-mono text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300 mb-1">
                     {stat.value}
@@ -347,14 +353,15 @@ const Partners = () => {
               gap-4 
               p-5 
               sm:p-6 
-              bg-[#0B1220]
+              bg-white dark:bg-[#0B1220]
               rounded-2xl 
               border 
-              border-slate-800 
+              border-slate-200 dark:border-slate-800
               shadow-xl 
               w-full
               max-w-3xl
               mx-auto
+              
             ">
               <div className="text-left">
                 <div className="flex items-center gap-2 mb-1">

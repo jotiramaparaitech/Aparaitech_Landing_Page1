@@ -205,35 +205,63 @@ const CustomSoftware = () => {
         </div>
       </section>
 
+      ```jsx
       {/* 3. TECHNOLOGY STACK MATRIX */}
-      <section className="py-20 border-b border-[#22242A] bg-[#0E0F12]">
+
+      <section className="border-b border-slate-200 bg-sky-50/60 py-20 transition-colors duration-300 dark:border-slate-800 dark:bg-[#0F172A]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+
+          {/* Section Heading */}
+
           <div className="mb-12">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#00E5C9] block mb-2">
-              MODERN TECH RADAR
+            <span className="mb-3 block font-mono text-xs uppercase tracking-[0.2em] text-sky-700 dark:text-sky-300">
+              Modern Tech Radar
             </span>
-            <h2 className="text-3xl font-semibold tracking-tight text-white">
+
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
               Production-Vetted Technology Stack
             </h2>
+
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
+              Explore the technologies and tools used across modern application
+              development, cloud infrastructure, data engineering, and AI solutions.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Technology Cards */}
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {stack.map((item, idx) => (
-              <div key={idx} className="p-6 rounded-lg bg-[#141518] border border-[#22242A]">
-                <h4 className="font-mono text-xs text-slate-400 uppercase tracking-wider mb-4 pb-2 border-b border-[#22242A]">
+              <div
+                key={item.category ?? idx}
+                className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg hover:shadow-sky-100/60 dark:border-slate-700/70 dark:bg-[#111827] dark:hover:border-sky-400/40 dark:hover:shadow-sky-950/20"
+              >
+                {/* Category */}
+
+                <h4 className="mb-5 border-b border-slate-200 pb-3 font-mono text-xs uppercase tracking-wider text-slate-500 transition-colors group-hover:text-sky-700 dark:border-slate-700 dark:text-slate-400 dark:group-hover:text-sky-300">
                   {item.category}
                 </h4>
-                <ul className="space-y-2.5">
+
+                {/* Technology List */}
+
+                <ul className="space-y-3">
                   {item.tech.map((t, tidx) => (
-                    <li key={tidx} className="flex items-center gap-2 text-sm text-slate-200 font-mono">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#D4FD53]"></span>
-                      {t}
+                    <li
+                      key={`${item.category}-${tidx}`}
+                      className="flex items-start gap-3 text-sm text-slate-700 transition-colors dark:text-slate-300"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500 transition-colors group-hover:bg-sky-600 dark:bg-sky-300 dark:group-hover:bg-sky-200" />
+
+                      <span className="font-mono leading-relaxed">
+                        {t}
+                      </span>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 

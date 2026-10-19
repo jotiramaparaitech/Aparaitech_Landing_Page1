@@ -187,23 +187,24 @@ const Certifications = () => {
       </section>
 
       {/* 2. FILTER SECTION */}
-      <section className="border-b border-[#22242A] bg-[#141518]/70 py-4">
+
+      <section className="border-b border-slate-200 bg-sky-50/60 py-4 dark:border-slate-800 dark:bg-[#0F172A]">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-slate-400">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="font-mono text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Filter Track:
               </span>
-              <div className="flex gap-2">
+
+              <div className="flex flex-wrap gap-2">
                 {["all", "associate", "professional", "principal"].map((level) => (
                   <button
                     key={level}
                     onClick={() => setSelectedLevel(level)}
-                    className={`px-3.5 py-1.5 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
-                      selectedLevel === level
-                        ? "bg-[#D4FD53] text-[#0C0D0F] font-bold"
-                        : "bg-[#1C1C1E] text-slate-300 border border-white/5 hover:border-slate-500"
-                    }`}
+                    className={`rounded-lg px-3.5 py-1.5 font-mono text-xs uppercase tracking-wider transition-all ${selectedLevel === level
+                      ? "bg-sky-600 font-bold text-white shadow-sm shadow-sky-600/15 dark:bg-sky-300 dark:text-slate-950"
+                      : "border border-slate-200 bg-white text-slate-600 hover:border-sky-300 hover:bg-sky-50 dark:border-slate-700 dark:bg-[#111C30] dark:text-slate-300 dark:hover:border-sky-400/50 dark:hover:bg-[#17243A]"
+                      }`}
                   >
                     {level === "all" ? "All Tracks" : level}
                   </button>
@@ -211,8 +212,9 @@ const Certifications = () => {
               </div>
             </div>
 
-            <div className="font-mono text-xs text-slate-400">
-              Showing {filteredCerts.length} Accredited Certification{filteredCerts.length !== 1 ? "s" : ""}
+            <div className="font-mono text-xs text-slate-500 dark:text-slate-400">
+              Showing {filteredCerts.length} Accredited Certification
+              {filteredCerts.length !== 1 ? "s" : ""}
             </div>
           </div>
         </div>
@@ -226,11 +228,10 @@ const Certifications = () => {
             return (
               <div
                 key={cert.id}
-                className={`flex flex-col justify-between rounded-xl border bg-[#141518] p-8 transition-all duration-300 relative group ${
-                  cert.popular
-                    ? "border-[#D4FD53]/70 shadow-2xl shadow-[#D4FD53]/5 md:-translate-y-2"
-                    : "border-[#22242A] hover:border-[#D4FD53]/50"
-                }`}
+                className={`flex flex-col justify-between rounded-xl border bg-[#141518] p-8 transition-all duration-300 relative group ${cert.popular
+                  ? "border-[#D4FD53]/70 shadow-2xl shadow-[#D4FD53]/5 md:-translate-y-2"
+                  : "border-[#22242A] hover:border-[#D4FD53]/50"
+                  }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -297,43 +298,64 @@ const Certifications = () => {
       </section>
 
       {/* 4. WHY GET CERTIFIED */}
-      <section className="py-20 border-t border-[#22242A] bg-[#141518]/50">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="font-mono text-xs text-[#00E5C9] uppercase tracking-wider">
+
+      <section className="border-t border-slate-200 bg-sky-50/60 py-20 dark:border-slate-800 dark:bg-[#0F172A]">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-8">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <span className="font-mono text-xs uppercase tracking-wider text-sky-700 dark:text-sky-300">
               INDUSTRY VALUE PROPOSITION
             </span>
-            <h2 className="text-3xl font-bold text-white mt-2">Why Certify with Aparaitech?</h2>
+
+            <h2 className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">
+              Why Certify with Aparaitech?
+            </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="rounded-xl border border-[#22242A] bg-[#0C0D0F] p-6 text-center">
-              <div className="w-12 h-12 rounded-xl bg-[#1C1C1E] border border-white/10 flex items-center justify-center mx-auto text-[#D4FD53] mb-4">
-                <ShieldCheck className="w-6 h-6" />
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm shadow-slate-200/40 transition-all hover:-translate-y-1 hover:border-sky-300 dark:border-slate-700 dark:bg-[#111C30] dark:shadow-none dark:hover:border-sky-400/50">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-sky-100 bg-sky-50 text-sky-700 dark:border-sky-400/20 dark:bg-sky-400/10 dark:text-sky-300">
+                <ShieldCheck className="h-6 w-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Cryptographically Verifiable</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Credentials issue a verifiable cryptographic token on the SVPM / Aparaitech blockchain ledger, verifiable by enterprise hiring directors instantly.
+
+              <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">
+                Cryptographically Verifiable
+              </h3>
+
+              <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                Credentials issue a verifiable cryptographic token on the SVPM /
+                Aparaitech blockchain ledger, verifiable by enterprise hiring
+                directors instantly.
               </p>
             </div>
 
-            <div className="rounded-xl border border-[#22242A] bg-[#0C0D0F] p-6 text-center">
-              <div className="w-12 h-12 rounded-xl bg-[#1C1C1E] border border-white/10 flex items-center justify-center mx-auto text-[#00E5C9] mb-4">
-                <Terminal className="w-6 h-6" />
+            <div className="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm shadow-slate-200/40 transition-all hover:-translate-y-1 hover:border-sky-300 dark:border-slate-700 dark:bg-[#111C30] dark:shadow-none dark:hover:border-sky-400/50">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-sky-100 bg-sky-50 text-sky-700 dark:border-sky-400/20 dark:bg-sky-400/10 dark:text-sky-300">
+                <Terminal className="h-6 w-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Real Production Code Labs</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                No trivial multiple-choice questions. Candidates are evaluated on actual system implementations in Monaco code sandboxes with live assertions.
+
+              <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">
+                Real Production Code Labs
+              </h3>
+
+              <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                No trivial multiple-choice questions. Candidates are evaluated on
+                actual system implementations in Monaco code sandboxes with live
+                assertions.
               </p>
             </div>
 
-            <div className="rounded-xl border border-[#22242A] bg-[#0C0D0F] p-6 text-center">
-              <div className="w-12 h-12 rounded-xl bg-[#1C1C1E] border border-white/10 flex items-center justify-center mx-auto text-[#D4FD53] mb-4">
-                <Sparkles className="w-6 h-6" />
+            <div className="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm shadow-slate-200/40 transition-all hover:-translate-y-1 hover:border-sky-300 dark:border-slate-700 dark:bg-[#111C30] dark:shadow-none dark:hover:border-sky-400/50">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-sky-100 bg-sky-50 text-sky-700 dark:border-sky-400/20 dark:bg-sky-400/10 dark:text-sky-300">
+                <Sparkles className="h-6 w-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Fast-Track Hiring & CoE Pods</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Certified alumni receive priority placement in Aparaitech Hinjawadi Phase 2 engineering pods and partner enterprise consulting teams.
+
+              <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">
+                Fast-Track Hiring &amp; CoE Pods
+              </h3>
+
+              <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                Certified alumni receive priority placement in Aparaitech Hinjawadi
+                Phase 2 engineering pods and partner enterprise consulting teams.
               </p>
             </div>
           </div>

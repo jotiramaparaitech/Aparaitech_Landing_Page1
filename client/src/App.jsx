@@ -22,6 +22,7 @@ import Services from "./components/Services";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Partners from "./components/Partners";
 import ContactSection from "./components/ContactSection";
+import CompanyShowcase from "./components/CompanyShowcase";
 
 /* ================= CORE PAGES ================= */
 import Cloud from "./components/Cloud";
@@ -98,6 +99,7 @@ const HomePage = () => (
     <Services />
     <WhyChooseUs />
     <Partners />
+    <CompanyShowcase />
     <ContactSection />
   </>
 );

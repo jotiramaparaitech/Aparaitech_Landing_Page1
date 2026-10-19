@@ -143,7 +143,7 @@ const AboutUs = () => {
       </section>
 
       {/* 2. EXECUTIVE LEADERSHIP & FOUNDERS SPOTLIGHT */}
-      <section className="py-24 border-b border-[#22242A] relative overflow-hidden bg-[#0e0f13]">
+      <section className="border-b border-slate-200 bg-sky-50/60 py-20 transition-colors duration-300 dark:border-slate-800 dark:bg-[#0F172A]">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#00E5C9]/5 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#D4FD53]/5 rounded-full blur-3xl pointer-events-none"></div>
 
